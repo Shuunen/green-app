@@ -4,6 +4,11 @@
   "description": "A native application built with NativeScript-Vue",
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "commit": "gitmoji -c",
+    "start": "tns run android --bundle",
+    "ls": "tns device"
+  },
   "nativescript": {
     "id": "green.nsvue.app",
     "tns-ios": {
