@@ -545,7 +545,7 @@
     source-map "^0.5.6"
     vue-template-es2015-compiler "^1.6.0"
 
-"@vue/devtools@5.0.0-beta.3":
+"@vue/devtools@^5.0.0-beta.3":
   version "5.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.0.0-beta.3.tgz#5f0b28db9f33681c8bb841887c28d523e91c9d06"
   dependencies:
@@ -708,6 +708,10 @@ acorn-dynamic-import@^3.0.0:
 acorn@^5.0.0, acorn@^5.3.0, acorn@^5.6.2, acorn@^5.7.3:
   version "5.7.3"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
+
+address@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/address/-/address-1.0.3.tgz#b5f50631f8d6cec8bd20c963963afb55e06cbce9"
 
 adjust-sourcemap-loader@^1.1.0:
   version "1.2.0"
@@ -3512,7 +3516,7 @@ nativescript-ui-sidedrawer@^4.3.0:
   dependencies:
     nativescript-ui-core "~2.0.0"
 
-nativescript-vue-devtools@^1.0.0:
+nativescript-vue-devtools@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.1.0.tgz#dc2ce1755dd2f28cc542b25da79639ec8be6ffab"
 

@@ -3,7 +3,7 @@
 android {
   defaultConfig {  
     generatedDensities = []
-    applicationId = "__PACKAGE__"
+    applicationId = "green.nsvue.app"
   }
   aaptOptions {  
     additionalParameters "--no-version-vectors"  
