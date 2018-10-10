@@ -16,19 +16,39 @@
                 <Label class="drawer-item" text="Item 3"/>
             </StackLayout>
 
-            <GridLayout ~mainContent colums="*" rows="*">
-                <Label class="message" :text="msg" col="0" row="0"/>
+            <GridLayout ~mainContent rows="*, auto" columns="*">
+                <Label class="message" :text="helloMsg" row="0" />
+                <Button @tap="toggleLogin" :text="loginBtn" row="1" />
             </GridLayout>
         </RadSideDrawer>
     </Page>
 </template>
 
 <script>
+import store from '../store'
+
 export default {
   data() {
     return {
-      msg: "Hello World!"
+      plop: false
     };
+  },
+  computed: {
+    helloMsg() {
+      return "Hello " + (store.state.isLoggedIn ? 'Romain' : 'Anon') + ' !'
+    },
+    loginBtn() {
+      return store.state.isLoggedIn ? 'Logout' : 'Login'
+    },
+  },
+  methods: {
+    toggleLogin() {
+      if (store.state.isLoggedIn) {
+        store.commit('doLogout')
+      } else {
+        store.commit('doLogin')
+      }
+    }
   }
 };
 </script>
