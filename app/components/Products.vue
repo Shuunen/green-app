@@ -1,9 +1,9 @@
 <template>
-    <Page>
+        <Page>
         <ActionBar>
             <GridLayout width="100%" columns="auto, *">
                 <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
-                <Label class="title" text="Welcome to NativeScript-Vue!"  col="1"/>
+                <Label class="title" text="Welcome to Green !"  col="1"/>
             </GridLayout>
         </ActionBar>
 
@@ -11,14 +11,13 @@
             <StackLayout ~drawerContent backgroundColor="#ffffff">
                 <Label class="drawer-header" text="Drawer"/>
 
-                <Label class="drawer-item" text="Item 1"/>
-                <Label class="drawer-item" text="Item 2"/>
-                <Label class="drawer-item" text="Item 3"/>
+                <Label class="drawer-item" text="Menus"/>
+                <Label class="drawer-item" text="My account"/>
+                <Label class="drawer-item" text="Logout" @tap="doLogout"/>
             </StackLayout>
 
-            <GridLayout ~mainContent rows="*, auto" columns="*">
-                <Label class="message" :text="helloMsg" row="0" />
-                <Button @tap="toggleLogin" :text="loginBtn" row="1" />
+            <GridLayout ~mainContent rows="*" columns="*">
+                <Label class="message" :text="productListLine" row="0" />
             </GridLayout>
         </RadSideDrawer>
     </Page>
@@ -30,24 +29,17 @@ import store from '../store'
 export default {
   data() {
     return {
-      plop: false
+      productList: ['one','two','three']
     };
   },
   computed: {
-    helloMsg() {
-      return "Hello " + (store.state.isLoggedIn ? 'Romain' : 'Anon') + ' !'
-    },
-    loginBtn() {
-      return store.state.isLoggedIn ? 'Logout' : 'Login'
+    productListLine() {
+      return 'Here is our products : ' + this.productList.join(', ')
     },
   },
   methods: {
-    toggleLogin() {
-      if (store.state.isLoggedIn) {
-        store.commit('doLogout')
-      } else {
-        store.commit('doLogin')
-      }
+    doLogout() {
+      store.commit('doLogout')
     }
   }
 };
