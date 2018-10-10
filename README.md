@@ -6,7 +6,7 @@
 
 * Node : version 9 ans above
 * Npm : version 5 and above
-* NativeScript : `npm install -g nativescript`
+* NativeScript : `yarn global add nativescript`
 * Install dependencies : `yarn`
 
 ## Usage
