@@ -1,19 +1,26 @@
-# Green
+# Green App
 
 > A native application built with NativeScript-Vue
+
+## Prerequisites
+
+* Node : version 9 ans above
+* Npm : version 5 and above
+* NativeScript : `npm install -g nativescript`
+* Install dependencies : `yarn`
 
 ## Usage
 
 ``` bash
-# Install dependencies
-npm install
+# Build for dev
+yarn start
 
 # Build for production
-tns build <platform> --bundle
+yarn build
 
 # Build, watch for changes and debug the application
-tns debug <platform> --bundle
+yarn debug
 
-# Build, watch for changes and run the application
-tns run <platform> --bundle
+# Commit using standard format
+yarn commit
 ```
