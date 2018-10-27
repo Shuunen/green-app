@@ -1,40 +1,45 @@
 <template>
         <Page>
         <ActionBar>
-            <GridLayout width="100%" columns="auto, *">
-                <Label text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
-                <Label class="title" text="Welcome to Green !"  col="1"/>
+            <GridLayout width="100%" columns="auto, *, auto">
+                <Label class="menu" text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
+                <Label class="title" text="Welcome to Green !" col="1" />
+                <Icon class="cart" name="shopping-cart-white" number="cartCount" col="2" />
             </GridLayout>
         </ActionBar>
 
         <RadSideDrawer ref="drawer">
             <StackLayout ~drawerContent backgroundColor="#ffffff">
                 <Label class="drawer-header" text="Drawer"/>
-
                 <Label class="drawer-item" text="Menus"/>
                 <Label class="drawer-item" text="My account"/>
                 <Label class="drawer-item" text="Logout" @tap="doLogout"/>
             </StackLayout>
 
-            <GridLayout ~mainContent rows="*, *" columns="*" @loaded="load()">
-                <Label class="message" :text="productListLine" row="0" />
-                <StackLayout row="1">
-                  <Button :text="data.name" v-for="data in products" :key="data.id" @tap="addProduct(data)" />
-                </StackLayout>
-            </GridLayout>
+            <StackLayout ~mainContent @loaded="load()">
+                <Icon class="app-logo" name="logo" size="210x80" />
+                <label class="app-subtitle" text="Online Order" />
+                <Label class="app-message" textWrap="true" text="Add products to your basket, when you're done click on the shopping cart on the top right corner." />
+                <Button :text="data.name" v-for="data in products" :key="data.id" @tap="addProduct(data)"></Button>
+            </StackLayout>
         </RadSideDrawer>
     </Page>
 </template>
 
 <script>
 import store from "../store";
+import Icon from '@/components/Icon'
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
 export default {
+  components: {
+    Icon
+  },
   data() {
     return {
-      listLoaded: false
+      listLoaded: false,
+      cartCount: 0
     };
   },
   computed: {
@@ -45,9 +50,6 @@ export default {
     products: function() {
       return this.productList;
     },
-    productListLine() {
-      return "Here is our products : ";
-    }
   },
   mounted() {
     console.log("Products mounted");
@@ -66,6 +68,7 @@ export default {
     },
     addProduct(data) {
       console.log("user wants to add product :", data.name);
+      this.cartCount++
     },
     doLogout() {
       store.commit("doLogout");
@@ -80,16 +83,31 @@ ActionBar {
   color: #ffffff;
 }
 
+.menu {
+  vertical-align: center;
+}
+
 .title {
+  vertical-align: center;
   text-align: left;
   padding-left: 16;
 }
 
-.message {
+.app-subtitle {
   vertical-align: center;
   text-align: center;
-  font-size: 20;
+  font-size: 30;
   color: #333333;
+  margin-top:10;
+  margin-bottom:25;
+}
+
+.app-message {
+  vertical-align: center;
+  font-size: 15;
+  color: #333333;
+  margin-bottom:10;
+  margin-left:3;
 }
 
 .drawer-header {
@@ -104,5 +122,9 @@ ActionBar {
   padding: 8 16;
   color: #333333;
   font-size: 16;
+}
+
+.cart {
+  margin-right: 16;
 }
 </style>
