@@ -16,30 +16,59 @@
                 <Label class="drawer-item" text="Logout" @tap="doLogout"/>
             </StackLayout>
 
-            <GridLayout ~mainContent rows="*" columns="*">
+            <GridLayout ~mainContent rows="*, *" columns="*" @loaded="load()">
                 <Label class="message" :text="productListLine" row="0" />
+                <StackLayout row="1">
+                  <Button :text="data.name" v-for="data in products" :key="data.id" @tap="addProduct(data)" />
+                </StackLayout>
             </GridLayout>
         </RadSideDrawer>
     </Page>
 </template>
 
 <script>
-import store from '../store'
+import store from "../store";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 
 export default {
   data() {
     return {
-      productList: ['one','two','three']
+      listLoaded: false
     };
   },
   computed: {
-    productListLine() {
-      return 'Here is our products : ' + this.productList.join(', ')
+    ...mapGetters({
+      productList: "productList",
+      isLoading: "isProcessing"
+    }),
+    products: function() {
+      return this.productList;
     },
+    productListLine() {
+      return "Here is our products : ";
+    }
+  },
+  mounted() {
+    console.log("Products mounted");
   },
   methods: {
+    ...mapActions(["loadProducts"]),
+    load() {
+      this.loadProducts()
+        .then(() => {
+          this.listLoaded = true;
+        })
+        .catch(error => {
+          console.error(error);
+          alert("An error occurred loading products list.");
+        });
+    },
+    addProduct(data) {
+      console.log("user wants to add product :", data.name);
+    },
     doLogout() {
-      store.commit('doLogout')
+      store.commit("doLogout");
     }
   }
 };

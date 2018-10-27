@@ -3,10 +3,12 @@ import ApiService from './ApiService'
 
 export default class ProductsService extends ApiService {
   load () {
+    const url = this.baseUrl + '/products'
+    console.log('using url :', url)
     return http.request({
-      url: this.baseUrl + '/desserts',
-      method: 'GET',
-      headers: this.getHeaders()
+      url,
+      method: 'GET'
+      // headers: this.getHeaders()
     })
       .then(this.validateCode)
       .then(this.getJson)
@@ -16,8 +18,9 @@ export default class ProductsService extends ApiService {
         return data.map(product => {
           return {
             id: product._id,
-            name: product.Name,
-            price: product.Price
+            name: product.name,
+            price: product.price,
+            type: product.type
           }
         })
       })
