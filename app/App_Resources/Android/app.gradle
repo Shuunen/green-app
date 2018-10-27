@@ -1,11 +1,13 @@
 // Add your native dependencies here:
 
 android {
-  defaultConfig {  
+  defaultConfig {
     generatedDensities = []
     applicationId = "green.nsvue.app"
   }
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }  
-} 
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+  // Specifies one flavor dimension.
+  flavorDimensions "nativescriptsocketio"
+}
