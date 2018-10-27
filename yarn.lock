@@ -17,7 +17,7 @@
   dependencies:
     "@babel/highlight" "^7.0.0"
 
-"@babel/core@^7.0.0":
+"@babel/core@7.1.2", "@babel/core@^7.0.0":
   version "7.1.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.1.2.tgz#f8d2a9ceb6832887329a7b60f9d035791400ba4e"
   dependencies:
@@ -451,7 +451,7 @@
     "@babel/helper-regex" "^7.0.0"
     regexpu-core "^4.1.3"
 
-"@babel/preset-env@^7.0.0":
+"@babel/preset-env@7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.1.0.tgz#e67ea5b0441cfeab1d6f41e9b5c79798800e8d11"
   dependencies:
@@ -556,7 +556,7 @@
     source-map "^0.5.6"
     vue-template-es2015-compiler "^1.6.0"
 
-"@vue/devtools@^5.0.0-beta.3":
+"@vue/devtools@5.0.0-beta.3":
   version "5.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.0.0-beta.3.tgz#5f0b28db9f33681c8bb841887c28d523e91c9d06"
   dependencies:
@@ -997,7 +997,7 @@ babel-code-frame@^6.26.0:
     esutils "^2.0.2"
     js-tokens "^3.0.2"
 
-babel-loader@^8.0.2:
+babel-loader@8.0.4:
   version "8.0.4"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
   dependencies:
@@ -1514,7 +1514,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-clean-webpack-plugin@^0.1.19, clean-webpack-plugin@~0.1.19:
+clean-webpack-plugin@0.1.19, clean-webpack-plugin@~0.1.19:
   version "0.1.19"
   resolved "https://registry.yarnpkg.com/clean-webpack-plugin/-/clean-webpack-plugin-0.1.19.tgz#ceda8bb96b00fe168e9b080272960d20fdcadd6d"
   dependencies:
@@ -1740,7 +1740,7 @@ copy-descriptor@^0.1.0:
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
 
-copy-webpack-plugin@^4.5.2, copy-webpack-plugin@~4.5.2:
+copy-webpack-plugin@4.5.2, copy-webpack-plugin@~4.5.2:
   version "4.5.2"
   resolved "https://registry.yarnpkg.com/copy-webpack-plugin/-/copy-webpack-plugin-4.5.2.tgz#d53444a8fea2912d806e78937390ddd7e632ee5c"
   dependencies:
@@ -1854,7 +1854,7 @@ crypto-random-string@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-1.0.0.tgz#a230f64f568310e1498009940790ec99545bca7e"
 
-css-loader@^1.0.0, css-loader@~1.0.0:
+css-loader@1.0.0, css-loader@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-1.0.0.tgz#9f46aaa5ca41dbe31860e3b62b8e23c42916bf56"
   dependencies:
@@ -2198,7 +2198,7 @@ elliptic@^6.0.0:
     minimalistic-assert "^1.0.0"
     minimalistic-crypto-utils "^1.0.0"
 
-email-validator@^2.0.4:
+email-validator@2.0.4:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/email-validator/-/email-validator-2.0.4.tgz#b8dfaa5d0dae28f1b03c95881d904d4e40bfe7ed"
 
@@ -3001,7 +3001,7 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-gitmoji-cli@^1.9.2:
+gitmoji-cli@1.9.2:
   version "1.9.2"
   resolved "https://registry.yarnpkg.com/gitmoji-cli/-/gitmoji-cli-1.9.2.tgz#21187835cef2470622d4c5aeed9029a0f576fed0"
   dependencies:
@@ -4545,15 +4545,15 @@ nativescript-hook@0.2.4:
     glob "^6.0.1"
     mkdirp "^0.5.1"
 
-nativescript-socket.io@^0.9.0:
+nativescript-socket.io@0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/nativescript-socket.io/-/nativescript-socket.io-0.9.0.tgz#3bd64f0549dbc5165a92b425484f15fe9ed35878"
 
-nativescript-theme-core@^1.0.4:
+nativescript-theme-core@1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/nativescript-theme-core/-/nativescript-theme-core-1.0.4.tgz#cf2880c7fbf2fe5f43e2235d309750790803efe1"
 
-nativescript-toast@^1.4.6:
+nativescript-toast@1.4.6:
   version "1.4.6"
   resolved "https://registry.yarnpkg.com/nativescript-toast/-/nativescript-toast-1.4.6.tgz#512464251028cf278c94cffcf65af8cc0f7ae4fa"
 
@@ -4561,28 +4561,28 @@ nativescript-ui-core@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/nativescript-ui-core/-/nativescript-ui-core-2.0.0.tgz#3f6dd46106ee58d50fca309238777eb6e3f6309d"
 
-nativescript-ui-sidedrawer@^4.3.0:
+nativescript-ui-sidedrawer@4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/nativescript-ui-sidedrawer/-/nativescript-ui-sidedrawer-4.3.0.tgz#eb69871e0b1bfa952af85603ae1a37bf1dfb33a0"
   dependencies:
     nativescript-ui-core "~2.0.0"
 
-nativescript-vue-devtools@^1.1.0:
+nativescript-vue-devtools@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.1.0.tgz#dc2ce1755dd2f28cc542b25da79639ec8be6ffab"
 
-nativescript-vue-template-compiler@^2.0.0:
+nativescript-vue-template-compiler@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/nativescript-vue-template-compiler/-/nativescript-vue-template-compiler-2.0.2.tgz#09406619d2db81481e5b60cc7e0a697dc75a2a3c"
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
 
-nativescript-vue@^2.0.0:
+nativescript-vue@2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/nativescript-vue/-/nativescript-vue-2.0.2.tgz#0af653a00f9462e336387ae22c8501d29e180069"
 
-nativescript-worker-loader@~0.9.0:
+nativescript-worker-loader@0.9.1, nativescript-worker-loader@~0.9.0:
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/nativescript-worker-loader/-/nativescript-worker-loader-0.9.1.tgz#6361f398591be11bbd87b4da28ad75b6b13618ec"
   dependencies:
@@ -4683,7 +4683,7 @@ node-releases@^1.0.0-alpha.12:
   dependencies:
     semver "^5.3.0"
 
-node-sass@^4.9.2:
+node-sass@4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/node-sass/-/node-sass-4.9.3.tgz#f407cf3d66f78308bb1e346b24fa428703196224"
   dependencies:
@@ -6029,7 +6029,7 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@^7.1.0, sass-loader@~7.1.0:
+sass-loader@7.1.0, sass-loader@~7.1.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.1.0.tgz#16fd5138cb8b424bf8a759528a1972d72aad069d"
   dependencies:
@@ -6401,7 +6401,7 @@ standard-engine@~9.0.0:
     minimist "^1.1.0"
     pkg-conf "^2.0.0"
 
-standard@^12.0.1:
+standard@12.0.1:
   version "12.0.1"
   resolved "https://registry.yarnpkg.com/standard/-/standard-12.0.1.tgz#0fc5a8aa6c34c546c5562aae644242b24dae2e61"
   dependencies:
@@ -6550,7 +6550,7 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-stylelint-config-recommended-scss@^3.2.0:
+stylelint-config-recommended-scss@3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-3.2.0.tgz#5761be65e28b58fa6a4a628b71291e83e921d10f"
   dependencies:
@@ -6560,7 +6560,7 @@ stylelint-config-recommended@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.1.0.tgz#f526d5c771c6811186d9eaedbed02195fee30858"
 
-stylelint-scss@^3.3.1:
+stylelint-scss@3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.3.1.tgz#5061bca7cc586eb05972caa31b5e627fa3296235"
   dependencies:
@@ -6570,7 +6570,7 @@ stylelint-scss@^3.3.1:
     postcss-selector-parser "^4.0.0"
     postcss-value-parser "^3.3.0"
 
-stylelint@^9.6.0:
+stylelint@9.6.0:
   version "9.6.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-9.6.0.tgz#f0b366f33b6ccf3e5096d60722ed27b6470b41d8"
   dependencies:
@@ -6712,7 +6712,7 @@ term-size@^1.2.0:
   dependencies:
     execa "^0.7.0"
 
-terser-webpack-plugin@^1.1.0:
+terser-webpack-plugin@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.1.0.tgz#cf7c25a1eee25bf121f4a587bb9e004e3f80e528"
   dependencies:
@@ -6779,7 +6779,7 @@ tns-core-modules-widgets@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-4.2.1.tgz#bb57bf7342d1a0a01b6ccef47980ded19efc932e"
 
-tns-core-modules@^4.2.0:
+tns-core-modules@4.2.1:
   version "4.2.1"
   resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-4.2.1.tgz#e358ffd4660d048b35c8e1e485fbc1df9ca94f06"
   dependencies:
@@ -7192,7 +7192,7 @@ vue-hot-reload-api@^2.3.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.1.tgz#b2d3d95402a811602380783ea4f566eb875569a2"
 
-vue-loader@^15.2.6:
+vue-loader@15.4.2:
   version "15.4.2"
   resolved "https://registry.yarnpkg.com/vue-loader/-/vue-loader-15.4.2.tgz#812bb26e447dd3b84c485eb634190d914ce125e2"
   dependencies:
@@ -7213,7 +7213,7 @@ vue-template-es2015-compiler@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.6.0.tgz#dc42697133302ce3017524356a6c61b7b69b4a18"
 
-vuex@^3.0.1:
+vuex@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vuex/-/vuex-3.0.1.tgz#e761352ebe0af537d4bb755a9b9dc4be3df7efd2"
 
@@ -7225,7 +7225,7 @@ watchpack@^1.5.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-bundle-analyzer@~2.13.1:
+webpack-bundle-analyzer@2.13.1:
   version "2.13.1"
   resolved "https://registry.yarnpkg.com/webpack-bundle-analyzer/-/webpack-bundle-analyzer-2.13.1.tgz#07d2176c6e86c3cdce4c23e56fae2a7b6b4ad526"
   dependencies:
@@ -7259,7 +7259,7 @@ webpack-bundle-analyzer@~3.0.2:
     opener "^1.5.1"
     ws "^6.0.0"
 
-webpack-cli@^3.1.0, webpack-cli@~3.1.1:
+webpack-cli@3.1.2, webpack-cli@~3.1.1:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.1.2.tgz#17d7e01b77f89f884a2bbf9db545f0f6a648e746"
   dependencies:
@@ -7290,7 +7290,7 @@ webpack-sources@^1.0.1, webpack-sources@^1.1.0, webpack-sources@^1.3.0, webpack-
     source-list-map "^2.0.0"
     source-map "~0.6.1"
 
-webpack@^4.16.4, webpack@~4.20.2:
+webpack@4.20.2, webpack@~4.20.2:
   version "4.20.2"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.20.2.tgz#89f6486b6bb276a91b0823453d377501fc625b5a"
   dependencies:
