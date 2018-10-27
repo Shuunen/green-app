@@ -4,7 +4,7 @@ const tokenKey = 'token'
 
 export default class ApiService {
   constructor () {
-    this.baseUrl = 'http://localhost:1337/'
+    this.baseUrl = 'http://192.168.0.24:1337'
     this.appUserHeader = 'Basic agreatheader'
   }
 
