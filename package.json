@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
-  "license": "MIT",
+  "license": "AGPL-3.0",
   "engines": {
     "node": ">= 9.0.0",
     "npm": ">= 5.0.0"
