@@ -5414,10 +5414,10 @@ nativescript-ui-core@~2.0.0:
   resolved "https://registry.yarnpkg.com/nativescript-ui-core/-/nativescript-ui-core-2.0.0.tgz#3f6dd46106ee58d50fca309238777eb6e3f6309d"
   integrity sha512-Xj0S2aAlLUwWjkcQpapOWfMfTtR7B4B+pB+mTeZm7+9lFleTis8t1sUeCF9OWy4G6Rg964V9UlYafPL5wOfFqw==
 
-nativescript-ui-sidedrawer@4.3.1:
-  version "4.3.1"
-  resolved "https://registry.yarnpkg.com/nativescript-ui-sidedrawer/-/nativescript-ui-sidedrawer-4.3.1.tgz#26eae68057483adb0c82283dc4358df4aed74eb6"
-  integrity sha512-jjuP2PwbbxrL1Rlkbbf0wGaY+xTWhkJpeeIb/aWvqTPgp45vlXv0GNwpUgKOoqkWeHdnfciypNE3VGJjouPbYg==
+nativescript-ui-sidedrawer@5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/nativescript-ui-sidedrawer/-/nativescript-ui-sidedrawer-5.0.0.tgz#aa36b3f105aee5b6e69d11da4de730f87c886fac"
+  integrity sha512-JqByaiGOZWenrsrm54FW5+ZVejStayHKe13nPNvcxRFKq7aVeFdrGoFpfkSFhoUxI1uzLJP8OrOzihl+fcAg1w==
   dependencies:
     nativescript-ui-core "~2.0.0"
 
