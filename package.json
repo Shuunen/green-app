@@ -47,7 +47,7 @@
     "babel-types": "6.26.0",
     "babylon": "6.18.0",
     "clean-webpack-plugin": "0.1.19",
-    "copy-webpack-plugin": "4.5.4",
+    "copy-webpack-plugin": "4.6.0",
     "css-loader": "1.0.0",
     "email-validator": "2.0.4",
     "gitmoji-cli": "1.9.2",
