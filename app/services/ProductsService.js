@@ -1,8 +1,15 @@
 import * as http from 'tns-core-modules/http'
 import ApiService from './ApiService'
+import Random from '../utils/Random'
+const doMock = true
 
 export default class ProductsService extends ApiService {
   load () {
+    if (doMock) {
+      const products = Random.getProducts()
+      console.info(`Returning ${products.length} random products`)
+      return Promise.resolve(products)
+    }
     const url = this.baseUrl + '/products'
     console.log('using url :', url)
     return http.request({

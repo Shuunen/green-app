@@ -1,10 +1,10 @@
 <template>
-        <Page>
+    <Page>
         <ActionBar>
             <GridLayout width="100%" columns="auto, *, auto">
                 <Label class="menu" text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
                 <Label class="title" text="Welcome to Green !" col="1" />
-                <Icon class="cart" name="shopping-cart-white" number="cartCount" col="2" />
+                <Icon class="cart" name="shopping-cart-white" :number="cartCount" col="2" />
             </GridLayout>
         </ActionBar>
 
@@ -28,7 +28,7 @@
 
 <script>
 import store from "../store";
-import Icon from '@/components/Icon'
+import Icon from "@/components/Icon";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
@@ -49,7 +49,7 @@ export default {
     }),
     products: function() {
       return this.productList;
-    },
+    }
   },
   mounted() {
     console.log("Products mounted");
@@ -68,7 +68,7 @@ export default {
     },
     addProduct(data) {
       console.log("user wants to add product :", data.name);
-      this.cartCount++
+      this.cartCount++;
     },
     doLogout() {
       store.commit("doLogout");
@@ -98,16 +98,16 @@ ActionBar {
   text-align: center;
   font-size: 30;
   color: #333333;
-  margin-top:10;
-  margin-bottom:25;
+  margin-top: 10;
+  margin-bottom: 25;
 }
 
 .app-message {
   vertical-align: center;
   font-size: 15;
   color: #333333;
-  margin-bottom:10;
-  margin-left:3;
+  margin-bottom: 10;
+  margin-left: 3;
 }
 
 .drawer-header {

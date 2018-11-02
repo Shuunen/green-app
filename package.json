@@ -10,6 +10,8 @@
   },
   "scripts": {
     "commit": "gitmoji -c",
+    "dev": "tns run android --bundle",
+    "dev:ios": "tns run ios --bundle",
     "start": "tns run android --bundle",
     "start:ios": "tns run ios --bundle",
     "build": "tns build android --bundle",
