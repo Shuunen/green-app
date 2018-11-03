@@ -4,8 +4,7 @@
 
 ## Prerequisites
 
-* Node : version 9 ans above
-* Npm : version 5 and above
+* Node : version 8.12.0 and above
 * NativeScript : `yarn global add nativescript`
 * Install dependencies : `yarn`
 
