@@ -1,36 +1,31 @@
 <template>
     <Page>
-        <ActionBar>
-            <GridLayout width="100%" columns="auto, *, auto">
-                <Label class="menu" text="MENU" @tap="$refs.drawer.nativeView.showDrawer()" col="0"/>
-                <Label class="title" text="Welcome to Green !" col="1" />
-                <Icon class="cart" name="shopping-cart-white" :number="3" col="2" />
-            </GridLayout>
-        </ActionBar>
-
+        <Header />
         <RadSideDrawer ref="drawer">
             <Menu ~drawerContent />
             <StackLayout ~mainContent @loaded="load()">
                 <Icon class="app-logo" name="logo" size="210x80" />
                 <label class="app-subtitle" text="Online Order" />
                 <Label class="app-message" textWrap="true" text="Add products to your basket, when you're done click on the shopping cart on the top right corner." />
-                <Button :text="data.name" v-for="data in products" :key="data.id" @tap="addProduct(data)"></Button>
+                <Button :text="data.name" v-for="data in productList" :key="data.id" @tap="addProduct(data)"></Button>
             </StackLayout>
         </RadSideDrawer>
     </Page>
 </template>
 
 <script>
-import store from "../store";
+import store from "@/store";
 import Icon from "@/components/Icon";
 import Menu from "@/components/Menu";
+import Header from "@/components/Header";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
 export default {
   components: {
     Icon,
-    Menu
+    Menu,
+    Header
   },
   data() {
     return {
@@ -38,14 +33,17 @@ export default {
       cartCount: 0
     };
   },
+  watch: {
+    menuOpened: function() {
+      this.$refs.drawer.nativeView.showDrawer()
+    }
+  },
   computed: {
     ...mapGetters({
       productList: "productList",
-      isLoading: "isProcessing"
-    }),
-    products: function() {
-      return this.productList;
-    }
+      menuOpened: "menuOpened",
+      isLoading: "isLoading"
+    })
   },
   mounted() {
     console.log("Products mounted");
@@ -54,20 +52,15 @@ export default {
     ...mapActions(["loadProducts"]),
     load() {
       this.loadProducts()
-        .then(() => {
-          this.listLoaded = true;
-        })
         .catch(error => {
           console.error(error);
           alert("An error occurred loading products list.");
-        });
+        })
+        .then(() => (this.listLoaded = true));
     },
     addProduct(data) {
       console.log("user wants to add product :", data.name);
       this.cartCount++;
-    },
-    doLogout() {
-      store.commit("doLogout");
     }
   }
 };

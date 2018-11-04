@@ -22,3 +22,13 @@ export const loadProducts = ({ commit }) => {
       })
   })
 }
+
+export const openMenu = ({ commit }) => {
+  console.log('action : openMenu')
+  commit(types.OPEN_MENU)
+}
+
+export const doLogout = ({ commit }) => {
+  console.log('action : doLogout')
+  commit(types.DO_LOGOUT)
+}

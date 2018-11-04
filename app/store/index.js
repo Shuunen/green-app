@@ -11,6 +11,7 @@ const debug = TNS_ENV !== 'production'
 
 const store = new Vuex.Store({
   state: {
+    menuOpened: false,
     isLoggedIn: false,
     // array of products
     products: [],

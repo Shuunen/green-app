@@ -1,11 +1,27 @@
 <template>
-  <StackLayout  backgroundColor="#ffffff">
+  <StackLayout backgroundColor="#ffffff">
     <Label class="drawer-header" text="Drawer"/>
     <Label class="drawer-item" text="Menus"/>
     <Label class="drawer-item" text="My account"/>
     <Label class="drawer-item" text="Logout" @tap="doLogout"/>
   </StackLayout>
 </template>
+
+<script>
+import store from "@/store";
+import Icon from "@/components/Icon";
+import { mapActions } from "vuex";
+
+export default {
+  components: {
+    Icon
+  },
+  methods: {
+    ...mapActions(["doLogout"])
+  }
+}
+</script>
+
 
 <style>
 .drawer-header {

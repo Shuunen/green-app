@@ -23,6 +23,11 @@ const mutations = {
   [types.REMOVE_PROCESSING_TASK] (state, task) {
     console.log('REMOVE_PROCESSING_TASK', task)
     state.processingTasks.splice(state.processingTasks.indexOf(task), 1)
+  },
+  // navifation
+  [types.OPEN_MENU] (state) {
+    console.log('OPEN_MENU')
+    state.menuOpened = !state.menuOpened
   }
 }
 
