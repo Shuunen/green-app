@@ -21,7 +21,7 @@ export default {
 
 <style lang="scss">
 .icon {
-  /* background-color: #CB1D00; */
+  /* background-color: red; */
   &.small {
     $size: 30;
     height: $size;
