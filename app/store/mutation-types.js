@@ -10,4 +10,4 @@ export const ADD_PROCESSING_TASK = 'ADD_PROCESSING_TASK'
 export const REMOVE_PROCESSING_TASK = 'REMOVE_PROCESSING_TASK'
 
 // navigation mutations
-export const OPEN_MENU = 'OPEN_MENU'
+export const TOGGLE_MENU = 'TOGGLE_MENU'

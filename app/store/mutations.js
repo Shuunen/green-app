@@ -25,9 +25,9 @@ const mutations = {
     state.processingTasks.splice(state.processingTasks.indexOf(task), 1)
   },
   // navifation
-  [types.OPEN_MENU] (state) {
-    console.log('OPEN_MENU')
-    state.menuOpened = !state.menuOpened
+  [types.TOGGLE_MENU] (state) {
+    console.log('TOGGLE_MENU')
+    state.toggleMenu = !state.toggleMenu
   }
 }
 

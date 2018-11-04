@@ -33,14 +33,14 @@ export default {
     };
   },
   watch: {
-    menuOpened: function() {
-      this.$refs.drawer.nativeView.showDrawer()
+    toggleMenu: function() {
+      this.$refs.drawer.nativeView.toggleDrawerState()
     }
   },
   computed: {
     ...mapGetters({
       productList: "productList",
-      menuOpened: "menuOpened",
+      toggleMenu: "toggleMenu",
       isLoading: "isLoading"
     })
   },
@@ -66,21 +66,6 @@ export default {
 </script>
 
 <style scoped>
-ActionBar {
-  background-color: #53ba82;
-  color: #ffffff;
-}
-
-.menu {
-  vertical-align: center;
-}
-
-.title {
-  vertical-align: center;
-  text-align: left;
-  padding-left: 16;
-}
-
 .app-subtitle {
   vertical-align: center;
   text-align: center;
@@ -96,9 +81,5 @@ ActionBar {
   color: #333333;
   margin-bottom: 10;
   margin-left: 3;
-}
-
-.cart {
-  margin-right: 16;
 }
 </style>

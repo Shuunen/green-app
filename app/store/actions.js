@@ -23,9 +23,9 @@ export const loadProducts = ({ commit }) => {
   })
 }
 
-export const openMenu = ({ commit }) => {
-  console.log('action : openMenu')
-  commit(types.OPEN_MENU)
+export const toggleMenu = ({ commit }) => {
+  console.log('action : toggleMenu')
+  commit(types.TOGGLE_MENU)
 }
 
 export const doLogout = ({ commit }) => {

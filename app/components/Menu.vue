@@ -1,8 +1,8 @@
 <template>
   <StackLayout backgroundColor="#ffffff">
-    <Label class="drawer-header" text="Drawer"/>
-    <Label class="drawer-item" text="Menus"/>
+    <Label class="drawer-header" text="Benjamin"/>
     <Label class="drawer-item" text="My account"/>
+    <Label class="drawer-item" text="My orders"/>
     <Label class="drawer-item" text="Logout" @tap="doLogout"/>
   </StackLayout>
 </template>

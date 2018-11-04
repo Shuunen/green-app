@@ -12,6 +12,6 @@ export const isLoggedIn = state => {
   return state.isLoggedIn
 }
 
-export const menuOpened = state => {
-  return state.menuOpened
+export const toggleMenu = state => {
+  return state.toggleMenu
 }
