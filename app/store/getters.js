@@ -1,6 +1,10 @@
 
 export const productList = state => {
-  return state.products
+  return state.productList
+}
+
+export const typeList = state => {
+  return state.typeList
 }
 
 export const isProcessing = state => {

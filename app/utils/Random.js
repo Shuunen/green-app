@@ -1,8 +1,29 @@
-import { pickOne, getRandomNumber, getRandomString } from 'shuutils'
+import { pickOne, getRandomNumber, getRandomString, copy } from 'shuutils'
 
 const data = {
   id: 1,
-  types: ['starter', 'main', 'dessert']
+  types: [
+    {
+      type: 'formula',
+      name: 'Formulas'
+    },
+    {
+      type: 'smoothie',
+      name: 'Smoothies'
+    },
+    {
+      type: 'dessert',
+      name: 'Desserts'
+    },
+    {
+      type: 'soup',
+      name: 'Soups'
+    },
+    {
+      type: 'wrap',
+      name: 'Wraps'
+    }
+  ]
 }
 
 export default class Random {
@@ -27,5 +48,8 @@ export default class Random {
       collection.push(this.getProduct())
     }
     return collection
+  }
+  static getTypes () {
+    return copy(data.types)
   }
 }

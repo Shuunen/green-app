@@ -4,33 +4,54 @@ import Random from '../utils/Random'
 const doMock = true
 
 export default class ProductsService extends ApiService {
-  load () {
+  loadProducts () {
+    let source = null
     if (doMock) {
-      const products = Random.getProducts()
-      console.info(`Returning ${products.length} random products`)
-      return Promise.resolve(products)
+      const productList = Random.getProducts()
+      console.info(`Returning ${productList.length} mocked products`)
+      source = Promise.resolve(productList)
+    } else {
+      const url = this.baseUrl + '/products'
+      console.log('using url :', url)
+      /* headers: this.getHeaders() */
+      source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
     }
-    const url = this.baseUrl + '/products'
-    console.log('using url :', url)
-    return http.request({
-      url,
-      method: 'GET'
-      // headers: this.getHeaders()
-    })
-      .then(this.validateCode)
-      .then(this.getJson)
-      .then(data => {
-        console.info(data)
-        console.info(`Received ${data.length} products from the api`)
-        return data.map(product => {
-          return {
-            id: product._id,
-            name: product.name,
-            price: product.price,
-            type: product.type
-          }
-        })
+    return source.then(data => {
+      console.info(data)
+      console.info(`Received ${data.length} products from the api`)
+      return data.map(product => {
+        return {
+          id: product._id,
+          name: product.name,
+          price: product.price,
+          type: product.type
+        }
       })
+    })
+  }
+
+  loadTypes () {
+    let source = null
+    if (doMock) {
+      const typeList = Random.getTypes()
+      console.info(`Returning ${typeList.length} mocked types`)
+      source = Promise.resolve(typeList)
+    } else {
+      const url = this.baseUrl + '/types'
+      console.log('using url :', url)
+      /* headers: this.getHeaders() */
+      source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
+    }
+    return source.then(data => {
+      console.info(data)
+      console.info(`Received ${data.length} types from the api`)
+      return data.map(type => {
+        return {
+          name: type.name,
+          type: type.type
+        }
+      })
+    })
   }
 
   getHeaders (toAppend = {}) {

@@ -9,14 +9,34 @@ export const loadProducts = ({ commit }) => {
   return new Promise((resolve, reject) => {
     commit(types.ADD_PROCESSING_TASK, task)
     productsService
-      .load()
-      .then(products => {
-        commit(types.SET_PRODUCTS, products)
+      .loadProducts()
+      .then(productList => {
+        commit(types.SET_PRODUCTS, productList)
         commit(types.REMOVE_PROCESSING_TASK, task)
         resolve()
       })
       .catch(error => {
         console.error(`Failed at loading products from api : ${error}`)
+        commit(types.REMOVE_PROCESSING_TASK, task)
+        reject(error)
+      })
+  })
+}
+
+export const loadTypes = ({ commit }) => {
+  const task = 'action loadTypes'
+  console.log(task)
+  return new Promise((resolve, reject) => {
+    commit(types.ADD_PROCESSING_TASK, task)
+    productsService
+      .loadTypes()
+      .then(typeList => {
+        commit(types.SET_TYPES, typeList)
+        commit(types.REMOVE_PROCESSING_TASK, task)
+        resolve()
+      })
+      .catch(error => {
+        console.error(`Failed at loading types from api : ${error}`)
         commit(types.REMOVE_PROCESSING_TASK, task)
         reject(error)
       })

@@ -2,9 +2,13 @@ import * as types from './mutation-types'
 
 const mutations = {
   // products
-  [types.SET_PRODUCTS] (state, products) {
-    console.log('SET_PRODUCTS', products)
-    state.products = products
+  [types.SET_PRODUCTS] (state, productList) {
+    console.log('SET_PRODUCTS', productList)
+    state.productList = productList
+  },
+  [types.SET_TYPES] (state, typeList) {
+    console.log('SET_TYPES', typeList)
+    state.typeList = typeList
   },
   // auth
   [types.DO_LOGIN] (state) {

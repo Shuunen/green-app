@@ -1,5 +1,6 @@
 // products mutations
 export const SET_PRODUCTS = 'SET_PRODUCTS'
+export const SET_TYPES = 'SET_TYPES'
 
 // auth mutations
 export const DO_LOGIN = 'DO_LOGIN'

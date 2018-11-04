@@ -3,7 +3,7 @@
         <Header />
         <RadSideDrawer ref="drawer">
             <Menu ~drawerContent />
-            <Products ~mainContent />
+            <Types ~mainContent />
         </RadSideDrawer>
     </Page>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import Header from "@/components/Header";
 import Menu from "@/components/Menu";
-import Products from "@/components/Products";
+import Types from "@/components/Types";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
@@ -19,7 +19,7 @@ export default {
   components: {
     Header,
     Menu,
-    Products
+    Types
   },
   watch: {
     toggleMenu: function() {
