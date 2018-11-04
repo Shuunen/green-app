@@ -4,7 +4,6 @@
         <RadSideDrawer ref="drawer">
             <Menu ~drawerContent />
             <StackLayout ~mainContent @loaded="load()">
-                <Icon class="app-logo" name="logo" size="210x80" />
                 <label class="app-subtitle" text="Online Order" />
                 <Label class="app-message" textWrap="true" text="Add products to your basket, when you're done click on the shopping cart on the top right corner." />
                 <Button :text="data.name" v-for="data in productList" :key="data.id" @tap="addProduct(data)"></Button>

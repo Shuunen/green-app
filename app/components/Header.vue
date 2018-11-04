@@ -1,9 +1,9 @@
 <template>
   <ActionBar>
       <GridLayout width="100%" columns="auto, *, auto">
-          <Label class="menu" text="MENU" @tap="openMenu" col="0"/>
-          <Label class="title" text="Welcome to Green !" col="1" />
-          <Icon class="cart" name="shopping-cart-white" :number="3" col="2" />
+          <Icon name="menu-white" @tap="openMenu" col="0"/>
+          <Icon name="logo-header" size="210x80" col="1" class="logo-header" />
+          <Icon name="shopping-cart-white" :number="3" col="2" />
       </GridLayout>
   </ActionBar>
 </template>
@@ -22,3 +22,10 @@ export default {
   }
 }
 </script>
+
+<style>
+.logo-header {
+  position: absolute;
+}
+</style>
+
