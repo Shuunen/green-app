@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import store from "@/store";
 import Icon from "@/components/Icon";
 import { mapActions } from "vuex";
 

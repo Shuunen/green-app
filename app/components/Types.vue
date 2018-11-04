@@ -1,16 +1,20 @@
 <template>
   <StackLayout>
-    <Button v-for="data in typeList" :key="data.id"
-      :text="data.name"
+    <Type v-for="data in typeList" :key="data.type"
+      :data="data"
       @tap="selectType(data)" />
   </StackLayout>
 </template>
 
 <script>
+import Type from "@/components/Type";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
 export default {
+  components: {
+    Type
+  },
   data() {
     return {
       listLoaded: false
