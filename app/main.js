@@ -1,6 +1,6 @@
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
-import Products from './components/Products'
+import Landing from './pages/Landing'
 import store from './store'
 
 if (TNS_ENV !== 'production') {
@@ -16,12 +16,12 @@ Vue.registerElement('RadSideDrawer', () => require('nativescript-ui-sidedrawer')
 // import ApiService from './services/ApiService'
 // import Login from './components/Login'
 // const apiService = new ApiService()
-// const loginFirst = h => h('frame', [h(apiService.isLoggedIn() ? Products : Login)])
+// const loginFirst = h => h('frame', [h(apiService.isLoggedIn() ? Landing : Login)])
 
-// Solution 2 : just shows products as a guest user
-const guestProducts = h => h('frame', [h(Products)])
+// Solution 2 : just shows Landing as a guest user
+const guestLanding = h => h('frame', [h(Landing)])
 
 new Vue({
-  render: guestProducts,
+  render: guestLanding,
   store
 }).$start()
