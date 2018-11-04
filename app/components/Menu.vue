@@ -23,18 +23,20 @@ export default {
 </script>
 
 
-<style>
+<style lang="scss">
+@import "../assets/styles/shared";
+
 .drawer-header {
   padding: 50 16 16 16;
   margin-bottom: 16;
-  background-color: #53ba82;
-  color: #ffffff;
-  font-size: 24;
+  background-color: $color-primary;
+  color: $color-primary-alt;
+  font-size: $font-size-h1;
 }
 
 .drawer-item {
   padding: 8 16;
   color: #333333;
-  font-size: 16;
+  font-size: $font-size-h3;
 }
 </style>

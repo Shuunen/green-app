@@ -1,5 +1,5 @@
 <template>
-  <Image class="icon" :class="[size]" :src="'~/assets/images/'+ name +'.png'" />
+  <Image class="icon" :class="[size]" :src="'~/assets/images/icons/'+ name +'.png'" />
 </template>
 
 <script>
@@ -24,6 +24,11 @@ export default {
   /* background-color: red; */
   &.small {
     $size: 30;
+    height: $size;
+    width: $size;
+  }
+  &.medium {
+    $size: 50;
     height: $size;
     width: $size;
   }

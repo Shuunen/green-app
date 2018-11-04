@@ -1,8 +1,8 @@
 <template>
-  <StackLayout class="type">
+  <StackLayout class="type" :class="[ data.type ]">
      <DockLayout class="type-shadow" stretchLastChild="false">
       <Label class="type-name" :text="data.name" dock="left" />
-      <Icon class="type-arrow" name="circled-right-2-white" dock="right" />
+      <Icon class="type-arrow" name="circled-right-2-white" size="small" dock="right" />
     </DockLayout>
   </StackLayout>
 </template>
@@ -28,11 +28,25 @@ export default {
 @import "../assets/styles/shared";
 
 .type {
-  background-image: url("~/assets/images/formulas.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   margin: 10 10 0 10;
+  &.formula {
+    background-image: url("~/assets/images/banners/formula.jpg");
+  }
+  &.smoothie {
+    background-image: url("~/assets/images/banners/smoothie.jpg");
+  }
+  &.dessert {
+    background-image: url("~/assets/images/banners/dessert.jpg");
+  }
+  &.soup {
+    background-image: url("~/assets/images/banners/soup.jpg");
+  }
+  &.wrap {
+    background-image: url("~/assets/images/banners/wrap.jpg");
+  }
 }
 .type-shadow {
   background-color: rgba(0, 0, 0, 0.5);
@@ -41,6 +55,8 @@ export default {
 }
 .type-name {
   color: $color-primary-alt;
+  font-size: $font-size-h1;
+  margin-left: 2;
 }
 .type-arrow {
   vertical-align: bottom;

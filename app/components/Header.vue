@@ -34,7 +34,7 @@ ActionBar {
 .store {
   vertical-align: center;
   text-align: center;
-  font-size: 20;
+  font-size: $font-size-h2;
   font-weight: bold;
 }
 </style>

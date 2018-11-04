@@ -2,7 +2,7 @@
   <StackLayout>
     <Type v-for="data in typeList" :key="data.type"
       :data="data"
-      @tap="selectType(data)" />
+      @tap.native="selectType(data)" />
   </StackLayout>
 </template>
 
