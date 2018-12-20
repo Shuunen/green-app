@@ -42,8 +42,8 @@
     "vuex": "3.0.1"
   },
   "devDependencies": {
-    "@babel/core": "7.1.2",
-    "@babel/preset-env": "7.1.0",
+    "@babel/core": "7.2.2",
+    "@babel/preset-env": "7.2.3",
     "babel-loader": "8.0.4",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
