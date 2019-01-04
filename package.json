@@ -54,7 +54,7 @@
     "email-validator": "2.0.4",
     "gitmoji-cli": "1.9.2",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "0.17.0",
+    "nativescript-dev-webpack": "0.19.0",
     "nativescript-vue-template-compiler": "2.0.2",
     "nativescript-worker-loader": "0.9.1",
     "node-sass": "4.9.4",
