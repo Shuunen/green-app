@@ -144,7 +144,8 @@ module.exports = env => {
               'collapse_vars': platform !== 'android',
               sequences: platform !== 'android'
             },
-            safari10: platform === 'ios'
+            safari10: platform === 'ios',
+            keep_fnames: true
           }
         })
       ]
