@@ -4,7 +4,8 @@ import Landing from './pages/Landing'
 import store from './store'
 
 if (TNS_ENV !== 'production') {
-  Vue.use(VueDevtools, { host: '192.168.0.24' })
+  // Vue.use(VueDevtools, { host: '192.168.0.24' }) if using a real device
+  Vue.use(VueDevtools)
 }
 
 // Prints Vue logs when --env.production is *NOT* set while building
