@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-* Node >= 8.12.0
+* Node >= 8.15.0
 * [NativeScript](https://docs.nativescript.org/angular/start/quick-setup)
 * Yarn
 
