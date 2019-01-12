@@ -40,3 +40,7 @@ If it appears, go back to this project folder and run `yarn dev`
 Android Emulator should pop out and start your virtual device.
 The first time it may take some times to init, there is a lot of stuff to download and install.
 Just wait 1 or 2 minutes and this app should appears.
+
+## Tips
+
+* if there is structural updates to the project like new deps, modified conf, etc... delete the `platforms` folder and let yarn dev (or build) regenerate it
