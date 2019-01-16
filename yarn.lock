@@ -7408,10 +7408,10 @@ tns-core-modules-widgets@5.1.2:
   resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-5.1.2.tgz#0fcbb906ebfdf89512cdb9c22a508ff5d62c7f13"
   integrity sha512-Pga3hcC2nWsERG/817AEACoVww+RuYyoDJk6w+FK+drW9TnkFbz4zkT3R65mfvwbi29ncvN81EIPuUQsLEl4BQ==
 
-tns-core-modules@5.1.1:
-  version "5.1.1"
-  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-5.1.1.tgz#fcc70a90cc2e613802cde57dc4c698a1edb4698e"
-  integrity sha512-ztUxuOmqax4bA1pFucyzIjak65c7sYS+GE0c2xyXZQv5tZh2Y7G1UhKiSS00zk2kItCMbvDLdlB5/aeikykmKw==
+tns-core-modules@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-5.1.2.tgz#07dfaf82cbf2e80b32010c823235c7b59b9f3346"
+  integrity sha512-3+jTO/KFs07MMNom2rApIfhTY8B8xffHXJVjLVNB1hOIu6e28QM89cWx++e+1zDSIfY7MEMVfvBsbbZ3OgXPxw==
   dependencies:
     tns-core-modules-widgets "5.1.2"
     tslib "^1.9.3"
