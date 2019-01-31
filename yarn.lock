@@ -4969,10 +4969,10 @@ nativescript-vue@2.0.2:
   resolved "https://registry.yarnpkg.com/nativescript-vue/-/nativescript-vue-2.0.2.tgz#0af653a00f9462e336387ae22c8501d29e180069"
   integrity sha512-X4tSaPorPblbYcU0JQ6AZvim7/7saIgCHHxLJ6Je/N2HfNsjeIROQI+fNsBVxtacrnauPjCugjOLr7KPC/n0eQ==
 
-nativescript-worker-loader@0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/nativescript-worker-loader/-/nativescript-worker-loader-0.9.3.tgz#24fb50a0ed9f042c5e65ad87d455260e7146763a"
-  integrity sha512-ojaLyU3leXrGM4OMB9s1sN1COwHBnkxA3p2CwIM9Al5uJnkjf3MF8TrdsZ3bQsKvxos0NIVmStAtqwFlZ/5K6g==
+nativescript-worker-loader@0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/nativescript-worker-loader/-/nativescript-worker-loader-0.9.4.tgz#75d8ea86aa3b8c8b02bd5417cdac80df9d928af2"
+  integrity sha512-kY2WNaN59S9aTHfiyLRPBdLNFxiz++T/00g/HNQ9BdHg1xo1aEk/hGJGY56/K0nv5XFJEkg18Fnwc8wTsvF1Iw==
   dependencies:
     loader-utils "^1.0.2"
     schema-utils "^0.3.0"
