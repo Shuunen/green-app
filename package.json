@@ -63,7 +63,7 @@
     "stylelint-scss": "3.5.3",
     "terser-webpack-plugin": "1.2.2",
     "vue-loader": "15.6.2",
-    "webpack": "4.29.2",
+    "webpack": "4.29.3",
     "webpack-bundle-analyzer": "3.0.3",
     "webpack-cli": "3.2.3"
   },
