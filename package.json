@@ -52,7 +52,7 @@
     "css-loader": "1.0.1",
     "email-validator": "2.0.4",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "0.19.2",
+    "nativescript-dev-webpack": "0.20.0",
     "nativescript-vue-template-compiler": "2.0.2",
     "nativescript-worker-loader": "0.9.5",
     "node-sass": "4.11.0",
