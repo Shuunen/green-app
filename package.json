@@ -9,13 +9,13 @@
   },
   "scripts": {
     "dev": "tns run android --bundle",
-    "dev:ios": "tns run ios --bundle",
+    "dev:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
     "start": "tns run android --bundle",
-    "start:ios": "tns run ios --bundle",
+    "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
     "build": "tns build android --bundle",
-    "build:ios": "tns build ios --bundle",
+    "build:ios": "export SWIFT_VERSION=3; tns build ios --bundle",
     "debug": "tns debug android --bundle",
-    "debug:ios": "tns debug ios --bundle",
+    "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
     "lint": "standard --fix app/**/*.js hooks/**/*.js",
     "ls": "tns device"
   },
