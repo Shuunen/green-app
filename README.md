@@ -26,73 +26,77 @@ yarn debug
 
 ## Installing on macOS
 
-#### XCode
+### XCode
 
 Install XCode 9 (macOS 10.13) or 10 (macOS 10.14) from Mac AppStore or Apple's Developer site.
 
-#### Homebrew
+### Homebrew
+
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-#### Node, Yarn, TNS
+### Node, Yarn
 
 * Install NVM :
+
 ```bash
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 ```
 
-* Install Node 11.x using NVM:
+* Install Node 11.x using NVM :
+
 ```bash
 nvm install 11.10
 nvm alias default 11.10
 ```
 
-* Install YARN
+* Install Yarn
+
 ```bash
 brew install yarn
 ```
 
-* Install TNS
-```bash
-yarn add -g tns
-```
+### xcodeproj, cocoapods, six
 
-#### xcodeproj, cocoapods, six
+* xcodeproj :
 
-* xcodeproj
 ```bash
 sudo gem install -n /usr/local/bin xcodeproj
 ```
 
-* cocoapods
+* cocoapods :
+
 ```bash
 sudo gem install -n /usr/local/bin cocoapods
 pod setup
 ```
 
-* six
+* six :
+
 ```bash
 pip install six
 ```
 
-#### yarn dependencies
+### Yarn dependencies
+
 ```bash
 yarn install
 ```
 
 ## Building for iOS
 
-* Building for production
+* Building for production :
+
 ```bash
 yarn build:ios
 ```
 
-* Starting the app in iOS simulator or iOS device
+* Starting the app in iOS simulator or iOS device :
+
 ```bash
 yarn start:ios
 ```
-
 
 ## Optional : create an AVD in Windows
 
