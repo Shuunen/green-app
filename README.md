@@ -24,6 +24,26 @@ yarn build
 yarn debug
 ```
 
+### On a real Android device
+
+Make sure your phone has dev options activated & adb debug mode on.
+
+Your device should appears with `yarn ls` (or `tns device`) :
+
+```bash
+Connected devices & emulators
+Searching for devices...
+┌───┬─────────────┬──────────┬───────────────────┬──────────┬───────────┐
+│ # │ Device Name │ Platform │ Device Identifier │ Type     │ Status    │
+│ 1 │ avd_25      │ Android  │ emulator-5554     │ Emulator │ Connected │
+│ 2 │ Device name │ Android  │ DEVICE_ID_123     │ Device   │ Connected │
+└───┴─────────────┴──────────┴───────────────────┴──────────┴───────────┘
+```
+
+Then you can `tns run android --bundle --device DEVICE_ID_123`
+
+You should see your app running on device and this in console : `Successfully synced application green.nsvue.app on device DEVICE_ID_123`
+
 ## Installing on macOS
 
 ### XCode
