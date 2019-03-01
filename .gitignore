@@ -10,3 +10,7 @@ platforms
 
 # Samples
 *-sample
+
+# Project specifics
+green-keystore.jks
+dist
