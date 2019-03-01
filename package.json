@@ -1,6 +1,6 @@
 {
   "name": "green-app",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A native application built with NativeScript-Vue",
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "license": "GPL-3.0",
