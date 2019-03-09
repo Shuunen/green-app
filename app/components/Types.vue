@@ -1,9 +1,11 @@
 <template>
-  <StackLayout>
-    <Type v-for="data in typeList" :key="data.type"
-      :data="data"
-      @tap.native="selectType(data)" />
-  </StackLayout>
+  <ScrollView orientation="vertical">
+    <StackLayout class="pb10">
+      <Type v-for="data in typeList" :key="data.type"
+        :data="data"
+        @tap.native="selectType(data)" />
+    </StackLayout>
+  </ScrollView>
 </template>
 
 <script>
