@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles/shared";
+@import "../assets/styles";
 
 ActionBar {
   background-color: $color-primary;

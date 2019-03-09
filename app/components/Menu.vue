@@ -24,7 +24,7 @@ export default {
 
 
 <style lang="scss">
-@import "../assets/styles/shared";
+@import "../assets/styles";
 
 .drawer-header {
   padding: 50 16 16 16;

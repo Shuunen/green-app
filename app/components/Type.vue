@@ -1,6 +1,6 @@
 <template>
   <StackLayout class="type" :class="[ data.type ]">
-     <DockLayout class="type-shadow" stretchLastChild="false">
+     <DockLayout class="type-shadow p10" stretchLastChild="false">
       <Label class="type-name" :text="data.name" dock="left" />
       <Icon class="type-arrow" name="circled-right-2-white" size="small" dock="right" />
     </DockLayout>
@@ -25,7 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles/shared";
+@import "../assets/styles";
 
 .type {
   background-repeat: no-repeat;
@@ -50,7 +50,6 @@ export default {
 }
 .type-shadow {
   background-color: rgba(0, 0, 0, 0.5);
-  padding: 10;
   height: 120;
 }
 .type-name {
