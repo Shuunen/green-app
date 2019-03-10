@@ -1,7 +1,12 @@
+import Formatter from '@/utils/Formatter'
 import { pickOne, getRandomNumber, getRandomString, copy } from 'shuutils'
 
 const data = {
   id: 1,
+  words: {
+    starter: ['homemade', '', 'fresh', '', 'premium', '', 'large', '', 'small', 'spicy'],
+    joiner: ['with', '', 'of', '', 'mix', '', 'mixed with', '', 'made of', '', 'à la']
+  },
   types: [
     {
       type: 'formula',
@@ -27,25 +32,28 @@ const data = {
 }
 
 export default class Random {
-  // specific
   static getPriceCents () {
     return pickOne([0, 0.5, 0.45, 0.99, 0.75, 0.80])
   }
   static getPrice () {
     return getRandomNumber(2, 9) + this.getPriceCents()
   }
-  static getProduct () {
+  static getProductName (type) {
+    return `${pickOne(data.words.starter)} ${type} ${pickOne(data.words.joiner)} ${getRandomString()}`.replace(/\s+/g, ' ').trim()
+  }
+  static getProduct (ofType) {
+    const type = ofType || pickOne(data.types).type
     return {
       id: data.id++,
-      name: getRandomString(),
+      name: Formatter.capitalizeFirstLetter(this.getProductName(type)),
       price: this.getPrice(),
-      type: pickOne(data.types)
+      type
     }
   }
-  static getProducts () {
+  static getProducts (ofType) {
     const collection = []
-    for (let i = 0; i < 10; i++) {
-      collection.push(this.getProduct())
+    for (let i = 0; i < 20; i++) {
+      collection.push(this.getProduct(ofType))
     }
     return collection
   }

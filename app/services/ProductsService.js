@@ -1,6 +1,6 @@
 import * as http from 'tns-core-modules/http'
-import ApiService from './ApiService'
-import Random from '../utils/Random'
+import ApiService from '@/services/ApiService'
+import Random from '@/utils/Random'
 const doMock = true
 
 export default class ProductsService extends ApiService {
@@ -21,7 +21,7 @@ export default class ProductsService extends ApiService {
       console.info(`Received ${data.length} products from the api`)
       return data.map(product => {
         return {
-          id: product._id,
+          id: product.id,
           name: product.name,
           price: product.price,
           type: product.type
