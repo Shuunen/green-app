@@ -1,6 +1,7 @@
 <template>
   <StackLayout backgroundColor="#ffffff">
     <Label class="drawer-header" text="Benjamin"/>
+    <Label class="drawer-item" text="Home" @tap="goHome" />
     <Label class="drawer-item" text="My account"/>
     <Label class="drawer-item" text="My orders"/>
     <Label class="drawer-item" text="Logout" @tap="doLogout"/>
@@ -17,7 +18,7 @@ export default {
     Icon
   },
   methods: {
-    ...mapActions(["doLogout"])
+    ...mapActions(["doLogout","goHome"])
   }
 }
 </script>

@@ -52,3 +52,8 @@ export const doLogout = ({ commit }) => {
   console.log('action : doLogout')
   commit(types.DO_LOGOUT)
 }
+
+export const goHome = ({ commit }) => {
+  console.log('action : goHome')
+  commit(types.GO_HOME)
+}
