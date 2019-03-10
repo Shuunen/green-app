@@ -18,7 +18,8 @@
     "debug": "tns debug android --bundle",
     "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
     "lint": "standard --fix app/**/*.js hooks/**/*.js",
-    "ls": "tns device"
+    "ls": "tns device",
+    "postinstall": "yarn clean"
   },
   "nativescript": {
     "id": "green.nsvue.app",
