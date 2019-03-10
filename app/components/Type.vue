@@ -1,17 +1,36 @@
 <template>
-  <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
-    <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p10">
-      <Label class="type-name" :text="data.name" />
-      <Icon class="type-arrow" v-if="!hero" name="circled-right-2-white" size="small" alignSelf="flex-end" />
+  <StackLayout
+    class="type"
+    :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]"
+  >
+    <FlexboxLayout
+      flexDirection="column"
+      :justifyContent="hero ? 'center' : 'space-between'"
+      class="type-shadow p10"
+    >
+      <Label
+        class="type-name"
+        :text="data.name"
+      />
+      <Icon
+        v-if="!hero"
+        class="type-arrow"
+        name="circled-right-2-white"
+        size="small"
+        alignSelf="flex-end"
+      />
     </FlexboxLayout>
   </StackLayout>
 </template>
 
 <script>
-import Icon from "@/components/Icon";
+import Icon from '@/components/Icon'
 
 export default {
-  name: "type",
+  name: 'Type',
+  components: {
+    Icon
+  },
   props: {
     data: {
       type: Object,
@@ -19,11 +38,8 @@ export default {
     },
     large: Boolean,
     hero: Boolean
-  },
-  components: {
-    Icon
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -70,4 +86,3 @@ export default {
   margin-left: 2;
 }
 </style>
-

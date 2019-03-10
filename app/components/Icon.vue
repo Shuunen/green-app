@@ -1,10 +1,13 @@
 <template>
-  <Image class="icon" :class="[size]" :src="'~/assets/images/icons/'+ name +'.png'" />
+  <Image
+    class="icon"
+    :class="[size]"
+    :src="'~/assets/images/icons/'+ name +'.png'"
+  />
 </template>
 
 <script>
 export default {
-  name: "icon",
   props: {
     name: {
       type: String,
@@ -14,9 +17,12 @@ export default {
       type: String,
       default: 'small'
     },
-    number: Number
+    number: {
+      type: Number,
+      default: 0
+    }
   }
-};
+}
 </script>
 
 <style lang="scss">

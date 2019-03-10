@@ -1,44 +1,54 @@
 <template>
-    <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true">
-        <StackLayout>
+  <Page
+    actionBarHidden="true"
+    backgroundSpanUnderStatusBar="true"
+  >
+    <StackLayout>
+      <Label
+        class="main-label"
+        text="Green Login"
+      />
 
-            <Label class="main-label" text="Green Login" />
+      <!-- form controls -->
+      <GridLayout
+        class="form-controls"
+        rows="auto, auto"
+      >
+        <TextField
+          v-model="user.email"
+          hint="Email Address"
+          keyboardType="email"
+          returnKeyType="next"
+          :iEnabled="!isAuthenticating"
+          autocorrect="false"
+          autocapitalizationType="none"
+          :class="{ light: !isLoggingIn}"
+          row="0"
+          @returnPress="focusPassword()"
+        />
+        <TextField
+          ref="password"
+          v-model="user.password"
+          hint="Password"
+          secure="true"
+          returnKeyType="done"
+          :isEnabled="!isAuthenticating"
+          :class="{ light: !isLoggingIn }"
+          row="1"
+          @returnPress="submit()"
+        />
+      </GridLayout>
 
-            <!-- form controls -->
-            <GridLayout class="form-controls" rows="auto, auto">
-                <TextField
-                  hint="Email Address"
-                  keyboardType="email"
-                  returnKeyType="next"
-                  @returnPress="focusPassword()"
-                  v-model="user.email"
-                  :iEnabled="!isAuthenticating"
-                  autocorrect="false"
-                  autocapitalizationType="none"
-                  :class="{ light: !isLoggingIn}"
-                  row="0" />
-                <TextField ref="password"
-                  hint="Password"
-                  secure="true"
-                  returnKeyType="done"
-                  @returnPress="submit()"
-                  v-model="user.password"
-                  :isEnabled="!isAuthenticating"
-                  :class="{ light: !isLoggingIn }"
-                  row="1" />
-            </GridLayout>
-
-            <!-- login / sign up button -->
-            <Button
-              :text="isLoggingIn ? 'Login' : 'Sign up'"
-              :isEnabled="!isAuthenticating"
-              class="submit-button"
-              @tap="submit()" />
-
-        </StackLayout>
-    </Page>
+      <!-- login / sign up button -->
+      <Button
+        :text="isLoggingIn ? 'Login' : 'Sign up'"
+        :isEnabled="!isAuthenticating"
+        class="submit-button"
+        @tap="submit()"
+      />
+    </StackLayout>
+  </Page>
 </template>
-
 
 <script>
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
@@ -46,9 +56,9 @@ import Products from '@/components/Products'
 import User from '@/models/User'
 
 export default {
-  name: 'login',
+  name: 'Login',
 
-  data() {
+  data () {
     return {
       isLoggingIn: true,
       isAuthenticating: false,
@@ -56,37 +66,37 @@ export default {
     }
   },
 
+  mounted () {
+    console.log('Login mounted')
+  },
+
   methods: {
 
-    focusPassword() {
-      this.$refs.password.nativeView.focus();
+    focusPassword () {
+      this.$refs.password.nativeView.focus()
     },
 
-    submit() {
+    submit () {
       console.log('submit', this.user)
       if (!this.user.isValidEmail()) {
-        alert("Enter a valid email address.")
-        return;
+        alert('Enter a valid email address.')
+        return
       }
-      this.isAuthenticating = true;
-      this.login();
+      this.isAuthenticating = true
+      this.login()
     },
 
-    login() {
+    login () {
       if (getConnectionType() === connectionType.none) {
-        alert("app requires an internet connection to log in.")
-        return;
+        alert('app requires an internet connection to log in.')
+        return
       }
-      this.isAuthenticating = false;
+      this.isAuthenticating = false
       console.log('navigating to products page')
       this.$navigateTo(Products)
       console.log('navigated to products page')
-    },
+    }
 
-  },
-
-  mounted() {
-    console.log('Login mounted')
   }
 }
 </script>

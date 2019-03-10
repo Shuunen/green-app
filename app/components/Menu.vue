@@ -1,28 +1,40 @@
 <template>
   <StackLayout backgroundColor="#ffffff">
-    <Label class="drawer-header" text="Benjamin"/>
-    <Label class="drawer-item" text="Home" @tap="goHome" />
-    <Label class="drawer-item" text="My account"/>
-    <Label class="drawer-item" text="My orders"/>
-    <Label class="drawer-item" text="Logout" @tap="doLogout"/>
+    <Label
+      class="drawer-header"
+      text="Benjamin"
+    />
+    <Label
+      class="drawer-item"
+      text="Home"
+      @tap="goHome"
+    />
+    <Label
+      class="drawer-item"
+      text="My account"
+    />
+    <Label
+      class="drawer-item"
+      text="My orders"
+    />
+    <Label
+      class="drawer-item"
+      text="Logout"
+      @tap="doLogout"
+    />
   </StackLayout>
 </template>
 
 <script>
-import store from "@/store";
-import Icon from "@/components/Icon";
-import { mapActions } from "vuex";
+import { mapActions } from 'vuex'
 
 export default {
-  components: {
-    Icon
-  },
+  components: { },
   methods: {
-    ...mapActions(["doLogout","goHome"])
+    ...mapActions(['doLogout', 'goHome'])
   }
 }
 </script>
-
 
 <style lang="scss">
 @import "../assets/styles";

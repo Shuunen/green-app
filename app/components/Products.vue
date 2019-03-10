@@ -1,44 +1,46 @@
 <template>
   <StackLayout>
-    <Button v-for="data in productList" :key="data.id"
+    <Button
+      v-for="data in productList"
+      :key="data.id"
       :text="data.name"
-      @tap="addProduct(data)" />
+      @tap="addProduct(data)"
+    />
   </StackLayout>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  data() {
+  data () {
     return {
       listLoaded: false
-    };
+    }
   },
   computed: {
     ...mapGetters({
-      productList: "productList",
-      isLoading: "isLoading"
+      productList: 'productList',
+      isLoading: 'isLoading'
     })
   },
-  created() {
-    console.log("Products created");
-    this.load();
+  created () {
+    console.log('Products created')
+    this.load()
   },
   methods: {
-    ...mapActions(["loadProducts"]),
-    load() {
+    ...mapActions(['loadProducts']),
+    load () {
       this.loadProducts()
         .catch(error => {
-          console.error(error);
-          alert("An error occurred loading products list.");
+          console.error(error)
+          alert('An error occurred loading products list.')
         })
-        .then(() => (this.listLoaded = true));
+        .then(() => (this.listLoaded = true))
     },
-    addProduct(data) {
-      console.log("user wants to add product :", data.name);
+    addProduct (data) {
+      console.log('user wants to add product :', data.name)
     }
   }
-};
+}
 </script>
