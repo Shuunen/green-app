@@ -1,4 +1,7 @@
+import Vue from 'nativescript-vue'
+
 import * as types from './mutation-types'
+import Types from '@/pages/Types'
 
 const mutations = {
   // products
@@ -32,6 +35,13 @@ const mutations = {
   [types.TOGGLE_MENU] (state) {
     console.log('TOGGLE_MENU')
     state.toggleMenu = !state.toggleMenu
+  },
+  [types.GO_HOME] (state) {
+    console.log('GO_HOME')
+    state.toggleMenu = false
+    Vue.prototype.$navigateTo(Types, {
+      frame: 'mainContent'
+    })
   }
 }
 
