@@ -2,10 +2,15 @@ $spaceamounts: (5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 75, 100); // Adjust this 
 $sides: (top, bottom, left, right);
 
 @each $space in $spaceamounts {
+  .h#{$space} {
+    height: #{$space};
+  }
+  .w#{$space} {
+    width: #{$space};
+  }
   .m#{$space} {
     margin: #{$space};
   }
-
   .p#{$space} {
     padding: #{$space};
   }
