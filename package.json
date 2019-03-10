@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@vue/devtools": "5.0.0-beta.3",
+    "nativescript-intl": "3.0.0",
     "nativescript-socket.io": "0.9.0",
     "nativescript-theme-core": "1.0.4",
     "nativescript-toast": "2.0.0",
