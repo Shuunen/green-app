@@ -15,42 +15,41 @@
 </template>
 
 <script>
-import Type from "@/components/Type";
-import { mapGetters } from "vuex";
-import { mapActions } from "vuex";
-import TypeDetails from "@/pages/TypeDetails";
+import Type from '@/components/Type'
+import { mapGetters, mapActions } from 'vuex'
+import TypeDetails from '@/pages/TypeDetails'
 
 export default {
   components: {
     Type
   },
-  data() {
+  data () {
     return {
       listLoaded: false
-    };
+    }
   },
   computed: {
     ...mapGetters({
-      typeList: "typeList",
-      isLoading: "isLoading"
+      typeList: 'typeList',
+      isLoading: 'isLoading'
     })
   },
-  created() {
-    console.log("Types created");
-    this.load();
+  created () {
+    console.log('Types created')
+    this.load()
   },
   methods: {
-    ...mapActions(["loadTypes"]),
-    load() {
+    ...mapActions(['loadTypes']),
+    load () {
       this.loadTypes()
         .catch(error => {
-          console.error(error);
-          alert("An error occurred loading types list.");
+          console.error(error)
+          alert('An error occurred loading types list.')
         })
         .then(() => {
-          this.listLoaded = true;
+          this.listLoaded = true
           // this.gotoFirstType();
-        });
+        })
     },
     /*
     gotoFirstType() {
@@ -61,13 +60,13 @@ export default {
       });
     },
     */
-    selectType(data) {
-      console.log("user wants to see type :", data);
+    selectType (data) {
+      console.log('user wants to see type :', data)
       this.$navigateTo(TypeDetails, {
-        frame: "mainContent",
+        frame: 'mainContent',
         props: { data }
-      });
+      })
     }
   }
-};
+}
 </script>

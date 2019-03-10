@@ -1,26 +1,38 @@
 <template>
   <ActionBar>
-      <GridLayout columns="auto, *, auto, 15">
-          <Icon name="menu-white" @tap.native="toggleMenu" col="0"/>
-          <Label class="store" text="Green La Beaujoire (44)" col="1" />
-          <Icon name="shopping-cart-white" :number="3" col="2" />
-          <Label col="3" />
-      </GridLayout>
+    <GridLayout columns="auto, *, auto, 15">
+      <Icon
+        name="menu-white"
+        col="0"
+        @tap.native="toggleMenu"
+      />
+      <Label
+        class="store"
+        text="Green La Beaujoire (44)"
+        col="1"
+      />
+      <Icon
+        name="shopping-cart-white"
+        :number="3"
+        col="2"
+      />
+      <Label col="3" />
+    </GridLayout>
   </ActionBar>
 </template>
 
 <script>
-import Icon from "@/components/Icon";
-import { mapActions } from "vuex";
+import Icon from '@/components/Icon'
+import { mapActions } from 'vuex'
 
 export default {
   components: {
     Icon
   },
   methods: {
-    ...mapActions(["toggleMenu"])
+    ...mapActions(['toggleMenu'])
   }
-};
+}
 </script>
 
 <style lang="scss">
@@ -38,4 +50,3 @@ ActionBar {
   font-weight: bold;
 }
 </style>
-

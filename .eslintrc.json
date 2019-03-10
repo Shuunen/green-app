@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "plugin:vue/recommended",
+    "standard"
+  ],
+  "globals": {
+    "TNS_ENV": "readonly"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "vue/attribute-hyphenation": "off"
+  }
+}
