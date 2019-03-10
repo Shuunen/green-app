@@ -1,9 +1,9 @@
 <template>
-  <StackLayout class="type" :class="[ data.type ]">
-     <DockLayout class="type-shadow p10" stretchLastChild="false">
-      <Label class="type-name" :text="data.name" dock="left" />
-      <Icon class="type-arrow" name="circled-right-2-white" size="small" dock="right" />
-    </DockLayout>
+  <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
+    <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p10">
+      <Label class="type-name" :text="data.name" />
+      <Icon class="type-arrow" v-if="!hero" name="circled-right-2-white" size="small" alignSelf="flex-end" />
+    </FlexboxLayout>
   </StackLayout>
 </template>
 
@@ -16,7 +16,9 @@ export default {
     data: {
       type: Object,
       required: true
-    }
+    },
+    large: Boolean,
+    hero: Boolean
   },
   components: {
     Icon
@@ -31,6 +33,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  height: 120;
   margin: 10 10 0 10;
   &.formula {
     background-image: url("~/assets/images/banners/formula.jpg");
@@ -47,18 +50,24 @@ export default {
   &.wrap {
     background-image: url("~/assets/images/banners/wrap.jpg");
   }
+  &.large {
+    height: 180;
+  }
+  &.hero {
+    margin: 0;
+    .type-name {
+      text-align: center;
+    }
+  }
 }
 .type-shadow {
   background-color: rgba(0, 0, 0, 0.5);
-  height: 120;
+  height: 100%;
 }
 .type-name {
   color: $color-primary-alt;
   font-size: $font-size-h1;
   margin-left: 2;
-}
-.type-arrow {
-  vertical-align: bottom;
 }
 </style>
 

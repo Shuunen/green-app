@@ -1,6 +1,6 @@
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
-import Landing from './pages/Landing'
+import Logged from '@/pages/Logged'
 import store from './store'
 
 if (TNS_ENV !== 'production') {
@@ -17,12 +17,12 @@ Vue.registerElement('RadSideDrawer', () => require('nativescript-ui-sidedrawer')
 // import ApiService from './services/ApiService'
 // import Login from './components/Login'
 // const apiService = new ApiService()
-// const loginFirst = h => h('frame', [h(apiService.isLoggedIn() ? Landing : Login)])
+// const loginFirst = h => h('frame', [h(apiService.isLoggedIn() ? Logged : Login)])
 
-// Solution 2 : just shows Landing as a guest user
-const guestLanding = h => h('frame', [h(Landing)])
+// Solution 2 : simulate connected user
+const userLogged = h => h('frame', [h(Logged)])
 
 new Vue({
-  render: guestLanding,
+  render: userLogged,
   store
 }).$start()
