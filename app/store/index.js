@@ -11,6 +11,8 @@ const debug = TNS_ENV !== 'production'
 
 const store = new Vuex.Store({
   state: {
+    locale: 'en-US',
+    currency: 'USD',
     toggleMenu: false,
     isLoggedIn: false,
     productList: [],

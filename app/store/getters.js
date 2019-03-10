@@ -19,3 +19,11 @@ export const isLoggedIn = state => {
 export const toggleMenu = state => {
   return state.toggleMenu
 }
+
+export const locale = state => {
+  return state.locale
+}
+
+export const currency = state => {
+  return state.currency
+}
