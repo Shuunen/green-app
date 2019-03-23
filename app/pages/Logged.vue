@@ -7,7 +7,7 @@
         id="mainContent"
         ~mainContent
       >
-        <Types />
+        <Home />
       </Frame>
     </RadSideDrawer>
   </Page>
@@ -16,24 +16,21 @@
 <script>
 import Header from '@/components/Header'
 import Menu from '@/components/Menu'
-import Types from '@/pages/Types'
-import { mapGetters, mapActions } from 'vuex'
+import Home from '@/pages/Home'
+import { mapGetters } from 'vuex'
 
 export default {
   components: {
     Header,
     Menu,
-    Types
+    Home
   },
   data () {
-    return {
-      listLoaded: false
-    }
+    return {}
   },
   computed: {
     ...mapGetters({
-      toggleMenu: 'toggleMenu',
-      isLoading: 'isLoading'
+      toggleMenu: 'toggleMenu'
     })
   },
   watch: {
@@ -43,18 +40,6 @@ export default {
   },
   created () {
     console.log('Landing created')
-    this.load()
-  },
-  methods: {
-    ...mapActions(['loadProducts']),
-    load () {
-      this.loadProducts()
-        .catch(error => {
-          console.error(error)
-          alert('An error occurred loading products list.')
-        })
-        .then(() => (this.listLoaded = true))
-    }
   }
 }
 </script>

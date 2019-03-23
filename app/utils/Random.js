@@ -3,30 +3,10 @@ import { pickOne, getRandomNumber, getRandomString, copy } from 'shuutils'
 
 const data = {
   id: 1,
-  words: {
-    starter: ['homemade', '', 'fresh', '', 'premium', '', 'large', '', 'small', 'spicy'],
-    joiner: ['with', '', 'of', '', 'mix', '', 'mixed with', '', 'made of', '', 'à la']
-  },
   types: [
     {
       type: 'formula',
       name: 'Formulas'
-    },
-    {
-      type: 'smoothie',
-      name: 'Smoothies'
-    },
-    {
-      type: 'dessert',
-      name: 'Desserts'
-    },
-    {
-      type: 'soup',
-      name: 'Soups'
-    },
-    {
-      type: 'wrap',
-      name: 'Wraps'
     }
   ]
 }

@@ -1,17 +1,21 @@
 import Vue from 'nativescript-vue'
 
 import * as types from './mutation-types'
-import Types from '@/pages/Types'
+import Home from '@/pages/Home'
 
 const mutations = {
-  // products
-  [types.SET_PRODUCTS] (state, productList) {
-    console.log('SET_PRODUCTS', productList)
-    state.productList = productList
+  // data
+  [types.SET_PRODUCTS] (state, list) {
+    console.log('SET_PRODUCTS', list)
+    state.productList = list
   },
   [types.SET_TYPES] (state, typeList) {
     console.log('SET_TYPES', typeList)
     state.typeList = typeList
+  },
+  [types.SET_FORMULAS] (state, list) {
+    console.log('SET_FORMULAS', list)
+    state.formulas = list
   },
   // auth
   [types.DO_LOGIN] (state) {
@@ -39,7 +43,7 @@ const mutations = {
   [types.GO_HOME] (state) {
     console.log('GO_HOME')
     state.toggleMenu = false
-    Vue.prototype.$navigateTo(Types, {
+    Vue.prototype.$navigateTo(Home, {
       frame: 'mainContent'
     })
   }

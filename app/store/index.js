@@ -17,6 +17,7 @@ const store = new Vuex.Store({
     isLoggedIn: false,
     productList: [],
     typeList: [],
+    formulas: [],
     // array of ongoing tasks. We keep track of the tasks to show/hide the
     // activity indicator in the page.
     processingTasks: []

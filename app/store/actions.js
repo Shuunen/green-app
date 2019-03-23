@@ -3,6 +3,26 @@ import ProductsService from '@/services/ProductsService'
 
 const productsService = new ProductsService()
 
+export const loadFormulas = ({ commit }) => {
+  const task = 'action loadFormulas'
+  console.log(task)
+  return new Promise((resolve, reject) => {
+    commit(types.ADD_PROCESSING_TASK, task)
+    productsService
+      .loadFormulas()
+      .then(list => {
+        commit(types.SET_FORMULAS, list)
+        commit(types.REMOVE_PROCESSING_TASK, task)
+        resolve()
+      })
+      .catch(error => {
+        console.error(`Failed at loading formulas from api : ${error}`)
+        commit(types.REMOVE_PROCESSING_TASK, task)
+        reject(error)
+      })
+  })
+}
+
 export const loadProducts = ({ commit }) => {
   const task = 'action loadProducts'
   console.log(task)

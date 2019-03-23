@@ -1,9 +1,32 @@
 import * as http from 'tns-core-modules/http'
 import ApiService from '@/services/ApiService'
 import Random from '@/utils/Random'
+import * as Mocks from '@/utils/Mocks'
+
 const doMock = true
 
 export default class ProductsService extends ApiService {
+  loadFormulas () {
+    let source = null
+    if (doMock) {
+      const list = Mocks.formulas
+      console.info(`Returning ${list.length} mocked formulas`)
+      source = Promise.resolve(list)
+    } else {
+      console.error('API need to be done')
+      source = Promise.resolve([])
+    }
+    return source.then(data => {
+      return data.map(formula => {
+        return {
+          title: formula.title,
+          price: formula.price,
+          picks: formula.picks
+        }
+      })
+    })
+  }
+
   loadProducts () {
     let source = null
     if (doMock) {

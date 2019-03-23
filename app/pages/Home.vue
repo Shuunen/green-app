@@ -35,7 +35,7 @@ export default {
     })
   },
   created () {
-    console.log('Types created')
+    console.log('Home created')
     this.load()
   },
   methods: {

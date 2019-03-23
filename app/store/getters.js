@@ -1,11 +1,10 @@
 
-export const productList = state => {
-  return state.productList
-}
-
-export const typeList = state => {
-  return state.typeList
-}
+/*
+  Data
+*/
+export const productList = state => state.productList
+export const typeList = state => state.typeList
+export const formulas = state => state.formulas
 
 export const isProcessing = state => {
   // while there is at least one task processing, return true
