@@ -16,7 +16,8 @@ export const formulas = [
         pick: 1,
         from: 'sauces'
       }
-    ]
+    ],
+    icon: 'formulas.jpg'
   },
   {
     title: 'Green Hot',
@@ -40,7 +41,8 @@ export const formulas = [
         from: 'wraps',
         or: 'soups'
       }
-    ]
+    ],
+    icon: 'formulas.jpg'
   },
   {
     title: 'Green Life',
@@ -64,7 +66,8 @@ export const formulas = [
         from: 'drinks',
         or: 'deserts'
       }
-    ]
+    ],
+    icon: 'formulas.jpg'
   },
   {
     title: 'Green Winter',
@@ -93,7 +96,8 @@ export const formulas = [
         from: 'drinks',
         or: 'deserts'
       }
-    ]
+    ],
+    icon: 'formulas.jpg'
   },
   {
     title: 'Green Love',
@@ -120,7 +124,8 @@ export const formulas = [
         pick: 1,
         from: 'deserts'
       }
-    ]
+    ],
+    icon: 'formulas.jpg'
   }
 ]
 
@@ -290,77 +295,77 @@ export const sauces = [
   {
     title: 'Jus de citron seul',
     value: 'sauce-jus-citron',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Française',
     content: 'vinaigrette classique',
     value: 'sauce-francaise',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Allégée',
     content: 'vinaigrette allégée',
     value: 'sauce-allegee',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Caesar',
     content: 'crème, parmesan',
     value: 'sauce-caesar',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Bulgare',
     content: 'vinaigrette, fromage blanc, citron',
     value: 'sauce-bulgare',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Provencale',
     content: 'vinaigrette, herbes de provence',
     value: 'sauce-provencale',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Balsamique',
     content: 'huile d’olive, vinaigre balsamique',
     value: 'sauce-balsamique',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Marinade',
     content: 'huile d’olive, citron',
     value: 'sauce-marinade',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Andalouse',
     content: 'vinaigrette, tomates, poivrons, épices',
     value: 'sauce-andalouse',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Asia',
     content: 'huile de pépin de raisin, sauce soja sucrée, graine de lin, paprika',
     value: 'sauce-asia',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Miel moutarde',
     content: 'miel, moutarde',
     value: 'sauce-miel-moutarde',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Harissa',
     value: 'sauce-harissa',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   },
   {
     title: 'Curry',
     value: 'sauce-curry',
-    icon: 'sauces'
+    icon: 'sauces.jpg'
   }
 ]
 
@@ -368,12 +373,12 @@ export const soups = [
   {
     title: 'Velouté De Brocoli',
     value: 'soup-brocoli',
-    icon: 'soups'
+    icon: 'soups.jpg'
   },
   {
     title: 'Soupe De Potiron',
     value: 'soup-potiron',
-    icon: 'soups'
+    icon: 'soups.jpg'
   }
 ]
 
@@ -381,7 +386,7 @@ export const wraps = [
   {
     title: 'wrap du jour',
     value: 'wrap-jour',
-    icon: 'wraps'
+    icon: 'wraps.jpg'
   }
 ]
 

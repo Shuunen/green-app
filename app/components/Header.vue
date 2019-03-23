@@ -7,7 +7,7 @@
         @tap.native="toggleMenu"
       />
       <Label
-        class="store"
+        class="store fz20"
         text="Green La Beaujoire (44)"
         col="1"
       />
@@ -46,7 +46,6 @@ ActionBar {
 .store {
   vertical-align: center;
   text-align: center;
-  font-size: $font-size-h2;
   font-weight: bold;
 }
 </style>

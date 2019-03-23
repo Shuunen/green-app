@@ -12,4 +12,10 @@ export default class Formatter {
     })
     return formatter.format(num)
   }
+  static singular (str) {
+    if (str.substr(-1) === 's') {
+      return str.substr(0, str.length - 1)
+    }
+    return str
+  }
 }

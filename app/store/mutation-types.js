@@ -1,6 +1,6 @@
 // data mutations
 export const SET_PRODUCTS = 'SET_PRODUCTS'
-export const SET_TYPES = 'SET_TYPES'
+export const SET_TILES = 'SET_TILES'
 export const SET_FORMULAS = 'SET_FORMULAS'
 
 // auth mutations

@@ -2,12 +2,12 @@
   <Page actionBarHidden="true">
     <ScrollView orientation="vertical">
       <StackLayout class="pb10">
-        <Type
-          v-for="(data, index) in typeList"
+        <Tile
+          v-for="(data, index) in tiles"
           :key="data.type"
           :data="data"
           :large="index === 0"
-          @tap.native="selectType(data)"
+          @tap.native="goto(data)"
         />
       </StackLayout>
     </ScrollView>
@@ -15,13 +15,14 @@
 </template>
 
 <script>
-import Type from '@/components/Type'
+import Tile from '@/components/Tile'
 import { mapGetters, mapActions } from 'vuex'
-import TypeDetails from '@/pages/TypeDetails'
+import Formulas from './Formulas.vue'
+// import TileDetails from '@/pages/TileDetails'
 
 export default {
   components: {
-    Type
+    Tile
   },
   data () {
     return {
@@ -30,7 +31,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      typeList: 'typeList',
+      tiles: 'tiles',
       isLoading: 'isLoading'
     })
   },
@@ -39,33 +40,38 @@ export default {
     this.load()
   },
   methods: {
-    ...mapActions(['loadTypes']),
+    ...mapActions(['loadTiles']),
     load () {
-      this.loadTypes()
+      this.loadTiles()
         .catch(error => {
           console.error(error)
-          alert('An error occurred loading types list.')
+          alert('An error occurred loading tiles.')
         })
         .then(() => {
           this.listLoaded = true
-          // this.gotoFirstType();
+          // this.gotoFirst()
         })
     },
-    /*
-    gotoFirstType() {
-      setTimeout(() => console.log("\n\nPLEASE REMOVE ME ^^ "), 1000);
-      this.$navigateTo(TypeDetails, {
-        frame: "mainContent",
-        props: { data: this.typeList[0] }
-      });
-    },
-    */
-    selectType (data) {
-      console.log('user wants to see type :', data)
-      this.$navigateTo(TypeDetails, {
+    gotoFirst () {
+      setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
+      this.goto(this.tiles[0])
+      /*
+      this.$navigateTo(Formulas, {
         frame: 'mainContent',
-        props: { data }
+        props: { data: this.tiles[0] }
       })
+      */
+    },
+    goto (data) {
+      console.log('user wants to go to :', data.type)
+      if (data.type === 'formula') {
+        this.$navigateTo(Formulas, {
+          frame: 'mainContent',
+          props: { data }
+        })
+      } else {
+        console.error(`type "${data.type}" not handled yet`)
+      }
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <StackLayout backgroundColor="#ffffff">
     <Label
-      class="drawer-header"
+      class="drawer-header fz25"
       text="Benjamin"
     />
     <Label
@@ -44,12 +44,10 @@ export default {
   margin-bottom: 16;
   background-color: $color-primary;
   color: $color-primary-alt;
-  font-size: $font-size-h1;
 }
 
 .drawer-item {
   padding: 8 16;
   color: #333333;
-  font-size: $font-size-h3;
 }
 </style>

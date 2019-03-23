@@ -3,7 +3,7 @@
   Data
 */
 export const productList = state => state.productList
-export const typeList = state => state.typeList
+export const tiles = state => state.tiles
 export const formulas = state => state.formulas
 
 export const isProcessing = state => {

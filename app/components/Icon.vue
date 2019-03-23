@@ -2,7 +2,7 @@
   <Image
     class="icon"
     :class="[size]"
-    :src="'~/assets/images/icons/'+ name +'.png'"
+    :src="src"
   />
 </template>
 
@@ -20,6 +20,12 @@ export default {
     number: {
       type: Number,
       default: 0
+    }
+  },
+  computed: {
+    src: function () {
+      const file = this.name + (this.name.indexOf('.') > -1 ? '' : '.png')
+      return '~/assets/images/icons/' + file
     }
   }
 }
@@ -41,6 +47,10 @@ export default {
   &.210x80 {
     height: 80;
     width: 210;
+  }
+  &.100 {
+    height: 100;
+    width: 100;
   }
 }
 </style>

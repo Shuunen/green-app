@@ -21,7 +21,8 @@ export default class ProductsService extends ApiService {
         return {
           title: formula.title,
           price: formula.price,
-          picks: formula.picks
+          picks: formula.picks,
+          icon: formula.icon
         }
       })
     })
@@ -53,7 +54,7 @@ export default class ProductsService extends ApiService {
     })
   }
 
-  loadTypes () {
+  loadTiles () {
     let source = null
     if (doMock) {
       const typeList = Random.getTypes()

@@ -9,7 +9,7 @@
       class="type-shadow p10"
     >
       <Label
-        class="type-name"
+        class="type-name fz30"
         :text="data.name"
       />
       <Icon
@@ -27,7 +27,7 @@
 import Icon from '@/components/Icon'
 
 export default {
-  name: 'Type',
+  name: 'Tile',
   components: {
     Icon
   },
@@ -82,7 +82,6 @@ export default {
 }
 .type-name {
   color: $color-primary-alt;
-  font-size: $font-size-h1;
   margin-left: 2;
 }
 </style>
