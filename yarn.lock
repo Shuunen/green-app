@@ -5021,10 +5021,10 @@ nanomatch@^1.2.9:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
-nativescript-dev-webpack@0.20.3:
-  version "0.20.3"
-  resolved "https://registry.yarnpkg.com/nativescript-dev-webpack/-/nativescript-dev-webpack-0.20.3.tgz#62ab41cc5308be7ca4496db92a6fe6ae2af6fa0a"
-  integrity sha512-j3MsSWTyYteMBmljW4kFAGwvAcE+46QA3VH18kA8vXhmwGne/J8a5CDeI0a5jp+0ecDfm74oyRjLZur6j7AtKw==
+nativescript-dev-webpack@0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/nativescript-dev-webpack/-/nativescript-dev-webpack-0.21.0.tgz#ef09aa0fc32b4529ef2d8653fce78ab5595c9f55"
+  integrity sha512-ZUgR588gJplXb9Yt2obMRLs6oPmEqn3xTYDbyqo50k98/Mg1e+zLpSa453HFayDrN/0gPuQlE3UDvtH2qWfXRQ==
   dependencies:
     "@angular-devkit/core" "~7.2.0"
     clean-webpack-plugin "~1.0.0"
