@@ -48,6 +48,6 @@ export default {
 
 .drawer-item {
   padding: 8 16;
-  color: #333333;
+  color: $color-black;
 }
 </style>

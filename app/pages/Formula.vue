@@ -2,18 +2,19 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column">
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout>
+        <StackLayout class="p10">
           <Tile
             :data="{
               type: 'formula',
               name: data.title
             }"
             :hero="true"
+            class="h60"
           />
-          <Button
+          <Pick
             v-for="(pick, index) in data.picks"
             :key="index"
-            :text="pick.pick + ' from ' + pick.from"
+            :data="pick"
           />
         </StackLayout>
       </ScrollView>
@@ -29,12 +30,14 @@
 
 <script>
 import Tile from '@/components/Tile'
+import Pick from '@/components/Pick'
 import Formatter from '@/utils/Formatter'
 import { mapGetters } from 'vuex'
 
 export default {
   components: {
-    Tile
+    Tile,
+    Pick
   },
   props: {
     data: {
