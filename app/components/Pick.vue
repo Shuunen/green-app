@@ -1,7 +1,8 @@
 <template>
   <StackLayout class="pick mt15 p10" :class="{ valid: data.valid }">
-    <Label :text="capitalizeFirstLetter(data.from)" class="pick--title" />
+    <Label :text="titleText" class="pick--title" />
     <Label :text="descText" class="pick--desc mt5 mb5" />
+    <Label v-if="data.extraPrice" :text="extraText" class="pick--extra mb5" />
     <FlexboxLayout flexWrap="wrap">
       <Button
         v-for="item in list"
@@ -31,7 +32,9 @@ export default {
   },
   data () {
     return {
+      titleText: '',
       descText: '',
+      extraText: '',
       list: [],
       selection: []
     }
@@ -39,25 +42,54 @@ export default {
   created () {
     console.log('Pick component created')
     // console.log('need to fetch list of :' + this.data.from)
+    this.setTitle()
     this.setDesc()
+    this.setExtra()
     this.setList()
   },
   methods: {
+    formatPrice (num) {
+      return Formatter.price(num, this.locale, this.currency)
+    },
     setList () {
       const type = this.data.from
       if (this.items.hasOwnProperty(type)) {
         this.list = this.items[type]
+        const typeBonus = this.data.or
+        if (this.items.hasOwnProperty(typeBonus)) {
+          this.list = this.list.concat(this.items[typeBonus])
+        }
       } else {
         console.error(`failed to find items of type "${type}"`)
         console.log(`in items[${type}]`, this.items[type])
       }
     },
+    setTitle () {
+      const pick = this.data
+      let str = Formatter.capitalizeFirstLetter(pick.from)
+      if (pick.or) {
+        str += ` / ${Formatter.capitalizeFirstLetter(this.data.or)}`
+      }
+      this.titleText = str
+    },
     setDesc () {
       const pick = this.data
-      this.descText = `You can pick ${pick.pick === 1 ? 'one' : pick.pick}`
+      const nb = pick.pick === 1 ? 'one' : pick.pick
+      let str = `You can pick ${nb} `
       if (pick.extraPrice) {
-        this.descText += ' or more'
+        str += 'or more'
+      } else if (pick.or) {
+        str += `${Formatter.singular(pick.from)} or ${nb} ${Formatter.singular(pick.or)}`
       }
+      this.descText = str.trim()
+    },
+    setExtra () {
+      if (!this.data.extraPrice) {
+        return
+      }
+      let str = this.formatPrice(this.data.extraPrice)
+      str += ' for each extra'
+      this.extraText = str
     },
     isValid () {
       const atLeastOneItem = this.selection.length > 0
@@ -115,6 +147,10 @@ export default {
       color: $color-primary-alt;
       background-color: $color-primary;
     }
+  }
+
+  &--extra {
+    font-size: 12;
   }
 }
 </style>

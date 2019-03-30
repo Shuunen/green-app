@@ -36,11 +36,6 @@ export default {
     Tile,
     FormulaTile
   },
-  data () {
-    return {
-      listLoaded: false
-    }
-  },
   computed: {
     ...mapGetters({
       formulas: 'formulas',
@@ -59,14 +54,7 @@ export default {
           console.error(error)
           alert('An error occurred loading formulas.')
         })
-        .then(() => {
-          this.listLoaded = true
-          this.gotoFirst()
-        })
-    },
-    gotoFirst () {
-      setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
-      this.goto(this.formulas[0])
+        // .then(() => this.goto(this.formulas[1]))
     },
     goto (data) {
       console.log('user wants to go to :', data)

@@ -24,11 +24,6 @@ export default {
   components: {
     Tile
   },
-  data () {
-    return {
-      listLoaded: false
-    }
-  },
   computed: {
     ...mapGetters({
       tiles: 'tiles',
@@ -47,14 +42,7 @@ export default {
           console.error(error)
           alert('An error occurred loading tiles.')
         })
-        .then(() => {
-          this.listLoaded = true
-          this.gotoFirst()
-        })
-    },
-    gotoFirst () {
-      setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
-      this.goto(this.tiles[0])
+        // .then(() => this.goto(this.tiles[0]))
     },
     goto (data) {
       console.log('user wants to go to :', data.type)
