@@ -4,11 +4,6 @@
     alignItems="center"
     flexDirection="column"
   >
-    <Icon
-      v-if="data.icon"
-      :name="data.icon"
-      size="100"
-    />
     <Label
       class="title mb10 fz20"
       :text="data.title"
@@ -27,15 +22,11 @@
 </template>
 
 <script>
-import Icon from '@/components/Icon'
 import Formatter from '@/utils/Formatter'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'FormulaTile',
-  components: {
-    Icon
-  },
   props: {
     data: {
       type: Object,
@@ -62,6 +53,9 @@ export default {
           lines.push(`+ ${Formatter.singular(pick.from)}`)
         }
       })
+      while (lines.length < 3) {
+        lines.push(' ')
+      }
       return lines
     }
   },
@@ -81,9 +75,10 @@ export default {
 @import "../assets/styles";
 
 .formula-tile {
-  border-color: $color-primary;
-  border-width: 2;
+  border-color: $color-primary-alt;
+  border-width: 1;
   .title {
+    color: $color-primary-alt;
     font-weight: bold;
   }
 }

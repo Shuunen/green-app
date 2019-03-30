@@ -3,10 +3,7 @@
     <Header />
     <RadSideDrawer ref="drawer">
       <Menu ~drawerContent />
-      <Frame
-        id="mainContent"
-        ~mainContent
-      >
+      <Frame id="mainContent" ~mainContent>
         <Home />
       </Frame>
     </RadSideDrawer>

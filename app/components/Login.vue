@@ -117,7 +117,7 @@ export default {
   }
 
   TextField {
-    color: black;
+    color: $color-black;
     placeholder-color: #ACA6A7;
     margin-bottom: 10;
 

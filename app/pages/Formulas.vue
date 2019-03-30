@@ -1,7 +1,7 @@
 <template>
   <Page actionBarHidden="true">
     <ScrollView orientation="vertical">
-      <StackLayout class="formulas pb10">
+      <StackLayout class="formulas pb10 bg">
         <Tile
           :data="{
             type: 'formula',

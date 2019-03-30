@@ -12,8 +12,7 @@
         col="1"
       />
       <Icon
-        name="shopping-cart-white"
-        :number="3"
+        name="location-white"
         col="2"
       />
       <Label col="3" />
@@ -40,7 +39,7 @@ export default {
 
 ActionBar {
   background-color: $color-primary;
-  color: $color-primary-alt;
+  color: $color-white;
 }
 
 .store {

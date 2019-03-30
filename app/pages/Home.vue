@@ -1,27 +1,32 @@
 <template>
   <Page actionBarHidden="true">
-    <ScrollView orientation="vertical">
-      <StackLayout class="pb10">
-        <Tile
-          v-for="(data, index) in tiles"
-          :key="data.type"
-          :data="data"
-          :large="index === 0"
-          @tap.native="goto(data)"
-        />
-      </StackLayout>
-    </ScrollView>
+    <FlexboxLayout flexDirection="column" class="home pb10 bg">
+      <Icon
+        flexGrow="1"
+        class="logo m20"
+        name="logo-green-alt"
+        size="h100"
+      />
+      <Tile
+        v-for="tile in tiles"
+        :key="tile.type"
+        :data="tile"
+        :large="true"
+        @tap.native="goto(tile)"
+      />
+    </FlexboxLayout>
   </Page>
 </template>
 
 <script>
+import Icon from '@/components/Icon'
 import Tile from '@/components/Tile'
 import { mapGetters, mapActions } from 'vuex'
 import Formulas from './Formulas.vue'
-// import TileDetails from '@/pages/TileDetails'
 
 export default {
   components: {
+    Icon,
     Tile
   },
   computed: {

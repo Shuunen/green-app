@@ -17,7 +17,7 @@ export const formulas = [
         from: 'sauces'
       }
     ],
-    icon: 'formulas.jpg'
+    icon: 'formulas'
   },
   {
     title: 'Green Hot',
@@ -42,7 +42,7 @@ export const formulas = [
         or: 'soups'
       }
     ],
-    icon: 'formulas.jpg'
+    icon: 'formulas'
   },
   {
     title: 'Green Life',
@@ -67,7 +67,7 @@ export const formulas = [
         or: 'deserts'
       }
     ],
-    icon: 'formulas.jpg'
+    icon: 'formulas'
   },
   {
     title: 'Green Winter',
@@ -97,7 +97,7 @@ export const formulas = [
         or: 'deserts'
       }
     ],
-    icon: 'formulas.jpg'
+    icon: 'formulas'
   },
   {
     title: 'Green Love',
@@ -125,7 +125,7 @@ export const formulas = [
         from: 'deserts'
       }
     ],
-    icon: 'formulas.jpg'
+    icon: 'formulas'
   }
 ]
 

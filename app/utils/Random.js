@@ -6,7 +6,7 @@ const data = {
   types: [
     {
       type: 'formula',
-      name: 'Formulas'
+      name: 'Place an order'
     }
   ]
 }

@@ -1,6 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column">
+    <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
           <Tile
@@ -109,9 +109,11 @@ export default {
 @import "../assets/styles";
 
 .formula--btn {
+  color: $color-white;
+  background-color: $color-disabled;
+
   &.valid {
-    opacity: 1;
-    color: $color-primary-alt;
+    color: $color-white;
     background-color: $color-primary;
   }
 }

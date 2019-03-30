@@ -1,8 +1,8 @@
 <template>
-  <StackLayout class="pick mt15 p10" :class="{ valid: data.valid }">
+  <StackLayout class="pick mt10 p10" :class="{ valid: data.valid }">
     <Label :text="titleText" class="pick--title" />
-    <Label :text="descText" class="pick--desc mt5 mb5" />
-    <Label v-if="data.extraPrice" :text="extraText" class="pick--extra mb5" />
+    <Label :text="descText" class="pick--desc ml2 mt5 mb5" />
+    <Label v-if="data.extraPrice" :text="extraText" class="pick--extra ml2 mb5" />
     <FlexboxLayout flexWrap="wrap">
       <Button
         v-for="item in list"
@@ -127,26 +127,19 @@ export default {
 @import "../assets/styles";
 
 .pick {
-  border-width: 2;
-  border-color: $color-grey-alt;
+  border-width: 1;
+  border-color: $color-disabled;
 
   &.valid {
-    border-color: $color-primary;
+    border-color: $color-primary-alt;
     background-image: url('~/assets/images/icons/checkmark.png');
     background-position: right top;
     background-repeat: no-repeat;
   }
 
   &--title {
+    color: $color-primary-alt;
     font-size: 20;
-  }
-
-  &--button {
-    color: $color-grey;
-    &.selected {
-      color: $color-primary-alt;
-      background-color: $color-primary;
-    }
   }
 
   &--extra {

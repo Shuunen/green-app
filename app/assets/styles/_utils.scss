@@ -1,3 +1,16 @@
 .center {
   text-align: center;
 }
+
+.bg {
+  background-color: $color-white;
+}
+
+Button {
+  color: $color-grey;
+  background-color: $color-white;
+  &.selected {
+    color: $color-white;
+    background-color: $color-primary;
+  }
+}

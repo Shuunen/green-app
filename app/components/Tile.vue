@@ -81,7 +81,7 @@ export default {
   height: 100%;
 }
 .type-name {
-  color: $color-primary-alt;
+  color: $color-white;
   margin-left: 2;
 }
 </style>
