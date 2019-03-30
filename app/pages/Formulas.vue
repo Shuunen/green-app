@@ -17,6 +17,7 @@
             :flexGrow="index < formulas.length - 1 ? 1 : 0"
             :data="data"
             @tap.native="goto(data)"
+            @tap="goto(data)"
           />
         </FlexboxLayout>
       </StackLayout>
@@ -60,10 +61,10 @@ export default {
         })
         .then(() => {
           this.listLoaded = true
-          this.gotoFirstFormula()
+          this.gotoFirst()
         })
     },
-    gotoFirstFormula () {
+    gotoFirst () {
       setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
       this.goto(this.formulas[0])
     },

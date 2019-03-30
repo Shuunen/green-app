@@ -71,6 +71,7 @@ export default {
     },
     select () {
       console.log('user selected :', this.data.title)
+      this.$emit('tap')
     }
   }
 }

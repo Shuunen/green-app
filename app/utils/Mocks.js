@@ -9,8 +9,8 @@ export const formulas = [
       },
       {
         pick: 3,
-        orMore: true,
-        from: 'ingredients'
+        from: 'ingredients',
+        extraPrice: 1
       },
       {
         pick: 1,
@@ -29,8 +29,8 @@ export const formulas = [
       },
       {
         pick: 2,
-        orMore: true,
-        from: 'ingredients'
+        from: 'ingredients',
+        extraPrice: 1
       },
       {
         pick: 1,
@@ -54,8 +54,8 @@ export const formulas = [
       },
       {
         pick: 3,
-        orMore: true,
-        from: 'ingredients'
+        from: 'ingredients',
+        extraPrice: 1
       },
       {
         pick: 1,
@@ -79,8 +79,8 @@ export const formulas = [
       },
       {
         pick: 2,
-        orMore: true,
-        from: 'ingredients'
+        from: 'ingredients',
+        extraPrice: 1
       },
       {
         pick: 1,
@@ -109,8 +109,8 @@ export const formulas = [
       },
       {
         pick: 3,
-        orMore: true,
-        from: 'ingredients'
+        from: 'ingredients',
+        extraPrice: 1
       },
       {
         pick: 1,

@@ -16,15 +16,17 @@
             :key="index"
             :data="pick"
             :items="items"
+            @change="onPickChange"
           />
         </StackLayout>
       </ScrollView>
       <Button
         class="formula--btn"
         flexShrink="0"
-        :class="{ enabled: total > 0 }"
+        :class="{ valid }"
         :text="orderText"
-        @tap="select()"
+        :isEnabled="valid"
+        @tap="order()"
       />
     </FlexboxLayout>
   </Page>
@@ -49,6 +51,8 @@ export default {
   },
   data () {
     return {
+      valid: false,
+      total: 0,
       picks: []
     }
   },
@@ -57,11 +61,8 @@ export default {
       items: 'items',
       isLoading: 'isLoading'
     }),
-    total: function () {
-      return 0
-    },
     orderText: function () {
-      if (this.total) {
+      if (this.valid) {
         return `Order this formula for ${this.formatPrice(this.total)}`
       }
       return 'Complete selection to order'
@@ -81,8 +82,24 @@ export default {
         })
         .then(() => (this.picks = this.data.picks))
     },
+    onPickChange () {
+      this.updateTotal()
+      this.updateValidity()
+    },
     formatPrice (num) {
       return Formatter.price(num, this.locale, this.currency)
+    },
+    updateTotal () {
+      this.total = this.picks.reduce((sum, val) => (sum += (val.price || 0)), 0)
+      this.total += this.data.price
+      console.log('total :', this.total)
+    },
+    updateValidity () {
+      this.valid = !this.picks.some(p => !p.valid)
+      console.log('formula valid ? ' + this.valid.toString())
+    },
+    order () {
+      console.log('user wants to order selection')
     }
   }
 }
@@ -92,6 +109,10 @@ export default {
 @import "../assets/styles";
 
 .formula--btn {
-  opacity: 0.5;
+  &.valid {
+    opacity: 1;
+    color: $color-primary-alt;
+    background-color: $color-primary;
+  }
 }
 </style>
