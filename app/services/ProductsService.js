@@ -28,30 +28,19 @@ export default class ProductsService extends ApiService {
     })
   }
 
-  loadProducts () {
+  loadItems () {
     let source = null
     if (doMock) {
-      const productList = Random.getProducts()
-      console.info(`Returning ${productList.length} mocked products`)
-      source = Promise.resolve(productList)
+      const list = Mocks.items
+      console.info(`Returning ${list.length} mocked items`)
+      source = Promise.resolve(list)
     } else {
       const url = this.baseUrl + '/products'
       console.log('using url :', url)
       /* headers: this.getHeaders() */
       source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
     }
-    return source.then(data => {
-      console.info(data)
-      console.info(`Received ${data.length} products from the api`)
-      return data.map(product => {
-        return {
-          id: product.id,
-          name: product.name,
-          price: product.price,
-          type: product.type
-        }
-      })
-    })
+    return source
   }
 
   loadTiles () {

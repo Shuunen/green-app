@@ -15,7 +15,7 @@ const store = new Vuex.Store({
     currency: 'USD',
     toggleMenu: false,
     isLoggedIn: false,
-    productList: [],
+    items: {},
     tiles: [],
     formulas: [],
     // array of ongoing tasks. We keep track of the tasks to show/hide the

@@ -1,7 +1,7 @@
 <template>
   <StackLayout>
     <Button
-      v-for="data in productList"
+      v-for="data in items"
       :key="data.id"
       :text="data.name"
       @tap="addProduct(data)"
@@ -20,21 +20,21 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productList: 'productList',
+      items: 'items',
       isLoading: 'isLoading'
     })
   },
   created () {
-    console.log('Products created')
+    console.log('Products component created')
     this.load()
   },
   methods: {
-    ...mapActions(['loadProducts']),
+    ...mapActions(['loadItems']),
     load () {
-      this.loadProducts()
+      this.loadItems()
         .catch(error => {
           console.error(error)
-          alert('An error occurred loading products list.')
+          alert('An error occurred loading item list.')
         })
         .then(() => (this.listLoaded = true))
     },

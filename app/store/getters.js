@@ -2,7 +2,7 @@
 /*
   Data
 */
-export const productList = state => state.productList
+export const items = state => state.items
 export const tiles = state => state.tiles
 export const formulas = state => state.formulas
 

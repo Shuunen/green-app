@@ -23,20 +23,20 @@ export const loadFormulas = ({ commit }) => {
   })
 }
 
-export const loadProducts = ({ commit }) => {
-  const task = 'action loadProducts'
+export const loadItems = ({ commit }) => {
+  const task = 'action loadItems'
   console.log(task)
   return new Promise((resolve, reject) => {
     commit(types.ADD_PROCESSING_TASK, task)
     productsService
-      .loadProducts()
-      .then(productList => {
-        commit(types.SET_PRODUCTS, productList)
+      .loadItems()
+      .then(list => {
+        commit(types.SET_ITEMS, list)
         commit(types.REMOVE_PROCESSING_TASK, task)
         resolve()
       })
       .catch(error => {
-        console.error(`Failed at loading products from api : ${error}`)
+        console.error(`Failed at loading items from api : ${error}`)
         commit(types.REMOVE_PROCESSING_TASK, task)
         reject(error)
       })

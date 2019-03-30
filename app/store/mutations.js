@@ -5,9 +5,9 @@ import Home from '@/pages/Home'
 
 const mutations = {
   // data
-  [types.SET_PRODUCTS] (state, list) {
-    console.log('SET_PRODUCTS', list)
-    state.productList = list
+  [types.SET_ITEMS] (state, list) {
+    console.log('SET_ITEMS', list)
+    state.items = list
   },
   [types.SET_TILES] (state, list) {
     console.log('SET_TILES', list)

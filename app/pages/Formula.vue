@@ -12,14 +12,16 @@
             class="h60"
           />
           <Pick
-            v-for="(pick, index) in data.picks"
+            v-for="(pick, index) in picks"
             :key="index"
             :data="pick"
+            :items="items"
           />
         </StackLayout>
       </ScrollView>
       <Button
         class="formula--btn"
+        flexShrink="0"
         :class="{ enabled: total > 0 }"
         :text="orderText"
         @tap="select()"
@@ -32,7 +34,7 @@
 import Tile from '@/components/Tile'
 import Pick from '@/components/Pick'
 import Formatter from '@/utils/Formatter'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   components: {
@@ -46,10 +48,13 @@ export default {
     }
   },
   data () {
-    return {}
+    return {
+      picks: []
+    }
   },
   computed: {
     ...mapGetters({
+      items: 'items',
       isLoading: 'isLoading'
     }),
     total: function () {
@@ -64,8 +69,18 @@ export default {
   },
   created () {
     console.log('Formula page created')
+    this.load()
   },
   methods: {
+    ...mapActions(['loadItems']),
+    load () {
+      this.loadItems()
+        .catch(error => {
+          console.error(error)
+          alert('An error occurred loading item list.')
+        })
+        .then(() => (this.picks = this.data.picks))
+    },
     formatPrice (num) {
       return Formatter.price(num, this.locale, this.currency)
     }

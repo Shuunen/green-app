@@ -36,7 +36,7 @@ export default class ApiService {
 
   getJson (response) {
     return new Promise((resolve, reject) => {
-      console.info('Content: ' + response.content.toString())
+      console.info('api response : ' + response.content.toString())
       resolve(response.content.toJSON())
     })
       .catch(e => {

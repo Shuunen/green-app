@@ -51,13 +51,13 @@ export default {
   },
   computed: {
     ...mapGetters({
-      productList: 'productList',
+      items: 'items',
       isLoading: 'isLoading'
     })
   },
   mounted () {
     console.log('Type details page mounted')
-    this.typeList = this.productList.filter(p => p.type === this.data.type)
+    this.typeList = this.items.filter(p => p.type === this.data.type)
     console.log(
       `and ${this.typeList.length} products of type ${this.data.type}`
     )
