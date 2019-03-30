@@ -9,16 +9,8 @@
           }"
           :hero="true"
         />
-        <FlexboxLayout
-          flexWrap="wrap"
-          justifyContent="center"
-          class="p10"
-        >
-          <Label
-            class="pt10 pb15 fz20"
-            text="Choose your formula :"
-            width="100%"
-          />
+        <FlexboxLayout flexWrap="wrap" justifyContent="center" class="p10">
+          <Label class="pt10 pb15 fz20" text="Choose your formula :" width="100%" />
           <FormulaTile
             v-for="(data, index) in formulas"
             :key="data.title"
@@ -36,6 +28,7 @@
 import Tile from '@/components/Tile'
 import { mapGetters, mapActions } from 'vuex'
 import FormulaTile from '@/components/FormulaTile'
+import Formula from '@/pages/Formula'
 
 export default {
   components: {
@@ -54,7 +47,7 @@ export default {
     })
   },
   created () {
-    console.log('Home created')
+    console.log('Formulas page created')
     this.load()
   },
   methods: {
@@ -67,24 +60,19 @@ export default {
         })
         .then(() => {
           this.listLoaded = true
-          // this.gotoFirstFormula();
+          this.gotoFirstFormula()
         })
     },
-    /*
-    gotoFirstFormula() {
-      setTimeout(() => console.log("\n\nPLEASE REMOVE ME ^^ "), 1000);
-      this.$navigateTo(TileDetails, {
-        frame: "mainContent",
-        props: { data: this.tiles[0] }
-      });
+    gotoFirstFormula () {
+      setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
+      this.goto(this.formulas[0])
     },
-    */
     goto (data) {
-      console.log('user wants to go to :', data.type)
-      /* this.$navigateTo(TileDetails, {
+      console.log('user wants to go to :', data)
+      this.$navigateTo(Formula, {
         frame: 'mainContent',
         props: { data }
-      }) */
+      })
     }
   }
 }

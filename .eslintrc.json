@@ -10,6 +10,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
-    "vue/attribute-hyphenation": "off"
+    "vue/attribute-hyphenation": "off",
+    "vue/max-attributes-per-line": "off"
   }
 }

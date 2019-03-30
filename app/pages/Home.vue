@@ -49,18 +49,12 @@ export default {
         })
         .then(() => {
           this.listLoaded = true
-          // this.gotoFirst()
+          this.gotoFirst()
         })
     },
     gotoFirst () {
       setTimeout(() => console.log('\n\nPLEASE REMOVE ME ^^ '), 1000)
       this.goto(this.tiles[0])
-      /*
-      this.$navigateTo(Formulas, {
-        frame: 'mainContent',
-        props: { data: this.tiles[0] }
-      })
-      */
     },
     goto (data) {
       console.log('user wants to go to :', data.type)
