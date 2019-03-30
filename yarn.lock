@@ -5098,10 +5098,10 @@ nativescript-ui-sidedrawer@5.1.0:
   dependencies:
     nativescript-ui-core "~2.0.0"
 
-nativescript-vue-devtools@1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.1.0.tgz#dc2ce1755dd2f28cc542b25da79639ec8be6ffab"
-  integrity sha512-FbY1ty4IOVYsS+VC6vsmoVDc6UvDMJptOJXV/Y3yPy4T8rJx08w5DO0rJSL+htnz1MKUmGlSCy2j37BxGASjSw==
+nativescript-vue-devtools@1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.2.0.tgz#188111327b6a20339eea3d63af3ab2856bfd6503"
+  integrity sha512-PhE+zNbSypKut7h7ydoqGWIDBUY33y0CokU/+rA3kgJfjPZ8OnCrWcq092dUbWUtpzIiENMY/viDK0o+xgKroQ==
 
 nativescript-vue-template-compiler@2.2.0:
   version "2.2.0"
