@@ -5185,10 +5185,10 @@ nativescript-vue-devtools@1.2.0:
   resolved "https://registry.yarnpkg.com/nativescript-vue-devtools/-/nativescript-vue-devtools-1.2.0.tgz#188111327b6a20339eea3d63af3ab2856bfd6503"
   integrity sha512-PhE+zNbSypKut7h7ydoqGWIDBUY33y0CokU/+rA3kgJfjPZ8OnCrWcq092dUbWUtpzIiENMY/viDK0o+xgKroQ==
 
-nativescript-vue-template-compiler@2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/nativescript-vue-template-compiler/-/nativescript-vue-template-compiler-2.2.0.tgz#65d2365ad94a934e2c465cd07403e05b220a39ff"
-  integrity sha512-U/hfx3DCEdV+CgV/iDTKcHawgf3AktGMXxyFmZ4cUS71Wbc1/pu1sQiieRUcTxVWpgTg0oq5ncun3fvOYkuLYQ==
+nativescript-vue-template-compiler@2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/nativescript-vue-template-compiler/-/nativescript-vue-template-compiler-2.2.1.tgz#50aaa35e4e93d557e4909f0313ecf498e63c7fbd"
+  integrity sha512-HFn5RIpbr6JuYlOB8997YV/AL4O99yLFBwboItgvbL6sC5ckZPqzlO+Yl6zXkXJU1iUqgxFdZGt6wbF6XQiDQQ==
   dependencies:
     de-indent "^1.0.2"
     he "^1.1.0"
