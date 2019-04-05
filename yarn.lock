@@ -823,10 +823,10 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vue/devtools@5.0.7":
-  version "5.0.7"
-  resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.0.7.tgz#afa402592bb7bddeebf79fa3f691c9b09acbb18d"
-  integrity sha512-E4yZvRsX+v7qP0tjimph3gc8sLwk9vJ/kuATHnHkfnE1xdkMKCfEaSTfDy32MjS/rj1CfD+UWEWogdFtWhD+2Q==
+"@vue/devtools@5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.0.8.tgz#e6391afa0611ac17811335d8d5ef6662762bb93e"
+  integrity sha512-Fsr5ab78aWWTVdzJpe6YKUh/spcm55ZUw/xw+UXJpWyKoxkWD3f768c3WMrOU6t7onICh2tk06xk6joy8IXN2A==
   dependencies:
     cross-spawn "^5.1.0"
     electron "1.7.16"
