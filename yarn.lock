@@ -5193,10 +5193,10 @@ nativescript-vue-template-compiler@2.2.1:
     de-indent "^1.0.2"
     he "^1.1.0"
 
-nativescript-vue@2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/nativescript-vue/-/nativescript-vue-2.2.1.tgz#09566919ff91ec8ad0f81ff7b7d5f476e932ca87"
-  integrity sha512-uMiDMGogbQTeTMDkaMjvyzX7o505/1cRecaa7BWjoTu342gzB65n3Cl+ru9cO2rcHuevWl0hmjImevS+sf6APg==
+nativescript-vue@2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/nativescript-vue/-/nativescript-vue-2.2.2.tgz#dc67b3dbf7d6d3a3fd0668ca33a12d509eaabc08"
+  integrity sha512-ZEwPBBcwygi8NraS9CKSJuZ8zDWDeu9EjAdsvBdPMYk3w8CHJuz0NmD09ykoJtf+ATODJcYuHQVwz1kExAoEUw==
   dependencies:
     nativescript-hook "0.2.4"
 
