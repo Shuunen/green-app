@@ -5162,10 +5162,10 @@ nativescript-intl@3.0.0:
   resolved "https://registry.yarnpkg.com/nativescript-intl/-/nativescript-intl-3.0.0.tgz#82ee9be7d377172b3c4295734723037628e186a7"
   integrity sha1-gu6b59N3Fys8QpVzRyMDdijhhqc=
 
-nativescript-socket.io@0.10.0:
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/nativescript-socket.io/-/nativescript-socket.io-0.10.0.tgz#50e035a148101ed89be768bff88f8cccb52c555b"
-  integrity sha512-vJ5ObDj1W7jwpcFIi23C3TAwzyiIHrowZS/2KntJWZwW50sLy+pNxVSX5kRYoEPISNNoExpfnILST7iZeOFdQw==
+nativescript-socket.io@0.10.1:
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/nativescript-socket.io/-/nativescript-socket.io-0.10.1.tgz#c7f162c6b37ddbcb679d6d4fd3a798c6021ead9f"
+  integrity sha512-T9/4bRCDaNF3IKEYcXN0GGrreK1IO3lfKHrdmKa5USpQbLURwUEI2phoWgrvD+OPYS4u9np/TgnYQrvom6TBXQ==
 
 nativescript-theme-core@1.0.4:
   version "1.0.4"
