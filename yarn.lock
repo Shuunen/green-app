@@ -5016,7 +5016,7 @@ nativescript-socket.io@0.10.1:
   resolved "https://registry.yarnpkg.com/nativescript-socket.io/-/nativescript-socket.io-0.10.1.tgz#c7f162c6b37ddbcb679d6d4fd3a798c6021ead9f"
   integrity sha512-T9/4bRCDaNF3IKEYcXN0GGrreK1IO3lfKHrdmKa5USpQbLURwUEI2phoWgrvD+OPYS4u9np/TgnYQrvom6TBXQ==
 
-nativescript-socketio@^3.2.1:
+nativescript-socketio@3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/nativescript-socketio/-/nativescript-socketio-3.2.1.tgz#7a346eb904afc586ffbca91757aca7a8a302261e"
   integrity sha512-o8mN4UK12b267o3JfweHGn00U68qV+zn+2z4zKdZhJRwmzyIcL1RxKusTsllw8nv0yN5YSJ8OLcPLbpi/b63rQ==
@@ -5031,7 +5031,7 @@ nativescript-toast@2.0.0:
   resolved "https://registry.yarnpkg.com/nativescript-toast/-/nativescript-toast-2.0.0.tgz#ef3245d0c35d50ca10da4554d1459356a99687aa"
   integrity sha512-xqyNfFS894oGfrEVO7CjpioAQLiLNNcd77Euq9XIUTf1U3W0PsIgAJbLP7+kkVGIJxdLtlBkbcQ4wDmf2DCi1w==
 
-nativescript-toasty@^1.3.0:
+nativescript-toasty@1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/nativescript-toasty/-/nativescript-toasty-1.3.0.tgz#463d769bee47d9a778034e259ebd5f524bc1ae40"
   integrity sha512-KMC6nGh+ZKC5+F5i98oCIRx8+eNqGFTzcgTh8c8RZy7EkhDk81z6C1JjX57F/fhWhfx6eaNHymi2v4CqjT2kxA==
@@ -7144,14 +7144,14 @@ style-search@^0.1.0:
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
   integrity sha1-eVjHk+R+MuB9K1yv5cC/jhLneQI=
 
-stylelint-config-recommended-scss@3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-3.2.0.tgz#5761be65e28b58fa6a4a628b71291e83e921d10f"
-  integrity sha512-M8BFHMRf8KNz5EQPKJd8nMCGmBd2o5coDEObfHVbEkyLDgjIf1V+U5dHjaGgvhm0zToUxshxN+Gc5wpbOOew4g==
+stylelint-config-recommended-scss@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended-scss/-/stylelint-config-recommended-scss-3.3.0.tgz#190f5d08c2481656062b1166cbb5a4b170512c90"
+  integrity sha512-BvuuLYwoet8JutOP7K1a8YaiENN+0HQn390eDi0SWe1h7Uhx6O3GUQ6Ubgie9b/AmHX4Btmp+ZzVGbzriFTBcA==
   dependencies:
-    stylelint-config-recommended "^2.0.0"
+    stylelint-config-recommended "^2.2.0"
 
-stylelint-config-recommended@^2.0.0:
+stylelint-config-recommended@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-2.2.0.tgz#46ab139db4a0e7151fd5f94af155512886c96d3f"
   integrity sha512-bZ+d4RiNEfmoR74KZtCKmsABdBJr4iXRiCso+6LtMJPw5rd/KnxUWTxht7TbafrTJK1YRjNgnN0iVZaJfc3xJA==
