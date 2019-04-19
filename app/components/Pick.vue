@@ -1,8 +1,8 @@
 <template>
   <StackLayout class="pick mt10 p10" :class="{ valid: data.valid }">
-    <Label :text="titleText" class="pick--title" />
+    <Label :text="data.titleText" class="pick--title" />
     <Label :text="descText" class="pick--desc ml2 mt5 mb5" />
-    <Label v-if="data.extraPrice" :text="extraText" class="pick--extra ml2 mb5" />
+    <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml2 mb5" />
     <FlexboxLayout flexWrap="wrap">
       <Button
         v-for="item in list"
@@ -32,9 +32,7 @@ export default {
   },
   data () {
     return {
-      titleText: '',
       descText: '',
-      extraText: '',
       list: [],
       selection: []
     }
@@ -70,7 +68,7 @@ export default {
       if (pick.or) {
         str += ` / ${Formatter.capitalizeFirstLetter(this.data.or)}`
       }
-      this.titleText = str
+      this.data.titleText = str
     },
     setDesc () {
       const pick = this.data
@@ -89,7 +87,7 @@ export default {
       }
       let str = this.formatPrice(this.data.extraPrice)
       str += ' for each extra'
-      this.extraText = str
+      this.data.extraText = str
     },
     isValid () {
       const atLeastOneItem = this.selection.length > 0
@@ -117,6 +115,7 @@ export default {
       }
       this.data.valid = this.isValid()
       this.data.price = this.getPrice()
+      this.data.selection = this.selection
       this.$emit('change')
     }
   }

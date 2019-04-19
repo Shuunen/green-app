@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import Cart from '@/pages/Cart'
 import Tile from '@/components/Tile'
 import Pick from '@/components/Pick'
 import Formatter from '@/utils/Formatter'
@@ -81,6 +82,11 @@ export default {
           alert('An error occurred loading item list.')
         })
         .then(() => (this.picks = this.data.picks))
+        .then(() => {
+          setTimeout(() => {
+            this.order()
+          }, 100)
+        })
     },
     onPickChange () {
       this.updateTotal()
@@ -99,7 +105,13 @@ export default {
       console.log('formula valid ? ' + this.valid.toString())
     },
     order () {
-      console.log('user wants to order selection')
+      console.log('user wants to order')
+      const mock = '{"title":"Green Hot","price":9.9,"picks":[{"pick":1,"from":"bases","titleText":"Bases","valid":true,"price":0,"selection":["base-iceberg"]},{"pick":2,"from":"ingredients","extraPrice":1,"titleText":"Ingredients","extraText":"$1.00 for each extra","valid":true,"price":2,"selection":["ingredient-emmental","ingredient-bleu-auvergne","ingredient-mozzarella","ingredient-mais"]},{"pick":1,"from":"sauces","titleText":"Sauces","valid":true,"price":0,"selection":["sauce-provencale"]},{"pick":1,"from":"wraps","or":"soups","titleText":"Wraps / Soups","valid":true,"price":0,"selection":["soup-brocoli"]}],"icon":"formulas"}'
+      const data = JSON.parse(mock)
+      this.$navigateTo(Cart, {
+        frame: 'mainContent',
+        props: { data }
+      })
     }
   }
 }
