@@ -9,7 +9,6 @@
               name: data.title
             }"
             :hero="true"
-            class="h60"
           />
           <Pick
             v-for="(pick, index) in picks"
@@ -20,20 +19,26 @@
           />
         </StackLayout>
       </ScrollView>
-      <Button
-        class="formula--btn"
-        flexShrink="0"
-        :class="{ valid }"
-        :text="orderText"
-        :isEnabled="valid"
-        @tap="order()"
-      />
+      <StackLayout class="p5" flexShrink="0">
+        <Button
+          class="formula--btn action big"
+          :class="[valid ? 'validate' : 'disabled']"
+          :text="orderText"
+          :isEnabled="valid"
+          @tap="order()"
+        />
+        <FlexboxLayout>
+          <Button class="action" flexGrow="1" text="Change formula" @tap="modify()" />
+          <Button class="action" flexGrow="1" text="Cancel order" @tap="cancel()" />
+        </FlexboxLayout>
+      </StackLayout>
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
 import Cart from '@/pages/Cart'
+import Home from '@/pages/Home'
 import Tile from '@/components/Tile'
 import Pick from '@/components/Pick'
 import Formatter from '@/utils/Formatter'
@@ -82,11 +87,6 @@ export default {
           alert('An error occurred loading item list.')
         })
         .then(() => (this.picks = this.data.picks))
-        .then(() => {
-          setTimeout(() => {
-            this.order()
-          }, 100)
-        })
     },
     onPickChange () {
       this.updateTotal()
@@ -98,6 +98,7 @@ export default {
     updateTotal () {
       this.total = this.picks.reduce((sum, val) => (sum += (val.price || 0)), 0)
       this.total += this.data.price
+      this.data.total = this.total
       console.log('total :', this.total)
     },
     updateValidity () {
@@ -106,27 +107,19 @@ export default {
     },
     order () {
       console.log('user wants to order')
-      const mock = '{"title":"Green Hot","price":9.9,"picks":[{"pick":1,"from":"bases","titleText":"Bases","valid":true,"price":0,"selection":["base-iceberg"]},{"pick":2,"from":"ingredients","extraPrice":1,"titleText":"Ingredients","extraText":"$1.00 for each extra","valid":true,"price":2,"selection":["ingredient-emmental","ingredient-bleu-auvergne","ingredient-mozzarella","ingredient-mais"]},{"pick":1,"from":"sauces","titleText":"Sauces","valid":true,"price":0,"selection":["sauce-provencale"]},{"pick":1,"from":"wraps","or":"soups","titleText":"Wraps / Soups","valid":true,"price":0,"selection":["soup-brocoli"]}],"icon":"formulas"}'
-      const data = JSON.parse(mock)
       this.$navigateTo(Cart, {
         frame: 'mainContent',
-        props: { data }
+        props: { data: this.data }
+      })
+    },
+    modify () {
+      this.$navigateBack()
+    },
+    cancel () {
+      this.$navigateTo(Home, {
+        frame: 'mainContent'
       })
     }
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-.formula--btn {
-  color: $color-white;
-  background-color: $color-disabled;
-
-  &.valid {
-    color: $color-white;
-    background-color: $color-primary;
-  }
-}
-</style>
