@@ -9,7 +9,7 @@
   },
   "scripts": {
     "clean": "rimraf platforms",
-    "dev": "tns run android --bundle",
+    "dev": "yarn start",
     "dev:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
     "start": "tns run android --bundle",
     "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
