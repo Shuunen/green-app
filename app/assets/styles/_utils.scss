@@ -2,15 +2,44 @@
   text-align: center;
 }
 
+.grey {
+  color: $color-grey;
+}
+
+.disabled {
+  color: $color-disabled;
+}
+
+.primary {
+  color: $color-primary;
+}
+
+.primary-alt {
+  color: $color-primary-alt;
+}
+
 .bg {
   background-color: $color-white;
 }
 
-Button {
+button {
   color: $color-grey;
   background-color: $color-white;
-  &.selected {
+  &.action {
+    font-weight: bold;
+    font-size: 13;
+
+    &.big {
+      height: 55;
+      font-size: 16;
+    }
+  }
+  &.selected, &.validate {
     color: $color-white;
     background-color: $color-primary;
+  }
+  &.disabled {
+    color: $color-white;
+    background-color: $color-disabled;
   }
 }
