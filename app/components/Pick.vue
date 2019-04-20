@@ -9,7 +9,7 @@
         :key="item.value"
         class="pick--button"
         :text="item.title"
-        :class="{ selected: (selection.indexOf(item.value) > -1) }"
+        :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }"
         @tap="selectItem(item)"
       />
     </FlexboxLayout>
@@ -65,8 +65,11 @@ export default {
     setTitle () {
       const pick = this.data
       let str = Formatter.capitalizeFirstLetter(pick.from)
+      this.data.titleTextSingular = Formatter.singular(str)
       if (pick.or) {
-        str += ` / ${Formatter.capitalizeFirstLetter(this.data.or)}`
+        const or = Formatter.capitalizeFirstLetter(this.data.or)
+        str += ` / ${or}`
+        this.data.titleTextSingular += ` / ${Formatter.singular(or)}`
       }
       this.data.titleText = str
     },
@@ -101,7 +104,7 @@ export default {
     },
     capitalizeFirstLetter: str => Formatter.capitalizeFirstLetter(str),
     selectItem (item) {
-      const index = this.selection.indexOf(item.value)
+      const index = this.selection.findIndex(s => s.value === item.value)
       if (index > -1) {
         console.log('user de-selected item :', item.value)
         this.selection.splice(index, 1)
@@ -109,9 +112,9 @@ export default {
         console.log('user selected item :', item.value)
         if (this.selection.length === this.data.pick && !this.data.extraPrice) {
           const excess = this.selection.shift()
-          console.log(`removed excess item : ${excess}`)
+          console.log(`removed excess item : ${excess.value}`)
         }
-        this.selection.push(item.value)
+        this.selection.push(item)
       }
       this.data.valid = this.isValid()
       this.data.price = this.getPrice()
@@ -131,9 +134,6 @@ export default {
 
   &.valid {
     border-color: $color-primary-alt;
-    background-image: url('~/assets/images/icons/checkmark.png');
-    background-position: right top;
-    background-repeat: no-repeat;
   }
 
   &--title {
