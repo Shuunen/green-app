@@ -10,7 +10,7 @@
           :hero="true"
         />
         <FlexboxLayout flexWrap="wrap" justifyContent="center" class="p10">
-          <Label class="pt10 pb15 fz20" text="Choose your formula :" width="100%" />
+          <Label class="pt10 pb15 fz20 grey" text="Choose your formula :" width="100%" />
           <FormulaTile
             v-for="(data, index) in formulas"
             :key="data.title"

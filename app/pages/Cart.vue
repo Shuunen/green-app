@@ -9,23 +9,29 @@
               name: 'Order'
             }"
             :hero="true"
-            class="h60"
           />
-          <CartLine class="pt10 pb10 fz20" :desc="'Formula ' + data.title" :price="formatPrice(data.price)" />
-          <CartLine
-            v-for="(pick, index) in data.picks"
-            :key="index"
-            class="pl15 pb5"
-            :desc="pick.titleText"
-            :price="formatPrice(pick.price)"
-          />
+
+          <StackLayout class="m30">
+            <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title + ' formula'" :price="formatPrice(data.price)" />
+            <CartLine
+              v-for="(pick, index) in data.picks"
+              :key="index"
+              class="pl10 pb5"
+              :type="pick.titleTextSingular"
+              :selection="pick.selection"
+              :price="formatPrice(pick.price)"
+              :delay="200 + index * 200"
+            />
+            <CartLine class="pl10 pt10 pb10 fz20" :type="'TOTAL'" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+          </StackLayout>
+
+          <Button class="action big validate mt10" text="Validate & Pay" />
+          <FlexboxLayout class="mt5">
+            <Button class="action" flexGrow="1" text="Modify selection" @tap="modify()" />
+            <Button class="action" flexGrow="1" text="Cancel order" @tap="cancel()" />
+          </FlexboxLayout>
         </StackLayout>
       </ScrollView>
-      <FlexboxLayout>
-        <Button class="cart--btn modify" text="Modify" />
-        <Button class="cart--btn validate" flexGrow="1" text="Validate" />
-        <Button class="cart--btn cancel" text="Cancel" />
-      </FlexboxLayout>
     </FlexboxLayout>
   </Page>
 </template>
@@ -33,6 +39,7 @@
 <script>
 import CartLine from '@/components/CartLine'
 import Tile from '@/components/Tile'
+import Home from '@/pages/Home'
 import { mapGetters, mapActions } from 'vuex'
 import Formatter from '@/utils/Formatter'
 
@@ -73,18 +80,15 @@ export default {
       console.log('format to locale : ' + this.locale)
       console.log('format with currency : ' + this.currency)
       return Formatter.price(num, this.locale, this.currency)
+    },
+    modify () {
+      this.$navigateBack()
+    },
+    cancel () {
+      this.$navigateTo(Home, {
+        frame: 'mainContent'
+      })
     }
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-.cart--btn {
-  &.validate {
-    color: $color-white;
-    background-color: $color-primary;
-  }
-}
-</style>
