@@ -65,7 +65,7 @@
     "eslint-plugin-standard": "4.0.0",
     "eslint-plugin-vue": "5.2.2",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "0.21.1",
+    "nativescript-dev-webpack": "0.21.2",
     "nativescript-vue-template-compiler": "2.2.2",
     "nativescript-worker-loader": "0.9.5",
     "node-sass": "4.11.0",
