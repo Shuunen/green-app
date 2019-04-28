@@ -75,12 +75,7 @@ export default {
         .catch(error => console.error(error))
         .then(() => console.log('sample items loaded'))
     },
-    formatPrice (num) {
-      console.log('typeof num ? ' + typeof num)
-      console.log('format to locale : ' + this.locale)
-      console.log('format with currency : ' + this.currency)
-      return Formatter.price(num, this.locale, this.currency)
-    },
+    formatPrice: (num) => Formatter.price(num),
     modify () {
       this.$navigateBack()
     },

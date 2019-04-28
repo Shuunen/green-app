@@ -57,15 +57,11 @@ export default {
   },
   computed: {
     ...mapGetters({
-      currency: 'currency',
-      locale: 'locale',
       isLoading: 'isLoading'
     })
   },
   methods: {
-    formatPrice (num) {
-      return Formatter.price(num, this.locale, this.currency)
-    },
+    formatPrice: (num) => Formatter.price(num),
     addProduct (data) {
       console.log('user wants to add product :', data.name)
     }

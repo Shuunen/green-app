@@ -1,25 +1,22 @@
 <template>
   <Page actionBarHidden="true">
     <ScrollView orientation="vertical">
-      <StackLayout class="formulas pb10 bg">
+      <StackLayout class="p10 bg">
         <Tile
           :data="{
             type: 'formula',
-            name: 'Formulas'
+            name: ucfirst($t('order.formula'))
           }"
           :hero="true"
         />
-        <FlexboxLayout flexWrap="wrap" justifyContent="center" class="p10">
-          <Label class="pt10 pb15 fz20 grey" text="Choose your formula :" width="100%" />
-          <FormulaTile
-            v-for="(data, index) in formulas"
-            :key="data.title"
-            :flexGrow="index < formulas.length - 1 ? 1 : 0"
-            :data="data"
-            @tap.native="goto(data)"
-            @tap="goto(data)"
-          />
-        </FlexboxLayout>
+        <Label class="pv15 fz20 grey" :text="$t('order.choose-formula') + ' :'" />
+        <FormulaTile
+          v-for="data in formulas"
+          :key="data.title"
+          :data="data"
+          @tap.native="goto(data)"
+          @tap="goto(data)"
+        />
       </StackLayout>
     </ScrollView>
   </Page>
@@ -27,6 +24,7 @@
 
 <script>
 import Tile from '@/components/Tile'
+import Formatter from '@/utils/Formatter'
 import { mapGetters, mapActions } from 'vuex'
 import FormulaTile from '@/components/FormulaTile'
 import Formula from '@/pages/Formula'
@@ -56,6 +54,7 @@ export default {
         })
         // .then(() => this.goto(this.formulas[1]))
     },
+    ucfirst: (str) => Formatter.capitalizeFirstLetter(str),
     goto (data) {
       console.log('user wants to go to :', data)
       this.$navigateTo(Formula, {

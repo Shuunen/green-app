@@ -46,9 +46,7 @@ export default {
     this.setList()
   },
   methods: {
-    formatPrice (num) {
-      return Formatter.price(num, this.locale, this.currency)
-    },
+    formatPrice: (num) => Formatter.price(num),
     setList () {
       const type = this.data.from
       if (this.items.hasOwnProperty(type)) {

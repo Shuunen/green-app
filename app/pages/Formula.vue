@@ -92,9 +92,7 @@ export default {
       this.updateTotal()
       this.updateValidity()
     },
-    formatPrice (num) {
-      return Formatter.price(num, this.locale, this.currency)
-    },
+    formatPrice: (num) => Formatter.price(num),
     updateTotal () {
       this.total = this.picks.reduce((sum, val) => (sum += (val.price || 0)), 0)
       this.total += this.data.price

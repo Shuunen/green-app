@@ -1,7 +1,29 @@
 {
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "config": {
-    "default_lang": "en"
+    "default_locale": "english",
+    "locales": {
+      "arabic": {
+        "code": "ar",
+        "code_long": "ar-AE",
+        "currency": "AED"
+      },
+      "english": {
+        "code": "en",
+        "code_long": "en-US",
+        "currency": "USD"
+      },
+      "french": {
+        "code": "fr",
+        "code_long": "fr-FR",
+        "currency": "EUR"
+      },
+      "spanish": {
+        "code": "es",
+        "code_long": "es-ES",
+        "currency": "EUR"
+      }
+    }
   },
   "dependencies": {
     "@vue/devtools": "5.1.0",
