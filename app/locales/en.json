@@ -1,0 +1,12 @@
+{
+	"common": {
+		"arabic": "Arabic",
+		"back-home": "Back to home page",
+		"english": "English",
+		"french": "French",
+		"spanish": "Spanish"
+	},
+	"order": {
+		"place": "Place an order"
+	}
+}

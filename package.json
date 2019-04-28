@@ -1,34 +1,7 @@
 {
-  "name": "green-app",
-  "version": "2.3.1",
-  "description": "A native application built with NativeScript-Vue",
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
-  "license": "GPL-3.0",
-  "engines": {
-    "node": ">= 8.16.0"
-  },
-  "scripts": {
-    "clean": "rimraf platforms",
-    "dev": "yarn start",
-    "dev:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
-    "start": "tns run android --bundle",
-    "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
-    "build": "tns build android --bundle",
-    "build:ios": "export SWIFT_VERSION=3; tns build ios --bundle",
-    "debug": "tns debug android --bundle",
-    "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
-    "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js",
-    "ls": "tns device",
-    "postinstall": "yarn clean"
-  },
-  "nativescript": {
-    "id": "green.nsvue.app",
-    "tns-ios": {
-      "version": "5.0.0"
-    },
-    "tns-android": {
-      "version": "5.2.1"
-    }
+  "config": {
+    "default_lang": "en"
   },
   "dependencies": {
     "@vue/devtools": "5.1.0",
@@ -42,8 +15,10 @@
     "nativescript-vue-devtools": "1.2.0",
     "shuutils": "3.4.0",
     "tns-core-modules": "5.3.1",
+    "vue-i18n": "^8.11.1",
     "vuex": "3.1.0"
   },
+  "description": "A native application built with NativeScript-Vue",
   "devDependencies": {
     "@babel/core": "7.4.3",
     "@babel/preset-env": "7.4.3",
@@ -80,9 +55,38 @@
     "webpack-bundle-analyzer": "3.3.2",
     "webpack-cli": "3.3.1"
   },
+  "engines": {
+    "node": ">= 8.16.0"
+  },
+  "license": "GPL-3.0",
+  "name": "green-app",
+  "nativescript": {
+    "id": "green.nsvue.app",
+    "tns-android": {
+      "version": "5.2.1"
+    },
+    "tns-ios": {
+      "version": "5.0.0"
+    }
+  },
+  "scripts": {
+    "build": "tns build android --bundle",
+    "build:ios": "export SWIFT_VERSION=3; tns build ios --bundle",
+    "clean": "rimraf platforms",
+    "debug": "tns debug android --bundle",
+    "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
+    "dev": "yarn start",
+    "dev:ios": "export SWIFT_VERSION=3; tns run ios --bundle",
+    "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js",
+    "ls": "tns device",
+    "postinstall": "yarn clean",
+    "start": "tns run android --bundle",
+    "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle"
+  },
   "standard": {
     "globals": [
       "TNS_ENV"
     ]
-  }
+  },
+  "version": "2.3.1"
 }
