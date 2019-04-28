@@ -4,6 +4,7 @@
       <Icon
         name="menu-white"
         col="0"
+        class="h30"
         @tap.native="toggleMenu"
       />
       <Label
@@ -14,6 +15,7 @@
       <Icon
         name="location-white"
         col="2"
+        class="h25"
       />
       <Label col="3" />
     </GridLayout>

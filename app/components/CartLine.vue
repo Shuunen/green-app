@@ -1,5 +1,5 @@
 <template>
-  <FlexboxLayout class="cart--line" @loaded="animate">
+  <FlexboxLayout class="black" @loaded="animate">
     <StackLayout flexGrow="1">
       <Label :text="description" />
       <StackLayout v-if="items.length" class="p10">
@@ -80,11 +80,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-.cart--line {
-  color: $color-black;
-}
-</style>

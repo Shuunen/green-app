@@ -1,5 +1,5 @@
 <template>
-  <FlexboxLayout class="formula-tile p10 mb10">
+  <FlexboxLayout class="formula-tile p10 mb12">
     <StackLayout flexGrow="1" flexShrink="0" class="mr10">
       <Label
         class="primary-alt bold fz20"
@@ -19,9 +19,9 @@
       />
     </StackLayout>
 
-    <StackLayout>
+    <StackLayout flexShrink="0">
       <Button
-        text="Select"
+        :text="$t('common.select')"
         @tap="select()"
       />
     </StackLayout>
@@ -33,7 +33,6 @@ import Formatter from '@/utils/Formatter'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'FormulaTile',
   props: {
     data: {
       type: Object,
@@ -52,14 +51,16 @@ export default {
       const lines = ['']
       this.data.picks.forEach(pick => {
         const nb = pick.pick
+        const from = this.$tc('pick.' + pick.from, nb)
+        const or = this.$tc('pick.' + pick.or, nb)
         if (pick.from === 'bases') {
-          lines[0] += Formatter.singular(pick.from)
+          lines[0] += from
         } else if (pick.from === 'ingredients') {
-          lines[0] += ` + ${nb} ${pick.from}`
+          lines[0] += ` + ${nb} ${from}`
         } else if (pick.from && pick.or) {
-          lines.push(`+ ${Formatter.singular(pick.from)} or ${Formatter.singular(pick.or)}`)
+          lines.push(`+ ${from} ${this.$t('common.or')} ${or}`)
         } else if (['drinks', 'deserts'].indexOf(pick.from) > -1) {
-          lines.push(`+ ${Formatter.singular(pick.from)}`)
+          lines.push(`+ ${from}`)
         }
       })
       if (this.equalize) {
@@ -87,20 +88,4 @@ export default {
   border-color: $color-primary-alt;
   border-width: 1;
 }
-/* Debug
-.product {
-  &-icon {
-    background-color: orange;
-  }
-  &-name {
-    background-color: green;
-  }
-  &-price {
-    background-color: purple;
-  }
-  &-add {
-    background-color: palevioletred;
-  }
-}
-*/
 </style>

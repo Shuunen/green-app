@@ -28,8 +28,8 @@
           @tap="order()"
         />
         <FlexboxLayout>
-          <Button class="action" flexGrow="1" text="Change formula" @tap="modify()" />
-          <Button class="action" flexGrow="1" text="Cancel order" @tap="cancel()" />
+          <Button class="action" flexGrow="1" :text="$t('order.change-formula')" @tap="modify()" />
+          <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
         </FlexboxLayout>
       </StackLayout>
     </FlexboxLayout>
@@ -69,9 +69,9 @@ export default {
     }),
     orderText: function () {
       if (this.valid) {
-        return `Order this formula for ${this.formatPrice(this.total)}`
+        return this.$t('order.formula-for') + ' ' + this.formatPrice(this.total)
       }
-      return 'Complete selection to order'
+      return this.$t('order.complete-selection')
     }
   },
   created () {

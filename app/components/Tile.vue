@@ -26,7 +26,6 @@
 import Icon from '@/components/Icon'
 
 export default {
-  name: 'Tile',
   components: {
     Icon
   },
