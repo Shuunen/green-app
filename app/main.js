@@ -2,7 +2,6 @@ import Logged from '@/pages/Logged'
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
 import VueI18n from 'vue-i18n'
-import pkg from '../package.json'
 import store from './store'
 
 if (TNS_ENV !== 'production') {
@@ -10,11 +9,11 @@ if (TNS_ENV !== 'production') {
   Vue.use(VueDevtools)
 }
 
+/* i18n */
 Vue.use(VueI18n)
-
 const i18n = new VueI18n({
-  locale: pkg.config.default_lang,
-  fallbackLocale: pkg.config.default_lang,
+  locale: store.state.locale.code,
+  fallbackLocale: store.state.locale.code,
   messages: {
     ar: require('~/locales/ar.json'),
     en: require('~/locales/en.json'),

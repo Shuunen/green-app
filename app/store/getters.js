@@ -21,7 +21,3 @@ export const toggleMenu = state => {
 export const locale = state => {
   return state.locale
 }
-
-export const currency = state => {
-  return state.currency
-}

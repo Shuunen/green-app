@@ -14,6 +14,10 @@ $sides: (top, bottom, left, right);
   .p#{$space} {
     padding: #{$space};
   }
+  .pv#{$space} {
+    padding-top: #{$space};
+    padding-bottom: #{$space};
+  }
   .fz#{$space} {
     font-size: #{$space};
   }

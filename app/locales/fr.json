@@ -7,6 +7,8 @@
 		"spanish": "Espagnol"
 	},
 	"order": {
+		"choose-formula": "Choisissez votre formule",
+		"formula": "formule",
 		"place": "Commander"
 	}
 }
