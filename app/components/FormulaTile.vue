@@ -9,8 +9,8 @@
       :text="data.title"
     />
     <Label
-      v-for="line in description"
-      :key="line"
+      v-for="(line, index) in description"
+      :key="index"
       class="description text mb10"
       :text="line"
     />
