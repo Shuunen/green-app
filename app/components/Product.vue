@@ -9,7 +9,6 @@
       class="product-icon w30"
       flexShrink="0"
       name="logo-g"
-      size="small"
     />
     <Label
       class="product-name ml5"
@@ -25,7 +24,6 @@
       class="product-add w30 mr5"
       flexShrink="0"
       name="shopping-cart-add-grey"
-      size="small"
       @tap.native="addProduct(data)"
     />
   </FlexboxLayout>

@@ -1,7 +1,7 @@
 <template>
   <Image
     class="icon"
-    :class="[size]"
+    :class="cls"
     :src="src"
   />
 </template>
@@ -13,13 +13,19 @@ export default {
       type: String,
       required: true
     },
-    size: {
+    class: {
+      name: 'cls',
       type: String,
-      default: 'small'
+      default: 'h30'
     },
     number: {
       type: Number,
       default: 0
+    }
+  },
+  data () {
+    return {
+      cls: ''
     }
   },
   computed: {
@@ -30,30 +36,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.icon {
-  /* background-color: red; */
-  &.small {
-    $size: 30;
-    height: $size;
-    width: $size;
-  }
-  &.medium {
-    $size: 50;
-    height: $size;
-    width: $size;
-  }
-  &.210x80 {
-    height: 80;
-    width: 210;
-  }
-  &.100 {
-    height: 100;
-    width: 100;
-  }
-  &.h100 {
-    height: 100;
-  }
-}
-</style>

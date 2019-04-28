@@ -9,27 +9,30 @@
       <StackLayout flexGrow="1">
         <Button class="action big validate" :text="$t('order.place')" @tap="order" />
       </StackLayout>
-      <Button text="change locale to FR" @tap="$i18n.locale = 'fr'" />
+      <LangSelector />
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
+import LangSelector from '@/components/LangSelector'
 import Icon from '@/components/Icon'
 import { mapGetters } from 'vuex'
 import Formulas from './Formulas.vue'
 
 export default {
   components: {
-    Icon
+    Icon,
+    LangSelector
   },
   computed: {
     ...mapGetters({
       isLoading: 'isLoading'
     })
   },
-  created () {
-    console.log('Home created')
+  mounted () {
+    console.log('Home page mounted')
+    // setTimeout(() => this.order(), 100)
   },
   methods: {
     order () {

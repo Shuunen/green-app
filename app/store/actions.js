@@ -57,3 +57,8 @@ export const goHome = ({ commit }) => {
   console.log('action : goHome')
   commit(types.GO_HOME)
 }
+
+export const setLocale = ({ commit }, locale) => {
+  console.log('action : setLocale')
+  commit(types.SET_LOCALE, locale)
+}

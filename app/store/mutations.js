@@ -6,12 +6,16 @@ import Home from '@/pages/Home'
 const mutations = {
   // data
   [types.SET_ITEMS] (state, list) {
-    console.log('SET_ITEMS', list)
+    console.log('SET_ITEMS')
     state.items = list
   },
   [types.SET_FORMULAS] (state, list) {
-    console.log('SET_FORMULAS', list)
+    console.log('SET_FORMULAS')
     state.formulas = list
+  },
+  [types.SET_LOCALE] (state, locale) {
+    console.log('SET_LOCALE')
+    state.locale = locale
   },
   // auth
   [types.DO_LOGIN] (state) {
@@ -31,7 +35,7 @@ const mutations = {
     console.log('REMOVE_PROCESSING_TASK', task)
     state.processingTasks.splice(state.processingTasks.indexOf(task), 1)
   },
-  // navifation
+  // navigation
   [types.TOGGLE_MENU] (state) {
     console.log('TOGGLE_MENU')
     state.toggleMenu = !state.toggleMenu
