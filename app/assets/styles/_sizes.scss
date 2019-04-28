@@ -1,26 +1,32 @@
-$spaceAmounts: (2, 3, 5, 10, 12, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 100, 150, 200); // Adjust this to include the pixel amounts you need.
+$space-amounts: (2, 3, 5, 10, 12, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 100, 150, 200); // Adjust this to include the pixel amounts you need.
 $sides: (top, bottom, left, right);
 
-@each $space in $spaceAmounts {
+@each $space in $space-amounts {
   .h#{$space} {
     height: #{$space};
   }
+
   .w#{$space} {
     width: #{$space};
   }
+
   .m#{$space} {
     margin: #{$space};
   }
+
   .p#{$space} {
     padding: #{$space};
   }
+
   .pv#{$space} {
-    padding-top: #{$space};
     padding-bottom: #{$space};
+    padding-top: #{$space};
   }
+
   .fz#{$space} {
     font-size: #{$space};
   }
+
   @each $side in $sides {
     .m#{str-slice($side, 0, 1)}#{$space} {
       margin-#{$side}: #{$space};

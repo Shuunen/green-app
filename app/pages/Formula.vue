@@ -21,15 +21,15 @@
       </ScrollView>
       <StackLayout class="p5" flexShrink="0">
         <Button
-          class="formula--btn action big"
           :class="[valid ? 'validate' : 'disabled']"
           :text="orderText"
           :isEnabled="valid"
+          class="formula--btn action big"
           @tap="order()"
         />
         <FlexboxLayout>
-          <Button class="action" flexGrow="1" :text="$t('order.change-formula')" @tap="modify()" />
-          <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
+          <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
+          <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />
         </FlexboxLayout>
       </StackLayout>
     </FlexboxLayout>
@@ -69,7 +69,8 @@ export default {
     }),
     orderText: function () {
       if (this.valid) {
-        return this.$t('order.formula-for') + ' ' + this.formatPrice(this.total)
+        const total = this.formatPrice(this.total)
+        return this.$t('order.formula-for') + ' ' + total
       }
       return this.$t('order.complete-selection')
     }
@@ -92,9 +93,9 @@ export default {
       this.updateTotal()
       this.updateValidity()
     },
-    formatPrice: (num) => Formatter.price(num),
+    formatPrice: num => Formatter.price(num),
     updateTotal () {
-      this.total = this.picks.reduce((sum, val) => (sum += (val.price || 0)), 0)
+      this.total = this.picks.reduce((sum, val) => (sum += val.price || 0), 0)
       this.total += this.data.price
       this.data.total = this.total
       console.log('total :', this.total)

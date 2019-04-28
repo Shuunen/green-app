@@ -1,28 +1,11 @@
 <template>
   <FlexboxLayout flexDirection="column" class="bg">
     <StackLayout flexGrow="1">
-      <Label
-        class="drawer-header fz25 mb15"
-        text="Benjamin"
-      />
-      <Label
-        class="drawer-item"
-        :text="$t('common.home')"
-        @tap="goHome"
-      />
-      <Label
-        class="drawer-item"
-        :text="$t('common.my-account')"
-      />
-      <Label
-        class="drawer-item"
-        :text="$t('common.my-orders')"
-      />
-      <Label
-        class="drawer-item"
-        :text="$t('common.logout')"
-        @tap="doLogout"
-      />
+      <Label class="drawer-header fz25 mb15" text="Benjamin" />
+      <Label :text="$t('common.home')" class="drawer-item" @tap="goHome" />
+      <Label :text="$t('common.my-account')" class="drawer-item" />
+      <Label :text="$t('common.my-orders')" class="drawer-item" />
+      <Label :text="$t('common.logout')" class="drawer-item" @tap="doLogout" />
     </StackLayout>
     <LangSelector class="mb15" />
   </FlexboxLayout>
