@@ -43,26 +43,6 @@ export const loadItems = ({ commit }) => {
   })
 }
 
-export const loadTiles = ({ commit }) => {
-  const task = 'action loadTiles'
-  console.log(task)
-  return new Promise((resolve, reject) => {
-    commit(types.ADD_PROCESSING_TASK, task)
-    productsService
-      .loadTiles()
-      .then(list => {
-        commit(types.SET_TILES, list)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        resolve()
-      })
-      .catch(error => {
-        console.error(`Failed at loading tiles from api : ${error}`)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        reject(error)
-      })
-  })
-}
-
 export const toggleMenu = ({ commit }) => {
   console.log('action : toggleMenu')
   commit(types.TOGGLE_MENU)
