@@ -67,7 +67,7 @@
     "nativescript-dev-webpack": "0.21.2",
     "nativescript-vue-template-compiler": "2.2.2",
     "nativescript-worker-loader": "0.9.5",
-    "node-sass": "4.11.0",
+    "node-sass": "4.12.0",
     "rimraf": "2.6.3",
     "sass-loader": "7.1.0",
     "stylelint": "9.10.1",
