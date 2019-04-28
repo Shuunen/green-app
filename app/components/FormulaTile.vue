@@ -1,23 +1,30 @@
 <template>
-  <FlexboxLayout
-    class="formula-tile p5 mr10 mb10"
-    alignItems="center"
-    flexDirection="column"
-  >
-    <Label
-      class="title mb10 fz20"
-      :text="data.title"
-    />
-    <Label
-      v-for="(line, index) in description"
-      :key="index"
-      class="description text mb10"
-      :text="line"
-    />
-    <Button
-      text="Select"
-      @tap="select()"
-    />
+  <FlexboxLayout class="formula-tile p10 mb10">
+    <StackLayout flexGrow="1" flexShrink="0" class="mr10">
+      <Label
+        class="primary-alt bold fz20"
+        :text="data.title"
+      />
+      <Label
+        class="primary-alt fz20"
+        :text="formatPrice(data.price)"
+      />
+    </StackLayout>
+
+    <StackLayout flexGrow="2" class="pt5">
+      <Label
+        v-for="(line, index) in description"
+        :key="index"
+        :text="line"
+      />
+    </StackLayout>
+
+    <StackLayout>
+      <Button
+        text="Select"
+        @tap="select()"
+      />
+    </StackLayout>
   </FlexboxLayout>
 </template>
 
@@ -31,12 +38,14 @@ export default {
     data: {
       type: Object,
       required: true
+    },
+    equalize: {
+      type: Boolean,
+      default: false
     }
   },
   computed: {
     ...mapGetters({
-      currency: 'currency',
-      locale: 'locale',
       isLoading: 'isLoading'
     }),
     description: function () {
@@ -53,16 +62,16 @@ export default {
           lines.push(`+ ${Formatter.singular(pick.from)}`)
         }
       })
-      while (lines.length < 3) {
-        lines.push(' ')
+      if (this.equalize) {
+        while (lines.length < 3) {
+          lines.push(' ')
+        }
       }
       return lines
     }
   },
   methods: {
-    formatPrice (num) {
-      return Formatter.price(num, this.locale, this.currency)
-    },
+    formatPrice: (num) => Formatter.price(num),
     select () {
       console.log('user selected :', this.data.title)
       this.$emit('tap')
@@ -77,10 +86,6 @@ export default {
 .formula-tile {
   border-color: $color-primary-alt;
   border-width: 1;
-  .title {
-    color: $color-primary-alt;
-    font-weight: bold;
-  }
 }
 /* Debug
 .product {
