@@ -4,11 +4,32 @@
 		"back-home": "Back to home page",
 		"english": "English",
 		"french": "French",
+		"home": "Home",
+		"logout": "Logout",
+		"my-account": "My account",
+		"my-orders": "My orders",
+		"or": "or",
+		"select": "Select",
 		"spanish": "Spanish"
 	},
 	"order": {
+		"cancel": "Cancel order",
+		"change-formula": "Change formula",
 		"choose-formula": "Choose your formula",
+		"complete-selection": "Complete selection to order",
 		"formula": "formula",
-		"place": "Place an order"
+		"formula-for": "Order this formula for",
+		"place": "Place an order",
+		"summary": "Order summary"
+	},
+	"pick": {
+		"bases": "base | bases",
+		"deserts": "desert | deserts",
+		"drinks": "drink | drinks",
+		"ingredients": "ingredient | ingredients",
+		"sauces": "sauce | sauces",
+		"soups": "soup | soups",
+		"undefined": "",
+		"wraps": "wrap | wraps"
 	}
 }

@@ -4,11 +4,32 @@
 		"back-home": "Volver a la página de inicio",
 		"english": "Inglés",
 		"french": "Francés",
+		"home": "Casa",
+		"logout": "Cerrar sesión",
+		"my-account": "Mi cuenta",
+		"my-orders": "Mis ordenes",
+		"or": "o",
+		"select": "Seleccionar",
 		"spanish": "Español"
 	},
 	"order": {
+		"cancel": "Cancelar orden",
+		"change-formula": "Cambiar formula",
 		"choose-formula": "Elige tu formula",
+		"complete-selection": "Complete la selección para pedido",
 		"formula": "fórmula",
-		"place": "Hacer un pedido"
+		"formula-for": "Pida esta fórmula para",
+		"place": "Hacer un pedido",
+		"summary": "Resumen del pedido"
+	},
+	"pick": {
+		"bases": "base | bases",
+		"deserts": "desierto | desiertos",
+		"drinks": "bebida | bebidas",
+		"ingredients": "ingrediente | ingredientes",
+		"sauces": "salsa | salsas",
+		"soups": "sopa | sopas",
+		"undefined": "",
+		"wraps": "wrap | wraps"
 	}
 }

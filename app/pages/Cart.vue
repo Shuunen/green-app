@@ -6,7 +6,7 @@
           <Tile
             :data="{
               type: 'formula',
-              name: 'Order'
+              name: $t('order.summary')
             }"
             :hero="true"
           />
