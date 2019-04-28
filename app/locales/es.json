@@ -1,0 +1,12 @@
+{
+	"common": {
+		"arabic": "Arábe",
+		"back-home": "Volver a la página de inicio",
+		"english": "Inglés",
+		"french": "Francés",
+		"spanish": "Español"
+	},
+	"order": {
+		"place": "Hacer un pedido"
+	}
+}

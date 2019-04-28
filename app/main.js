@@ -1,12 +1,27 @@
+import Logged from '@/pages/Logged'
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
-import Logged from '@/pages/Logged'
+import VueI18n from 'vue-i18n'
+import pkg from '../package.json'
 import store from './store'
 
 if (TNS_ENV !== 'production') {
   // Vue.use(VueDevtools, { host: '192.168.0.24' }) if using a real device
   Vue.use(VueDevtools)
 }
+
+Vue.use(VueI18n)
+
+const i18n = new VueI18n({
+  locale: pkg.config.default_lang,
+  fallbackLocale: pkg.config.default_lang,
+  messages: {
+    ar: require('~/locales/ar.json'),
+    en: require('~/locales/en.json'),
+    es: require('~/locales/es.json'),
+    fr: require('~/locales/fr.json')
+  }
+})
 
 // Prints Vue logs when --env.production is *NOT* set while building
 Vue.config.silent = (TNS_ENV === 'production')
@@ -24,5 +39,6 @@ const userLogged = h => h('frame', [h(Logged)])
 
 new Vue({
   render: userLogged,
-  store
+  store,
+  i18n
 }).$start()

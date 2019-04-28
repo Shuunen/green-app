@@ -1,0 +1,12 @@
+{
+	"common": {
+		"arabic": "Arabe",
+		"back-home": "Retour à l'accueil",
+		"english": "Anglais",
+		"french": "Français",
+		"spanish": "Espagnol"
+	},
+	"order": {
+		"place": "Commander"
+	}
+}

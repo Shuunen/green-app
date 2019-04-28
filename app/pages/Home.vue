@@ -1,64 +1,42 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="home pb10 bg">
+    <FlexboxLayout flexDirection="column" class="home p40 bg">
       <Icon
-        flexGrow="1"
-        class="logo m20"
+        flexGrow="2"
+        class="logo"
         name="logo-green-alt"
-        size="h100"
       />
-      <Tile
-        v-for="tile in tiles"
-        :key="tile.type"
-        :data="tile"
-        :large="true"
-        @tap.native="goto(tile)"
-      />
+      <StackLayout flexGrow="1">
+        <Button class="action big validate" :text="$t('order.place')" @tap="order" />
+      </StackLayout>
+      <Button text="change locale to FR" @tap="$i18n.locale = 'fr'" />
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
 import Icon from '@/components/Icon'
-import Tile from '@/components/Tile'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import Formulas from './Formulas.vue'
 
 export default {
   components: {
-    Icon,
-    Tile
+    Icon
   },
   computed: {
     ...mapGetters({
-      tiles: 'tiles',
       isLoading: 'isLoading'
     })
   },
   created () {
     console.log('Home created')
-    this.load()
   },
   methods: {
-    ...mapActions(['loadTiles']),
-    load () {
-      this.loadTiles()
-        .catch(error => {
-          console.error(error)
-          alert('An error occurred loading tiles.')
-        })
-        // .then(() => this.goto(this.tiles[0]))
-    },
-    goto (data) {
-      console.log('user wants to go to :', data.type)
-      if (data.type === 'formula') {
-        this.$navigateTo(Formulas, {
-          frame: 'mainContent',
-          props: { data }
-        })
-      } else {
-        console.error(`type "${data.type}" not handled yet`)
-      }
+    order () {
+      console.log('user wants to order')
+      this.$navigateTo(Formulas, {
+        frame: 'mainContent'
+      })
     }
   }
 }
