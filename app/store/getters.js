@@ -3,7 +3,6 @@
   Data
 */
 export const items = state => state.items
-export const tiles = state => state.tiles
 export const formulas = state => state.formulas
 
 export const isProcessing = state => {

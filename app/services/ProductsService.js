@@ -1,6 +1,5 @@
 import * as http from 'tns-core-modules/http'
 import ApiService from '@/services/ApiService'
-import Random from '@/utils/Random'
 import * as Mocks from '@/utils/Mocks'
 
 const doMock = true
@@ -41,30 +40,6 @@ export default class ProductsService extends ApiService {
       source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
     }
     return source
-  }
-
-  loadTiles () {
-    let source = null
-    if (doMock) {
-      const typeList = Random.getTypes()
-      console.info(`Returning ${typeList.length} mocked types`)
-      source = Promise.resolve(typeList)
-    } else {
-      const url = this.baseUrl + '/types'
-      console.log('using url :', url)
-      /* headers: this.getHeaders() */
-      source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
-    }
-    return source.then(data => {
-      console.info(data)
-      console.info(`Received ${data.length} types from the api`)
-      return data.map(type => {
-        return {
-          name: type.name,
-          type: type.type
-        }
-      })
-    })
   }
 
   getHeaders (toAppend = {}) {

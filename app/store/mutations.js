@@ -9,10 +9,6 @@ const mutations = {
     console.log('SET_ITEMS', list)
     state.items = list
   },
-  [types.SET_TILES] (state, list) {
-    console.log('SET_TILES', list)
-    state.tiles = list
-  },
   [types.SET_FORMULAS] (state, list) {
     console.log('SET_FORMULAS', list)
     state.formulas = list
