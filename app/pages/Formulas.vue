@@ -9,7 +9,7 @@
           }"
           :hero="true"
         />
-        <Label class="pv15 fz20 grey" :text="$t('order.choose-formula') + ' :'" />
+        <Label :text="$t('order.choose-formula') + ' :'" class="pv15 fz20 grey" />
         <FormulaTile
           v-for="data in formulas"
           :key="data.title"
@@ -47,14 +47,13 @@ export default {
   methods: {
     ...mapActions(['loadFormulas']),
     load () {
-      this.loadFormulas()
-        .catch(error => {
-          console.error(error)
-          alert('An error occurred loading formulas.')
-        })
-        // .then(() => this.goto(this.formulas[1]))
+      this.loadFormulas().catch(error => {
+        console.error(error)
+        alert('An error occurred loading formulas.')
+      })
+      // .then(() => this.goto(this.formulas[1]))
     },
-    ucfirst: (str) => Formatter.capitalizeFirstLetter(str),
+    ucfirst: str => Formatter.capitalizeFirstLetter(str),
     goto (data) {
       console.log('user wants to go to :', data)
       this.$navigateTo(Formula, {

@@ -1,29 +1,16 @@
 <template>
   <FlexboxLayout class="formula-tile p10 mb12">
     <StackLayout flexGrow="1" flexShrink="0" class="mr10">
-      <Label
-        class="primary-alt bold fz20"
-        :text="data.title"
-      />
-      <Label
-        class="primary-alt fz20"
-        :text="formatPrice(data.price)"
-      />
+      <Label :text="data.title" class="primary-alt bold fz20" />
+      <Label :text="formatPrice(data.price)" class="primary-alt fz20" />
     </StackLayout>
 
     <StackLayout flexGrow="2" class="pt5">
-      <Label
-        v-for="(line, index) in description"
-        :key="index"
-        :text="line"
-      />
+      <Label v-for="(line, index) in description" :key="index" :text="line" />
     </StackLayout>
 
     <StackLayout flexShrink="0">
-      <Button
-        :text="$t('common.select')"
-        @tap="select()"
-      />
+      <Button :text="$t('common.select')" @tap="select()" />
     </StackLayout>
   </FlexboxLayout>
 </template>
@@ -72,7 +59,7 @@ export default {
     }
   },
   methods: {
-    formatPrice: (num) => Formatter.price(num),
+    formatPrice: num => Formatter.price(num),
     select () {
       console.log('user selected :', this.data.title)
       this.$emit('tap')
