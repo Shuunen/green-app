@@ -26,6 +26,14 @@
   font-weight: bold;
 }
 
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: .3;
+}
+
 button {
   color: $color-grey;
   background-color: $color-white;

@@ -16,7 +16,6 @@
         v-if="!hero"
         class="type-arrow"
         name="circled-right-2-white"
-        size="small"
         alignSelf="flex-end"
       />
     </FlexboxLayout>

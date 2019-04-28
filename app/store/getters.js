@@ -21,3 +21,7 @@ export const toggleMenu = state => {
 export const locale = state => {
   return state.locale
 }
+
+export const locales = state => {
+  return state.locales
+}
