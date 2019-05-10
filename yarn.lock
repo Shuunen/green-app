@@ -5116,10 +5116,10 @@ nativescript-socketio@3.2.1:
   resolved "https://registry.yarnpkg.com/nativescript-socketio/-/nativescript-socketio-3.2.1.tgz#7a346eb904afc586ffbca91757aca7a8a302261e"
   integrity sha512-o8mN4UK12b267o3JfweHGn00U68qV+zn+2z4zKdZhJRwmzyIcL1RxKusTsllw8nv0yN5YSJ8OLcPLbpi/b63rQ==
 
-nativescript-theme-core@1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/nativescript-theme-core/-/nativescript-theme-core-1.0.4.tgz#cf2880c7fbf2fe5f43e2235d309750790803efe1"
-  integrity sha1-zyiAx/vy/l9D4iNdMJdQeQgD7+E=
+nativescript-theme-core@1.0.6:
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/nativescript-theme-core/-/nativescript-theme-core-1.0.6.tgz#cea174696bc5b3bd2025412c9c2eb4a5ed2b7f2d"
+  integrity sha512-p9v8w0xC/WJDJat/HwxJ/u7Xf50i3JiZR0zx0M7445Gi4HaBClFcjfVc+TLOZEARU4RKauBTopYlLN4xke6tYw==
 
 nativescript-toast@2.0.0:
   version "2.0.0"
