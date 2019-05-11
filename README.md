@@ -120,6 +120,8 @@ yarn start:ios
 
 ## Optional : create an AVD in Windows
 
+You'll need Intel Virtualization !
+
 Open a cmd and :
 
 ```bash
@@ -142,6 +144,7 @@ avdmanager create avd -n avd_25_xl -k "system-images;android-25;google_apis;x86_
 ```
 
 Now verify that your newly created avd is listed via `avdmanager list avd`
+You should be able to run it via `emulator -avd avd_25_xl`
 If it appears, go back to this project folder and run `yarn dev`
 Android Emulator should pop out and start your virtual device.
 The first time it may take some times to init, there is a lot of stuff to download and install.
