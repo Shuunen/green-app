@@ -19,17 +19,35 @@
 		"complete-selection": "Complete selection to order",
 		"formula": "formula",
 		"formula-for": "Order this formula for",
+		"modify-selection": "Modify selection",
 		"place": "Place an order",
-		"summary": "Order summary"
+		"summary": "Order summary",
+		"total": "TOTAL",
+		"validate-pay": "Validate & Pay"
 	},
 	"pick": {
 		"bases": "base | bases",
 		"deserts": "desert | deserts",
 		"drinks": "drink | drinks",
+		"for-each-extra": "for each extra",
 		"ingredients": "ingredient | ingredients",
 		"sauces": "sauce | sauces",
+		"section-bases": "Base | Bases",
+		"section-deserts": "Desert | Deserts",
+		"section-drinks": "Drink | Drinks",
+		"section-drinks-or-deserts": "Drink or desert | Drinks & Deserts",
+		"section-ingredients": "Ingredients",
+		"section-sauces": "Sauce | Sauces",
+		"section-wraps-or-soups": "Wrap or soup | Wrap & Soups",
 		"soups": "soup | soups",
 		"undefined": "",
-		"wraps": "wrap | wraps"
+		"wraps": "wrap | wraps",
+		"you-can-pick-n-bases": "You can pick a base | You can pick {n} bases",
+		"you-can-pick-n-deserts": "You can choose one desert | You can choose {n} deserts",
+		"you-can-pick-n-drinks": "You can choose a drink | You can choose {n} drinks",
+		"you-can-pick-n-drinks-or-n-deserts": "You can pick one drink or one desert | You can pick {n} of these",
+		"you-can-pick-n-ingredients-or-more": "You can pick one ingredient | You can pick {n} ingredients",
+		"you-can-pick-n-sauces": "You can pick one sauce | You can pick {n} sauces",
+		"you-can-pick-n-wraps-or-n-soups": "You can pick a wrap or a soup | You can choose {n} of these"
 	}
 }

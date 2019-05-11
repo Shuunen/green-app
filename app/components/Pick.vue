@@ -62,32 +62,32 @@ export default {
     },
     setTitle () {
       const pick = this.data
-      let str = Formatter.capitalizeFirstLetter(pick.from)
-      this.data.titleTextSingular = Formatter.singular(str)
+      let i18nKey = `pick.section-${pick.from}`
       if (pick.or) {
-        const or = Formatter.capitalizeFirstLetter(this.data.or)
-        str += ` / ${or}`
-        this.data.titleTextSingular += ` / ${Formatter.singular(or)}`
+        i18nKey += `-or-${pick.or}`
       }
-      this.data.titleText = str
+      i18nKey = i18nKey.replace('soups-or-wraps', 'wraps-or-soups')
+      this.data.titleText = this.$tc(i18nKey, 2)
+      this.data.titleTextSingular = this.$tc(i18nKey, 1)
     },
     setDesc () {
       const pick = this.data
-      const nb = pick.pick === 1 ? 'one' : pick.pick
-      let str = `You can pick ${nb} `
+      const nb = pick.pick
+      let i18nKey = `pick.you-can-pick-n-${pick.from}`
       if (pick.extraPrice) {
-        str += 'or more'
+        i18nKey += '-or-more'
       } else if (pick.or) {
-        str += `${Formatter.singular(pick.from)} or ${nb} ${Formatter.singular(pick.or)}`
+        i18nKey += `-or-n-${pick.or}`
       }
-      this.descText = str.trim()
+      i18nKey = i18nKey.replace('n-soups-or-n-wraps', 'n-wraps-or-n-soups')
+      this.descText = this.$tc(i18nKey, nb)
     },
     setExtra () {
       if (!this.data.extraPrice) {
         return
       }
       let str = this.formatPrice(this.data.extraPrice)
-      str += ' for each extra'
+      str += ' ' + this.$t('pick.for-each-extra')
       this.data.extraText = str
     },
     isValid () {

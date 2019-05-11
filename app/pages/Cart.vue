@@ -12,7 +12,7 @@
           />
 
           <StackLayout class="m30">
-            <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title + ' formula'" :price="formatPrice(data.price)" />
+            <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title" :price="formatPrice(data.price)" />
             <CartLine
               v-for="(pick, index) in data.picks"
               :key="index"
@@ -22,13 +22,13 @@
               :price="formatPrice(pick.price)"
               :delay="200 + index * 200"
             />
-            <CartLine class="pl10 pt10 pb10 fz20" :type="'TOTAL'" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+            <CartLine class="pl10 pt10 pb10 fz20" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
           </StackLayout>
 
-          <Button class="action big validate mt10" text="Validate & Pay" />
+          <Button class="action big validate mt10" :text="$t('order.validate-pay')" />
           <FlexboxLayout class="mt5">
-            <Button class="action" flexGrow="1" text="Modify selection" @tap="modify()" />
-            <Button class="action" flexGrow="1" text="Cancel order" @tap="cancel()" />
+            <Button class="action" flexGrow="1" :text="$t('order.modify-selection')" @tap="modify()" />
+            <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
           </FlexboxLayout>
         </StackLayout>
       </ScrollView>

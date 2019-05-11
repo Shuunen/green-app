@@ -19,17 +19,35 @@
 		"complete-selection": "يرجى استكمال الاختيار",
 		"formula": "معادلة",
 		"formula-for": "ترتيب هذه الصيغة ل",
+		"modify-selection": "تعديل الاختيار",
 		"place": "تضع طلبية",
-		"summary": "ملخص الطلب"
+		"summary": "ملخص الطلب",
+		"total": "مجموع",
+		"validate-pay": "التحقق من صحة والدفع"
 	},
 	"pick": {
 		"bases": "قاعدة | قواعد",
 		"deserts": "الصحراء | الصحاري",
 		"drinks": "شرب | مشروبات",
+		"for-each-extra": "لكل اضافية",
 		"ingredients": "عنصر | مكونات",
 		"sauces": "صلصة | الصلصات",
+		"section-bases": "قواعد",
+		"section-deserts": "الصحراء | الصحاري",
+		"section-drinks": "شرب | مشروبات",
+		"section-drinks-or-deserts": "اشرب او صحراء | المشروبات والحلويات",
+		"section-ingredients": "مكونات",
+		"section-sauces": "صلصات",
+		"section-wraps-or-soups": "لف أو حساء | لف وشوربة",
 		"soups": "حساء | الحساء",
 		"undefined": "",
-		"wraps": "التفاف | يلف"
+		"wraps": "التفاف | يلف",
+		"you-can-pick-n-bases": "يمكنك اختيار قاعدة | يمكنك اختيار قواعد {n} ",
+		"you-can-pick-n-deserts": "يمكنك اختيار صحراء واحدة | يمكنك اختيار {n} الصحاري",
+		"you-can-pick-n-drinks": "يمكنك اختيار شراب | يمكنك اختيار {n} مشروبات",
+		"you-can-pick-n-drinks-or-n-deserts": "يمكنك اختيار شراب واحد أو صحراء واحدة يمكنك اختيار {n} من هؤلاء",
+		"you-can-pick-n-ingredients-or-more": "يمكنك اختيار عنصر واحد | يمكنك اختيار مكونات {n} ",
+		"you-can-pick-n-sauces": "يمكنك اختيار صلصة واحدة | يمكنك اختيار الصلصات {n} ",
+		"you-can-pick-n-wraps-or-n-soups": "يمكنك اختيار التفاف أو حساء | يمكنك اختيار {n} من هؤلاء"
 	}
 }
