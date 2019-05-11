@@ -60,7 +60,6 @@ export default {
         return
       }
 
-      this.type += 's'
       this.description = this.type + ' : '
       this.items = this.selection.map(s => s.title)
     },

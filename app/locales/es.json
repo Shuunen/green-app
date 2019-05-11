@@ -19,17 +19,35 @@
 		"complete-selection": "Complete la selección para pedido",
 		"formula": "fórmula",
 		"formula-for": "Pida esta fórmula para",
+		"modify-selection": "Modificar selección",
 		"place": "Hacer un pedido",
-		"summary": "Resumen del pedido"
+		"summary": "Resumen del pedido",
+		"total": "TOTAL",
+		"validate-pay": "Validar y pagar"
 	},
 	"pick": {
 		"bases": "base | bases",
 		"deserts": "desierto | desiertos",
 		"drinks": "bebida | bebidas",
+		"for-each-extra": "por cada extra",
 		"ingredients": "ingrediente | ingredientes",
 		"sauces": "salsa | salsas",
+		"section-bases": "Base | Bases",
+		"section-deserts": "Desierto | Desiertos",
+		"section-drinks": "Bebida | Bebidas",
+		"section-drinks-or-deserts": "Bebida o desierto | Bebidas y Desiertos",
+		"section-ingredients": "Ingredientes",
+		"section-sauces": "Salsa | Salsas",
+		"section-wraps-or-soups": "Wrap o sopa | Wrap y sopas",
 		"soups": "sopa | sopas",
 		"undefined": "",
-		"wraps": "wrap | wraps"
+		"wraps": "wrap | wraps",
+		"you-can-pick-n-bases": "Puedes elegir una base | Puedes elegir {n} bases",
+		"you-can-pick-n-deserts": "Puedes elegir un desierto | Puedes elegir {n} desiertos",
+		"you-can-pick-n-drinks": "Puedes elegir una bebida | Puedes elegir {n} bebidas",
+		"you-can-pick-n-drinks-or-n-deserts": "Puedes escoger una bebida o un desierto | Puedes elegir {n} de estos",
+		"you-can-pick-n-ingredients-or-more": "Puedes elegir un ingrediente | Puedes escoger {n} ingredientes",
+		"you-can-pick-n-sauces": "Puedes escoger una salsa | Puedes recoger {n} salsas",
+		"you-can-pick-n-wraps-or-n-soups": "Puedes escoger un wrap o una sopa | Puedes elegir {n} de estos"
 	}
 }

@@ -1,7 +1,7 @@
 {
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "config": {
-    "default_locale": "english",
+    "default_locale": "french",
     "locales": {
       "arabic": {
         "code": "ar",
