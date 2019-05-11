@@ -155,3 +155,7 @@ Because `yarn dev` will choose the first avd it will find, you may need to delet
 ## Tips
 
 * if there is structural updates to the project like new deps, modified conf, etc... delete the `platforms` folder and let yarn dev (or build) regenerate it
+
+## Upgrading stack
+
+You can use `yarn upgrade --latest`, try dev and build to check that everything is still working.
