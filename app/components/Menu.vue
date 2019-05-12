@@ -3,8 +3,8 @@
     <StackLayout flexGrow="1">
       <Label class="drawer-header fz25 mb15" text="Benjamin" />
       <Label :text="$t('common.home')" class="drawer-item" @tap="goHome" />
-      <Label :text="$t('common.my-account')" class="drawer-item" />
-      <Label :text="$t('common.my-orders')" class="drawer-item" />
+      <Label :text="$t('common.my-account')" class="drawer-item" @tap="goAccount" />
+      <Label :text="$t('common.my-orders')" class="drawer-item" @tap="goOrders" />
       <Label :text="$t('common.logout')" class="drawer-item" @tap="doLogout" />
     </StackLayout>
     <LangSelector class="mb15" />
@@ -18,7 +18,7 @@ import LangSelector from '@/components/LangSelector'
 export default {
   components: { LangSelector },
   methods: {
-    ...mapActions(['doLogout', 'goHome'])
+    ...mapActions(['doLogout', 'goAccount', 'goOrders', 'goHome'])
   }
 }
 </script>
