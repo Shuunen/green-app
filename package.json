@@ -43,7 +43,7 @@
   "devDependencies": {
     "@babel/core": "7.4.4",
     "@babel/preset-env": "7.4.4",
-    "babel-loader": "8.0.5",
+    "babel-loader": "8.0.6",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
     "babylon": "6.18.0",
