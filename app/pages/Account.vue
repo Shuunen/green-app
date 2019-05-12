@@ -2,8 +2,8 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout class="p10">
-          <Tile :data="{ type: 'formula', name: 'Account Page' }" :hero="true" />
+        <StackLayout>
+          <Tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="true" />
         </StackLayout>
       </ScrollView>
     </FlexboxLayout>

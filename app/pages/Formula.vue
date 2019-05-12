@@ -3,13 +3,7 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
-          <Tile
-            :data="{
-              type: 'formula',
-              name: data.title
-            }"
-            :hero="true"
-          />
+          <Tile :data="{ type: 'wrap', name: data.title }" :hero="true" />
           <Pick
             v-for="(pick, index) in picks"
             :key="index"

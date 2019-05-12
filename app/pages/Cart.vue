@@ -3,13 +3,7 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
-          <Tile
-            :data="{
-              type: 'formula',
-              name: $t('order.summary')
-            }"
-            :hero="true"
-          />
+          <Tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
 
           <StackLayout class="m30">
             <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title" :price="formatPrice(data.price)" />

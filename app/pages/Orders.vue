@@ -3,7 +3,7 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
-          <Tile :data="{ type: 'formula', name: 'Orders Page' }" :hero="true" />
+          <Tile :data="{ type: 'soup', name: $t('order.my-orders') }" :hero="true" />
         </StackLayout>
       </ScrollView>
     </FlexboxLayout>

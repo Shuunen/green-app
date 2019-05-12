@@ -1,23 +1,8 @@
 <template>
-  <StackLayout
-    class="type"
-    :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]"
-  >
-    <FlexboxLayout
-      flexDirection="column"
-      :justifyContent="hero ? 'center' : 'space-between'"
-      class="type-shadow p10"
-    >
-      <Label
-        class="type-name fz30"
-        :text="data.name"
-      />
-      <Icon
-        v-if="!hero"
-        class="type-arrow"
-        name="circled-right-2-white"
-        alignSelf="flex-end"
-      />
+  <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
+    <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p10">
+      <Label class="type-name fz30" :text="data.name" />
+      <Icon v-if="!hero" class="type-arrow" name="circled-right-2-white" alignSelf="flex-end" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -26,9 +11,7 @@
 import Icon from '@/components/Icon'
 
 export default {
-  components: {
-    Icon
-  },
+  components: { Icon },
   props: {
     data: {
       type: Object,
@@ -49,6 +32,14 @@ export default {
   background-size: cover;
   height: 120;
   margin: 10 10 0 10;
+  .type-shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100%;
+  }
+  .type-name {
+    color: $color-white;
+    margin-left: 2;
+  }
   &.formula {
     background-image: url("~/assets/images/banners/formula.jpg");
   }
@@ -73,13 +64,5 @@ export default {
       text-align: center;
     }
   }
-}
-.type-shadow {
-  background-color: rgba(0, 0, 0, 0.5);
-  height: 100%;
-}
-.type-name {
-  color: $color-white;
-  margin-left: 2;
 }
 </style>

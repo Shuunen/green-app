@@ -68,6 +68,11 @@ export const goOrders = ({ commit }) => {
   commit(types.GO_ORDERS)
 }
 
+export const startOrder = ({ commit }) => {
+  console.log('action : startOrder')
+  commit(types.START_ORDER)
+}
+
 export const setLocale = ({ commit }, locale) => {
   console.log('action : setLocale')
   commit(types.SET_LOCALE, locale)
