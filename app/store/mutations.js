@@ -1,8 +1,14 @@
 import Account from '@/pages/Account'
 import Home from '@/pages/Home'
 import Orders from '@/pages/Orders'
-import Vue from 'nativescript-vue'
 import * as types from './mutation-types'
+import { topmost } from 'tns-core-modules/ui/frame'
+
+function navigateTo (page) {
+  topmost().currentPage.__vuePageRef__.$navigateTo(page, {
+    frame: 'mainContent'
+  })
+}
 
 const mutations = {
   // data
@@ -44,23 +50,17 @@ const mutations = {
   [types.GO_HOME] (state) {
     console.log('GO_HOME')
     state.toggleMenu = false
-    Vue.prototype.$navigateTo(Home, {
-      frame: 'mainContent'
-    })
+    navigateTo(Home)
   },
   [types.GO_ACCOUNT] (state) {
     console.log('GO_ACCOUNT')
     state.toggleMenu = false
-    Vue.prototype.$navigateTo(Account, {
-      frame: 'mainContent'
-    })
+    navigateTo(Account)
   },
   [types.GO_ORDERS] (state) {
     console.log('GO_ORDERS')
     state.toggleMenu = false
-    Vue.prototype.$navigateTo(Orders, {
-      frame: 'mainContent'
-    })
+    navigateTo(Orders)
   }
 }
 
