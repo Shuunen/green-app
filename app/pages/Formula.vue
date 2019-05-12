@@ -2,15 +2,17 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout class="p10">
+        <StackLayout>
           <Tile :data="{ type: 'wrap', name: data.title }" :hero="true" />
-          <Pick
-            v-for="(pick, index) in picks"
-            :key="index"
-            :data="pick"
-            :items="items"
-            @change="onPickChange"
-          />
+          <StackLayout class="p10">
+            <Pick
+              v-for="(pick, index) in picks"
+              :key="index"
+              :data="pick"
+              :items="items"
+              @change="onPickChange"
+            />
+          </StackLayout>
         </StackLayout>
       </ScrollView>
       <StackLayout class="p5" flexShrink="0">
