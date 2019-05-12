@@ -1,0 +1,46 @@
+<template>
+  <Page actionBarHidden="true">
+    <FlexboxLayout flexDirection="column" class="bg">
+      <ScrollView orientation="vertical" flexGrow="1">
+        <StackLayout class="p10">
+          <Tile :data="{ type: 'formula', name: 'Orders Page' }" :hero="true" />
+        </StackLayout>
+      </ScrollView>
+    </FlexboxLayout>
+  </Page>
+</template>
+
+<script>
+import Tile from '@/components/Tile'
+import { mapGetters } from 'vuex'
+
+export default {
+  components: {
+    Tile
+  },
+  data () {
+    return {
+      orders: [
+        {
+          id: 1,
+          date: '14/05/2019'
+        }
+      ]
+    }
+  },
+  computed: {
+    ...mapGetters({
+      isLoading: 'isLoading'
+    })
+  },
+  created () {
+    console.log('Orders page created')
+  },
+  methods: {
+  }
+}
+</script>
+
+<style lang="scss">
+@import "../assets/styles";
+</style>

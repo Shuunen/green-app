@@ -1,5 +1,5 @@
-import * as types from './mutation-types'
 import ProductsService from '@/services/ProductsService'
+import * as types from './mutation-types'
 
 const productsService = new ProductsService()
 
@@ -56,6 +56,16 @@ export const doLogout = ({ commit }) => {
 export const goHome = ({ commit }) => {
   console.log('action : goHome')
   commit(types.GO_HOME)
+}
+
+export const goAccount = ({ commit }) => {
+  console.log('action : goAccount')
+  commit(types.GO_ACCOUNT)
+}
+
+export const goOrders = ({ commit }) => {
+  console.log('action : goOrders')
+  commit(types.GO_ORDERS)
 }
 
 export const setLocale = ({ commit }, locale) => {
