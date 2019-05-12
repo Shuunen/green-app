@@ -1,5 +1,6 @@
 import Account from '@/pages/Account'
 import Home from '@/pages/Home'
+import Formulas from '@/pages/Formulas'
 import Orders from '@/pages/Orders'
 import * as types from './mutation-types'
 import { topmost } from 'tns-core-modules/ui/frame'
@@ -61,6 +62,11 @@ const mutations = {
     console.log('GO_ORDERS')
     state.toggleMenu = false
     navigateTo(Orders)
+  },
+  [types.START_ORDER] (state) {
+    console.log('START_ORDER')
+    state.toggleMenu = false
+    navigateTo(Formulas)
   }
 }
 

@@ -3,7 +3,7 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
-          <Tile :data="{ type: 'formula', name: data.title }" />
+          <Tile :data="{ type: 'wrap', name: data.title }" />
         </StackLayout>
       </ScrollView>
       <Button :class="{ valid }" text="click me" :isEnabled="valid" />

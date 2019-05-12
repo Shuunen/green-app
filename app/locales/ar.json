@@ -1,4 +1,8 @@
 {
+	"account": {
+		"change-target": "حدد مطعم آخر",
+		"my-account": "حسابي"
+	},
 	"common": {
 		"arabic": "عربى",
 		"back-home": "العودة إلى الصفحة الرئيسية",
@@ -20,6 +24,7 @@
 		"formula": "معادلة",
 		"formula-for": "ترتيب هذه الصيغة ل",
 		"modify-selection": "تعديل الاختيار",
+		"my-orders": "طلباتي",
 		"place": "تضع طلبية",
 		"summary": "ملخص الطلب",
 		"total": "مجموع",

@@ -1,13 +1,12 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="home p40 bg">
-      <Icon
-        flexGrow="2"
-        class="logo"
-        name="logo-green-alt"
-      />
+    <FlexboxLayout flexDirection="column" class="home pt20 pb40 pl40 pr40 bg">
       <StackLayout flexGrow="1">
-        <Button class="action big validate" :text="$t('order.place')" @tap="order" />
+        <Button class="action" :text="$t('account.change-target')" @tap="goAccount" />
+      </StackLayout>
+      <Icon flexGrow="2" class="logo" name="logo-green-alt" />
+      <StackLayout flexGrow="1">
+        <Button class="action big validate mb20" :text="$t('order.place')" @tap="startOrder" />
       </StackLayout>
       <LangSelector />
     </FlexboxLayout>
@@ -17,30 +16,16 @@
 <script>
 import LangSelector from '@/components/LangSelector'
 import Icon from '@/components/Icon'
-import { mapGetters } from 'vuex'
-import Formulas from './Formulas.vue'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  components: {
-    Icon,
-    LangSelector
-  },
+  components: { Icon, LangSelector },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading'
-    })
+    ...mapGetters({ isLoading: 'isLoading' })
   },
-  mounted () {
-    console.log('Home page mounted')
-    // setTimeout(() => this.order(), 100)
-  },
+  mounted () { console.log('Home page mounted') },
   methods: {
-    order () {
-      console.log('user wants to order')
-      this.$navigateTo(Formulas, {
-        frame: 'mainContent'
-      })
-    }
+    ...mapActions(['goAccount', 'startOrder'])
   }
 }
 </script>

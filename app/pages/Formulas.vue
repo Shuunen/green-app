@@ -1,22 +1,12 @@
 <template>
   <Page actionBarHidden="true">
     <ScrollView orientation="vertical">
-      <StackLayout class="p10 bg">
-        <Tile
-          :data="{
-            type: 'formula',
-            name: ucfirst($t('order.formula'))
-          }"
-          :hero="true"
-        />
-        <Label :text="$t('order.choose-formula') + ' :'" class="pv15 fz20 grey" />
-        <FormulaTile
-          v-for="data in formulas"
-          :key="data.title"
-          :data="data"
-          @tap.native="goto(data)"
-          @tap="goto(data)"
-        />
+      <StackLayout class="bg">
+        <Tile :data="{ type: 'formula', name: ucfirst($t('order.formula')) }" :hero="true" />
+        <StackLayout class="p10">
+          <Label :text="$t('order.choose-formula') + ' :'" class="pt5 pb15 fz20 grey" />
+          <FormulaTile v-for="data in formulas" :key="data.title" :data="data" @tap.native="goto(data)" @tap="goto(data)" />
+        </StackLayout>
       </StackLayout>
     </ScrollView>
   </Page>

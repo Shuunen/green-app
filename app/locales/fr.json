@@ -1,4 +1,8 @@
 {
+	"account": {
+		"change-target": "Choisir un autre restaurant",
+		"my-account": "Mon compte"
+	},
 	"common": {
 		"arabic": "Arabe",
 		"back-home": "Retour à l'accueil",
@@ -20,6 +24,7 @@
 		"formula": "formule",
 		"formula-for": "Commander cette formule pour",
 		"modify-selection": "Modifier la sélection",
+		"my-orders": "Mes commandes",
 		"place": "Commander",
 		"summary": "Votre commande",
 		"total": "TOTAL",
