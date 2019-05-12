@@ -2,28 +2,29 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout class="p10">
+        <StackLayout>
           <Tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
+          <StackLayout class="p10">
+            <StackLayout class="m30">
+              <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title" :price="formatPrice(data.price)" />
+              <CartLine
+                v-for="(pick, index) in data.picks"
+                :key="index"
+                class="pl10 pb5"
+                :type="pick.titleTextSingular"
+                :selection="pick.selection"
+                :price="formatPrice(pick.price)"
+                :delay="200 + index * 200"
+              />
+              <CartLine class="pl10 pt10 pb10 fz20" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+            </StackLayout>
 
-          <StackLayout class="m30">
-            <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title" :price="formatPrice(data.price)" />
-            <CartLine
-              v-for="(pick, index) in data.picks"
-              :key="index"
-              class="pl10 pb5"
-              :type="pick.titleTextSingular"
-              :selection="pick.selection"
-              :price="formatPrice(pick.price)"
-              :delay="200 + index * 200"
-            />
-            <CartLine class="pl10 pt10 pb10 fz20" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+            <Button class="action big validate mt10" :text="$t('order.validate-pay')" />
+            <FlexboxLayout class="mt5">
+              <Button class="action" flexGrow="1" :text="$t('order.modify-selection')" @tap="modify()" />
+              <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
+            </FlexboxLayout>
           </StackLayout>
-
-          <Button class="action big validate mt10" :text="$t('order.validate-pay')" />
-          <FlexboxLayout class="mt5">
-            <Button class="action" flexGrow="1" :text="$t('order.modify-selection')" @tap="modify()" />
-            <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
-          </FlexboxLayout>
         </StackLayout>
       </ScrollView>
     </FlexboxLayout>
