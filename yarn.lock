@@ -5046,10 +5046,10 @@ nativescript-theme-core@1.0.6:
   resolved "https://registry.yarnpkg.com/nativescript-theme-core/-/nativescript-theme-core-1.0.6.tgz#cea174696bc5b3bd2025412c9c2eb4a5ed2b7f2d"
   integrity sha512-p9v8w0xC/WJDJat/HwxJ/u7Xf50i3JiZR0zx0M7445Gi4HaBClFcjfVc+TLOZEARU4RKauBTopYlLN4xke6tYw==
 
-nativescript-toasty@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/nativescript-toasty/-/nativescript-toasty-1.3.0.tgz#463d769bee47d9a778034e259ebd5f524bc1ae40"
-  integrity sha512-KMC6nGh+ZKC5+F5i98oCIRx8+eNqGFTzcgTh8c8RZy7EkhDk81z6C1JjX57F/fhWhfx6eaNHymi2v4CqjT2kxA==
+nativescript-toasty@1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/nativescript-toasty/-/nativescript-toasty-1.3.1.tgz#7b317a1873e8229e0f0f5bdabecef6e6411abcbb"
+  integrity sha512-6mBQXrTX6ae6RLulLKsnWa+KvtlbPXolw3fkyb54upd9fX5fAJaq2bL5Vdu9ujfCOt6fDORfy/myPi+ssZK4Og==
 
 nativescript-ui-core@~2.0.0:
   version "2.0.1"
