@@ -17,7 +17,8 @@
 		"my-orders": "My orders",
 		"or": "or",
 		"select": "Select",
-		"spanish": "Spanish"
+		"spanish": "Spanish",
+		"version": "version"
 	},
 	"order": {
 		"cancel": "Cancel order",
