@@ -1,6 +1,7 @@
 {
   "extends": [
     "plugin:vue/recommended",
+    "eslint:recommended",
     "standard"
   ],
   "globals": {
@@ -10,6 +11,7 @@
     "ecmaVersion": 2018
   },
   "rules": {
+    "no-console": "off",
     "vue/attribute-hyphenation": "off",
     "vue/max-attributes-per-line": "off"
   }
