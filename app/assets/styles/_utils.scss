@@ -6,6 +6,10 @@
   color: $color-black;
 }
 
+.white {
+  color: $color-white;
+}
+
 .grey {
   color: $color-grey;
 }
@@ -18,12 +22,25 @@
   color: $color-primary;
 }
 
-.primary-alt {
-  color: $color-primary-alt;
+.primary-border {
+  border-color: $color-alt;
+  border-width: 1;
+}
+
+.alt {
+  color: $color-alt;
 }
 
 .bg {
   background-color: $color-white;
+}
+
+.primary-bg {
+  background-color: $color-primary;
+}
+
+.alt-bg {
+  background-color: $color-alt;
 }
 
 .bold {
