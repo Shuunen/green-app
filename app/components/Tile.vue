@@ -15,11 +15,11 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     large: Boolean,
-    hero: Boolean
-  }
+    hero: Boolean,
+  },
 }
 </script>
 

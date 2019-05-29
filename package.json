@@ -43,6 +43,7 @@
   "devDependencies": {
     "@babel/core": "7.4.5",
     "@babel/preset-env": "7.4.5",
+    "babel-eslint": "10.0.1",
     "babel-loader": "8.0.6",
     "babel-traverse": "6.26.0",
     "babel-types": "6.26.0",
@@ -101,7 +102,7 @@
     "dev": "yarn start",
     "dev:ios": "yarn start:ios",
     "last-commit": "./bin/last-commit.sh ./app/last-commit.js",
-    "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js",
+    "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js *.js",
     "ls": "tns device",
     "postinstall": "yarn clean",
     "prebuild": "yarn last-commit",

@@ -23,18 +23,18 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     items: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
       descText: '',
       list: [],
-      selection: []
+      selection: [],
     }
   },
   created () {
@@ -118,8 +118,8 @@ export default {
       this.data.price = this.getPrice()
       this.data.selection = this.selection
       this.$emit('change')
-    }
-  }
+    },
+  },
 }
 </script>
 

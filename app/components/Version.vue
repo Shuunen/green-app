@@ -14,13 +14,13 @@ export default {
   data () {
     return {
       lastCommit,
-      pkg
+      pkg,
     }
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
-  }
+      isLoading: 'isLoading',
+    }),
+  },
 }
 </script>

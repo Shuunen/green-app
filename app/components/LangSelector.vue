@@ -11,18 +11,18 @@ import Icon from '@/components/Icon'
 
 export default {
   components: {
-    Icon
+    Icon,
   },
   computed: {
     ...mapGetters({
       isLoading: 'isLoading',
       locales: 'locales',
-      locale: 'locale'
-    })
+      locale: 'locale',
+    }),
   },
   methods: {
-    ...mapActions(['setLocale'])
-  }
+    ...mapActions(['setLocale']),
+  },
 }
 </script>
 

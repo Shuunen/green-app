@@ -44,25 +44,25 @@ import Tile from '@/components/Tile'
 export default {
   components: {
     Tile,
-    Pick
+    Pick,
   },
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
       valid: false,
       total: 0,
-      picks: []
+      picks: [],
     }
   },
   computed: {
     ...mapGetters({
       items: 'items',
-      isLoading: 'isLoading'
+      isLoading: 'isLoading',
     }),
     orderText: function () {
       if (this.valid) {
@@ -70,7 +70,7 @@ export default {
         return this.$t('order.formula-for') + ' ' + total
       }
       return this.$t('order.complete-selection')
-    }
+    },
   },
   created () {
     console.log('Formula page created')
@@ -105,7 +105,7 @@ export default {
       console.log('user wants to order')
       this.$navigateTo(Cart, {
         frame: 'mainContent',
-        props: { data: this.data }
+        props: { data: this.data },
       })
     },
     modify () {
@@ -113,9 +113,9 @@ export default {
     },
     cancel () {
       this.$navigateTo(Home, {
-        frame: 'mainContent'
+        frame: 'mainContent',
       })
-    }
-  }
+    },
+  },
 }
 </script>

@@ -42,23 +42,23 @@ import Tile from '@/components/Tile'
 export default {
   components: {
     CartLine,
-    Tile
+    Tile,
   },
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
-      valid: false
+      valid: false,
     }
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   created () {
     console.log('Cart page created')
@@ -77,9 +77,9 @@ export default {
     },
     cancel () {
       this.$navigateTo(Home, {
-        frame: 'mainContent'
+        frame: 'mainContent',
       })
-    }
-  }
+    },
+  },
 }
 </script>

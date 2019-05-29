@@ -21,23 +21,23 @@ export default {
   components: {
     Header,
     Menu,
-    Home
+    Home,
   },
   data () {
     return {}
   },
   computed: {
     ...mapGetters({
-      toggleMenu: 'toggleMenu'
-    })
+      toggleMenu: 'toggleMenu',
+    }),
   },
   watch: {
     toggleMenu: function () {
       this.$refs.drawer.nativeView.toggleDrawerState()
-    }
+    },
   },
   created () {
     console.log('Landing created')
-  }
+  },
 }
 </script>

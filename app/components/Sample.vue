@@ -14,13 +14,13 @@ export default {
   components: { Icon },
   data () {
     return {
-      message: 'Hello there !'
+      message: 'Hello there !',
     }
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
-  }
+      isLoading: 'isLoading',
+    }),
+  },
 }
 </script>

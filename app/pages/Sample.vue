@@ -18,23 +18,23 @@ import Tile from '@/components/Tile'
 
 export default {
   components: {
-    Tile
+    Tile,
   },
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   data () {
     return {
-      valid: false
+      valid: false,
     }
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   created () {
     console.log('Sample page created')
@@ -46,8 +46,8 @@ export default {
       this.loadItems()
         .catch(error => console.error(error))
         .then(() => console.log('sample items loaded'))
-    }
-  }
+    },
+  },
 }
 </script>
 

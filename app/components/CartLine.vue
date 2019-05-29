@@ -20,29 +20,29 @@ export default {
   props: {
     type: {
       type: String,
-      required: true
+      required: true,
     },
     selection: {
       type: Array,
-      default: () => []
+      default: () => [],
     },
     price: {
       type: String,
-      required: true
+      required: true,
     },
     animated: {
       type: Boolean,
-      default: true
+      default: true,
     },
     delay: {
       type: Number,
-      default: 10
-    }
+      default: 10,
+    },
   },
   data () {
     return {
       description: '',
-      items: []
+      items: [],
     }
   },
   created () {
@@ -69,13 +69,13 @@ export default {
       const opts = {
         translate: { x: 0, y: 0 },
         opacity: 1,
-        duration: 1000
+        duration: 1000,
       }
       setTimeout(() => args.object.animate(opts), this.delay)
     },
     isIncluded () {
       return this.price.replace(/\D/g, '') === '000'
-    }
-  }
+    },
+  },
 }
 </script>

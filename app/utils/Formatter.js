@@ -9,7 +9,7 @@ export default class Formatter {
     const formatter = new intl.NumberFormat(store.state.locale.code_long, {
       style: 'currency',
       currency: store.state.locale.currency,
-      minimumFractionDigits: 2
+      minimumFractionDigits: 2,
     })
     return formatter.format(num)
   }
