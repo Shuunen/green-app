@@ -12,8 +12,9 @@
 </template>
 
 <script>
-import Tile from '@/components/Tile'
 import { mapGetters, mapActions } from 'vuex'
+
+import Tile from '@/components/Tile'
 
 export default {
   components: {

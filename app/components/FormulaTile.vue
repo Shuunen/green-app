@@ -1,8 +1,8 @@
 <template>
-  <FlexboxLayout class="formula-tile p10 mb12">
+  <FlexboxLayout class="primary-border p10 mb12">
     <StackLayout flexGrow="1" flexShrink="0" class="mr10">
-      <Label :text="data.title" class="primary-alt bold fz20" />
-      <Label :text="formatPrice(data.price)" class="primary-alt fz20" />
+      <Label :text="data.title" class="alt bold fz20" />
+      <Label :text="formatPrice(data.price)" class="alt fz20" />
     </StackLayout>
 
     <StackLayout flexGrow="2" class="pt5">
@@ -16,8 +16,9 @@
 </template>
 
 <script>
-import Formatter from '@/utils/Formatter'
 import { mapGetters } from 'vuex'
+
+import Formatter from '@/utils/Formatter'
 
 export default {
   props: {
@@ -67,12 +68,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-.formula-tile {
-  border-color: $color-primary-alt;
-  border-width: 1;
-}
-</style>

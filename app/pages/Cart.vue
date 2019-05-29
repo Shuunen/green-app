@@ -32,11 +32,12 @@
 </template>
 
 <script>
-import CartLine from '@/components/CartLine'
-import Tile from '@/components/Tile'
-import Home from '@/pages/Home'
 import { mapGetters, mapActions } from 'vuex'
+
+import CartLine from '@/components/CartLine'
 import Formatter from '@/utils/Formatter'
+import Home from '@/pages/Home'
+import Tile from '@/components/Tile'
 
 export default {
   components: {

@@ -13,11 +13,12 @@
 </template>
 
 <script>
-import Tile from '@/components/Tile'
-import Formatter from '@/utils/Formatter'
 import { mapGetters, mapActions } from 'vuex'
-import FormulaTile from '@/components/FormulaTile'
+
+import Formatter from '@/utils/Formatter'
 import Formula from '@/pages/Formula'
+import FormulaTile from '@/components/FormulaTile'
+import Tile from '@/components/Tile'
 
 export default {
   components: {
