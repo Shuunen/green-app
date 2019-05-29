@@ -14,6 +14,16 @@ $sides: (top, bottom, left, right);
     margin: #{$space};
   }
 
+  .mv#{$space} {
+    margin-bottom: #{$space};
+    margin-top: #{$space};
+  }
+
+  .mh#{$space} {
+    margin-left: #{$space};
+    margin-right: #{$space};
+  }
+
   .p#{$space} {
     padding: #{$space};
   }
@@ -21,6 +31,11 @@ $sides: (top, bottom, left, right);
   .pv#{$space} {
     padding-bottom: #{$space};
     padding-top: #{$space};
+  }
+
+  .ph#{$space} {
+    padding-left: #{$space};
+    padding-right: #{$space};
   }
 
   .fz#{$space} {

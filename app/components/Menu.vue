@@ -9,7 +9,8 @@
         <Label :text="$t('common.logout')" class="mb10" @tap="doLogout" />
       </StackLayout>
     </StackLayout>
-    <LangSelector class="mb15" />
+    <LangSelector />
+    <Version />
   </FlexboxLayout>
 </template>
 
@@ -17,9 +18,10 @@
 import { mapGetters, mapActions } from 'vuex'
 
 import LangSelector from '@/components/LangSelector'
+import Version from '@/components/Version'
 
 export default {
-  components: { LangSelector },
+  components: { LangSelector, Version },
   computed: {
     ...mapGetters({
       isLoading: 'isLoading',

@@ -1,19 +1,10 @@
 <template>
-  <Page
-    actionBarHidden="true"
-    backgroundSpanUnderStatusBar="true"
-  >
+  <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true">
     <StackLayout>
-      <Label
-        class="main-label"
-        text="Green Login"
-      />
+      <Label class="main-label" text="Green Login" />
 
       <!-- form controls -->
-      <GridLayout
-        class="form-controls"
-        rows="auto, auto"
-      >
+      <GridLayout class="form-controls" rows="auto, auto">
         <TextField
           v-model="user.email"
           hint="Email Address"
@@ -40,12 +31,7 @@
       </GridLayout>
 
       <!-- login / sign up button -->
-      <Button
-        :text="isLoggingIn ? 'Login' : 'Sign up'"
-        :isEnabled="!isAuthenticating"
-        class="submit-button"
-        @tap="submit()"
-      />
+      <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button" @tap="submit()" />
     </StackLayout>
   </Page>
 </template>
@@ -103,13 +89,12 @@ export default {
 
 <style lang="scss">
 .login {
-
   .main-label {
     horizontal-align: center;
     color: black;
   }
 
-  Button,
+  button,
   TextField {
     margin-left: 16;
     margin-right: 16;
@@ -118,17 +103,17 @@ export default {
 
   TextField {
     color: $color-black;
-    placeholder-color: #ACA6A7;
+    placeholder-color: #aca6a7;
     margin-bottom: 10;
 
     &.light {
-      color: #C4AFB4;
-      placeholder-color: #C4AFB4;
+      color: #c4afb4;
+      placeholder-color: #c4afb4;
     }
   }
 
   .submit-button {
-    background-color: #CB1D00;
+    background-color: #cb1d00;
     color: white;
     margin-top: 15;
   }
