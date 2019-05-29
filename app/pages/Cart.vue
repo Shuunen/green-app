@@ -6,7 +6,7 @@
           <Tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
           <StackLayout class="p10">
             <StackLayout class="m30">
-              <CartLine class="pt10 pb10 fz20 primary-alt" :type="data.title" :price="formatPrice(data.price)" />
+              <CartLine class="pt10 pb10 fz20 alt" :type="data.title" :price="formatPrice(data.price)" />
               <CartLine
                 v-for="(pick, index) in data.picks"
                 :key="index"

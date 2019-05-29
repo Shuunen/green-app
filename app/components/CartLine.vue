@@ -10,7 +10,7 @@
         />
       </StackLayout>
     </StackLayout>
-    <Label :class="[isIncluded() ? 'disabled' : 'primary-alt' ]" :text="price" />
+    <Label :class="[isIncluded() ? 'disabled' : 'alt' ]" :text="price" />
   </FlexboxLayout>
 </template>
 
