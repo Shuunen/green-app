@@ -48,7 +48,7 @@ export default {
     return {
       isLoggingIn: true,
       isAuthenticating: false,
-      user: new User('romain.racamier@gmail.com', 'my-pass')
+      user: new User('romain.racamier@gmail.com', 'my-pass'),
     }
   },
 
@@ -81,9 +81,9 @@ export default {
       console.log('navigating to products page')
       this.$navigateTo(Products)
       console.log('navigated to products page')
-    }
+    },
 
-  }
+  },
 }
 </script>
 

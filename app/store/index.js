@@ -14,7 +14,7 @@ const locale = locales[pkg.config.default_locale]
 const user = {
   firstName: 'Benjamin',
   lastName: 'Franklin',
-  store: 'Green La Beaujoire (44)'
+  store: 'Green La Beaujoire (44)',
 }
 
 const store = new Vuex.Store({
@@ -29,12 +29,12 @@ const store = new Vuex.Store({
     formulas: [],
     // array of ongoing tasks. We keep track of the tasks to show/hide the
     // activity indicator in the page.
-    processingTasks: []
+    processingTasks: [],
   },
   mutations,
   actions,
   getters,
-  strict: debug
+  strict: debug,
 })
 
 Vue.prototype.$store = store

@@ -22,13 +22,13 @@ import LangSelector from '@/components/LangSelector'
 export default {
   components: { Icon, LangSelector },
   computed: {
-    ...mapGetters({ isLoading: 'isLoading' })
+    ...mapGetters({ isLoading: 'isLoading' }),
   },
   mounted () {
     console.log('Home page mounted')
   },
   methods: {
-    ...mapActions(['goAccount', 'startOrder'])
-  }
+    ...mapActions(['goAccount', 'startOrder']),
+  },
 }
 </script>

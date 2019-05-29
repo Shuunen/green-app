@@ -25,11 +25,11 @@ export default {
   computed: {
     ...mapGetters({
       isLoading: 'isLoading',
-      user: 'user'
-    })
+      user: 'user',
+    }),
   },
   methods: {
-    ...mapActions(['doLogout', 'goAccount', 'goOrders', 'goHome'])
-  }
+    ...mapActions(['doLogout', 'goAccount', 'goOrders', 'goHome']),
+  },
 }
 </script>

@@ -6,9 +6,9 @@ const data = {
   types: [
     {
       type: 'formula',
-      name: 'Place an order'
-    }
-  ]
+      name: 'Place an order',
+    },
+  ],
 }
 
 export default class Random {
@@ -27,7 +27,7 @@ export default class Random {
       id: data.id++,
       name: Formatter.capitalizeFirstLetter(this.getProductName(type)),
       price: this.getPrice(),
-      type
+      type,
     }
   }
   static getProducts (ofType) {

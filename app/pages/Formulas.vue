@@ -23,13 +23,13 @@ import Tile from '@/components/Tile'
 export default {
   components: {
     Tile,
-    FormulaTile
+    FormulaTile,
   },
   computed: {
     ...mapGetters({
       formulas: 'formulas',
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   created () {
     console.log('Formulas page created')
@@ -49,9 +49,9 @@ export default {
       console.log('user wants to go to :', data)
       this.$navigateTo(Formula, {
         frame: 'mainContent',
-        props: { data }
+        props: { data },
       })
-    }
-  }
+    },
+  },
 }
 </script>

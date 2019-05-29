@@ -24,16 +24,16 @@ export default {
   props: {
     data: {
       type: Object,
-      required: true
+      required: true,
     },
     equalize: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
+      isLoading: 'isLoading',
     }),
     description: function () {
       const lines = ['']
@@ -57,14 +57,14 @@ export default {
         }
       }
       return lines
-    }
+    },
   },
   methods: {
     formatPrice: num => Formatter.price(num),
     select () {
       console.log('user selected :', this.data.title)
       this.$emit('tap')
-    }
-  }
+    },
+  },
 }
 </script>

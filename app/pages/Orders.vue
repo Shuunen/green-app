@@ -17,28 +17,28 @@ import Tile from '@/components/Tile'
 
 export default {
   components: {
-    Tile
+    Tile,
   },
   data () {
     return {
       orders: [
         {
           id: 1,
-          date: '14/05/2019'
-        }
-      ]
+          date: '14/05/2019',
+        },
+      ],
     }
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   created () {
     console.log('Orders page created')
   },
   methods: {
-  }
+  },
 }
 </script>
 

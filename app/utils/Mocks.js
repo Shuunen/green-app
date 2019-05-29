@@ -5,19 +5,19 @@ export const formulas = [
     picks: [
       {
         pick: 1,
-        from: 'bases'
+        from: 'bases',
       },
       {
         pick: 3,
         from: 'ingredients',
-        extraPrice: 1
+        extraPrice: 1,
       },
       {
         pick: 1,
-        from: 'sauces'
-      }
+        from: 'sauces',
+      },
     ],
-    icon: 'formulas'
+    icon: 'formulas',
   },
   {
     title: 'Green Hot',
@@ -25,24 +25,24 @@ export const formulas = [
     picks: [
       {
         pick: 1,
-        from: 'bases'
+        from: 'bases',
       },
       {
         pick: 2,
         from: 'ingredients',
-        extraPrice: 1
+        extraPrice: 1,
       },
       {
         pick: 1,
-        from: 'sauces'
+        from: 'sauces',
       },
       {
         pick: 1,
         from: 'wraps',
-        or: 'soups'
-      }
+        or: 'soups',
+      },
     ],
-    icon: 'formulas'
+    icon: 'formulas',
   },
   {
     title: 'Green Life',
@@ -50,24 +50,24 @@ export const formulas = [
     picks: [
       {
         pick: 1,
-        from: 'bases'
+        from: 'bases',
       },
       {
         pick: 3,
         from: 'ingredients',
-        extraPrice: 1
+        extraPrice: 1,
       },
       {
         pick: 1,
-        from: 'sauces'
+        from: 'sauces',
       },
       {
         pick: 1,
         from: 'drinks',
-        or: 'deserts'
-      }
+        or: 'deserts',
+      },
     ],
-    icon: 'formulas'
+    icon: 'formulas',
   },
   {
     title: 'Green Winter',
@@ -75,29 +75,29 @@ export const formulas = [
     picks: [
       {
         pick: 1,
-        from: 'bases'
+        from: 'bases',
       },
       {
         pick: 2,
         from: 'ingredients',
-        extraPrice: 1
+        extraPrice: 1,
       },
       {
         pick: 1,
-        from: 'sauces'
+        from: 'sauces',
       },
       {
         pick: 1,
         from: 'soups',
-        or: 'wraps'
+        or: 'wraps',
       },
       {
         pick: 1,
         from: 'drinks',
-        or: 'deserts'
-      }
+        or: 'deserts',
+      },
     ],
-    icon: 'formulas'
+    icon: 'formulas',
   },
   {
     title: 'Green Love',
@@ -105,305 +105,305 @@ export const formulas = [
     picks: [
       {
         pick: 1,
-        from: 'bases'
+        from: 'bases',
       },
       {
         pick: 3,
         from: 'ingredients',
-        extraPrice: 1
+        extraPrice: 1,
       },
       {
         pick: 1,
-        from: 'sauces'
+        from: 'sauces',
       },
       {
         pick: 1,
-        from: 'drinks'
+        from: 'drinks',
       },
       {
         pick: 1,
-        from: 'deserts'
-      }
+        from: 'deserts',
+      },
     ],
-    icon: 'formulas'
-  }
+    icon: 'formulas',
+  },
 ]
 
 export const items = {
   bases: [
     {
       title: 'Cœur de romaine',
-      value: 'base-coeur-romaine'
+      value: 'base-coeur-romaine',
     },
     {
       title: 'Endives',
-      value: 'base-endives'
+      value: 'base-endives',
     },
     {
       title: 'Iceberg',
-      value: 'base-iceberg'
+      value: 'base-iceberg',
     },
     {
       title: 'Perle de blé',
-      value: 'base-perle-ble'
+      value: 'base-perle-ble',
     },
     {
       title: 'Pâtes au basilic',
-      value: 'base-pates-basilic'
-    }
+      value: 'base-pates-basilic',
+    },
   ],
   ingredients: [
     {
       title: 'Emmental',
-      value: 'ingredient-emmental'
+      value: 'ingredient-emmental',
     },
     {
       title: 'Bleu d’Auvergne',
-      value: 'ingredient-bleu-auvergne'
+      value: 'ingredient-bleu-auvergne',
     },
     {
       title: 'Mozzarella',
-      value: 'ingredient-mozzarella'
+      value: 'ingredient-mozzarella',
     },
     {
       title: 'Fromage de chèvre',
-      value: 'ingredient-fromage-chevre'
+      value: 'ingredient-fromage-chevre',
     },
     {
       title: 'Parmesan',
-      value: 'ingredient-parmesan'
+      value: 'ingredient-parmesan',
     },
     {
       title: 'Carottes',
-      value: 'ingredient-carottes'
+      value: 'ingredient-carottes',
     },
     {
       title: 'Champignons',
-      value: 'ingredient-champignons'
+      value: 'ingredient-champignons',
     },
     {
       title: 'Maïs',
-      value: 'ingredient-mais'
+      value: 'ingredient-mais',
     },
     {
       title: 'Tartare de courgettes',
-      value: 'ingredient-tartare-courgettes'
+      value: 'ingredient-tartare-courgettes',
     },
     {
       title: 'Haricots verts',
-      value: 'ingredient-haricots-verts'
+      value: 'ingredient-haricots-verts',
     },
     {
       title: 'Tomates',
-      value: 'ingredient-tomates'
+      value: 'ingredient-tomates',
     },
     {
       title: 'Fèves',
-      value: 'ingredient-feves'
+      value: 'ingredient-feves',
     },
     {
       title: 'Betteraves',
-      value: 'ingredient-betteraves'
+      value: 'ingredient-betteraves',
     },
     {
       title: '3 poivrons',
-      value: 'ingredient-3-poivrons'
+      value: 'ingredient-3-poivrons',
     },
     {
       title: 'Cœurs d’artichauts',
-      value: 'ingredient-coeurs-artichauts'
+      value: 'ingredient-coeurs-artichauts',
     },
     {
       title: 'Duo olives vertes / noires',
-      value: 'ingredient-duo-olives'
+      value: 'ingredient-duo-olives',
     },
     {
       title: 'Thon',
-      value: 'ingredient-thon'
+      value: 'ingredient-thon',
     },
     {
       title: 'Noix',
-      value: 'ingredient-noix'
+      value: 'ingredient-noix',
     },
     {
       title: 'Croutons',
-      value: 'ingredient-croutons'
+      value: 'ingredient-croutons',
     },
     {
       title: 'Oignons fris',
-      value: 'ingredient-oignons-fris'
+      value: 'ingredient-oignons-fris',
     },
     {
       title: 'Oeufs durs',
-      value: 'ingredient-oeufs-durs'
+      value: 'ingredient-oeufs-durs',
     },
     {
       title: 'Tomates séchées',
-      value: 'ingredient-tomates-sechees'
+      value: 'ingredient-tomates-sechees',
     },
     {
       title: 'Aubergines grillées',
-      value: 'ingredient-aubergines-grillees'
+      value: 'ingredient-aubergines-grillees',
     },
     {
       title: 'Poulet',
-      value: 'ingredient-poulet'
+      value: 'ingredient-poulet',
     },
     {
       title: 'Jambon blanc',
-      value: 'ingredient-jambon-blanc'
+      value: 'ingredient-jambon-blanc',
     },
     {
       title: 'Chorizo',
-      value: 'ingredient-chorizo'
+      value: 'ingredient-chorizo',
     },
     {
       title: 'Bacon',
-      value: 'ingredient-bacon'
+      value: 'ingredient-bacon',
     },
     {
       title: 'Pois chiche',
-      value: 'ingredient-pois-chiche'
+      value: 'ingredient-pois-chiche',
     },
     {
       title: 'Pomme',
-      value: 'ingredient-pomme'
+      value: 'ingredient-pomme',
     },
     {
       title: 'Poire',
-      value: 'ingredient-poire'
+      value: 'ingredient-poire',
     },
     {
       title: 'Kiwi',
-      value: 'ingredient-kiwi'
+      value: 'ingredient-kiwi',
     },
     {
       title: 'Banane',
-      value: 'ingredient-banane'
+      value: 'ingredient-banane',
     },
     {
       title: 'Ananas',
-      value: 'ingredient-ananas'
-    }
+      value: 'ingredient-ananas',
+    },
   ],
   sauces: [
     {
       title: `Huile d'olive seule`,
-      value: 'sauce-huile-olive'
+      value: 'sauce-huile-olive',
     },
     {
       title: 'Jus de citron seul',
       value: 'sauce-jus-citron',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Française',
       content: 'vinaigrette classique',
       value: 'sauce-francaise',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Allégée',
       content: 'vinaigrette allégée',
       value: 'sauce-allegee',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Caesar',
       content: 'crème, parmesan',
       value: 'sauce-caesar',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Bulgare',
       content: 'vinaigrette, fromage blanc, citron',
       value: 'sauce-bulgare',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Provencale',
       content: 'vinaigrette, herbes de provence',
       value: 'sauce-provencale',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Balsamique',
       content: 'huile d’olive, vinaigre balsamique',
       value: 'sauce-balsamique',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Marinade',
       content: 'huile d’olive, citron',
       value: 'sauce-marinade',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Andalouse',
       content: 'vinaigrette, tomates, poivrons, épices',
       value: 'sauce-andalouse',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Asia',
       content: 'huile de pépin de raisin, sauce soja sucrée, graine de lin, paprika',
       value: 'sauce-asia',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Miel moutarde',
       content: 'miel, moutarde',
       value: 'sauce-miel-moutarde',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Harissa',
       value: 'sauce-harissa',
-      icon: 'sauces.jpg'
+      icon: 'sauces.jpg',
     },
     {
       title: 'Curry',
       value: 'sauce-curry',
-      icon: 'sauces.jpg'
-    }
+      icon: 'sauces.jpg',
+    },
   ],
   soups: [
     {
       title: 'Velouté De Brocoli',
       value: 'soup-brocoli',
-      icon: 'soups.jpg'
+      icon: 'soups.jpg',
     },
     {
       title: 'Soupe De Potiron',
       value: 'soup-potiron',
-      icon: 'soups.jpg'
-    }
+      icon: 'soups.jpg',
+    },
   ],
   wraps: [
     {
       title: 'wrap du jour',
       value: 'wrap-jour',
-      icon: 'wraps.jpg'
-    }
+      icon: 'wraps.jpg',
+    },
   ],
   drinks: [
     {
       title: 'Coca Cola',
-      value: 'drink-coca'
+      value: 'drink-coca',
     },
     {
       title: 'Coca Zéro',
-      value: 'drink-coca-zero'
-    }
+      value: 'drink-coca-zero',
+    },
   ],
   deserts: [
     {
       title: 'Tarte Citron Meringuée',
-      value: 'desert-tarte-citron'
+      value: 'desert-tarte-citron',
     },
     {
       title: 'Compote De Pomme',
-      value: 'desert-compote-pomme'
-    }
-  ]
+      value: 'desert-compote-pomme',
+    },
+  ],
 }

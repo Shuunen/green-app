@@ -24,25 +24,25 @@ import Formatter from '@/utils/Formatter'
 export default {
   name: 'Product',
   components: {
-    Icon
+    Icon,
   },
   props: {
     data: {
       type: Object,
-      required: true
-    }
+      required: true,
+    },
   },
   computed: {
     ...mapGetters({
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   methods: {
     formatPrice: (num) => Formatter.price(num),
     addProduct (data) {
       console.log('user wants to add product :', data.name)
-    }
-  }
+    },
+  },
 }
 </script>
 

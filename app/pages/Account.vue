@@ -33,7 +33,7 @@ import Tile from '@/components/Tile'
 
 export default {
   components: {
-    Tile
+    Tile,
   },
   data () {
     return {
@@ -47,16 +47,16 @@ export default {
         'Green Les Long Champs (35)',
         'Green Cesson-Sévigné (35)',
         'Green La Beaujoire (44)',
-        'Green Centre Sud (44)'
+        'Green Centre Sud (44)',
       ],
-      editMode: false
+      editMode: false,
     }
   },
   computed: {
     ...mapGetters({
       isLoading: 'isLoading',
-      user: 'user'
-    })
+      user: 'user',
+    }),
   },
   created () {
     console.log('Account page created')
@@ -72,7 +72,7 @@ export default {
         this.setUser({
           firstName: this.userData.firstName,
           lastName: this.userData.lastName,
-          store: this.userData.store
+          store: this.userData.store,
         })
       }
       this.editMode = !this.editMode
@@ -80,8 +80,8 @@ export default {
     onStoreChange () {
       console.log('onStoreChange')
       this.userData.store = this.stores[this.storeSelected]
-    }
-  }
+    },
+  },
 }
 </script>
 

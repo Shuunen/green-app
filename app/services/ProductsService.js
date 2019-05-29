@@ -21,7 +21,7 @@ export default class ProductsService extends ApiService {
           title: formula.title,
           price: formula.price,
           picks: formula.picks,
-          icon: formula.icon
+          icon: formula.icon,
         }
       })
     })
@@ -45,7 +45,7 @@ export default class ProductsService extends ApiService {
   getHeaders (toAppend = {}) {
     return Object.assign({
       'Content-Type': 'application/json',
-      'Authorization': 'Green ' + this.token
+      'Authorization': 'Green ' + this.token,
     },
     toAppend)
   }

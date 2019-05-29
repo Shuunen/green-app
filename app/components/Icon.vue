@@ -7,28 +7,28 @@ export default {
   props: {
     name: {
       type: String,
-      required: true
+      required: true,
     },
     class: {
       name: 'cls',
       type: String,
-      default: 'h30'
+      default: 'h30',
     },
     number: {
       type: Number,
-      default: 0
-    }
+      default: 0,
+    },
   },
   data () {
     return {
-      cls: ''
+      cls: '',
     }
   },
   computed: {
     src: function () {
       const file = this.name + (this.name.indexOf('.') > -1 ? '' : '.png')
       return '~/assets/images/icons/' + file
-    }
-  }
+    },
+  },
 }
 </script>

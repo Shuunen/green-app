@@ -7,7 +7,7 @@ import { topmost } from 'tns-core-modules/ui/frame'
 
 function navigateTo (page) {
   topmost().currentPage.__vuePageRef__.$navigateTo(page, {
-    frame: 'mainContent'
+    frame: 'mainContent',
   })
 }
 
@@ -71,7 +71,7 @@ const mutations = {
     console.log('START_ORDER')
     state.toggleMenu = false
     navigateTo(Formulas)
-  }
+  },
 }
 
 export default mutations

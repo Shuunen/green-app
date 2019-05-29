@@ -17,16 +17,16 @@ import Icon from '@/components/Icon'
 
 export default {
   components: {
-    Icon
+    Icon,
   },
   computed: {
     ...mapGetters({
       isLoading: 'isLoading',
-      user: 'user'
-    })
+      user: 'user',
+    }),
   },
   methods: {
-    ...mapActions(['goAccount', 'toggleMenu'])
-  }
+    ...mapActions(['goAccount', 'toggleMenu']),
+  },
 }
 </script>

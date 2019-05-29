@@ -15,14 +15,14 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   data () {
     return {
-      listLoaded: false
+      listLoaded: false,
     }
   },
   computed: {
     ...mapGetters({
       items: 'items',
-      isLoading: 'isLoading'
-    })
+      isLoading: 'isLoading',
+    }),
   },
   created () {
     console.log('Products component created')
@@ -40,7 +40,7 @@ export default {
     },
     addProduct (data) {
       console.log('user wants to add product :', data.name)
-    }
-  }
+    },
+  },
 }
 </script>

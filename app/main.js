@@ -18,8 +18,8 @@ const i18n = new VueI18n({
     ar: require('~/locales/ar.json'),
     en: require('~/locales/en.json'),
     es: require('~/locales/es.json'),
-    fr: require('~/locales/fr.json')
-  }
+    fr: require('~/locales/fr.json'),
+  },
 })
 
 // Prints Vue logs when --env.production is *NOT* set while building
@@ -39,5 +39,5 @@ const userLogged = h => h('frame', [h(Logged)])
 new Vue({
   render: userLogged,
   store,
-  i18n
+  i18n,
 }).$start()
