@@ -1,7 +1,10 @@
 {
 	"account": {
 		"change-target": "Choisir un autre restaurant",
-		"my-account": "Mon compte"
+		"first-name": "Prénom",
+		"last-name": "Nom de famille",
+		"my-account": "Mon compte",
+		"my-target": "Mon restaurant"
 	},
 	"common": {
 		"arabic": "Arabe",

@@ -11,12 +11,18 @@ Vue.use(Vuex)
 const debug = TNS_ENV !== 'production'
 const locales = pkg.config.locales
 const locale = locales[pkg.config.default_locale]
+const user = {
+  firstName: 'Benjamin',
+  lastName: 'Franklin',
+  store: 'Green La Beaujoire (44)'
+}
 
 const store = new Vuex.Store({
   state: {
     debug,
     locales,
     locale,
+    user,
     toggleMenu: false,
     isLoggedIn: false,
     items: {},

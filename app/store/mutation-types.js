@@ -2,6 +2,7 @@
 export const SET_ITEMS = 'SET_ITEMS'
 export const SET_FORMULAS = 'SET_FORMULAS'
 export const SET_LOCALE = 'SET_LOCALE'
+export const SET_USER = 'SET_USER'
 
 // auth mutations
 export const DO_LOGIN = 'DO_LOGIN'

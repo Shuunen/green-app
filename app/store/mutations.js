@@ -25,6 +25,10 @@ const mutations = {
     console.log('SET_LOCALE')
     state.locale = locale
   },
+  [types.SET_USER] (state, user) {
+    console.log('SET_USER', user)
+    state.user = user
+  },
   // auth
   [types.DO_LOGIN] (state) {
     console.log('DO_LOGIN')

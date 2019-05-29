@@ -25,3 +25,7 @@ export const locale = state => {
 export const locales = state => {
   return state.locales
 }
+
+export const user = state => {
+  return state.user
+}
