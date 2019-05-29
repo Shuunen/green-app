@@ -1,6 +1,6 @@
 <template>
   <FlexboxLayout class="pt5 pb10" justifyContent="center">
-    <Label class="fz10 alt" :text="$t('common.version') + ' ' + pkg.version" />
+    <Label class="fz10 alt" :text="$t('common.version') + ' ' + pkg.version + ' ' + lastCommit" />
   </FlexboxLayout>
 </template>
 
@@ -8,10 +8,12 @@
 import { mapGetters } from 'vuex'
 
 import pkg from '../../package.json'
+import lastCommit from '../last-commit'
 
 export default {
   data () {
     return {
+      lastCommit,
       pkg
     }
   },
