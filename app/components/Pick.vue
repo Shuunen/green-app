@@ -131,11 +131,11 @@ export default {
   border-color: $color-disabled;
 
   &.valid {
-    border-color: $color-primary-alt;
+    border-color: $color-alt;
   }
 
   &--title {
-    color: $color-primary-alt;
+    color: $color-alt;
     font-size: 20;
   }
 
