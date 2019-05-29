@@ -77,3 +77,8 @@ export const setLocale = ({ commit }, locale) => {
   console.log('action : setLocale')
   commit(types.SET_LOCALE, locale)
 }
+
+export const setUser = ({ commit }, user) => {
+  console.log('action : setUser')
+  commit(types.SET_USER, user)
+}

@@ -1,7 +1,10 @@
 {
 	"account": {
 		"change-target": "حدد مطعم آخر",
-		"my-account": "حسابي"
+		"first-name": "الاسم الاول",
+		"last-name": "الكنية",
+		"my-account": "حسابي",
+		"my-target": "مطعم بلدي"
 	},
 	"common": {
 		"arabic": "عربى",
