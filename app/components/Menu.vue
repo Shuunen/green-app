@@ -1,39 +1,33 @@
 <template>
   <FlexboxLayout flexDirection="column" class="bg">
     <StackLayout flexGrow="1">
-      <Label class="drawer-header fz25 mb15" text="Benjamin" />
-      <Label :text="$t('common.home')" class="drawer-item" @tap="goHome" />
-      <Label :text="$t('common.my-account')" class="drawer-item" @tap="goAccount" />
-      <Label :text="$t('common.my-orders')" class="drawer-item" @tap="goOrders" />
-      <Label :text="$t('common.logout')" class="drawer-item" @tap="doLogout" />
+      <Label class="alt-bg white pt50 pb15 pl15 fz25" :text="user.firstName" @tap="goAccount" />
+      <StackLayout class="p15">
+        <Label :text="$t('common.home')" class="mb10" @tap="goHome" />
+        <Label :text="$t('common.my-account')" class="mb10" @tap="goAccount" />
+        <Label :text="$t('common.my-orders')" class="mb10" @tap="goOrders" />
+        <Label :text="$t('common.logout')" class="mb10" @tap="doLogout" />
+      </StackLayout>
     </StackLayout>
     <LangSelector class="mb15" />
   </FlexboxLayout>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
+
 import LangSelector from '@/components/LangSelector'
 
 export default {
   components: { LangSelector },
+  computed: {
+    ...mapGetters({
+      isLoading: 'isLoading',
+      user: 'user'
+    })
+  },
   methods: {
     ...mapActions(['doLogout', 'goAccount', 'goOrders', 'goHome'])
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-.drawer-header {
-  padding: 50 16 16 16;
-  background-color: $color-primary;
-  color: $color-white;
-}
-
-.drawer-item {
-  padding: 8 16;
-  color: $color-black;
-}
-</style>
