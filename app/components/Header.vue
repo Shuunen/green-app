@@ -1,52 +1,32 @@
 <template>
-  <ActionBar>
-    <GridLayout columns="auto, *, auto, 15">
-      <Icon
-        name="menu-white"
-        col="0"
-        class="h30"
-        @tap.native="toggleMenu"
-      />
-      <Label
-        class="store fz20"
-        text="Green La Beaujoire (44)"
-        col="1"
-      />
-      <Icon
-        name="location-white"
-        col="2"
-        class="h25"
-      />
-      <Label col="3" />
-    </GridLayout>
+  <ActionBar class="primary-bg white">
+    <FlexboxLayout>
+      <FlexboxLayout class="pr15" justifyContent="space-between" width="100%">
+        <Icon name="menu-white" class="h30" @tap.native="toggleMenu" />
+        <Label class="store fz20 bold" :text="user.store" @tap="goAccount" />
+        <Icon name="location-white" class="h25" @tap.native="goAccount" />
+      </FlexboxLayout>
+    </FlexboxLayout>
   </ActionBar>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 import Icon from '@/components/Icon'
-import { mapActions } from 'vuex'
 
 export default {
   components: {
     Icon
   },
+  computed: {
+    ...mapGetters({
+      isLoading: 'isLoading',
+      user: 'user'
+    })
+  },
   methods: {
-    ...mapActions(['toggleMenu'])
+    ...mapActions(['goAccount', 'toggleMenu'])
   }
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-ActionBar {
-  background-color: $color-primary;
-  color: $color-white;
-}
-
-.store {
-  vertical-align: center;
-  text-align: center;
-  font-weight: bold;
-}
-</style>
