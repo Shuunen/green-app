@@ -11,10 +11,11 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Menu from '@/components/Menu'
-import Home from '@/pages/Home'
 import { mapGetters } from 'vuex'
+
+import Header from '@/components/Header'
+import Home from '@/pages/Home'
+import Menu from '@/components/Menu'
 
 export default {
   components: {

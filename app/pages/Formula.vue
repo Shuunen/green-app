@@ -33,12 +33,13 @@
 </template>
 
 <script>
-import Cart from '@/pages/Cart'
-import Home from '@/pages/Home'
-import Tile from '@/components/Tile'
-import Pick from '@/components/Pick'
-import Formatter from '@/utils/Formatter'
 import { mapGetters, mapActions } from 'vuex'
+
+import Cart from '@/pages/Cart'
+import Formatter from '@/utils/Formatter'
+import Home from '@/pages/Home'
+import Pick from '@/components/Pick'
+import Tile from '@/components/Tile'
 
 export default {
   components: {

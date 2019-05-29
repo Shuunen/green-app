@@ -14,16 +14,19 @@
 </template>
 
 <script>
-import LangSelector from '@/components/LangSelector'
-import Icon from '@/components/Icon'
 import { mapGetters, mapActions } from 'vuex'
+
+import Icon from '@/components/Icon'
+import LangSelector from '@/components/LangSelector'
 
 export default {
   components: { Icon, LangSelector },
   computed: {
     ...mapGetters({ isLoading: 'isLoading' })
   },
-  mounted () { console.log('Home page mounted') },
+  mounted () {
+    console.log('Home page mounted')
+  },
   methods: {
     ...mapActions(['goAccount', 'startOrder'])
   }
