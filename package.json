@@ -59,7 +59,7 @@
     "eslint-plugin-node": "9.1.0",
     "eslint-plugin-promise": "4.1.1",
     "eslint-plugin-standard": "4.0.0",
-    "eslint-plugin-vue": "5.2.2",
+    "eslint-plugin-vue": "5.2.3",
     "lazy": "1.0.11",
     "nativescript-dev-webpack": "0.22.0",
     "nativescript-vue-template-compiler": "2.2.2",
