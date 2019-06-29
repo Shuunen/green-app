@@ -728,10 +728,10 @@
     source-map "~0.6.1"
     vue-template-es2015-compiler "^1.9.0"
 
-"@vue/devtools@5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.1.0.tgz#43bd67f21ad8c5eadb23ff843338e9a4af37873e"
-  integrity sha512-nfkg+KF1OgMeUK7WpOJWRd1Q8dvjCqR2TWqrALJ3pH+DIo9u8PUw953p1QbUS1i3SeCQP8aGyJWpaRRIId5HNQ==
+"@vue/devtools@5.1.1":
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/@vue/devtools/-/devtools-5.1.1.tgz#7d541dfd469fb5a240d9eab4c69c90d9a7b1258d"
+  integrity sha512-opTHbARuRcG/XRXa24xTCvKoymYT3lLORSlmjdE1fdgFvlmkR9auSvhezpxlpAUa11E86J9bp0gMMmqffh1y9A==
   dependencies:
     cross-spawn "^5.1.0"
     electron "1.7.16"
