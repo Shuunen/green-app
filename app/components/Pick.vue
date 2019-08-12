@@ -142,5 +142,9 @@ export default {
   &--extra {
     font-size: 12;
   }
+
+  &--button {
+    margin: 5px;
+  }
 }
 </style>

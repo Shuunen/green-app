@@ -1,11 +1,11 @@
 <template>
-  <FlexboxLayout class="primary-border p10 mb12">
+  <FlexboxLayout class="formula-tile primary-border p10 mb12">
     <StackLayout flexGrow="1" flexShrink="0" class="mr10">
-      <Label :text="data.title" class="alt bold fz20" />
-      <Label :text="formatPrice(data.price)" class="alt fz20" />
+      <Label :text="data.title" class="alt bold fz15vw" />
+      <Label :text="formatPrice(data.price)" class="alt fz14vw" />
     </StackLayout>
 
-    <StackLayout flexGrow="2" class="pt5">
+    <StackLayout flexGrow="2" flexShrink="1" class="pt5 mh10">
       <Label v-for="(line, index) in description" :key="index" :text="line" />
     </StackLayout>
 

@@ -23,9 +23,9 @@
           class="formula--btn action big"
           @tap="order()"
         />
-        <FlexboxLayout>
-          <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
-          <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />
+        <FlexboxLayout class="mt10">
+          <Button :text="$t('order.change-formula')" class="action h30" flexGrow="1" @tap="modify()" />
+          <Button :text="$t('order.cancel')" class="action h30" flexGrow="1" @tap="cancel()" />
         </FlexboxLayout>
       </StackLayout>
     </FlexboxLayout>

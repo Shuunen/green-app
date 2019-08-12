@@ -42,6 +42,10 @@ $sides: (top, bottom, left, right);
     font-size: #{$space};
   }
 
+  .fz#{$space}vw {
+    font-size: #{$space}vw;
+  }
+
   @each $side in $sides {
     .m#{str-slice($side, 0, 1)}#{$space} {
       margin-#{$side}: #{$space};

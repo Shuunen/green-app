@@ -1,4 +1,5 @@
 import Account from '@/pages/Account'
+import Login from '@/components/Login'
 import Home from '@/pages/Home'
 import Formulas from '@/pages/Formulas'
 import Orders from '@/pages/Orders'
@@ -8,6 +9,12 @@ import { topmost } from 'tns-core-modules/ui/frame'
 function navigateTo (page) {
   topmost().currentPage.__vuePageRef__.$navigateTo(page, {
     frame: 'mainContent',
+  })
+}
+
+function topNavigateTo (page) {
+  topmost().currentPage.__vuePageRef__.$navigateTo(page, {
+    clearHistory: true,
   })
 }
 
@@ -37,6 +44,7 @@ const mutations = {
   [types.DO_LOGOUT] (state) {
     console.log('DO_LOGOUT')
     state.isLoggedIn = false
+    topNavigateTo(Login)
   },
   // tasks
   [types.ADD_PROCESSING_TASK] (state, task) {

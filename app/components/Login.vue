@@ -1,48 +1,50 @@
 <template>
-  <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true">
-    <StackLayout>
-      <Label class="main-label" text="Green Login" />
+  <Page actionBarHidden="true" class="login" backgroundSpanUnderStatusBar="true">
+  <StackLayout height="350">
+    <Icon flexGrow="2" class="logo" name="logo-green-alt"/>
 
-      <!-- form controls -->
-      <GridLayout class="form-controls" rows="auto, auto">
-        <TextField
-          v-model="user.email"
-          hint="Email Address"
-          keyboardType="email"
-          returnKeyType="next"
-          :iEnabled="!isAuthenticating"
-          autocorrect="false"
-          autocapitalizationType="none"
-          :class="{ light: !isLoggingIn}"
-          row="0"
-          @returnPress="focusPassword()"
-        />
-        <TextField
-          ref="password"
-          v-model="user.password"
-          hint="Password"
-          secure="true"
-          returnKeyType="done"
-          :isEnabled="!isAuthenticating"
-          :class="{ light: !isLoggingIn }"
-          row="1"
-          @returnPress="submit()"
-        />
-      </GridLayout>
+    <!-- form controls -->
+    <GridLayout class="form-controls" rows="auto, auto">
+      <TextField
+        v-model="user.email"
+        hint="Email Address"
+        keyboardType="email"
+        returnKeyType="next"
+        :iEnabled="!isAuthenticating"
+        autocorrect="false"
+        autocapitalizationType="none"
+        :class="{ light: !isLoggingIn}"
+        row="0"
+        @returnPress="focusPassword()"
+      />
+      <TextField
+        ref="password"
+        v-model="user.password"
+        hint="Password"
+        secure="true"
+        returnKeyType="done"
+        :isEnabled="!isAuthenticating"
+        :class="{ light: !isLoggingIn }"
+        row="1"
+        @returnPress="submit()"
+      />
+    </GridLayout>
 
-      <!-- login / sign up button -->
-      <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button" @tap="submit()" />
-    </StackLayout>
+    <!-- login / sign up button -->
+    <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button bold" @tap="submit()"/>
+  </StackLayout>
   </Page>
 </template>
 
 <script>
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
-import Products from '@/components/Products'
+import Icon from '@/components/Icon'
+import Logged from '@/pages/Logged'
 import User from '@/models/User'
 
 export default {
   name: 'Login',
+  components: { Icon },
 
   data () {
     return {
@@ -78,20 +80,25 @@ export default {
         return
       }
       this.isAuthenticating = false
-      console.log('navigating to products page')
-      this.$navigateTo(Products)
-      console.log('navigated to products page')
+      console.log('navigating to home page')
+      this.$navigateTo(Logged, { clearHistory: true })
+      console.log('navigated to home page')
     },
 
   },
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@import "../assets/styles";
+
 .login {
-  .main-label {
-    horizontal-align: center;
-    color: black;
+  .logo {
+    width: 70%;
+  }
+
+  .form-controls {
+    margin-top: 50px;
   }
 
   button,
@@ -103,11 +110,15 @@ export default {
 
   TextField {
     color: $color-black;
+    border-bottom-width: 1;
+    border-bottom-color: $color-black;
+    margin-bottom: 20;
     placeholder-color: #aca6a7;
-    margin-bottom: 10;
 
     &.light {
       color: #c4afb4;
+      border-bottom-width: 1;
+      border-bottom-color: #c4afb4;
       placeholder-color: #c4afb4;
     }
   }
@@ -115,6 +126,7 @@ export default {
   .submit-button {
     background-color: #cb1d00;
     color: white;
+    font-size: 20px;
     margin-top: 15;
   }
 }

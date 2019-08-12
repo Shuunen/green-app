@@ -57,7 +57,8 @@
 
 button {
   color: $color-grey;
-  background-color: $color-white;
+  background-color: #CCCCCC;
+  padding: 10px 5px;
   &.action {
     font-weight: bold;
     font-size: 13;

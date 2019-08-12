@@ -17,5 +17,21 @@
         "provencale",
         "sechees",
         "sucree"
-    ]
+    ],
+    "xml.fileAssociations": [
+        {
+            "systemId": "/Users/frodo/Projects/green-app/schema/tns.xsd",
+            "pattern": "**/**/*.xml"
+        },
+        {
+            "systemId": "http://www.w3.org/2001/XMLSchema.xsd",
+            "pattern": "/Users/frodo/Projects/green-app/schema/tns.xsd"
+        }
+    ],
+    "files.exclude": {
+        "schema": true
+    },
+    "xml.completion.autoCloseTags": true,
+    "xml.format.enabled": true,
+    "xml.validation.enabled": true
 }
