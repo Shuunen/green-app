@@ -81,7 +81,7 @@ export default {
       }
       this.isAuthenticating = false
       console.log('navigating to home page')
-      this.$navigateTo(Logged, { clearHistory: true })
+      this.$navigateTo(Logged)
       console.log('navigated to home page')
     },
 
