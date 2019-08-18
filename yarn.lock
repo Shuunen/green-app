@@ -6045,6 +6045,11 @@ nativescript-dev-webpack@^1.0.3:
     webpack-cli "~3.1.1"
     webpack-sources "~1.3.0"
 
+nativescript-globalevents@latest:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/nativescript-globalevents/-/nativescript-globalevents-1.2.3.tgz#d44435e928e2823484da9507b170df0c0c82d733"
+  integrity sha512-X58zCHB+8IF036qVaQYMGGm6oDS1cj8XE7ffGiCGVTPFmdN7xGmBj2w7U/DasrrTNQhhOw5Mew8k7h8dP1YCsg==
+
 nativescript-hook@0.2.4:
   version "0.2.4"
   resolved "https://registry.yarnpkg.com/nativescript-hook/-/nativescript-hook-0.2.4.tgz#e591e1d9ad415a8b4f3309c15731577af44a3dd4"
@@ -6065,6 +6070,19 @@ nativescript-intl@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/nativescript-intl/-/nativescript-intl-3.0.0.tgz#82ee9be7d377172b3c4295734723037628e186a7"
   integrity sha1-gu6b59N3Fys8QpVzRyMDdijhhqc=
+
+nativescript-platform-css@^1.6.10:
+  version "1.6.10"
+  resolved "https://registry.yarnpkg.com/nativescript-platform-css/-/nativescript-platform-css-1.6.10.tgz#84b86a43ec20faa87c3896b678a0bc8c8e6cf7ab"
+  integrity sha512-OxzTBMoKn5hDZEYAVdeOhk2HQZl4O5j+iYQfXrk4BCX2BakV5L/c1IqZsSml1JJDH5k0dAV6iKZ/A6tWcWE/Mw==
+  dependencies:
+    nativescript-globalevents latest
+    nativescript-platform latest
+
+nativescript-platform@latest:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/nativescript-platform/-/nativescript-platform-1.3.2.tgz#24fb5414ba4aa6c6f62b578543568a0f0e38626f"
+  integrity sha512-435EewV0e6/2IatODn6qQ8aROyK+/yAxC+mP6G9Z564UgWHz+du0S9pu0rwml7YyIeyTTlPhLwWd5qNX+E5ztg==
 
 nativescript-socketio@3.3.1:
   version "3.3.1"

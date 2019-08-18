@@ -1,5 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
+  <Page>
+    <Header />
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout class="p10">
@@ -13,10 +14,12 @@
 <script>
 import { mapGetters } from 'vuex'
 
+import Header from '@/components/Header'
 import Tile from '@/components/Tile'
 
 export default {
   components: {
+    Header,
     Tile,
   },
   data () {

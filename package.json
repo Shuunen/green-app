@@ -28,6 +28,7 @@
   "dependencies": {
     "@vue/devtools": "5.1.1",
     "nativescript-intl": "3.0.0",
+    "nativescript-platform-css": "^1.6.10",
     "nativescript-socketio": "3.3.1",
     "nativescript-theme-core": "1.0.6",
     "nativescript-toasty": "1.4.0",
@@ -96,10 +97,10 @@
   },
   "scripts": {
     "build": "tns build android --bundle",
-    "build:ios": "export SWIFT_VERSION=3; tns build ios --bundle",
+    "build:ios": "export SWIFT_VERSION=5; tns build ios --bundle",
     "clean": "rimraf platforms",
     "debug": "tns debug android --bundle",
-    "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
+    "debug:ios": "export SWIFT_VERSION=5; tns debug ios --bundle",
     "dev": "yarn start",
     "dev:ios": "yarn start:ios",
     "last-commit": "./bin/last-commit.sh ./app/last-commit.js",
@@ -111,7 +112,7 @@
     "prestart": "yarn last-commit",
     "prestart:ios": "yarn last-commit",
     "start": "tns run android --bundle",
-    "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle"
+    "start:ios": "export SWIFT_VERSION=5; tns run ios --bundle"
   },
   "standard": {
     "globals": [

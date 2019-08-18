@@ -1,6 +1,5 @@
 <template>
-  <Page>
-    <Header />
+  <Page actionBarHidden="true">
     <RadSideDrawer ref="drawer">
       <Menu ~drawerContent />
       <Frame id="mainContent" ~mainContent>
@@ -13,13 +12,11 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import Header from '@/components/Header'
 import Home from '@/pages/Home'
 import Menu from '@/components/Menu'
 
 export default {
   components: {
-    Header,
     Menu,
     Home,
   },

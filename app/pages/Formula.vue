@@ -1,5 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
+  <Page>
+    <Header />
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
@@ -23,9 +24,9 @@
           class="formula--btn action big"
           @tap="order()"
         />
-        <FlexboxLayout class="mt10">
-          <Button :text="$t('order.change-formula')" class="action h30" flexGrow="1" @tap="modify()" />
-          <Button :text="$t('order.cancel')" class="action h30" flexGrow="1" @tap="cancel()" />
+        <FlexboxLayout class="formula-actions">
+          <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
+          <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />
         </FlexboxLayout>
       </StackLayout>
     </FlexboxLayout>
@@ -35,6 +36,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
+import Header from '@/components/Header'
 import Cart from '@/pages/Cart'
 import Formatter from '@/utils/Formatter'
 import Home from '@/pages/Home'
@@ -45,6 +47,7 @@ export default {
   components: {
     Tile,
     Pick,
+    Header,
   },
   props: {
     data: {

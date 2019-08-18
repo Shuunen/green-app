@@ -1,5 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
+  <Page>
+    <Header />
     <ScrollView orientation="vertical">
       <StackLayout class="bg">
         <Tile :data="{ type: 'formula', name: ucfirst($t('order.formula')) }" :hero="true" />
@@ -15,6 +16,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
+import Header from '@/components/Header'
 import Formatter from '@/utils/Formatter'
 import Formula from '@/pages/Formula'
 import FormulaTile from '@/components/FormulaTile'
@@ -22,6 +24,7 @@ import Tile from '@/components/Tile'
 
 export default {
   components: {
+    Header,
     Tile,
     FormulaTile,
   },

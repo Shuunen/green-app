@@ -1,38 +1,42 @@
 <template>
-  <Page actionBarHidden="true" class="login" backgroundSpanUnderStatusBar="true">
-  <StackLayout height="350">
-    <Icon flexGrow="2" class="logo" name="logo-green-alt"/>
+  <Page actionBarHidden="true" class="login">
+    <Frame id="loginPage" ~loginPage>
+      <Page actionBarHidden="true">
+        <StackLayout height="350">
+          <Icon flexGrow="2" class="logo" name="logo-green-alt"/>
 
-    <!-- form controls -->
-    <GridLayout class="form-controls" rows="auto, auto">
-      <TextField
-        v-model="user.email"
-        hint="Email Address"
-        keyboardType="email"
-        returnKeyType="next"
-        :iEnabled="!isAuthenticating"
-        autocorrect="false"
-        autocapitalizationType="none"
-        :class="{ light: !isLoggingIn}"
-        row="0"
-        @returnPress="focusPassword()"
-      />
-      <TextField
-        ref="password"
-        v-model="user.password"
-        hint="Password"
-        secure="true"
-        returnKeyType="done"
-        :isEnabled="!isAuthenticating"
-        :class="{ light: !isLoggingIn }"
-        row="1"
-        @returnPress="submit()"
-      />
-    </GridLayout>
+          <!-- form controls -->
+          <GridLayout class="form-controls" rows="auto, auto">
+            <TextField
+              v-model="user.email"
+              hint="Email Address"
+              keyboardType="email"
+              returnKeyType="next"
+              :iEnabled="!isAuthenticating"
+              autocorrect="false"
+              autocapitalizationType="none"
+              :class="{ light: !isLoggingIn}"
+              row="0"
+              @returnPress="focusPassword()"
+            />
+            <TextField
+              ref="password"
+              v-model="user.password"
+              hint="Password"
+              secure="true"
+              returnKeyType="done"
+              :isEnabled="!isAuthenticating"
+              :class="{ light: !isLoggingIn }"
+              row="1"
+              @returnPress="submit()"
+            />
+          </GridLayout>
 
-    <!-- login / sign up button -->
-    <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button bold" @tap="submit()"/>
-  </StackLayout>
+          <!-- login / sign up button -->
+          <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button bold" @tap="submit()"/>
+        </StackLayout>
+      </Page>
+    </Frame>
   </Page>
 </template>
 
@@ -81,7 +85,7 @@ export default {
       }
       this.isAuthenticating = false
       console.log('navigating to home page')
-      this.$navigateTo(Logged)
+      this.$navigateTo(Logged, { clearHistory: true })
       console.log('navigated to home page')
     },
 

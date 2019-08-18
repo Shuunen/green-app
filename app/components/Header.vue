@@ -1,15 +1,17 @@
 <template>
-  <ActionBar class="primary-bg white">
-    <FlexboxLayout>
-      <FlexboxLayout class="pr15" justifyContent="space-between" width="100%">
-        <Icon name="menu-white" class="h30" @tap.native="toggleMenu" />
+  <ActionBar class="primary-bg white action-bar">
+    <ios>
+      <ActionItem icon="res://baseline_menu_white_24" class="h30" ios.position="left" @tap="toggleMenu" />
+    </ios>
+    <android>
+      <NavigationButton icon="res://baseline_menu_white_24" @tap="toggleMenu" />
+    </android>
+    <StackLayout orientation="horizontal" horizontalAlignment="center">
         <Label class="store fz20 bold" :text="user.store" @tap="goAccount" />
-        <Icon name="location-white" class="h25" @tap.native="goAccount" />
-      </FlexboxLayout>
-    </FlexboxLayout>
+    </StackLayout>
+    <ActionItem icon="res://baseline_person_white_24" class="h25" ios.position="right" @tap="goAccount" />
   </ActionBar>
 </template>
-
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
@@ -26,7 +28,7 @@ export default {
     }),
   },
   methods: {
-    ...mapActions(['goAccount', 'toggleMenu']),
+    ...mapActions(['goBack', 'goAccount', 'toggleMenu']),
   },
 }
 </script>

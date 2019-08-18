@@ -1,5 +1,6 @@
 <template>
-  <Page actionBarHidden="true">
+  <Page>
+    <Header />
     <FlexboxLayout flexDirection="column" class="home pt20 pb40 pl40 pr40 bg">
       <StackLayout flexGrow="1">
         <Button class="action" :text="$t('account.change-target')" @tap="goAccount" />
@@ -16,11 +17,12 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 
+import Header from '@/components/Header'
 import Icon from '@/components/Icon'
 import LangSelector from '@/components/LangSelector'
 
 export default {
-  components: { Icon, LangSelector },
+  components: { Icon, LangSelector, Header },
   computed: {
     ...mapGetters({ isLoading: 'isLoading' }),
   },

@@ -57,8 +57,13 @@
 
 button {
   color: $color-grey;
-  background-color: #CCCCCC;
-  padding: 10px 5px;
+  background-color: $color-white;
+
+  .ios & {
+    background-color: $color-light-grey;
+    padding: 10px 5px;
+  }
+
   &.action {
     font-weight: bold;
     font-size: 13;

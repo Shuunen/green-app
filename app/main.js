@@ -4,7 +4,9 @@ import VueDevtools from 'nativescript-vue-devtools'
 import VueI18n from 'vue-i18n'
 import store from './store'
 import ApiService from './services/ApiService'
-import Login from './components/Login'
+import Login from './pages/Login'
+
+require('nativescript-platform-css')
 
 if (TNS_ENV !== 'production') {
   // Vue.use(VueDevtools, { host: '192.168.0.24' }) if using a real device

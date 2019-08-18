@@ -1,5 +1,5 @@
 import Account from '@/pages/Account'
-import Login from '@/components/Login'
+import Login from '@/pages/Login'
 import Home from '@/pages/Home'
 import Formulas from '@/pages/Formulas'
 import Orders from '@/pages/Orders'
