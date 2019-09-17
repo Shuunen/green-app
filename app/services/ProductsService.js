@@ -12,8 +12,8 @@ export default class ProductsService extends ApiService {
       console.info(`Returning ${list.length} mocked formulas`)
       source = Promise.resolve(list)
     } else {
-      console.error('API need to be done')
-      source = Promise.resolve([])
+      const url = this.baseUrl + '/menu_models'
+      source = http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
     }
     return source.then(data => {
       return data.map(formula => {
