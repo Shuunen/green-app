@@ -23,13 +23,13 @@ export const loadFormulas = ({ commit }) => {
   })
 }
 
-export const loadItems = ({ commit }) => {
+export const loadItems = ({ commit }, formula) => {
   const task = 'action loadItems'
   console.log(task)
   return new Promise((resolve, reject) => {
     commit(types.ADD_PROCESSING_TASK, task)
     productsService
-      .loadItems()
+      .loadItems(formula)
       .then(list => {
         commit(types.SET_ITEMS, list)
         commit(types.REMOVE_PROCESSING_TASK, task)

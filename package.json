@@ -99,7 +99,7 @@
     "build": "tns build android --bundle",
     "build:ios": "export SWIFT_VERSION=5; tns build ios --bundle",
     "clean": "rimraf platforms",
-    "debug": "tns debug android --bundle",
+    "debug": "tns debug android --bundle --env.dev",
     "debug:ios": "export SWIFT_VERSION=5; tns debug ios --bundle",
     "dev": "yarn start",
     "dev:ios": "yarn start:ios",

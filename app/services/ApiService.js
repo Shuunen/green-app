@@ -2,10 +2,11 @@ import { getString, setString } from 'tns-core-modules/application-settings'
 import ConfigService from '@/services/ConfigService'
 
 const tokenKey = 'token'
+const configService = new ConfigService()
 
 export default class ApiService {
   constructor () {
-    let apiConfig = ConfigService.loadConfig('api')
+    let apiConfig = configService.loadConfig('api')
     this.baseUrl = apiConfig.baseUrl
     this.appUserHeader = 'Basic agreatheader'
   }

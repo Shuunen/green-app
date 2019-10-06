@@ -82,7 +82,7 @@ export default {
   methods: {
     ...mapActions(['loadItems']),
     load () {
-      this.loadItems()
+      this.loadItems(this.data)
         .catch(error => {
           console.error(error)
           alert('An error occurred loading item list.')
