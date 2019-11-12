@@ -746,6 +746,17 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@nativescript/core@6.2.1":
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/@nativescript/core/-/core-6.2.1.tgz#e7406d8dcfae395ca3390084f462c80f74456c47"
+  integrity sha512-OikbtbumuTSCSMcr7HFZUuzCmRkbIb4jGEzVfaCPdBFJBY9SOluYVACToPvqzK3T3NSCjhEZ3ao70ejF6Wrryg==
+  dependencies:
+    nativescript-hook "0.2.5"
+    reduce-css-calc "^2.1.6"
+    semver "6.3.0"
+    tns-core-modules-widgets "6.2.1"
+    tslib "1.10.0"
+
 "@nodelib/fs.stat@^1.1.2":
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
@@ -2433,6 +2444,11 @@ css-loader@2.1.1, css-loader@~2.1.1:
     postcss-modules-values "^2.0.0"
     postcss-value-parser "^3.3.0"
     schema-utils "^1.0.0"
+
+css-unit-converter@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.1.tgz#d9b9281adcfd8ced935bdbaba83786897f64e996"
+  integrity sha1-2bkoGtz9jO2TW9urqDeGiX9k6ZY=
 
 css@^2.0.0:
   version "2.2.4"
@@ -6387,6 +6403,14 @@ redent@^2.0.0:
     indent-string "^3.0.0"
     strip-indent "^2.0.0"
 
+reduce-css-calc@^2.1.6:
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/reduce-css-calc/-/reduce-css-calc-2.1.7.tgz#1ace2e02c286d78abcd01fd92bfe8097ab0602c2"
+  integrity sha512-fDnlZ+AybAS3C7Q9xDq5y8A2z+lT63zLbynew/lur/IR24OQF5x98tfNwf79mzEdfywZ0a2wpM860FhFfMxZlA==
+  dependencies:
+    css-unit-converter "^1.1.1"
+    postcss-value-parser "^3.3.0"
+
 regenerate-unicode-properties@^8.0.2:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/regenerate-unicode-properties/-/regenerate-unicode-properties-8.0.2.tgz#7b38faa296252376d363558cfbda90c9ce709662"
@@ -6798,6 +6822,11 @@ scss-tokenizer@^0.2.3:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
+
+semver@6.3.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
+  integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
 semver@^6.0.0:
   version "6.0.0"
@@ -7604,18 +7633,17 @@ tmp@^0.0.33:
   dependencies:
     os-tmpdir "~1.0.2"
 
-tns-core-modules-widgets@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-6.0.1.tgz#eb946a059bf719b80b2da451d5bb186d3e51873e"
-  integrity sha512-+LzBItqG0K2FN5WrJRVQI/+X7ac9IU8g34hr9aOi9NkdmjodS3TwKeU+cEKnQjn/HV3R4t3D/Bjlf8P8RX7gBw==
+tns-core-modules-widgets@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/tns-core-modules-widgets/-/tns-core-modules-widgets-6.2.1.tgz#cf38b4c447bfa7e64ec6bcc3962ef11f780f5cdc"
+  integrity sha512-rXzT74sUZd/TlfxZgyBAXimNbaFD49yOnY/0qobvF86OKuXeipwdIyLk1pzTUS5VPWZpvTL+azqtaFmpqyy5pw==
 
-tns-core-modules@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-6.0.1.tgz#d33f1b0900c4c5416e954e56f1daeb4c3f216b07"
-  integrity sha512-XC4tOTQsQ5jS6bwa2xi49UVtz6bx/PMXzQB5ur0oFYBBxxBhJtK78pASDA9TZ3/yCMliJR7q7IXdxyk48JMM+A==
+tns-core-modules@6.2.1:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/tns-core-modules/-/tns-core-modules-6.2.1.tgz#7af22f9ebe93f462bb68f8dbfc3e9eeab32f17f3"
+  integrity sha512-F8meLCzx0CxuBrigubCwQmTUF7lKyEX84D28uTSgPJnIkh8QnicUsvrNEcSul8n/mp9RggiB3AZtm26yZgaUvQ==
   dependencies:
-    tns-core-modules-widgets "6.0.1"
-    tslib "^1.9.3"
+    "@nativescript/core" "6.2.1"
 
 to-array@0.1.4:
   version "0.1.4"
@@ -7730,7 +7758,12 @@ ts-loader@^5.3.1:
     micromatch "^3.1.4"
     semver "^5.0.1"
 
-tslib@^1.9.0, tslib@^1.9.3:
+tslib@1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.10.0.tgz#c3c19f95973fb0a62973fb09d90d961ee43e5c8a"
+  integrity sha512-qOebF53frne81cf0S9B41ByenJ3/IuH8yJKngAX35CmiZySA0khhkovshKK+jGCaMnVomla7gVlIcc3EvKPbTQ==
+
+tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha512-4krF8scpejhaOgqzBEcGM7yDIEfi0/8+8zDRZhNZZ2kjmHJ4hv3zCbQWxoJGz1iw5U0Jl0nma13xzHXcncMavQ==
