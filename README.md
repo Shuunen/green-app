@@ -8,6 +8,7 @@
     - [On a real Android device](#on-a-real-android-device)
   - [Tips](#tips)
   - [Upgrading stack](#upgrading-stack)
+  - [TODO](#todo)
 
 ## Prerequisites
 
@@ -53,3 +54,7 @@ You should see your app running on device and this in console : `Successfully sy
 
 - like a smart-ass : follow the [getting started with NS Vue](https://nativescript-vue.org/en/docs/getting-started/quick-start/) and create a new project, then compare & upgrade this one accordingly
 - like a bad-ass : `npm run update`, try dev and build to check that everything is still working
+
+## TODO
+
+- production build should be `tns build <platform> --env.production` according to the last stack readme
