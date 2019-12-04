@@ -77,7 +77,8 @@
     "webpack-cli": "3.3.6"
   },
   "engines": {
-    "node": ">= 8.16.0"
+    "node": ">= 10",
+    "npm": ">= 6"
   },
   "license": "GPL-3.0",
   "name": "green-app",

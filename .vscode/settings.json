@@ -2,7 +2,9 @@
     "cSpell.words": [
         "Beaujoire",
         "allegee",
+        "avdmanager",
         "chevre",
+        "cocoapods",
         "coeur",
         "coeurs",
         "dartichauts",
@@ -12,10 +14,17 @@
         "feves",
         "francaise",
         "grillees",
+        "macos",
         "nativescript",
+        "nsvue",
         "oeufs",
         "provencale",
+        "sdkmanager",
         "sechees",
-        "sucree"
+        "sidedrawer",
+        "socketio",
+        "stylelint",
+        "sucree",
+        "xcodeproj"
     ]
 }
