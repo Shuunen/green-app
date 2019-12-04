@@ -84,6 +84,7 @@
   "name": "green-app",
   "nativescript": {
     "id": "green.nsvue.app",
+    "templateVersion": "v2",
     "tns-android": {
       "version": "6.0.0"
     },
@@ -100,16 +101,16 @@
     "clean": "rimraf platforms",
     "debug": "tns debug android --bundle",
     "debug:ios": "export SWIFT_VERSION=3; tns debug ios --bundle",
-    "dev": "yarn start",
-    "dev:ios": "yarn start:ios",
+    "dev": "npm run start",
+    "dev:ios": "npm run start:ios",
     "last-commit": "./bin/last-commit.sh ./app/last-commit.js",
     "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js *.js",
     "ls": "tns device",
-    "postinstall": "yarn clean",
-    "prebuild": "yarn last-commit",
-    "prebuild:ios": "yarn last-commit",
-    "prestart": "yarn last-commit",
-    "prestart:ios": "yarn last-commit",
+    "postinstall": "npm run clean",
+    "prebuild": "npm run last-commit",
+    "prebuild:ios": "npm run last-commit",
+    "prestart": "npm run last-commit",
+    "prestart:ios": "npm run last-commit",
     "start": "tns run android --bundle",
     "start:ios": "export SWIFT_VERSION=3; tns run ios --bundle"
   },
