@@ -1,6 +1,6 @@
-# MacOS specifics
+# MacOS
 
-- [MacOS specifics](#macos-specifics)
+- [MacOS](#macos)
   - [Installing on macOS](#installing-on-macos)
     - [XCode](#xcode)
     - [Homebrew](#homebrew)
