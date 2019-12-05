@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 function consoleError() {
   printf "\\nERROR : %s \\n" "${1}"
