@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env sh
 
 function consoleError() {
-	printf "\\nERROR : %s \\n" "${1}"
+  printf "\\nERROR : %s \\n" "${1}"
 }
 
 function consoleLog() {
-	printf "\\n✔ : %s \\n" "${1}"
+  printf "\\n✔ : %s \\n" "${1}"
 }
 
 if [ "$1" ]; then
