@@ -15,12 +15,15 @@ export default class Random {
   static getPriceCents () {
     return pickOne([0, 0.5, 0.45, 0.99, 0.75, 0.80])
   }
+
   static getPrice () {
     return getRandomNumber(2, 9) + this.getPriceCents()
   }
+
   static getProductName (type) {
     return `${pickOne(data.words.starter)} ${type} ${pickOne(data.words.joiner)} ${getRandomString()}`.replace(/\s+/g, ' ').trim()
   }
+
   static getProduct (ofType) {
     const type = ofType || pickOne(data.types).type
     return {
@@ -30,6 +33,7 @@ export default class Random {
       type,
     }
   }
+
   static getProducts (ofType) {
     const collection = []
     for (let i = 0; i < 20; i++) {
@@ -37,6 +41,7 @@ export default class Random {
     }
     return collection
   }
+
   static getTypes () {
     return copy(data.types)
   }

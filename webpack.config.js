@@ -71,7 +71,7 @@ module.exports = env => {
   }
   console.log(`Bundling application for entryPath ${entryPath}...`)
 
-  let sourceMapFilename = nsWebpack.getSourceMapFilename(hiddenSourceMap, __dirname, dist)
+  const sourceMapFilename = nsWebpack.getSourceMapFilename(hiddenSourceMap, __dirname, dist)
 
   const itemsToClean = [`${dist}/**/*`]
   if (platform === 'android') {
@@ -115,7 +115,7 @@ module.exports = env => {
       alias: {
         '~': appFullPath,
         '@': appFullPath,
-        'vue': 'nativescript-vue',
+        vue: 'nativescript-vue',
       },
       // resolve symlinks to symlinked modules
       symlinks: true,
@@ -126,11 +126,11 @@ module.exports = env => {
     },
     node: {
       // Disable node shims that conflict with NativeScript
-      'http': false,
-      'timers': false,
-      'setImmediate': false,
-      'fs': 'empty',
-      '__dirname': false,
+      http: false,
+      timers: false,
+      setImmediate: false,
+      fs: 'empty',
+      __dirname: false,
     },
     devtool: hiddenSourceMap ? 'hidden-source-map' : (sourceMap ? 'inline-source-map' : 'none'),
     optimization: {
@@ -164,7 +164,7 @@ module.exports = env => {
             compress: {
               // The Android SBG has problems parsing the output
               // when these options are enabled
-              'collapse_vars': platform !== 'android',
+              collapse_vars: platform !== 'android',
               sequences: platform !== 'android',
             },
             keep_fnames: true,
@@ -266,8 +266,8 @@ module.exports = env => {
       // Define useful constants like TNS_WEBPACK
       new webpack.DefinePlugin({
         'global.TNS_WEBPACK': 'true',
-        'TNS_ENV': JSON.stringify(mode),
-        'process': 'global.process',
+        TNS_ENV: JSON.stringify(mode),
+        process: 'global.process',
       }),
       // Remove all files from the out dir.
       new CleanWebpackPlugin(itemsToClean, { verbose: !!verbose }),
@@ -301,7 +301,7 @@ module.exports = env => {
         use: 'nativescript-dev-webpack/markup-hot-loader',
       },
 
-      { test: /\.(html|xml)$/, use: 'nativescript-dev-webpack/xml-namespace-loader' }
+      { test: /\.(html|xml)$/, use: 'nativescript-dev-webpack/xml-namespace-loader' },
     )
   }
 
@@ -311,8 +311,8 @@ module.exports = env => {
       analyzerMode: 'static',
       openAnalyzer: false,
       generateStatsFile: true,
-      reportFilename: resolve(projectRoot, 'report', `report.html`),
-      statsFilename: resolve(projectRoot, 'report', `stats.json`),
+      reportFilename: resolve(projectRoot, 'report', 'report.html'),
+      statsFilename: resolve(projectRoot, 'report', 'stats.json'),
     }))
   }
 

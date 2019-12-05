@@ -1,11 +1,6 @@
 <template>
   <StackLayout>
-    <Button
-      v-for="data in items"
-      :key="data.id"
-      :text="data.name"
-      @tap="addProduct(data)"
-    />
+    <Button v-for="data in items" :key="data.id" :text="data.name" @tap="addProduct(data)" />
   </StackLayout>
 </template>
 

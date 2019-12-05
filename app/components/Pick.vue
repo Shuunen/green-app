@@ -4,14 +4,7 @@
     <Label :text="descText" class="pick--desc ml2 mt5 mb5" />
     <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml2 mb5" />
     <FlexboxLayout flexWrap="wrap">
-      <Button
-        v-for="item in list"
-        :key="item.value"
-        class="pick--button"
-        :text="item.title"
-        :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }"
-        @tap="selectItem(item)"
-      />
+      <Button v-for="item in list" :key="item.value" class="pick--button" :text="item.title" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -49,9 +42,11 @@ export default {
     formatPrice: (num) => Formatter.price(num),
     setList () {
       const type = this.data.from
+      // eslint-disable-next-line no-prototype-builtins
       if (this.items.hasOwnProperty(type)) {
         this.list = this.items[type]
         const typeBonus = this.data.or
+        // eslint-disable-next-line no-prototype-builtins
         if (this.items.hasOwnProperty(typeBonus)) {
           this.list = this.list.concat(this.items[typeBonus])
         }
