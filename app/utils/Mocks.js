@@ -288,7 +288,7 @@ export const items = {
   ],
   sauces: [
     {
-      title: `Huile d'olive seule`,
+      title: "Huile d'olive seule",
       value: 'sauce-huile-olive',
     },
     {

@@ -2,9 +2,9 @@ const rules = require('./.eslintrc.rules')
 
 module.exports = {
   extends: [
-    'plugin:vue/recommended',
     'eslint:recommended',
     'standard',
+    'plugin:vue/recommended',
   ],
   globals: {
     TNS_ENV: 'readonly'

@@ -45,7 +45,7 @@ export default class ProductsService extends ApiService {
   getHeaders (toAppend = {}) {
     return Object.assign({
       'Content-Type': 'application/json',
-      'Authorization': 'Green ' + this.token,
+      Authorization: 'Green ' + this.token,
     },
     toAppend)
   }
