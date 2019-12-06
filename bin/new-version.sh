@@ -48,6 +48,7 @@ function commitVersion() {
   consoleLog "Creating a commit & tag for version bump"
   printf "\\n"
   git add package.json
+  git add package-lock.json
   git add "$file"
   git commit -m "bump version to $version"
   if git rev-parse "v$version" >/dev/null 2>&1; then
@@ -59,11 +60,11 @@ function commitVersion() {
 }
 
 function buildVersion() {
-  tns build android --bundle --key-store-path green-keystore.jks --key-store-password "$storePass" --key-store-alias green-build-key --key-store-alias-password "$storeAliasPass" --release --copy-to dist/green-app.apk
+  tns build android --release --key-store-path green-keystore.jks --key-store-password "$storePass" --key-store-alias green-build-key --key-store-alias-password "$storeAliasPass" --aab --copy-to dist/green-app.aab
 }
 
 updateVersion
 commitVersion
 buildVersion
 
-consoleLog "If everything is fine, don't forget to push commit & tag via : git push && git push --tags"
+echo -e "\n If everything is fine : \n - this build went correctly \n - apk has been successfully uploaded & deployed on the Play Store \n Then push commit & tag via : git push && git push --tags"
