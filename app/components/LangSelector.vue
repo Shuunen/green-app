@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles";
+@import "../assets/styles/shared";
 
 .flag {
   padding: 2 4;

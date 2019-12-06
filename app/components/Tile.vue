@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles";
+@import "../assets/styles/shared";
 
 .type {
   background-repeat: no-repeat;

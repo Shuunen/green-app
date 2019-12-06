@@ -1,6 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="home pt20 pb40 pl40 pr40 bg">
+    <FlexboxLayout flexDirection="column" class="pt20 pb40 pl40 pr40 bg">
       <StackLayout flexGrow="1">
         <Button class="action" :text="$t('account.change-target')" @tap="goAccount" />
       </StackLayout>

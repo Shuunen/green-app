@@ -1,0 +1,11 @@
+TextField {
+  color: $color-black;
+  border-bottom-width: 1;
+  border-bottom-color: $color-black;
+  margin-bottom: 10;
+}
+
+.read-only TextField {
+  color: $color-grey;
+  border-bottom-color: $color-disabled;
+}

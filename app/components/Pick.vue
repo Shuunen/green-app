@@ -1,10 +1,10 @@
 <template>
   <StackLayout class="pick mt10 p10" :class="{ valid: data.valid }">
     <Label :text="data.titleText" class="pick--title" />
-    <Label :text="descText" class="pick--desc ml2 mt5 mb5" />
+    <Label v-if="descText.length" :text="descText" class="pick--desc ml2 mt5 mb5" />
     <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml2 mb5" />
     <FlexboxLayout flexWrap="wrap">
-      <Button v-for="item in list" :key="item.value" class="pick--button" :text="item.title" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
+      <Button v-for="item in list" :key="item.value" :text="item.title" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -119,7 +119,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "../assets/styles";
+@import "../assets/styles/shared";
 
 .pick {
   border-width: 1;

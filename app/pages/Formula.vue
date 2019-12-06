@@ -5,24 +5,12 @@
         <StackLayout>
           <Tile :data="{ type: 'wrap', name: data.title }" :hero="true" />
           <StackLayout class="p10">
-            <Pick
-              v-for="(pick, index) in picks"
-              :key="index"
-              :data="pick"
-              :items="items"
-              @change="onPickChange"
-            />
+            <Pick v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
           </StackLayout>
         </StackLayout>
       </ScrollView>
       <StackLayout class="p5" flexShrink="0">
-        <Button
-          :class="[valid ? 'validate' : 'disabled']"
-          :text="orderText"
-          :isEnabled="valid"
-          class="formula--btn action big"
-          @tap="order()"
-        />
+        <Button :class="[valid ? 'validate' : 'disabled']" :text="orderText" :isEnabled="valid" class="formula--btn action big" @tap="order()" />
         <FlexboxLayout>
           <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
           <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />

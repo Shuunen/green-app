@@ -45,24 +45,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-@import "../assets/styles";
-
-/* Debug
-.product {
-  &-icon {
-    background-color: orange;
-  }
-  &-name {
-    background-color: green;
-  }
-  &-price {
-    background-color: purple;
-  }
-  &-add {
-    background-color: palevioletred;
-  }
-}
-*/
-</style>
