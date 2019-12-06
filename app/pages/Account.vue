@@ -59,7 +59,7 @@ export default {
     }),
   },
   created () {
-    console.log('Account page created')
+    console.log('Account page created !')
     // because findIndex returns -1 if not found, math max will set default store selected to 0
     this.storeSelected = Math.max(this.stores.findIndex(store => store === this.user.store), 0)
     this.userData = { ...this.user }
@@ -84,19 +84,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss" scoped>
-@import "../assets/styles";
-
-TextField {
-  color: $color-black;
-  border-bottom-width: 1;
-  border-bottom-color: $color-black;
-  margin-bottom: 10;
-}
-
-.read-only TextField {
-  color: $color-grey;
-  border-bottom-color: $color-disabled;
-}
-</style>

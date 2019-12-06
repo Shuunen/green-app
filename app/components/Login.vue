@@ -93,25 +93,6 @@ export default {
     horizontal-align: center;
     color: black;
   }
-
-  button,
-  TextField {
-    margin-left: 16;
-    margin-right: 16;
-    margin-bottom: 10;
-  }
-
-  TextField {
-    color: $color-black;
-    placeholder-color: #aca6a7;
-    margin-bottom: 10;
-
-    &.light {
-      color: #c4afb4;
-      placeholder-color: #c4afb4;
-    }
-  }
-
   .submit-button {
     background-color: #cb1d00;
     color: white;

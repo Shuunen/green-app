@@ -60,6 +60,7 @@ function commitVersion() {
 }
 
 function buildVersion() {
+  npm run last-commit
   tns build android --release --key-store-path green-keystore.jks --key-store-password "$storePass" --key-store-alias green-build-key --key-store-alias-password "$storeAliasPass" --aab --copy-to dist/green-app.aab
 }
 
