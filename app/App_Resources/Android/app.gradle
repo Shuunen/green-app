@@ -11,10 +11,8 @@
 
 android {
   defaultConfig {
-    minSdkVersion 17
+    minSdkVersion 21
     generatedDensities = []
-    applicationId = "green.nsvue.app"
-    ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86','x86_64'
   }
   aaptOptions {
     additionalParameters "--no-version-vectors"
