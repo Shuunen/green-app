@@ -1,9 +1,9 @@
 <template>
-  <FlexboxLayout class="product h50" :class="[ data.type ]" justifyContent="space-between" alignItems="center">
-    <Icon class="product-icon w30" flexShrink="0" name="logo-g" />
-    <Label class="product-name ml5" flexGrow="1" :text="data.name" />
-    <Label class="product-price w50 ml10 mr5" flexShrink="0" :text="formatPrice(data.price)" />
-    <Icon class="product-add w30 mr5" flexShrink="0" name="shopping-cart-add-grey" @tap.native="addProduct(data)" />
+  <FlexboxLayout class="product" :class="[ data.type ]" justifyContent="space-between" alignItems="center">
+    <Icon class="product-icon" flexShrink="0" name="logo-g" />
+    <Label class="product-name ml-s" flexGrow="1" :text="data.name" />
+    <Label class="product-price ml-m mr-s" flexShrink="0" :text="formatPrice(data.price)" />
+    <Icon class="product-add mr-s" flexShrink="0" name="shopping-cart-add-grey" @tap.native="addProduct(data)" />
   </FlexboxLayout>
 </template>
 
@@ -45,3 +45,16 @@ export default {
   },
 }
 </script>
+
+<style>
+.product {
+  height: 50;
+}
+.product-add,
+.product-icon {
+  width: 30;
+}
+.product-price {
+  width: 50;
+}
+</style>

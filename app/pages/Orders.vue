@@ -2,7 +2,7 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout class="p10">
+        <StackLayout class="p-m">
           <Tile :data="{ type: 'soup', name: $t('order.my-orders') }" :hero="true" />
         </StackLayout>
       </ScrollView>

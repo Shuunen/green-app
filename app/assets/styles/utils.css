@@ -1,0 +1,81 @@
+.center {
+  text-align: center;
+}
+
+.black {
+  color: var(--color-black);
+}
+
+.white {
+  color: var(--color-white);
+}
+
+.grey {
+  color: var(--color-grey);
+}
+
+.disabled {
+  color: var(--color-disabled);
+}
+
+.primary {
+  color: var(--color-primary);
+}
+
+.primary-border {
+  border-color: var(--color-alt);
+  border-width: 1;
+}
+
+.alt {
+  color: var(--color-alt);
+}
+
+.bg {
+  background-color: var(--color-white);
+}
+
+.primary-bg {
+  background-color: var(--color-primary);
+}
+
+.alt-bg {
+  background-color: var(--color-alt);
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.active {
+  opacity: 1;
+}
+
+.inactive {
+  opacity: 0.3;
+}
+
+button {
+  color: var(--color-grey);
+  background-color: var(--color-white);
+}
+
+button.action {
+  font-weight: bold;
+  font-size: 13;
+}
+
+button.action.big {
+  height: 55;
+  font-size: 16;
+}
+
+button.selected, button.validate {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+button.disabled {
+  color: var(--color-white);
+  background-color: var(--color-disabled);
+}

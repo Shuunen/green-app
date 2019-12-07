@@ -3,8 +3,8 @@
     <ScrollView orientation="vertical">
       <StackLayout class="bg">
         <Tile :data="{ type: 'formula', name: ucfirst($t('order.formula')) }" :hero="true" />
-        <StackLayout class="p10">
-          <Label :text="$t('order.choose-formula') + ' :'" class="pt5 pb15 fz20 grey" />
+        <StackLayout class="p-m">
+          <Label :text="$t('order.choose-formula') + ' :'" class="pt-s pb-m fz-m grey" />
           <FormulaTile v-for="data in formulas" :key="data.title" :data="data" @tap.native="goto(data)" @tap="goto(data)" />
         </StackLayout>
       </StackLayout>

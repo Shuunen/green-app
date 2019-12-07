@@ -1,12 +1,12 @@
 <template>
   <FlexboxLayout flexDirection="column" class="bg">
     <StackLayout flexGrow="1">
-      <Label class="alt-bg white pt50 pb15 pl15 fz25" :text="user.firstName" @tap="goAccount" />
-      <StackLayout class="p15">
-        <Label :text="$t('common.home')" class="mb10" @tap="goHome" />
-        <Label :text="$t('common.my-account')" class="mb10" @tap="goAccount" />
-        <Label :text="$t('common.my-orders')" class="mb10" @tap="goOrders" />
-        <Label :text="$t('common.logout')" class="mb10" @tap="doLogout" />
+      <Label class="alt-bg white pt-l pb-m pl-m fz-l" :text="user.firstName" @tap="goAccount" />
+      <StackLayout class="p-m">
+        <Label :text="$t('common.home')" class="mb-m" @tap="goHome" />
+        <Label :text="$t('common.my-account')" class="mb-m" @tap="goAccount" />
+        <Label :text="$t('common.my-orders')" class="mb-m" @tap="goOrders" />
+        <Label :text="$t('common.logout')" class="mb-m" @tap="doLogout" />
       </StackLayout>
     </StackLayout>
     <LangSelector />

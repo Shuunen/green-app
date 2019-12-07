@@ -1,8 +1,8 @@
 <template>
-  <StackLayout class="pick mt10 p10" :class="{ valid: data.valid }">
+  <StackLayout class="pick mt-m p-m" :class="{ valid: data.valid }">
     <Label :text="data.titleText" class="pick--title" />
-    <Label v-if="descText.length" :text="descText" class="pick--desc ml2 mt5 mb5" />
-    <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml2 mb5" />
+    <Label v-if="descText.length" :text="descText" class="pick--desc ml-s mt-s mb-s" />
+    <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml-s mb-s" />
     <FlexboxLayout flexWrap="wrap">
       <Button v-for="item in list" :key="item.value" :text="item.title" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
     </FlexboxLayout>
@@ -118,24 +118,24 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "../assets/styles/shared";
+<style>
+/* @import url("~/assets/styles"); */
 
 .pick {
   border-width: 1;
-  border-color: $color-disabled;
+  border-color: var(--color-disabled);
+}
 
-  &.valid {
-    border-color: $color-alt;
-  }
+.pick.valid {
+  border-color: var(--color-alt);
+}
 
-  &--title {
-    color: $color-alt;
-    font-size: 20;
-  }
+.pick--title {
+  color: var(--color-alt);
+  font-size: 20;
+}
 
-  &--extra {
-    font-size: 12;
-  }
+.pick--extra {
+  font-size: 12;
 }
 </style>
