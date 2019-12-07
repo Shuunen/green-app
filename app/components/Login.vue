@@ -87,16 +87,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.login {
-  .main-label {
-    horizontal-align: center;
-    color: black;
-  }
-  .submit-button {
-    background-color: #cb1d00;
-    color: white;
-    margin-top: 15;
-  }
+<style>
+.main-label {
+  horizontal-align: center;
+  color: black;
+}
+.submit-button {
+  background-color: #cb1d00;
+  color: white;
+  margin-top: 15;
 }
 </style>

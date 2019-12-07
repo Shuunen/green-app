@@ -2,7 +2,7 @@
   <FlexboxLayout class="black" @loaded="animate">
     <StackLayout flexGrow="1">
       <Label :text="description" />
-      <StackLayout v-if="items.length" class="p10">
+      <StackLayout v-if="items.length" class="p-m">
         <label v-for="(item, index) in items" :key="index" :text="'- ' + item" />
       </StackLayout>
     </StackLayout>

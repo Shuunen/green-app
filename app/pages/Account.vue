@@ -4,20 +4,20 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
           <Tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="true" />
-          <StackLayout class="p10" :class="{'read-only': !editMode}">
+          <StackLayout class="p-m" :class="{'read-only': !editMode}">
             <!-- personnal infos -->
-            <Label class="mt15 ml3" :text="$t('account.first-name')" />
+            <Label class="mt-l ml-s" :text="$t('account.first-name')" />
             <TextField v-model="userData.firstName" :editable="editMode" />
-            <Label class="mt15 ml3" :text="$t('account.last-name')" />
+            <Label class="mt-l ml-s" :text="$t('account.last-name')" />
             <TextField v-model="userData.lastName" :editable="editMode" />
             <!-- store -->
-            <Label class="mt15 ml3" :text="$t('account.my-target')" />
+            <Label class="mt-l ml-s" :text="$t('account.my-target')" />
             <TextField v-show="!editMode" :text="userData.store" :editable="editMode" />
-            <ListPicker v-show="editMode" v-model="storeSelected" class="mt15" :items="stores" @selectedIndexChange="onStoreChange" />
+            <ListPicker v-show="editMode" v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
             <!-- action button -->
-            <FlexboxLayout flexGrow="1" justifyContent="center" class="p20">
+            <FlexboxLayout flexGrow="1" justifyContent="center" class="p-l">
               <!-- @tap="editMode = !editMode; setUser(JSON.parse(JSON.stringify(userData)))" -->
-              <Button class="action mb20" :class="{ validate: editMode }" :text="editMode ? 'Save' : 'Edit'" @tap="onToggleEdit" />
+              <Button class="action mb-l" :class="{ validate: editMode }" :text="editMode ? 'Save' : 'Edit'" @tap="onToggleEdit" />
             </FlexboxLayout>
           </StackLayout>
         </StackLayout>

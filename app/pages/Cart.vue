@@ -4,23 +4,23 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
           <Tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
-          <StackLayout class="p10">
-            <StackLayout class="m30">
-              <CartLine class="pt10 pb10 fz20 alt" :type="data.title" :price="formatPrice(data.price)" />
+          <StackLayout class="p-m">
+            <StackLayout class="m-l">
+              <CartLine class="pt-m pb-m fz-m alt" :type="data.title" :price="formatPrice(data.price)" />
               <CartLine
                 v-for="(pick, index) in data.picks"
                 :key="index"
-                class="pl10 pb5"
+                class="pl-m pb-s"
                 :type="pick.titleTextSingular"
                 :selection="pick.selection"
                 :price="formatPrice(pick.price)"
                 :delay="200 + index * 200"
               />
-              <CartLine class="pl10 pt10 pb10 fz20" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+              <CartLine class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
             </StackLayout>
 
-            <Button class="action big validate mt10" :text="$t('order.validate-pay')" />
-            <FlexboxLayout class="mt5">
+            <Button class="action big validate mt-m" :text="$t('order.validate-pay')" />
+            <FlexboxLayout class="mt-s">
               <Button class="action" flexGrow="1" :text="$t('order.modify-selection')" @tap="modify()" />
               <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
             </FlexboxLayout>

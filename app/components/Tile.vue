@@ -1,7 +1,7 @@
 <template>
   <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
-    <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p10">
-      <Label class="type-name fz30" :text="data.name" />
+    <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p-m">
+      <Label class="type-name fz-l" :text="data.name" />
       <Icon v-if="!hero" class="type-arrow" name="circled-right-2-white" alignSelf="flex-end" />
     </FlexboxLayout>
   </StackLayout>
@@ -23,8 +23,8 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "../assets/styles/shared";
+<style>
+@import url("../assets/styles");
 
 .type {
   background-repeat: no-repeat;
@@ -32,37 +32,37 @@ export default {
   background-size: cover;
   height: 120;
   margin: 10 10 0 10;
-  .type-shadow {
-    background-color: rgba(0, 0, 0, 0.5);
-    height: 100%;
-  }
-  .type-name {
-    color: $color-white;
-    margin-left: 2;
-  }
-  &.formula {
-    background-image: url("~/assets/images/banners/formula.jpg");
-  }
-  &.smoothie {
-    background-image: url("~/assets/images/banners/smoothie.jpg");
-  }
-  &.dessert {
-    background-image: url("~/assets/images/banners/dessert.jpg");
-  }
-  &.soup {
-    background-image: url("~/assets/images/banners/soup.jpg");
-  }
-  &.wrap {
-    background-image: url("~/assets/images/banners/wrap.jpg");
-  }
-  &.large {
-    height: 180;
-  }
-  &.hero {
-    margin: 0;
-    .type-name {
-      text-align: center;
-    }
-  }
+}
+.type-shadow {
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 100%;
+}
+.type-name {
+  color: var(--color-white);
+  margin-left: 2;
+}
+.type.formula {
+  background-image: url("~/assets/images/banners/formula.jpg");
+}
+.type.smoothie {
+  background-image: url("~/assets/images/banners/smoothie.jpg");
+}
+.type.dessert {
+  background-image: url("~/assets/images/banners/dessert.jpg");
+}
+.type.soup {
+  background-image: url("~/assets/images/banners/soup.jpg");
+}
+.type.wrap {
+  background-image: url("~/assets/images/banners/wrap.jpg");
+}
+.type.large {
+  height: 180;
+}
+.type.hero {
+  margin: 0;
+}
+.type.hero .type-name {
+  text-align: center;
 }
 </style>

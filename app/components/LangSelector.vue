@@ -1,6 +1,6 @@
 <template>
   <FlexboxLayout justifyContent="space-around" alignItems="center">
-    <Icon v-for="l in locales" :key="l.code" :name="l.code" :class="'h40 flag flag--' + (locale.code === l.code ? '' : 'in') + 'active'" @tap.native="$i18n.locale = l.code; setLocale(l)" />
+    <Icon v-for="l in locales" :key="l.code" :name="l.code" height="40" :class="'flag flag--' + (locale.code === l.code ? '' : 'in') + 'active'" @tap.native="$i18n.locale = l.code; setLocale(l)" />
   </FlexboxLayout>
 </template>
 
@@ -26,17 +26,16 @@ export default {
 }
 </script>
 
-<style lang="scss">
-@import "../assets/styles/shared";
+<style>
+@import url("../assets/styles.css");
 
 .flag {
   padding: 2 4;
   border-width: 1;
-  border-color: $color-white;
+  border-color: var(--color-white);
+}
 
-  &--active {
-    border-color: $color-alt;
-    background-color: rgba($color-alt, 0.05);
-  }
+.flag--active {
+  border-color: var(--color-alt);
 }
 </style>

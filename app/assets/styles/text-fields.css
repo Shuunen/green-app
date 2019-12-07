@@ -1,0 +1,11 @@
+TextField {
+  color: var(--color-black);
+  border-bottom-width: 1;
+  border-bottom-color: var(--color-black);
+  margin-bottom: 10;
+}
+
+.read-only TextField {
+  color: var(--color-grey);
+  border-bottom-color: var(--color-disabled);
+}

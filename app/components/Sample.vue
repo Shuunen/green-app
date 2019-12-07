@@ -1,6 +1,6 @@
 <template>
-  <StackLayout class="alt-bg white p10" orientation="horizontal">
-    <Icon class="mr10 h25" name="location-white" />
+  <StackLayout class="alt-bg white p-m" orientation="horizontal">
+    <Icon class="mr-m" height="25" name="location-white" />
     <Label :text="message" verticalAlignment="center" />
   </StackLayout>
 </template>

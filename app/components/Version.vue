@@ -1,6 +1,6 @@
 <template>
-  <FlexboxLayout class="pt5 pb10" justifyContent="center">
-    <Label class="fz10 alt" :text="$t('common.version') + ' ' + pkg.version + ' ' + lastCommit" />
+  <FlexboxLayout class="pt-s pb-m" justifyContent="center">
+    <Label class="fz-s alt" :text="$t('common.version') + ' ' + pkg.version + ' ' + lastCommit" />
   </FlexboxLayout>
 </template>
 
