@@ -1,6 +1,7 @@
 import Logged from '@/pages/Logged'
 import Vue from 'nativescript-vue'
 import VueDevtools from 'nativescript-vue-devtools'
+import { SVGImage } from '@teammaestro/nativescript-svg'
 import VueI18n from 'vue-i18n'
 import store from './store'
 
@@ -8,6 +9,8 @@ if (TNS_ENV !== 'production') {
   // Vue.use(VueDevtools, { host: '192.168.0.24' }) if using a real device
   Vue.use(VueDevtools)
 }
+
+Vue.registerElement('SVGImage', () => SVGImage)
 
 /* i18n */
 Vue.use(VueI18n)

@@ -3,8 +3,10 @@
 		"change-target": "Choose another restaurant",
 		"first-name": "Firstname",
 		"last-name": "Lastname",
+		"login": "login",
 		"my-account": "My account",
-		"my-target": "My restaurant"
+		"my-target": "My restaurant",
+		"sign-up": "Sign up"
 	},
 	"common": {
 		"arabic": "Arabic",
