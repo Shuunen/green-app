@@ -1,11 +1,12 @@
 {
 	"account": {
 		"change-target": "Choose another restaurant",
+		"email": "Email address",
 		"first-name": "Firstname",
 		"last-name": "Lastname",
-		"login": "login",
 		"my-account": "My account",
 		"my-target": "My restaurant",
+		"password": "Password",
 		"sign-up": "Sign up"
 	},
 	"common": {
@@ -21,6 +22,14 @@
 		"select": "Select",
 		"spanish": "Spanish",
 		"version": "version"
+	},
+	"login": {
+		"forgot-password": "Forgot your password ?",
+		"has-account": "I have an account",
+		"login": "login",
+		"no-account": "I don't have an account yet",
+		"sign-up": "Sign up",
+		"welcome": "Welcome to Green is better order app ! Please sign in or register a free account to use it."
 	},
 	"order": {
 		"cancel": "Cancel order",

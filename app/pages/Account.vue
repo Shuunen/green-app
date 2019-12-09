@@ -15,9 +15,10 @@
             <TextField v-show="!editMode" :text="userData.store" :editable="editMode" />
             <ListPicker v-show="editMode" v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
             <!-- action button -->
-            <FlexboxLayout flexGrow="1" justifyContent="center" class="p-l">
+            <FlexboxLayout flexDirection="column" flexGrow="1" justifyContent="center" class="p-l">
               <!-- @tap="editMode = !editMode; setUser(JSON.parse(JSON.stringify(userData)))" -->
-              <Button class="action mb-l" :class="{ validate: editMode }" :text="editMode ? 'Save' : 'Edit'" @tap="onToggleEdit" />
+              <Button class="action validate" :class="{ validate: editMode }" :text="editMode ? 'Save' : 'Edit'" @tap="onToggleEdit" />
+              <Button class="action mb-l" :text="$t('common.back-home')" @tap="goHome" />
             </FlexboxLayout>
           </StackLayout>
         </StackLayout>
@@ -65,7 +66,7 @@ export default {
     this.userData = { ...this.user }
   },
   methods: {
-    ...mapActions(['setUser']),
+    ...mapActions(['setUser', 'goHome']),
     onToggleEdit () {
       if (this.editMode) {
         // save
