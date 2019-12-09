@@ -35,6 +35,10 @@
   background-color: var(--color-white);
 }
 
+.bg-error {
+  background-color: var(--color-error);
+}
+
 .primary-bg {
   background-color: var(--color-primary);
 }

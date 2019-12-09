@@ -1,11 +1,12 @@
 {
 	"account": {
 		"change-target": "Seleccione otro restaurante",
+		"email": "Dirección de correo electrónico",
 		"first-name": "Nombre de pila",
 		"last-name": "Apellido",
-		"login": "Iniciar sesión",
 		"my-account": "Mi cuenta",
 		"my-target": "Mi restaurante",
+		"password": "Contraseña",
 		"sign-up": "Regístrate"
 	},
 	"common": {
@@ -21,6 +22,14 @@
 		"select": "Seleccionar",
 		"spanish": "Español",
 		"version": "versión"
+	},
+	"login": {
+		"forgot-password": "Olvidaste tu contraseña ?",
+		"has-account": "Tengo una cuenta",
+		"login": "Iniciar sesión",
+		"no-account": "Todavía no tengo una cuenta",
+		"sign-up": "Regístrate",
+		"welcome": "Bienvenido a Green es mejor aplicación de pedido! Inicie sesión o registre una cuenta gratuita para usarla."
 	},
 	"order": {
 		"cancel": "Cancelar orden",

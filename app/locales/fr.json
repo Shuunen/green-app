@@ -1,11 +1,12 @@
 {
 	"account": {
 		"change-target": "Choisir un autre restaurant",
+		"email": "Adresse électronique",
 		"first-name": "Prénom",
 		"last-name": "Nom de famille",
-		"login": "S'identifier",
 		"my-account": "Mon compte",
 		"my-target": "Mon restaurant",
+		"password": "Mot de passe",
 		"sign-up": "S'inscrire"
 	},
 	"common": {
@@ -21,6 +22,14 @@
 		"select": "Choisir",
 		"spanish": "Espagnol",
 		"version": "version"
+	},
+	"login": {
+		"forgot-password": "Mot de passe oublié ?",
+		"has-account": "J'ai un compte",
+		"login": "S'identifier",
+		"no-account": "Je n'ai pas encore de compte",
+		"sign-up": "S'inscrire",
+		"welcome": "Bienvenue sur l'application de commande Green is better ! Veuillez vous connecter ou créer un compte gratuit pour l'utiliser."
 	},
 	"order": {
 		"cancel": "Annuler la commande",
