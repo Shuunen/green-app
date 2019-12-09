@@ -3,8 +3,10 @@
 		"change-target": "حدد مطعم آخر",
 		"first-name": "الاسم الاول",
 		"last-name": "الكنية",
+		"login": "تسجيل الدخول",
 		"my-account": "حسابي",
-		"my-target": "مطعم بلدي"
+		"my-target": "مطعم بلدي",
+		"sign-up": "سجل"
 	},
 	"common": {
 		"arabic": "عربى",

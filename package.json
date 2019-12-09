@@ -26,6 +26,7 @@
     }
   },
   "dependencies": {
+    "@teammaestro/nativescript-svg": "1.0.1",
     "@vue/devtools": "5.3.3",
     "nativescript-intl": "3.0.0",
     "nativescript-socketio": "3.3.1",

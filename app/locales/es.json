@@ -3,8 +3,10 @@
 		"change-target": "Seleccione otro restaurante",
 		"first-name": "Nombre de pila",
 		"last-name": "Apellido",
+		"login": "Iniciar sesión",
 		"my-account": "Mi cuenta",
-		"my-target": "Mi restaurante"
+		"my-target": "Mi restaurante",
+		"sign-up": "Regístrate"
 	},
 	"common": {
 		"arabic": "Arábe",

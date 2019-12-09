@@ -1,10 +1,7 @@
 <template>
-  <Page actionBarHidden="true" backgroundSpanUnderStatusBar="true">
-    <StackLayout>
-      <Label class="main-label" text="Green Login" />
-
-      <!-- form controls -->
-      <GridLayout class="form-controls" rows="auto, auto">
+  <Page actionBarHidden="true">
+    <FlexboxLayout flexDirection="column" justifyContent="center" flexGrow="1" class="bg p-l">
+      <SVGImage src="~/assets/images/icons/user.svg" height="200" />
         <TextField
           v-model="user.email"
           hint="Email Address"
@@ -13,26 +10,12 @@
           :iEnabled="!isAuthenticating"
           autocorrect="false"
           autocapitalizationType="none"
-          :class="{ light: !isLoggingIn}"
           row="0"
           @returnPress="focusPassword()"
         />
-        <TextField
-          ref="password"
-          v-model="user.password"
-          hint="Password"
-          secure="true"
-          returnKeyType="done"
-          :isEnabled="!isAuthenticating"
-          :class="{ light: !isLoggingIn }"
-          row="1"
-          @returnPress="submit()"
-        />
-      </GridLayout>
-
-      <!-- login / sign up button -->
-      <Button :text="isLoggingIn ? 'Login' : 'Sign up'" :isEnabled="!isAuthenticating" class="submit-button" @tap="submit()" />
-    </StackLayout>
+      <TextField ref="password" v-model="user.password" hint="Password" secure="true" returnKeyType="done" :isEnabled="!isAuthenticating" row="1" @returnPress="submit()" />
+      <Button class="action mt-m mb-l" :text="isLoggingIn ? $t('account.login') : $t('account.sign-up')" :isEnabled="!isAuthenticating" @tap="submit()" />
+    </FlexboxLayout>
   </Page>
 </template>
 
