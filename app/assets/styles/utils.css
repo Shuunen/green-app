@@ -18,6 +18,10 @@
   color: var(--color-disabled);
 }
 
+:disabled {
+  opacity: 0.5;
+}
+
 .primary {
   color: var(--color-primary);
 }

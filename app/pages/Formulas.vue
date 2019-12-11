@@ -2,7 +2,7 @@
   <Page actionBarHidden="true">
     <ScrollView orientation="vertical">
       <StackLayout class="bg">
-        <Tile :data="{ type: 'formula', name: ucfirst($t('order.formula')) }" :hero="true" />
+        <Tile :data="{ type: 'formula', name: ucfirst($tc('order.formulas', 2)) }" :hero="true" />
         <StackLayout class="p-m">
           <Label :text="$t('order.choose-formula') + ' :'" class="pt-s pb-m fz-m grey" />
           <FormulaTile v-for="data in formulas" :key="data.title" :data="data" @tap.native="goto(data)" @tap="goto(data)" />
