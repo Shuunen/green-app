@@ -23,6 +23,16 @@
 		"spanish": "Espagnol",
 		"version": "version"
 	},
+	"error": {
+		"alert-message-suffix": "Désolé pour le dérangement, contactez-nous en nous fournissant ce code d'erreur pour que l'on puisse vous aider : {code}",
+		"alert-title": "Erreur",
+		"api-needed": "Une API est nécessaire pour cet appel non mocké",
+		"invalid-email": "Merci d'utiliser une adresse email valide",
+		"invalid-password": "Veuillez définir un mot de passe",
+		"json-parse-failed": "La lecture JSON a échoué",
+		"unknown": "Une erreur inattendue s'est produite, désolé pour cela.",
+		"unknown-account": "Ce compte n'existe pas"
+	},
 	"login": {
 		"forgot-password": "Mot de passe oublié ?",
 		"has-account": "J'ai un compte",
@@ -36,8 +46,8 @@
 		"change-formula": "Changer de formule",
 		"choose-formula": "Choisissez votre formule",
 		"complete-selection": "Complétez la sélection pour commander",
-		"formula": "formule",
 		"formula-for": "Commander cette formule pour",
+		"formulas": "formule | formules",
 		"modify-selection": "Modifier la sélection",
 		"my-orders": "Mes commandes",
 		"place": "Commander",

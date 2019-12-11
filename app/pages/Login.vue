@@ -11,18 +11,19 @@
           :hint="$t('account.email')"
           keyboardType="email"
           returnKeyType="next"
-          :iEnabled="!isAuthenticating"
+          :isEnabled="!isLoading"
           autocorrect="false"
           autocapitalizationType="none"
           @returnPress="focusPassword()"
         />
-        <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isAuthenticating" @returnPress="submit()" />
+        <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" @returnPress="submit()" />
         <StackLayout class="mt-s" orientation="horizontal">
-          <Switch v-model="hasAccount" />
+          <Switch v-model="hasAccount" :isEnabled="!isLoading" />
           <Label :text="hasAccount ? $t('login.has-account') : $t('login.no-account')" textWrap="true" verticalAlignment="center" class="ml-m" />
         </StackLayout>
-        <Button class="action validate mt-m" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :isEnabled="!isAuthenticating" @tap="submit()" />
-        <Label class="mt-s" horizontalAlignment="center" :text="$t('login.forgot-password')" />
+        <Button class="action validate mt-m" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :isEnabled="!isLoading" @tap="submit()" />
+        <Label class="mt-s mb-m" horizontalAlignment="center" :text="$t('login.forgot-password')" />
+        <ActivityIndicator :busy="isLoading" />
       </StackLayout>
       <LangSelector />
     </FlexboxLayout>
@@ -33,58 +34,53 @@
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
 import { mapGetters, mapActions } from 'vuex'
 
-import Logged from '@/pages/Logged'
-import User from '@/models/User'
 import LangSelector from '@/components/LangSelector'
 import Icon from '@/components/Icon'
+import User from '@/models/User'
 
 export default {
   components: { LangSelector, Icon },
 
   data () {
     return {
+      user: {},
       hasAccount: true,
       isLoggingIn: true,
-      isAuthenticating: false,
-      user: new User('romain.racamier@gmail.com', 'my-pass'),
     }
   },
 
   computed: {
-    ...mapGetters({ isLoading: 'isLoading' }),
+    ...mapGetters({ isLoading: 'isLoading', storeUser: 'user' }),
   },
 
   mounted () {
+    this.user = new User({ ...this.storeUser })
     console.log('Login mounted with user', this.user.email)
   },
 
   methods: {
-    ...mapActions(['goAccount', 'startOrder']),
+    ...mapActions(['goHome', 'doLogin']),
 
     focusPassword () {
       this.$refs.password.nativeView.focus()
     },
 
     submit () {
-      console.log('submit', this.user)
+      console.log('Login : submit user data :', this.user)
       if (!this.user.isValidEmail()) {
-        alert('Enter a valid email address.')
-        return
+        return alert(this.$t('error.invalid-email'))
       }
-      this.isAuthenticating = true
-      this.login()
-    },
-
-    login () {
+      if (!this.user.isValidPassword()) {
+        return alert(this.$t('error.invalid-password'))
+      }
       if (getConnectionType() === connectionType.none) {
-        alert('app requires an internet connection to log in.')
-        return
+        return alert('app requires an internet connection to log in or sign up.')
       }
-      setTimeout(() => {
-        this.isAuthenticating = false
-        console.log('navigating to home page')
-        this.$navigateTo(Logged, { clearHistory: true })
-      }, 4000)
+      if (this.hasAccount) {
+        this.doLogin(this.user)
+      } else {
+        alert('TODO : create account')
+      }
     },
 
   },
@@ -92,6 +88,9 @@ export default {
 </script>
 
 <style>
+.fullscreen-loader {
+  background-color: red;
+}
 .main-label {
   horizontal-align: center;
 }

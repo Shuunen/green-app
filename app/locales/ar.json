@@ -23,6 +23,16 @@
 		"spanish": "الأسبانية",
 		"version": "الإصدار"
 	},
+	"error": {
+		"alert-message-suffix": "نأسف للإزعاج ، اتصل بنا على رمز الخطأ هذا حتى نتمكن من مساعدتك: {code}",
+		"alert-title": "خطأ",
+		"api-needed": "هناك حاجة إلى واجهة برمجة تطبيقات لهذه المكالمة غير المستهزئة",
+		"invalid-email": "لو سمحت أدخل بريد إليكتروني صالح",
+		"invalid-password": "يرجى تحديد كلمة المرور",
+		"json-parse-failed": "فشل تحليل JSON",
+		"unknown": "حدث خطأ غير متوقع ، آسف لذلك.",
+		"unknown-account": "هذا الحساب غير موجود"
+	},
 	"login": {
 		"forgot-password": "نسيت رقمك السري ؟",
 		"has-account": "لدي حساب",
@@ -36,8 +46,8 @@
 		"change-formula": "تغيير الصيغة",
 		"choose-formula": "اختيار الصيغة الخاصة بك",
 		"complete-selection": "يرجى استكمال الاختيار",
-		"formula": "معادلة",
 		"formula-for": "ترتيب هذه الصيغة ل",
+		"formulas": "معادلة",
 		"modify-selection": "تعديل الاختيار",
 		"my-orders": "طلباتي",
 		"place": "تضع طلبية",
