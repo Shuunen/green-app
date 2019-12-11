@@ -46,6 +46,7 @@ export default class ApiService {
   async loadStores () {
     let list = []
     if (doMock) {
+      await Mocks.sleep(1000)
       list = Mocks.stores
       console.log(`Returning ${list.length} mocked stores`)
     } else {
@@ -57,6 +58,7 @@ export default class ApiService {
   async loadFormulas () {
     let list = []
     if (doMock) {
+      await Mocks.sleep(2000)
       list = Mocks.formulas
       console.log(`Returning ${list.length} mocked formulas`)
     } else {
@@ -73,6 +75,7 @@ export default class ApiService {
   async loadItems () {
     let list = []
     if (doMock) {
+      await Mocks.sleep(2000)
       list = Mocks.items
       console.info(`Returning ${list.length} mocked items`)
     } else {
