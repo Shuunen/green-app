@@ -1,28 +1,25 @@
+import pkg from '@/../package.json'
+import User from '@/models/User'
+import { users } from '@/utils/Mocks'
 import Vue from 'nativescript-vue'
 import Vuex from 'vuex'
-
-import pkg from '../../package.json'
-import mutations from './mutations'
 import * as actions from './actions'
 import * as getters from './getters'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
 const debug = TNS_ENV !== 'production'
 const locales = pkg.config.locales
 const locale = locales[pkg.config.default_locale]
-const user = {
-  firstName: 'Benjamin',
-  lastName: 'Franklin',
-  store: 'Green La Beaujoire (44)',
-}
 
 const store = new Vuex.Store({
   state: {
     debug,
     locales,
     locale,
-    user,
+    stores: [],
+    user: debug ? new User(users['romain.racamier@gmail.com']) : {},
     toggleMenu: false,
     isLoggedIn: false,
     items: {},
@@ -37,6 +34,6 @@ const store = new Vuex.Store({
   strict: debug,
 })
 
-Vue.prototype.$store = store
+// Vue.prototype.$store = store // does not seems to be used
 
 export default store
