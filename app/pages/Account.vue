@@ -29,7 +29,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-
 import Tile from '@/components/Tile'
 
 export default {
@@ -40,29 +39,18 @@ export default {
     return {
       userData: {},
       storeSelected: 0,
-      stores: [
-        'Green La Defense (75)',
-        'Green Montparnasse (75)',
-        'Green Bercy Village (75)',
-        'Green Boulogne Billancourt (93)',
-        'Green Les Long Champs (35)',
-        'Green Cesson-Sévigné (35)',
-        'Green La Beaujoire (44)',
-        'Green Centre Sud (44)',
-      ],
       editMode: false,
     }
   },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-      user: 'user',
-    }),
+    ...mapGetters({ isLoading: 'isLoading', user: 'user', stores: 'stores' }),
   },
   created () {
     console.log('Account page created !')
+    const storeIndex = this.stores.findIndex(store => store === this.user.store)
     // because findIndex returns -1 if not found, math max will set default store selected to 0
-    this.storeSelected = Math.max(this.stores.findIndex(store => store === this.user.store), 0)
+    // TODO: handle in-existant store
+    this.storeSelected = Math.max(storeIndex, 0)
     this.userData = { ...this.user }
   },
   methods: {
