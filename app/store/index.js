@@ -1,3 +1,4 @@
+/* global TNS_ENV */
 import pkg from '@/../package.json'
 import User from '@/models/User'
 import { users } from '@/utils/Mocks'

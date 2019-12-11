@@ -1,3 +1,4 @@
+/* global TNS_ENV */
 import Logged from '@/pages/Logged'
 import Login from '@/pages/Login'
 import { i18n } from '@/plugins/i18n'

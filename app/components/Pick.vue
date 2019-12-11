@@ -119,8 +119,6 @@ export default {
 </script>
 
 <style>
-/* @import url("~/assets/styles"); */
-
 .pick {
   border-width: 1;
   border-color: var(--color-disabled);
