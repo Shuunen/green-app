@@ -1,3 +1,6 @@
+
+export const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, (ms || 1000)))
+
 export const formulas = [
   {
     title: 'Green Rush',
@@ -146,32 +149,39 @@ export const items = {
     {
       title: 'Perle de blé',
       value: 'base-perle-ble',
+      allergens: ['gluten'],
     },
     {
       title: 'Pâtes au basilic',
       value: 'base-pates-basilic',
+      allergens: ['gluten'],
     },
   ],
   ingredients: [
     {
       title: 'Emmental',
       value: 'ingredient-emmental',
+      allergens: ['lactose'],
     },
     {
       title: 'Bleu d’Auvergne',
       value: 'ingredient-bleu-auvergne',
+      allergens: ['lactose'],
     },
     {
       title: 'Mozzarella',
       value: 'ingredient-mozzarella',
+      allergens: ['lactose'],
     },
     {
       title: 'Fromage de chèvre',
       value: 'ingredient-fromage-chevre',
+      allergens: ['lactose'],
     },
     {
       title: 'Parmesan',
       value: 'ingredient-parmesan',
+      allergens: ['lactose'],
     },
     {
       title: 'Carottes',
@@ -228,6 +238,7 @@ export const items = {
     {
       title: 'Croutons',
       value: 'ingredient-croutons',
+      allergens: ['gluten'],
     },
     {
       title: 'Oignons fris',
@@ -313,12 +324,14 @@ export const items = {
       content: 'crème, parmesan',
       value: 'sauce-caesar',
       icon: 'sauces.jpg',
+      allergens: ['lactose'],
     },
     {
       title: 'Bulgare',
       content: 'vinaigrette, fromage blanc, citron',
       value: 'sauce-bulgare',
       icon: 'sauces.jpg',
+      allergens: ['lactose'],
     },
     {
       title: 'Provencale',
@@ -365,6 +378,7 @@ export const items = {
       title: 'Curry',
       value: 'sauce-curry',
       icon: 'sauces.jpg',
+      allergens: ['lactose'],
     },
   ],
   soups: [
@@ -384,6 +398,7 @@ export const items = {
       title: 'wrap du jour',
       value: 'wrap-jour',
       icon: 'wraps.jpg',
+      allergens: ['gluten'],
     },
   ],
   drinks: [
@@ -400,10 +415,33 @@ export const items = {
     {
       title: 'Tarte Citron Meringuée',
       value: 'desert-tarte-citron',
+      allergens: ['lactose', 'gluten'],
     },
     {
       title: 'Compote De Pomme',
       value: 'desert-compote-pomme',
     },
   ],
+}
+
+export const stores = [
+  'Green La Defense (75)',
+  'Green Montparnasse (75)',
+  'Green Bercy Village (75)',
+  'Green Boulogne Billancourt (93)',
+  'Green Les Long Champs (35)',
+  'Green Cesson-Sévigné (35)',
+  'Green La Beaujoire (44)',
+  'Green Centre Sud (44)',
+]
+
+export const users = {
+  'romain.racamier@gmail.com': {
+    email: 'romain.racamier@gmail.com',
+    firstName: 'Romain',
+    lastName: 'Racamier',
+    allergies: ['lactose'],
+    diets: ['kosher', 'vegan'],
+    store: stores[1],
+  },
 }
