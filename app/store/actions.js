@@ -1,51 +1,56 @@
-import ProductsService from '@/services/ProductsService'
+import Vue from 'nativescript-vue'
 import * as types from './mutation-types'
+import { i18n } from '@/plugins/i18n'
 
-const productsService = new ProductsService()
-
-export const loadFormulas = ({ commit }) => {
-  const task = 'action loadFormulas'
-  console.log(task)
-  return new Promise((resolve, reject) => {
-    commit(types.ADD_PROCESSING_TASK, task)
-    productsService
-      .loadFormulas()
-      .then(list => {
-        commit(types.SET_FORMULAS, list)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        resolve()
-      })
-      .catch(error => {
-        console.error(`Failed at loading formulas from api : ${error}`)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        reject(error)
-      })
+const showError = error => {
+  const code = error.message.includes('.') ? error.message : 'error.unknown'
+  alert({
+    title: i18n.t('error.alert-title'),
+    message: i18n.t(code) + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
   })
 }
 
-export const loadItems = ({ commit }) => {
+export const loadFormulas = async ({ commit }) => {
+  const task = 'action loadFormulas'
+  commit(types.ADD_PROCESSING_TASK, task)
+  return Vue.prototype.$apiService.loadFormulas()
+    .then(list => commit(types.SET_FORMULAS, list))
+    .catch(showError)
+    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
+}
+
+export const loadItems = async ({ commit }) => {
   const task = 'action loadItems'
-  console.log(task)
-  return new Promise((resolve, reject) => {
-    commit(types.ADD_PROCESSING_TASK, task)
-    productsService
-      .loadItems()
-      .then(list => {
-        commit(types.SET_ITEMS, list)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        resolve()
-      })
-      .catch(error => {
-        console.error(`Failed at loading items from api : ${error}`)
-        commit(types.REMOVE_PROCESSING_TASK, task)
-        reject(error)
-      })
-  })
+  commit(types.ADD_PROCESSING_TASK, task)
+  return Vue.prototype.$apiService.loadItems()
+    .then(list => commit(types.SET_ITEMS, list))
+    .catch(showError)
+    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
+}
+
+export const loadStores = async ({ commit }) => {
+  const task = 'action loadStores'
+  commit(types.ADD_PROCESSING_TASK, task)
+  return Vue.prototype.$apiService.loadStores()
+    .then(list => commit(types.SET_STORES, list))
+    .catch(showError)
+    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
 }
 
 export const toggleMenu = ({ commit }) => {
   console.log('action : toggleMenu')
   commit(types.TOGGLE_MENU)
+}
+
+export const doLogin = async ({ commit }, credentials) => {
+  const task = 'action doLogin'
+  commit(types.ADD_PROCESSING_TASK, task)
+  return Vue.prototype.$apiService.doLogin(credentials)
+    .then(userData => commit(types.SET_USER, userData))
+    .then(() => loadStores({ commit }))
+    .then(() => commit(types.DO_LOGIN))
+    .catch(showError)
+    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
 }
 
 export const doLogout = ({ commit }) => {
