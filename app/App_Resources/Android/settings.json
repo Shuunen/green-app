@@ -1,1 +1,5 @@
-{"appId":"green.nsvue.app","minSdkVersion":null,"targetSdkVersion":null}
+{
+  "appId": "green.nsvue.app",
+  "minSdkVersion": 21,
+  "targetSdkVersion": 28
+}
