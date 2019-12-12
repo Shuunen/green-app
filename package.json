@@ -44,9 +44,6 @@
     "@babel/core": "7.7.5",
     "@babel/preset-env": "7.7.6",
     "babel-loader": "8.0.6",
-    "babel-traverse": "6.26.0",
-    "babel-types": "6.26.0",
-    "babylon": "6.18.0",
     "email-validator": "2.0.4",
     "eslint": "6.7.2",
     "eslint-config-standard": "14.1.0",
@@ -58,7 +55,7 @@
     "eslint-plugin-vue": "6.0.1",
     "eslint-plugin-vue-i18n": "0.3.0",
     "lazy": "1.0.11",
-    "nativescript-dev-webpack": "^1.3.0",
+    "nativescript-dev-webpack": "1.3.0",
     "nativescript-vue-template-compiler": "2.4.0",
     "nativescript-worker-loader": "0.10.0",
     "rimraf": "3.0.0",
@@ -72,7 +69,6 @@
   "name": "green-app",
   "nativescript": {
     "id": "green.nsvue.app",
-    "templateVersion": "v2",
     "tns-android": {
       "version": "6.2.0"
     },
@@ -81,10 +77,16 @@
     }
   },
   "optionalDependencies": {
-    "babel-eslint": "*"
+    "babel-eslint": "*",
+    "typescript": "*"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Shuunen/green-app.git"
   },
   "scripts": {
-    "build": "tns build android",
+    "build": "tns build android --aab",
     "build:ios": "export SWIFT_VERSION=3; npm run last-commit && tns build ios",
     "check": "npx repo-check",
     "clean": "rimraf platforms",
@@ -96,17 +98,14 @@
     "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js *.js",
     "ls": "tns device",
     "postinstall": "npm run clean",
+    "prebuild": "npm run last-commit",
+    "prebuild:ios": "npm run last-commit",
     "prestart": "npm run last-commit",
     "prestart:ios": "npm run last-commit",
     "start": "tns run android --env.uglify",
     "start:ios": "export SWIFT_VERSION=3; tns run ios --env.uglify",
     "test": "npm run lint && npm run check",
     "update": "npx npm-check-updates -u"
-  },
-  "standard": {
-    "globals": [
-      "TNS_ENV"
-    ]
   },
   "version": "3.2.0"
 }
