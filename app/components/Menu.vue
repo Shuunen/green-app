@@ -23,10 +23,7 @@ import Version from '@/components/Version'
 export default {
   components: { LangSelector, Version },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-      user: 'user',
-    }),
+    ...mapGetters({ isLoading: 'isLoading', user: 'user' }),
   },
   methods: {
     ...mapActions(['doLogout', 'goAccount', 'goOrders', 'goHome']),

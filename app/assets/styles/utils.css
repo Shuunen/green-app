@@ -87,3 +87,10 @@ button.disabled {
   color: var(--color-white);
   background-color: var(--color-disabled);
 }
+
+/* does not seems to work... */
+
+.switch[checked=true] {
+  background-color: var(--color-alt);
+  color: var(--color-alt)
+}
