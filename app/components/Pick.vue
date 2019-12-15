@@ -1,10 +1,10 @@
 <template>
   <StackLayout class="pick mt-m p-m" :class="{ valid: data.valid }">
-    <Label :text="data.titleText" class="pick--title" />
-    <Label v-if="descText.length" :text="descText" class="pick--desc ml-s mt-s mb-s" />
+    <Label :text="data.titleText" class="pick--title mb-s" />
+    <Label v-if="descText.length" :text="descText" class="pick--desc ml-s mb-s" />
     <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml-s mb-s" />
     <FlexboxLayout flexWrap="wrap">
-      <Button v-for="item in list" :key="item.value" :text="item.title" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
+      <Button v-for="item in list" :key="item.value" :text="$t(item.title)" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -52,24 +52,32 @@ export default {
         }
       } else {
         console.error(`failed to find items of type "${type}"`)
-        console.log(`in items[${type}]`, this.items[type])
+        console.error(`in items[${type}]`, this.items[type])
       }
     },
     setTitle () {
-      const pick = this.data
-      let i18nKey = `pick.section-${pick.from}`
-      if (pick.or) {
-        i18nKey += `-or-${pick.or}`
+      let i18nKey = ''
+      if (this.data.title) {
+        i18nKey = this.data.title
+      } else {
+        const pick = this.data
+        i18nKey = `pick.section-${pick.from}`
+        if (pick.or) {
+          i18nKey += `-or-${pick.or}`
+        }
+        i18nKey = i18nKey.replace('soups-or-wraps', 'wraps-or-soups')
       }
-      i18nKey = i18nKey.replace('soups-or-wraps', 'wraps-or-soups')
       this.data.titleText = this.$tc(i18nKey, 2)
       this.data.titleTextSingular = this.$tc(i18nKey, 1)
     },
     setDesc () {
       const pick = this.data
-      const nb = pick.pick
+      const nb = pick.pick || (pick.any ? 2 : null)
+      if (!pick.from || (!nb && !pick.any)) {
+        return
+      }
       let i18nKey = `pick.you-can-pick-n-${pick.from}`
-      if (pick.extraPrice) {
+      if (pick.extraPrice || pick.any) {
         i18nKey += '-or-more'
       } else if (pick.or) {
         i18nKey += `-or-n-${pick.or}`
@@ -135,5 +143,9 @@ export default {
 
 .pick--extra {
   font-size: 12;
+}
+
+.pick .selected {
+  background-color: var(--color-alt);
 }
 </style>

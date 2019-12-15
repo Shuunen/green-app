@@ -5,23 +5,38 @@
 		"first-name": "Nombre de pila",
 		"last-name": "Apellido",
 		"my-account": "Mi cuenta",
+		"my-allergens": "Mis alergenos",
+		"my-diets": "Mis dietas",
 		"my-target": "Mi restaurante",
 		"password": "Contraseña",
 		"sign-up": "Regístrate"
 	},
+	"allergen": {
+		"gluten": "gluten",
+		"lactose": "lactosa"
+	},
 	"common": {
 		"arabic": "Arábe",
 		"back-home": "Volver a la página de inicio",
+		"back-login": "volver a la página de inicio de sesión",
 		"english": "Inglés",
 		"french": "Francés",
 		"home": "Casa",
 		"logout": "Cerrar sesión",
 		"my-account": "Mi cuenta",
 		"my-orders": "Mis ordenes",
+		"next-step": "proximo paso",
 		"or": "o",
+		"previous-step": "paso anterior",
 		"select": "Seleccionar",
 		"spanish": "Español",
+		"step": "paso {nb}",
 		"version": "versión"
+	},
+	"diet": {
+		"kosher": "comestible según la ley judía",
+		"vegan": "vegano",
+		"vegetarian": "vegetariano"
 	},
 	"error": {
 		"alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
@@ -30,6 +45,7 @@
 		"invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
 		"invalid-password": "Por favor, defina una contraseña",
 		"json-parse-failed": "El análisis JSON ha fallado",
+		"offline": "Se requiere una conexión a internet",
 		"unknown": "Ocurrió un error inesperado, perdón por eso.",
 		"unknown-account": "Esta cuenta no existe."
 	},
@@ -72,12 +88,21 @@
 		"soups": "sopa | sopas",
 		"undefined": "",
 		"wraps": "wrap | wraps",
+		"you-can-pick-n-allergens-or-more": "Puede seleccionar un alergeno | Puedes seleccionar múltiples alérgenos",
 		"you-can-pick-n-bases": "Puedes elegir una base | Puedes elegir {n} bases",
 		"you-can-pick-n-deserts": "Puedes elegir un desierto | Puedes elegir {n} desiertos",
+		"you-can-pick-n-diets-or-more": "Puedes seleccionar una dieta | Puedes seleccionar múltiples dietas",
 		"you-can-pick-n-drinks": "Puedes elegir una bebida | Puedes elegir {n} bebidas",
 		"you-can-pick-n-drinks-or-n-deserts": "Puedes escoger una bebida o un desierto | Puedes elegir {n} de estos",
 		"you-can-pick-n-ingredients-or-more": "Puedes elegir un ingrediente | Puedes escoger {n} ingredientes",
 		"you-can-pick-n-sauces": "Puedes escoger una salsa | Puedes recoger {n} salsas",
 		"you-can-pick-n-wraps-or-n-soups": "Puedes escoger un wrap o una sopa | Puedes elegir {n} de estos"
+	},
+	"signup": {
+		"signup": "crear mi cuenta",
+		"step-1": "Cree su cuenta para poder ordenar y personalizar su experiencia.",
+		"step-2": "Si está a dieta, indíquelo en este paso o vaya al siguiente.",
+		"step-3": "Este paso le permite completar sus alergias para resaltar los alimentos alergénicos.",
+		"title": "Creación de cuenta"
 	}
 }
