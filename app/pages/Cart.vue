@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import CartLine from '@/components/CartLine'
 import Formatter from '@/utils/Formatter'
@@ -56,21 +56,12 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-    }),
+    ...mapGetters({ isLoading: 'isLoading' }),
   },
   created () {
     console.log('Cart page created')
-    this.load()
   },
   methods: {
-    ...mapActions(['loadItems']),
-    load () {
-      this.loadItems()
-        .catch(error => console.error(error))
-        .then(() => console.log('sample items loaded'))
-    },
     formatPrice: (num) => Formatter.price(num),
     modify () {
       this.$navigateBack()

@@ -1,6 +1,6 @@
 <template>
   <FlexboxLayout justifyContent="space-around" alignItems="center">
-    <Icon v-for="l in locales" :key="l.code" :name="l.code" height="40" :class="'flag flag--' + (locale.code === l.code ? '' : 'in') + 'active'" @tap.native="$i18n.locale = l.code; setLocale(l)" />
+    <Icon v-for="l in locales" :key="l.code" :name="l.code" height="40" :class="'flag flag--' + (locale === l.code ? '' : 'in') + 'active'" @tap.native="setLocale(l.code)" />
   </FlexboxLayout>
 </template>
 

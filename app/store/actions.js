@@ -3,36 +3,22 @@ import * as types from './mutation-types'
 import { i18n } from '@/plugins/i18n'
 
 const showError = error => {
-  const code = error.message.includes('.') ? error.message : 'error.unknown'
+  const message = typeof error === 'string' ? error : error.message
+  // TODO: better test than include dot to detect a i18n key
+  const code = (message && message.includes('.')) ? message : 'error.unknown'
   alert({
     title: i18n.t('error.alert-title'),
-    message: i18n.t(code) + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
+    message: i18n.t(code), // + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
   })
 }
 
-export const loadFormulas = async ({ commit }) => {
-  const task = 'action loadFormulas'
-  commit(types.ADD_PROCESSING_TASK, task)
-  return Vue.prototype.$apiService.loadFormulas()
-    .then(list => commit(types.SET_FORMULAS, list))
-    .catch(showError)
-    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
-}
+export const doShowError = ({ commit }, code) => showError(code)
 
-export const loadItems = async ({ commit }) => {
-  const task = 'action loadItems'
+export const loadCommonData = async ({ commit }) => {
+  const task = 'action loadCommonData'
   commit(types.ADD_PROCESSING_TASK, task)
-  return Vue.prototype.$apiService.loadItems()
-    .then(list => commit(types.SET_ITEMS, list))
-    .catch(showError)
-    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
-}
-
-export const loadStores = async ({ commit }) => {
-  const task = 'action loadStores'
-  commit(types.ADD_PROCESSING_TASK, task)
-  return Vue.prototype.$apiService.loadStores()
-    .then(list => commit(types.SET_STORES, list))
+  return Vue.prototype.$apiService.loadCommonData()
+    .then(data => commit(types.SET_COMMON_DATA, data))
     .catch(showError)
     .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
 }
@@ -47,7 +33,19 @@ export const doLogin = async ({ commit }, credentials) => {
   commit(types.ADD_PROCESSING_TASK, task)
   return Vue.prototype.$apiService.doLogin(credentials)
     .then(userData => commit(types.SET_USER, userData))
-    .then(() => loadStores({ commit }))
+    .then(() => loadCommonData({ commit }))
+    .then(() => commit(types.DO_LOGIN))
+    .catch(showError)
+    .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
+}
+
+export const doSignup = async ({ commit }, userData) => {
+  const task = 'action doSignup'
+  commit(types.ADD_PROCESSING_TASK, task)
+  return Vue.prototype.$apiService.doSignup(userData)
+    .then(userData => commit(types.SET_USER, userData))
+    .then()
+    .then(() => loadCommonData({ commit }))
     .then(() => commit(types.DO_LOGIN))
     .catch(showError)
     .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))

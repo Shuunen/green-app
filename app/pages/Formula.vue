@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import Cart from '@/pages/Cart'
 import Formatter from '@/utils/Formatter'
@@ -48,10 +48,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      items: 'items',
-      isLoading: 'isLoading',
-    }),
+    ...mapGetters({ items: 'items', isLoading: 'isLoading' }),
     orderText: function () {
       if (this.valid) {
         const total = this.formatPrice(this.total)
@@ -62,18 +59,9 @@ export default {
   },
   created () {
     console.log('Formula page created')
-    this.load()
+    this.picks = this.data.picks
   },
   methods: {
-    ...mapActions(['loadItems']),
-    load () {
-      this.loadItems()
-        .catch(error => {
-          console.error(error)
-          alert('An error occurred loading item list.')
-        })
-        .then(() => (this.picks = this.data.picks))
-    },
     onPickChange () {
       this.updateTotal()
       this.updateValidity()

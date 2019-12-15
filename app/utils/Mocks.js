@@ -1,7 +1,22 @@
 
 export const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, (ms || 1000)))
 
-export const formulas = [
+const diets = [
+  {
+    title: 'diet.vegetarian',
+    value: 'vegetarian',
+  },
+  {
+    title: 'diet.vegan',
+    value: 'vegan',
+  },
+  {
+    title: 'diet.kosher',
+    value: 'kosher',
+  },
+]
+
+const formulas = [
   {
     title: 'Green Rush',
     price: 9.4,
@@ -132,7 +147,7 @@ export const formulas = [
   },
 ]
 
-export const items = {
+const items = {
   bases: [
     {
       title: 'Cœur de romaine',
@@ -162,26 +177,31 @@ export const items = {
       title: 'Emmental',
       value: 'ingredient-emmental',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Bleu d’Auvergne',
       value: 'ingredient-bleu-auvergne',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Mozzarella',
       value: 'ingredient-mozzarella',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Fromage de chèvre',
       value: 'ingredient-fromage-chevre',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Parmesan',
       value: 'ingredient-parmesan',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Carottes',
@@ -230,6 +250,7 @@ export const items = {
     {
       title: 'Thon',
       value: 'ingredient-thon',
+      incompatibleDiets: ['vegan', 'vegetarian'],
     },
     {
       title: 'Noix',
@@ -247,6 +268,7 @@ export const items = {
     {
       title: 'Oeufs durs',
       value: 'ingredient-oeufs-durs',
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Tomates séchées',
@@ -259,18 +281,22 @@ export const items = {
     {
       title: 'Poulet',
       value: 'ingredient-poulet',
+      incompatibleDiets: ['vegan', 'vegetarian'],
     },
     {
       title: 'Jambon blanc',
       value: 'ingredient-jambon-blanc',
+      incompatibleDiets: ['vegan', 'vegetarian'],
     },
     {
       title: 'Chorizo',
       value: 'ingredient-chorizo',
+      incompatibleDiets: ['vegan', 'vegetarian'],
     },
     {
       title: 'Bacon',
       value: 'ingredient-bacon',
+      incompatibleDiets: ['vegan', 'vegetarian'],
     },
     {
       title: 'Pois chiche',
@@ -325,6 +351,7 @@ export const items = {
       value: 'sauce-caesar',
       icon: 'sauces.jpg',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Bulgare',
@@ -332,6 +359,7 @@ export const items = {
       value: 'sauce-bulgare',
       icon: 'sauces.jpg',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
     {
       title: 'Provencale',
@@ -379,6 +407,7 @@ export const items = {
       value: 'sauce-curry',
       icon: 'sauces.jpg',
       allergens: ['lactose'],
+      incompatibleDiets: ['vegan'],
     },
   ],
   soups: [
@@ -424,7 +453,7 @@ export const items = {
   ],
 }
 
-export const stores = [
+const stores = [
   'Green La Defense (75)',
   'Green Montparnasse (75)',
   'Green Bercy Village (75)',
@@ -435,12 +464,26 @@ export const stores = [
   'Green Centre Sud (44)',
 ]
 
+const allergens = [
+  {
+    title: 'allergen.lactose',
+    value: 'lactose',
+  },
+  {
+    title: 'allergen.gluten',
+    value: 'gluten',
+  },
+]
+
+export const commonData = { stores, formulas, items, diets, allergens }
+
 export const users = {
   'romain.racamier@gmail.com': {
     email: 'romain.racamier@gmail.com',
+    locale: 'fr',
     firstName: 'Romain',
     lastName: 'Racamier',
-    allergies: ['lactose'],
+    allergens: ['lactose'],
     diets: ['kosher', 'vegan'],
     store: stores[1],
   },

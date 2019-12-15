@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import Tile from '@/components/Tile'
 
@@ -38,15 +38,6 @@ export default {
   },
   created () {
     console.log('Sample page created')
-    this.load()
-  },
-  methods: {
-    ...mapActions(['loadItems']),
-    load () {
-      this.loadItems()
-        .catch(error => console.error(error))
-        .then(() => console.log('sample items loaded'))
-    },
   },
 }
 </script>
