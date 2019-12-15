@@ -7,8 +7,8 @@
 <script>
 import { mapGetters } from 'vuex'
 
-import pkg from '../../package.json'
-import lastCommit from '../last-commit'
+import pkg from '@/../package.json'
+import lastCommit from '@/last-commit'
 
 export default {
   data () {
@@ -18,9 +18,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-    }),
+    ...mapGetters({ isLoading: 'isLoading' }),
   },
 }
 </script>

@@ -43,56 +43,27 @@ export default class ApiService {
     }).catch(e => Promise.reject(new Error('error.json-parse-failed')))
   }
 
-  async loadStores () {
-    let list = []
-    if (doMock) {
-      await Mocks.sleep(1000)
-      list = Mocks.stores
-      console.log(`Returning ${list.length} mocked stores`)
-    } else {
-      throw new Error('error.api-needed')
-    }
-    return list // TODO: stores should be an array of store object
-  }
-
-  async loadFormulas () {
-    let list = []
+  async loadCommonData () {
+    let data = {}
     if (doMock) {
       await Mocks.sleep(2000)
-      list = Mocks.formulas
-      console.log(`Returning ${list.length} mocked formulas`)
-    } else {
-      throw new Error('error.api-needed')
-    }
-    return list.map(formula => ({
-      title: formula.title,
-      price: formula.price,
-      picks: formula.picks,
-      icon: formula.icon,
-    }))
-  }
-
-  async loadItems () {
-    let list = []
-    if (doMock) {
-      await Mocks.sleep(2000)
-      list = Mocks.items
-      console.info(`Returning ${list.length} mocked items`)
+      data = Mocks.commonData
+      console.log('Returning common mocked data')
     } else {
       throw new Error('error.api-needed')
       /*
       const url = this.baseUrl + '/products'
       // headers: this.getHeaders()
-      list = await http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
+      data = await http.request({ url, method: 'GET' }).then(this.validateCode).then(this.getJson)
       */
     }
-    return list // TODO: should map like formulas to ensure mapping, or a class
+    return data
   }
 
   async doLogin (credentials) {
     let userData = {}
     if (doMock) {
-      await Mocks.sleep(3000)
+      await Mocks.sleep(2000)
       userData = Mocks.users[credentials.email]
       if (!userData) {
         throw new Error('error.unknown-account')

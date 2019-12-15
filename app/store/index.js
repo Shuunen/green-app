@@ -1,7 +1,6 @@
 /* global TNS_ENV */
-import pkg from '@/../package.json'
 import User from '@/models/User'
-import { users } from '@/utils/Mocks'
+import { LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
 import Vue from 'nativescript-vue'
 import Vuex from 'vuex'
 import * as actions from './actions'
@@ -11,20 +10,21 @@ import mutations from './mutations'
 Vue.use(Vuex)
 
 const debug = TNS_ENV !== 'production'
-const locales = pkg.config.locales
-const locale = locales[pkg.config.default_locale]
 
 const store = new Vuex.Store({
   state: {
     debug,
-    locales,
-    locale,
-    stores: [],
-    user: debug ? new User(users['romain.racamier@gmail.com']) : {},
+    locales: LOCALES,
+    locale: LOCALE_DEFAULT_CODE,
+    user: debug ? new User({}) : {},
     toggleMenu: false,
     isLoggedIn: false,
-    items: {},
+    // common data from API
+    allergens: [],
+    diets: [],
     formulas: [],
+    items: {},
+    stores: [],
     // array of ongoing tasks. We keep track of the tasks to show/hide the
     // activity indicator in the page.
     processingTasks: [],

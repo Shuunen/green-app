@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 import Formatter from '@/utils/Formatter'
 import Formula from '@/pages/Formula'
@@ -26,24 +26,12 @@ export default {
     FormulaTile,
   },
   computed: {
-    ...mapGetters({
-      formulas: 'formulas',
-      isLoading: 'isLoading',
-    }),
+    ...mapGetters({ formulas: 'formulas', isLoading: 'isLoading' }),
   },
   created () {
     console.log('Formulas page created')
-    this.load()
   },
   methods: {
-    ...mapActions(['loadFormulas']),
-    load () {
-      this.loadFormulas().catch(error => {
-        console.error(error)
-        alert('An error occurred loading formulas.')
-      })
-      // .then(() => this.goto(this.formulas[1]))
-    },
     ucfirst: str => Formatter.capitalizeFirstLetter(str),
     goto (data) {
       console.log('user wants to go to :', data)
