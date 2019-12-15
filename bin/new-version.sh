@@ -9,23 +9,23 @@ function consoleLog() {
 }
 
 if [ "$1" ]; then
-  version=$1
+  storePass=$1
 else
-  consoleError "Please provide a target version, eg. $0 1.4.2"
+  consoleError "Please provide key-store-password, eg. $0 agreat_PASS"
   exit 1 # problematic end
 fi
 
 if [ "$2" ]; then
-  storePass=$2
+  storeAliasPass=$2
 else
-  consoleError "Please provide key-store-password, eg. $0 $1 agreat_PASS"
+  consoleError "Please provide key-store-password, eg. $0 $1 another_great_PASS"
   exit 1 # problematic end
 fi
 
 if [ "$3" ]; then
-  storeAliasPass=$3
+  version=$3
 else
-  consoleError "Please provide key-store-password, eg. $0 $1 $2 another_great_PASS"
+  consoleError "Please provide a target version, eg. $0 $1 $2 1.4.2"
   exit 1 # problematic end
 fi
 
