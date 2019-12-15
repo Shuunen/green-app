@@ -2,7 +2,8 @@ TextField {
   color: var(--color-black);
   border-bottom-width: 1;
   border-bottom-color: var(--color-black);
-  margin-bottom: 10;
+  margin: 0 0 15 0;
+  padding: 7 0;
 }
 
 .read-only TextField {

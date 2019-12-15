@@ -4,8 +4,12 @@
   --size-large: 20;
 }
 
-.fz-s {
+.fz-xs {
   font-size: 10;
+}
+
+.fz-s {
+  font-size: 15;
 }
 
 .fz-m {
