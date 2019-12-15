@@ -74,6 +74,17 @@ export default class ApiService {
     return userData // just data, not a User
   }
 
+  async doSignup (data) {
+    let userData = {}
+    if (doMock) {
+      await Mocks.sleep(2000)
+      userData = data
+    } else {
+      throw new Error('error.api-needed')
+    }
+    return userData // just data, not a User
+  }
+
   getHeaders (toAppend = {}) {
     return Object.assign({
       'Content-Type': 'application/json',

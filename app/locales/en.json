@@ -5,31 +5,47 @@
 		"first-name": "Firstname",
 		"last-name": "Lastname",
 		"my-account": "My account",
+		"my-allergens": "My allergens",
+		"my-diets": "My diets",
 		"my-target": "My restaurant",
 		"password": "Password",
 		"sign-up": "Sign up"
 	},
+	"allergen": {
+		"gluten": "gluten",
+		"lactose": "lactose"
+	},
 	"common": {
 		"arabic": "Arabic",
 		"back-home": "Back to home page",
+		"back-login": "back to login page",
 		"english": "English",
 		"french": "French",
 		"home": "Home",
 		"logout": "Logout",
 		"my-account": "My account",
 		"my-orders": "My orders",
+		"next-step": "next step",
 		"or": "or",
+		"previous-step": "previous step",
 		"select": "Select",
 		"spanish": "Spanish",
+		"step": "step {nb}",
 		"version": "version"
+	},
+	"diet": {
+		"kosher": "kosher",
+		"vegan": "vegan",
+		"vegetarian": "vegetarian"
 	},
 	"error": {
 		"alert-message-suffix": "Sorry for the inconvenience, contact us with this error code so that we can help you : {code}",
 		"alert-title": "Error",
 		"api-needed": "An API is needed for this un-mocked call",
 		"invalid-email": "Please enter a valid email address",
-		"invalid-password": "Please define a password",
+		"invalid-password": "Please type a password",
 		"json-parse-failed": "JSON parsing has failed",
+		"offline": "An internet connection is required",
 		"unknown": "An unexpected error happened, sorry for that.",
 		"unknown-account": "This account does not exists"
 	},
@@ -72,12 +88,21 @@
 		"soups": "soup | soups",
 		"undefined": "",
 		"wraps": "wrap | wraps",
+		"you-can-pick-n-allergens-or-more": "You can select one allergen | You can select multiple allergens",
 		"you-can-pick-n-bases": "You can pick a base | You can pick {n} bases",
 		"you-can-pick-n-deserts": "You can choose one desert | You can choose {n} deserts",
+		"you-can-pick-n-diets-or-more": "You can select one diet | You can select multiple diets",
 		"you-can-pick-n-drinks": "You can choose a drink | You can choose {n} drinks",
 		"you-can-pick-n-drinks-or-n-deserts": "You can pick one drink or one desert | You can pick {n} of these",
 		"you-can-pick-n-ingredients-or-more": "You can pick one ingredient | You can pick {n} ingredients",
 		"you-can-pick-n-sauces": "You can pick one sauce | You can pick {n} sauces",
 		"you-can-pick-n-wraps-or-n-soups": "You can pick a wrap or a soup | You can choose {n} of these"
+	},
+	"signup": {
+		"signup": "create my account",
+		"step-1": "Create your account to be able to order and personalize your experience.",
+		"step-2": "If you are on a diet, indicate it at this step or go to the next one.",
+		"step-3": "This step allows you to fill in your allergies so that allergenic foods will be highlighted.",
+		"title": "Account creation"
 	}
 }

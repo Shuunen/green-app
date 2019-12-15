@@ -19,7 +19,7 @@
         <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" @returnPress="submit()" />
         <StackLayout class="mt-s" orientation="horizontal">
           <Switch v-model="hasAccount" :isEnabled="!isLoading" />
-          <Label :text="hasAccount ? $t('login.has-account') : $t('login.no-account')" textWrap="true" verticalAlignment="center" class="ml-m" />
+          <Label class="fz-s bold ml-m" :text="hasAccount ? $t('login.has-account') : $t('login.no-account')" textWrap="true" verticalAlignment="center" />
         </StackLayout>
         <Button class="action validate mt-m" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :isEnabled="!isLoading" @tap="submit()" />
         <Label class="mt-s mb-m" horizontalAlignment="center" :text="$t('login.forgot-password')" />
@@ -37,6 +37,7 @@ import { mapGetters, mapActions } from 'vuex'
 import LangSelector from '@/components/LangSelector'
 import Icon from '@/components/Icon'
 import User from '@/models/User'
+import { i18n } from '@/plugins/i18n'
 
 export default {
   components: { LangSelector, Icon },
@@ -55,31 +56,33 @@ export default {
 
   mounted () {
     this.user = new User({ ...this.storeUser })
-    console.log('Login mounted with user', this.user.email)
+    console.log('Login mounted with user from store that has email :', this.user.email)
   },
 
   methods: {
-    ...mapActions(['goHome', 'doLogin']),
+    ...mapActions(['goHome', 'doLogin', 'startSignup', 'doShowError']),
 
     focusPassword () {
       this.$refs.password.nativeView.focus()
     },
 
     submit () {
-      console.log('Login : submit user data :', this.user)
+      // if user choose a lang at login screen, save it for later
+      this.user.locale = i18n.locale
+      console.log('Login : submit user data :', JSON.stringify(this.user, null, 2))
       if (!this.user.isValidEmail()) {
-        return alert(this.$t('error.invalid-email'))
+        return this.doShowError('error.invalid-email')
       }
       if (!this.user.isValidPassword()) {
-        return alert(this.$t('error.invalid-password'))
+        return this.doShowError('error.invalid-password')
       }
       if (getConnectionType() === connectionType.none) {
-        return alert('app requires an internet connection to log in or sign up.')
+        return this.doShowError('error.offline')
       }
       if (this.hasAccount) {
         this.doLogin(this.user)
       } else {
-        alert('TODO : create account')
+        this.startSignup(this.user)
       }
     },
 

@@ -51,6 +51,15 @@ export const doSignup = async ({ commit }, userData) => {
     .finally(() => commit(types.REMOVE_PROCESSING_TASK, task))
 }
 
+export const startSignup = async ({ commit }, credentials) => {
+  const task = 'action startSignup'
+  commit(types.ADD_PROCESSING_TASK, task)
+  await loadCommonData({ commit }).catch(showError)
+  commit(types.SET_USER, credentials)
+  commit(types.START_SIGNUP)
+  commit(types.REMOVE_PROCESSING_TASK, task)
+}
+
 export const doLogout = ({ commit }) => {
   console.log('action : doLogout')
   commit(types.DO_LOGOUT)
@@ -76,9 +85,10 @@ export const startOrder = ({ commit }) => {
   commit(types.START_ORDER)
 }
 
-export const setLocale = ({ commit }, locale) => {
+export const setLocale = ({ commit }, code) => {
   console.log('action : setLocale')
-  commit(types.SET_LOCALE, locale)
+  commit(types.SET_LOCALE, code)
+  commit(types.SET_USER, { locale: code })
 }
 
 export const setUser = ({ commit }, user) => {

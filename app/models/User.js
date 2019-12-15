@@ -1,10 +1,13 @@
+import { i18n } from '@/plugins/i18n'
+
 // import validator from 'email-validator'
 
 export default class User {
   constructor (data = {}) {
-    this.allergies = data.allergies || []
+    this.allergens = data.allergens || []
     this.diets = data.diets || []
     this.email = data.email || ''
+    this.locale = data.locale || i18n.locale
     this.password = data.password || ''
     this.firstName = data.firstName || ''
     this.lastName = data.lastName || ''

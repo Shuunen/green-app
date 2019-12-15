@@ -1,5 +1,5 @@
 import * as intl from 'nativescript-intl'
-import store from '../store'
+import store from '@/store'
 
 export default class Formatter {
   static capitalizeFirstLetter (string) {
