@@ -59,7 +59,7 @@
     "nativescript-vue-template-compiler": "2.4.0",
     "nativescript-worker-loader": "0.10.0",
     "rimraf": "3.0.0",
-    "vue-loader": "15.7.2"
+    "vue-loader": "15.8.1"
   },
   "engines": {
     "node": ">= 10",
