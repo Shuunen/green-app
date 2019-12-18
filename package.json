@@ -30,7 +30,7 @@
     "@vue/devtools": "5.3.3",
     "nativescript-intl": "3.0.0",
     "nativescript-socketio": "3.3.1",
-    "nativescript-toasty": "1.4.0",
+    "nativescript-toasty": "2.0.1",
     "nativescript-ui-sidedrawer": "7.0.4",
     "nativescript-vue": "2.4.0",
     "nativescript-vue-devtools": "1.2.0",
