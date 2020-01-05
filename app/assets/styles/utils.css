@@ -62,35 +62,3 @@
 .inactive {
   opacity: 0.3;
 }
-
-button {
-  color: var(--color-grey);
-  background-color: var(--color-white);
-}
-
-button.action {
-  font-weight: bold;
-  font-size: 13;
-}
-
-button.action.big {
-  height: 55;
-  font-size: 16;
-}
-
-button.selected, button.validate {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-}
-
-button.disabled {
-  color: var(--color-white);
-  background-color: var(--color-disabled);
-}
-
-/* does not seems to work... */
-
-.switch[checked=true] {
-  background-color: var(--color-alt);
-  color: var(--color-alt)
-}

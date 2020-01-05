@@ -1,0 +1,17 @@
+Switch {
+  background-color: var(--color-alt);
+  color: var(--color-alt)
+}
+
+Switch[checked=true] {
+  background-color: var(--color-primary);
+  color: var(--color-primary)
+}
+
+Switch+Label {
+  color: var(--color-alt)
+}
+
+Switch[checked=true]+Label {
+  color: var(--color-primary-dark)
+}

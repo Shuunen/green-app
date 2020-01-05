@@ -3,9 +3,9 @@
   --color-black: #353535;
   --color-white: #FCFCEF;
   --color-primary: #53BA82;
+  --color-primary-dark: hsl(147, 43%, 37%);
   --color-grey: #3C6E71;
   --color-alt: #6C3D94;
-
   --color-disabled: #cccccc;
   --color-error: #d42f2f;
 }
