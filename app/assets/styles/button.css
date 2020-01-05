@@ -1,0 +1,30 @@
+button {
+  color: var(--color-grey);
+  background-color: var(--color-white);
+}
+
+button.action {
+  font-weight: bold;
+  font-size: 13;
+}
+
+button.action.big {
+  height: 55;
+  font-size: 16;
+  padding: 10 20;
+}
+
+button.selected, button.validate {
+  color: var(--color-white);
+  background-color: var(--color-primary);
+}
+
+button.validate-alt {
+  color: var(--color-white);
+  background-color: var(--color-alt);
+}
+
+button.disabled {
+  color: var(--color-white);
+  background-color: var(--color-disabled);
+}

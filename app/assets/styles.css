@@ -1,5 +1,6 @@
-@import url("styles/vars");
-
+@import url("styles/button");
 @import url("styles/sizes");
+@import url("styles/switch");
 @import url("styles/text-fields");
 @import url("styles/utils");
+@import url("styles/vars");
