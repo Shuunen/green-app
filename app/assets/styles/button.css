@@ -1,6 +1,7 @@
 button {
   color: var(--color-grey);
   background-color: var(--color-white);
+  padding: 7 14;
 }
 
 button.action {
@@ -16,7 +17,7 @@ button.action.big {
 
 button.selected, button.validate {
   color: var(--color-white);
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-dark);
 }
 
 button.validate-alt {
