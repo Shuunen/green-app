@@ -106,7 +106,7 @@
     "dev": "npm run start",
     "dev:ios": "npm run start:ios",
     "last-commit": "bash ./bin/last-commit.sh ./app/last-commit.js",
-    "lint": "eslint --fix app/**/*.{js,vue} hooks/**/*.js *.js",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.vue .",
     "ls": "tns device",
     "postinstall": "npm run clean",
     "prebuild": "npm run last-commit",
