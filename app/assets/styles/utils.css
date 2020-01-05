@@ -55,6 +55,14 @@
   font-weight: bold;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
 .active {
   opacity: 1;
 }
