@@ -14,6 +14,8 @@ matrix:
       before_install: nvm install 10.17.0
       script: npm run build
 
+env: NODE_ENV=production
+
 android:
   components:
     - tools
