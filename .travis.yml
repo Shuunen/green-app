@@ -5,7 +5,7 @@ matrix:
       os: linux
       node_js: "10"
       install: true
-      script: npm install --production=false && npm run lint
+      script: npm install --production=false && npm run ci
     - stage: "Build"
       language: android
       env: BuildAndroid="28"
