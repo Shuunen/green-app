@@ -15,3 +15,4 @@ platforms
 green-keystore.jks
 dist
 last-commit.js
+*.log
