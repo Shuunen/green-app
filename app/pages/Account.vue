@@ -4,21 +4,25 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
           <Tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="true" />
-          <StackLayout class="p-m" :class="{'read-only': !editMode}">
-            <!-- personnal infos -->
-            <Label class="mt-l ml-s" :text="$t('account.first-name')" />
-            <TextField v-model="userData.firstName" :editable="editMode" />
-            <Label class="mt-l ml-s" :text="$t('account.last-name')" />
-            <TextField v-model="userData.lastName" :editable="editMode" />
-            <!-- store -->
-            <Label class="mt-l ml-s" :text="$t('account.my-target')" />
-            <TextField v-show="!editMode" :text="userData.store" :editable="editMode" />
-            <ListPicker v-show="editMode" v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
+          <StackLayout class="p-m center">
+            <!-- infos -->
+            <Label class="mt-l fz-l bold alt" :text="(user.firstName + ' ' + user.lastName).trim()" />
+            <StackLayout v-if="user.diets && user.diets.length">
+              <Label class="mt-l fz-s uppercase" :text="$t('account.my-diets')" />
+              <Label class="bold alt fz-m" :text="readableList(diets, user.diets)" />
+            </StackLayout>
+            <StackLayout v-if="user.allergens && user.allergens.length">
+              <Label class="mt-l fz-s uppercase" :text="$t('account.my-allergens')" />
+              <Label class="bold alt fz-m" :text="readableList(allergens, user.allergens)" />
+            </StackLayout>
+            <StackLayout v-if="user.store">
+              <Label class="mt-l fz-s uppercase" :text="$t('account.my-target')" />
+              <Label class="bold alt fz-m" :text="user.store" />
+            </StackLayout>
             <!-- action button -->
-            <FlexboxLayout flexDirection="column" flexGrow="1" justifyContent="center" class="p-l">
-              <!-- @tap="editMode = !editMode; setUser(JSON.parse(JSON.stringify(userData)))" -->
-              <Button class="action validate" :class="{ validate: editMode }" :text="editMode ? 'Save' : 'Edit'" @tap="onToggleEdit" />
-              <Button class="action mb-l" :text="$t('common.back-home')" @tap="goHome" />
+            <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
+              <Button class="action big validate" :text="$t('account.edit')" @tap="onEdit" />
+              <Button class="action" :text="$t('common.back-home')" @tap="goHome" />
             </FlexboxLayout>
           </StackLayout>
         </StackLayout>
@@ -29,6 +33,8 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
+import User from '@/models/User'
+import Formatter from '@/utils/Formatter'
 import Tile from '@/components/Tile'
 
 export default {
@@ -37,38 +43,23 @@ export default {
   },
   data () {
     return {
-      userData: {},
-      storeSelected: 0,
-      editMode: false,
+      user: {},
     }
   },
   computed: {
-    ...mapGetters({ isLoading: 'isLoading', user: 'user', stores: 'stores' }),
+    ...mapGetters({ isLoading: 'isLoading', storeUser: 'user', stores: 'stores', diets: 'diets', allergens: 'allergens' }),
   },
-  created () {
-    console.log('Account page created !')
-    const storeIndex = this.stores.findIndex(store => store === this.user.store)
-    // because findIndex returns -1 if not found, math max will set default store selected to 0
-    // TODO: handle in-existant store
-    this.storeSelected = Math.max(storeIndex, 0)
-    this.userData = { ...this.user }
+  mounted () {
+    this.user = new User({ ...this.storeUser })
+    console.log('Account page mounted with user', JSON.stringify(this.user))
   },
   methods: {
     ...mapActions(['setUser', 'goHome']),
-    onToggleEdit () {
-      if (this.editMode) {
-        // save
-        this.setUser({
-          firstName: this.userData.firstName,
-          lastName: this.userData.lastName,
-          store: this.userData.store,
-        })
-      }
-      this.editMode = !this.editMode
+    onEdit () {
+      console.log('onEdit')
     },
-    onStoreChange () {
-      console.log('onStoreChange')
-      this.userData.store = this.stores[this.storeSelected]
+    readableList (items, selection) {
+      return Formatter.readableList(items, selection)
     },
   },
 }

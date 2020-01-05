@@ -19,8 +19,8 @@
                 <Label :text="$t('common.required-fields')" />
                 <!-- action buttons -->
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
-                  <Button class="action" :text="$t('common.back-login')" @tap="doLogout" />
                   <Button class="action big validate" :text="$t('common.next-step')" :isEnabled="isStep1Valid()" @tap="tabSelected++" />
+                  <Button class="action" :text="$t('common.back-login')" @tap="doLogout" />
                 </flexboxlayout>
               </StackLayout>
             </ScrollView>
@@ -39,8 +39,8 @@
                 <Pick :data="userAllergens" :items="{ allergens }" @change="onAllergensPickChange" />
                 <!-- action buttons -->
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
-                  <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
                   <Button class="action big validate" :text="$t('common.next-step')" @tap="tabSelected++" />
+                  <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
                 </flexboxlayout>
               </StackLayout>
             </ScrollView>
@@ -57,8 +57,8 @@
                 <ListPicker v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
                 <!-- action buttons -->
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
-                  <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
                   <Button class="action big validate" :text="$t('signup.signup')" :isEnabled="!isLoading" @tap="submit()" />
+                  <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
                   <ActivityIndicator class="mt-s" :busy="isLoading" />
                 </flexboxlayout>
               </StackLayout>
