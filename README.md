@@ -1,5 +1,12 @@
 # Green App
 
+[![GitHub license](https://img.shields.io/github/license/shuunen/green-app.svg?color=informational)](https://github.com/Shuunen/green-app/blob/master/LICENSE)
+
+[![Build Status](https://travis-ci.org/Shuunen/green-app.svg?branch=master)](https://travis-ci.org/Shuunen/green-app)
+[![David](https://img.shields.io/david/shuunen/green-app.svg)](https://david-dm.org/shuunen/green-app)
+[![LGTM Grade](https://img.shields.io/lgtm/grade/javascript/github/Shuunen/green-app.svg)](https://lgtm.com/projects/g/Shuunen/green-app)
+[![Scrutinizer Score](https://scrutinizer-ci.com/g/Shuunen/green-app/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Shuunen/green-app)
+
 > A native application built with NativeScript-Vue
 
 - [Green App](#green-app)
@@ -51,3 +58,8 @@ Known problems :
 ## TODO
 
 - production build should be `tns build <platform> --env.production` according to the last stack readme
+
+## Thanks
+
+- [Shields.io](https://shields.io) : for the nice badges on top of this readme
+- [Travis-ci.org](https://travis-ci.org) : for providing free continuous deployments
