@@ -5,9 +5,9 @@
         <Button class="action" :text="$t('account.change-target')" @tap="goAccount" />
       </StackLayout>
       <Icon flexGrow="2" class="logo" name="logo-green-alt" />
-      <StackLayout flexGrow="1">
+      <FlexboxLayout flexDirection="column" alignItems="center" flexGrow="1">
         <Button class="action big validate mb-l" :text="$t('order.place')" @tap="startOrder" />
-      </StackLayout>
+      </FlexboxLayout>
       <LangSelector />
     </FlexboxLayout>
   </Page>
