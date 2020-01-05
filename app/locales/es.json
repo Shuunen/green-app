@@ -28,6 +28,7 @@
 		"next-step": "proximo paso",
 		"or": "o",
 		"previous-step": "paso anterior",
+		"required-fields": "Los campos marcados con una estrella * son obligatorios.",
 		"select": "Seleccionar",
 		"spanish": "Español",
 		"step": "paso {nb}",
@@ -101,8 +102,8 @@
 	"signup": {
 		"signup": "crear mi cuenta",
 		"step-1": "Cree su cuenta para poder ordenar y personalizar su experiencia.",
-		"step-2": "Si está a dieta, indíquelo en este paso o vaya al siguiente.",
-		"step-3": "Este paso le permite completar sus alergias para resaltar los alimentos alergénicos.",
+		"step-2": "Si está a dieta o tiene alergias, puede indicarlo en este paso para que se destaquen los alimentos incompatibles.",
+		"step-3": "Este paso le permite definir el lugar donde desea recoger sus pedidos.",
 		"title": "Creación de cuenta"
 	}
 }
