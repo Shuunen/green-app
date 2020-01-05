@@ -62,3 +62,7 @@
 .inactive {
   opacity: 0.3;
 }
+
+ActivityIndicator {
+  color: var(--color-primary);
+}
