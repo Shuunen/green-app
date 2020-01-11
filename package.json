@@ -118,5 +118,5 @@
     "test": "npm run lint && npm run check",
     "update": "npx npm-check-updates -u"
   },
-  "version": "3.3.0"
+  "version": "3.4.0"
 }
