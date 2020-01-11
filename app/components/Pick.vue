@@ -50,6 +50,9 @@ export default {
         if (this.items.hasOwnProperty(typeBonus)) {
           this.list = this.list.concat(this.items[typeBonus])
         }
+        if (this.data.selection && this.data.selection.length) {
+          this.selection = this.data.selection
+        }
       } else {
         console.error(`failed to find items of type "${type}"`)
         console.error(`in items[${type}]`, this.items[type])

@@ -1,6 +1,7 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="bg">
+    <AccountEditor v-if="user.email && isEditing" :user="user" @submit="update" @cancel="cancel" />
+    <FlexboxLayout v-else flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
           <Tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="true" />
@@ -33,17 +34,20 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-import User from '@/models/User'
+import AccountEditor from '@/components/AccountEditor'
 import Formatter from '@/utils/Formatter'
 import Tile from '@/components/Tile'
+import User from '@/models/User'
 
 export default {
   components: {
+    AccountEditor,
     Tile,
   },
   data () {
     return {
       user: {},
+      isEditing: false,
     }
   },
   computed: {
@@ -51,12 +55,21 @@ export default {
   },
   mounted () {
     this.user = new User({ ...this.storeUser })
-    console.log('Account page mounted with user', JSON.stringify(this.user))
+    console.log('Account page mounted with user', Formatter.prettyPrint(this.user))
   },
   methods: {
     ...mapActions(['setUser', 'goHome']),
+    cancel () {
+      console.log('account : user cancelled edition')
+      this.isEditing = true
+    },
+    update () {
+      console.log('account : user updated his data', Formatter.prettyPrint(this.user))
+      this.isEditing = false
+    },
     onEdit () {
-      console.log('onEdit')
+      console.log('account : user wants to edit his data')
+      this.isEditing = true
     },
     readableList (items, selection) {
       return Formatter.readableList(items, selection)

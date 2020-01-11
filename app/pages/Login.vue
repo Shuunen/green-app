@@ -34,12 +34,12 @@
 
 <script>
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
-import { mapGetters, mapActions } from 'vuex'
-
-import LangSelector from '@/components/LangSelector'
-import Icon from '@/components/Icon'
-import User from '@/models/User'
 import { i18n } from '@/plugins/i18n'
+import { mapGetters, mapActions } from 'vuex'
+import Formatter from '@/utils/Formatter'
+import Icon from '@/components/Icon'
+import LangSelector from '@/components/LangSelector'
+import User from '@/models/User'
 
 export default {
   components: { LangSelector, Icon },
@@ -58,7 +58,7 @@ export default {
 
   mounted () {
     this.user = new User({ ...this.storeUser })
-    console.log('Login mounted with user from store that has email :', this.user.email)
+    console.log('Login mounted with user from store :', Formatter.prettyPrint(this.user))
   },
 
   methods: {

@@ -36,6 +36,10 @@ class Formatter {
     })
     return list.join(', ')
   }
+
+  prettyPrint (obj) {
+    return JSON.stringify(obj, null, 2)
+  }
 }
 
 export default new Formatter()

@@ -1,6 +1,7 @@
 {
 	"account": {
 		"change-target": "Choisir un autre restaurant",
+		"complete": "finaliser",
 		"edit": "modifier",
 		"email": "Adresse électronique",
 		"first-name": "Prénom",
