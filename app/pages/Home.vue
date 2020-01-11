@@ -15,7 +15,6 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex'
-
 import Icon from '@/components/Icon'
 import LangSelector from '@/components/LangSelector'
 
