@@ -1,4 +1,3 @@
-/* global TNS_ENV */
 import Logged from '@/pages/Logged'
 import Login from '@/pages/Login'
 import { i18n } from '@/plugins/i18n'
@@ -13,7 +12,7 @@ import Vue from 'nativescript-vue'
 
 Vue.registerElement('SVGImage', () => SVGImage)
 
-Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
+// Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
 
 Vue.registerElement('RadSideDrawer', () => require('nativescript-ui-sidedrawer').RadSideDrawer)
 
