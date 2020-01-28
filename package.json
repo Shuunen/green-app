@@ -59,7 +59,7 @@
     "nativescript-dev-webpack": "1.4.1",
     "nativescript-vue-template-compiler": "2.4.0",
     "nativescript-worker-loader": "0.10.0",
-    "rimraf": "3.0.0",
+    "rimraf": "3.0.1",
     "vue-loader": "15.8.3"
   },
   "engines": {
