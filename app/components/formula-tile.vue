@@ -16,9 +16,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
-import Formatter from '@/utils/Formatter'
+import Formatter from '@/utils/formatter'
 
 export default {
   props: {
@@ -32,9 +30,6 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-    }),
     description: function () {
       const lines = ['']
       this.data.picks.forEach(pick => {

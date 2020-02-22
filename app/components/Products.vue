@@ -5,11 +5,13 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { apiService } from '@/services/api-service'
 
 export default {
-  computed: {
-    ...mapGetters({ items: 'items', isLoading: 'isLoading' }),
+  data () {
+    return {
+      items: apiService.items,
+    }
   },
   created () {
     console.log('Products component created')

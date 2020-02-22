@@ -1,5 +1,5 @@
 <template>
-  <Image :class="cls" :src="src" class="icon" />
+  <Image :src="src" class="icon" />
 </template>
 
 <script>
@@ -9,20 +9,10 @@ export default {
       type: String,
       required: true,
     },
-    class: {
-      name: 'cls',
-      type: String,
-      default: 'h30',
-    },
     number: {
       type: Number,
       default: 0,
     },
-  },
-  data () {
-    return {
-      cls: '',
-    }
   },
   computed: {
     src: function () {

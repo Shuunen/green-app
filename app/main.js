@@ -1,21 +1,17 @@
-import Logged from '@/pages/Logged'
-import Login from '@/pages/Login'
+/* global TNS_ENV */
+import Home from '@/pages/home'
+import Login from '@/pages/login'
+import '@/plugins/components'
 import { i18n } from '@/plugins/i18n'
-import ApiService from '@/services/ApiService'
-import store from '@/store'
+import { apiService } from '@/services/api-service'
 import { SVGImage } from '@teammaestro/nativescript-svg'
 import Vue from 'nativescript-vue'
 
-// import VueDevtools from 'nativescript-vue-devtools'
-// Vue.use(VueDevtools, { host: '192.168.0.24' }) if using a real device
-// Vue.use(VueDevtools)
-
 Vue.registerElement('SVGImage', () => SVGImage)
 
-// Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
+Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
 
 new Vue({
-  render: h => h('frame', [h(apiService.isLoggedIn() ? Logged : Login)]),
-  store,
+  render: h => h('Frame', [h(apiService.isSessionActive() ? Home : Login)]),
   i18n,
 }).$start()

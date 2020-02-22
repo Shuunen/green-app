@@ -1,4 +1,4 @@
-import Formatter from '@/utils/Formatter'
+import Formatter from '@/utils/formatter'
 import { pickOne, getRandomNumber, getRandomString, copy } from 'shuutils'
 
 const data = {

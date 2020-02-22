@@ -5,8 +5,6 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 import pkg from '@/../package.json'
 import lastCommit from '@/last-commit'
 
@@ -16,9 +14,6 @@ export default {
       lastCommit,
       pkg,
     }
-  },
-  computed: {
-    ...mapGetters({ isLoading: 'isLoading' }),
   },
 }
 </script>

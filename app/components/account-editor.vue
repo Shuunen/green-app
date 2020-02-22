@@ -5,7 +5,6 @@
         <FlexboxLayout flexDirection="column">
           <ScrollView orientation="vertical" flexGrow="1">
             <StackLayout class="p-l">
-              <!-- personnal infos -->
               <Label :text="$t('signup.step-1')" class="fz-m mb-l" textWrap="true" />
               <StackLayout class="input-field">
                 <Label :text="$t('account.first-name') + ' *'" />
@@ -16,10 +15,9 @@
                 <TextField v-model="user.lastName" />
               </StackLayout>
               <Label :text="$t('common.required-fields')" />
-              <!-- action buttons -->
               <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                 <Button class="action big validate" :text="$t('common.next-step')" :isEnabled="isStep1Valid()" @tap="tabSelected++" />
-                <Button class="action" :text="$t('common.back-login')" @tap="cancel" />
+                <Button v-if="cancellable" class="action" :text="$t('common.back-login')" @tap="cancel" />
               </flexboxlayout>
             </StackLayout>
           </ScrollView>
@@ -31,12 +29,9 @@
         <FlexboxLayout flexDirection="column">
           <ScrollView orientation="vertical" flexGrow="1">
             <StackLayout class="p-l">
-              <!-- diets -->
               <Label :text="$t('signup.step-2')" class="fz-m mb-l" textWrap="true" />
-              <Pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" />
-              <!-- allergens -->
-              <Pick :data="userAllergens" :items="{ allergens }" @change="onAllergensPickChange" />
-              <!-- action buttons -->
+              <app-pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" />
+              <app-pick :data="userAllergens" :items="{ allergens }" @change="onAllergensPickChange" />
               <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                 <Button class="action big validate" :text="$t('common.next-step')" @tap="tabSelected++" />
                 <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
@@ -51,10 +46,8 @@
         <FlexboxLayout flexDirection="column">
           <ScrollView orientation="vertical" flexGrow="1">
             <StackLayout class="p-l">
-              <!-- restaurant -->
               <Label :text="$t('signup.step-3')" class="fz-m mb-l" textWrap="true" />
               <ListPicker v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
-              <!-- action buttons -->
               <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                 <Button class="action big validate" :text="$t('account.complete')" :isEnabled="!isLoading" @tap="submit()" />
                 <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
@@ -69,33 +62,31 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-import Formatter from '@/utils/Formatter'
-import Pick from '@/components/Pick'
-import User from '@/models/User'
+import Formatter from '@/utils/formatter'
+import { apiService } from '@/services/api-service'
 
 export default {
-  components: {
-    Pick,
-  },
   props: {
-    user: {
-      type: User,
-      required: true,
+    cancellable: {
+      type: Boolean,
+      default: true,
     },
   },
   data () {
     return {
+      isLoading: false,
+      user: apiService.user,
+      stores: apiService.stores,
+      diets: apiService.diets,
+      allergens: apiService.allergens,
       tabSelected: 0,
       storeSelected: 0,
-      userDiets: { title: 'account.my-diets', from: 'diets', any: true },
-      userAllergens: { title: 'account.my-allergens', from: 'allergens', any: true },
+      userDiets: { title: 'account.my-diets', from: 'diets', any: true, selection: [] },
+      userAllergens: { title: 'account.my-allergens', from: 'allergens', any: true, selection: [] },
     }
   },
-  computed: {
-    ...mapGetters({ isLoading: 'isLoading', stores: 'stores', diets: 'diets', allergens: 'allergens' }),
-  },
   created () {
+    console.log('Account editor created with user', Formatter.prettyPrint(this.user))
     this.userDiets.selection = this.diets.filter(d => this.user.diets.includes(d.value)) // [{ title: 'diet.vegan', value: 'vegan' }]
     this.userAllergens.selection = this.allergens.filter(a => this.user.allergens.includes(a.value))
     this.storeSelected = this.stores.findIndex(s => this.user.store === s) || 0
@@ -111,13 +102,12 @@ export default {
       this.tabSelected = args.value
     },
     onDietsPickChange () {
-      console.log('this.userDiets.selection :', JSON.stringify(this.userDiets.selection))
+      console.log('onDietsPickChange')
       this.user.diets = this.userDiets.selection.map(s => s.value)
-      console.log('onDietsPickChange', this.user.diets)
     },
     onAllergensPickChange () {
+      console.log('onAllergensPickChange')
       this.user.allergens = this.userAllergens.selection.map(s => s.value)
-      console.log('onAllergensPickChange', this.user.allergens)
     },
     onStoreChange () {
       this.user.store = this.stores[this.storeSelected]

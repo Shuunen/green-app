@@ -1,10 +1,10 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="p-l bg">
+    <app-account-editor v-if="user.email && isEditing" :cancellable="false" @submit="update" />
+    <FlexboxLayout v-else flexDirection="column" class="p-l bg">
       <StackLayout flexGrow="1" />
-      <Icon class="logo mb-l" height="70" name="logo-green-alt" />
+      <app-icon class="mb-l" height="70" name="logo-green-alt" />
       <StackLayout flexGrow="1">
-        <!--<SVGImage src="~/assets/images/icons/user.svg" height="200" />-->
         <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l" textWrap="true" />
         <TextField
           v-model="user.email"
@@ -27,67 +27,62 @@
         <Label class="mt-s mb-m" horizontalAlignment="center" :text="$t('login.forgot-password')" />
         <ActivityIndicator :busy="isLoading" />
       </StackLayout>
-      <LangSelector />
+      <app-lang-selector />
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
-import { i18n } from '@/plugins/i18n'
-import { mapGetters, mapActions } from 'vuex'
-import Formatter from '@/utils/Formatter'
-import Icon from '@/components/Icon'
-import LangSelector from '@/components/LangSelector'
-import User from '@/models/User'
+import Home from '@/pages/home'
+import { apiService } from '@/services/api-service'
+import Formatter from '@/utils/formatter'
 
 export default {
-  components: { LangSelector, Icon },
-
   data () {
     return {
-      user: {},
+      user: apiService.user,
       hasAccount: true,
-      isLoggingIn: true,
+      isLoading: false,
+      isEditing: false,
     }
   },
-
-  computed: {
-    ...mapGetters({ isLoading: 'isLoading', storeUser: 'user' }),
-  },
-
-  mounted () {
-    this.user = new User({ ...this.storeUser })
-    console.log('Login mounted with user from store :', Formatter.prettyPrint(this.user))
-  },
-
   methods: {
-    ...mapActions(['goHome', 'doLogin', 'startSignup', 'doShowError']),
-
     focusPassword () {
       this.$refs.password.nativeView.focus()
     },
-
-    submit () {
-      // if user choose a lang at login screen, save it for later
-      this.user.locale = i18n.locale
-      console.log('Login : submit user data :', JSON.stringify(this.user, null, 2))
-      if (!this.user.isValidEmail()) {
-        return this.doShowError('error.invalid-email')
-      }
-      if (!this.user.isValidPassword()) {
-        return this.doShowError('error.invalid-password')
-      }
-      if (getConnectionType() === connectionType.none) {
-        return this.doShowError('error.offline')
-      }
-      if (this.hasAccount) {
-        this.doLogin(this.user)
-      } else {
-        this.startSignup(this.user)
-      }
+    update () {
+      console.log('account : user completed his data', Formatter.prettyPrint(apiService.user))
+      this.$navigateTo(Home)
     },
-
+    submit () {
+      console.log('Login : submit user data :', this.user.email, this.user.password)
+      if (!this.user.hasValidEmail) {
+        return apiService.showError('error.invalid-email')
+      }
+      if (!this.user.hasValidPassword) {
+        return apiService.showError('error.invalid-password')
+      }
+      // apiService.user = this.user
+      if (getConnectionType() === connectionType.none) {
+        return apiService.showError('error.offline')
+      }
+      this.isLoading = true
+      if (this.hasAccount) {
+        return apiService.doLogin().then(status => {
+          this.isLoading = false
+          if (status !== 'ok') return console.log('unexpected point reached for login, status is', status)
+          this.$navigateTo(Home)
+        })
+      }
+      apiService.doSignup().then(status => {
+        console.log('signup finnished, user logged, start editing his account')
+        this.isLoading = false
+        if (status !== 'ok') return console.log('unexpected point reached for signup, status is', status)
+        this.isEditing = true
+        this.user = apiService.user
+      })
+    },
   },
 }
 </script>

@@ -2,16 +2,13 @@
   <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
     <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p-m">
       <Label class="type-name fz-l" :text="data.name" />
-      <Icon v-if="!hero" class="type-arrow" name="circled-right-2-white" alignSelf="flex-end" />
+      <app-icon v-if="!hero" name="circled-right-2-white" alignSelf="flex-end" />
     </FlexboxLayout>
   </StackLayout>
 </template>
 
 <script>
-import Icon from '@/components/Icon'
-
 export default {
-  components: { Icon },
   props: {
     data: {
       type: Object,

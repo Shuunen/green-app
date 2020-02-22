@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Formatter from '@/utils/Formatter'
+import Formatter from '@/utils/formatter'
 
 export default {
   props: {
