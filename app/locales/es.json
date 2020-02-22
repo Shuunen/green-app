@@ -9,6 +9,7 @@
 		"my-account": "Mi cuenta",
 		"my-allergens": "Mis alergenos",
 		"my-diets": "Mis dietas",
+		"my-language": "Mi idioma",
 		"my-target": "Mi restaurante",
 		"password": "Contraseña",
 		"sign-up": "Regístrate"
@@ -18,10 +19,14 @@
 		"lactose": "lactosa"
 	},
 	"common": {
+		"ar": "Arábe",
 		"arabic": "Arábe",
 		"back-home": "Volver a la página de inicio",
 		"back-login": "volver a la página de inicio de sesión",
+		"en": "Inglés",
 		"english": "Inglés",
+		"es": "Español",
+		"fr": "Francés",
 		"french": "Francés",
 		"home": "Casa",
 		"logout": "Cerrar sesión",
@@ -47,10 +52,11 @@
 		"api-needed": "Se necesita una API para esta llamada no burlada",
 		"invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
 		"invalid-password": "Por favor, defina una contraseña",
+		"invalid_grant": "Esta cuenta no existe",
 		"json-parse-failed": "El análisis JSON ha fallado",
 		"offline": "Se requiere una conexión a internet",
-		"unknown": "Ocurrió un error inesperado, perdón por eso.",
-		"unknown-account": "Esta cuenta no existe."
+		"session-expired": "Su sesión expiró, inicie sesión",
+		"unknown": "Ocurrió un error inesperado, perdón por eso."
 	},
 	"login": {
 		"forgot-password": "Olvidaste tu contraseña ?",
