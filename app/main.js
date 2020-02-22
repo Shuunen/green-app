@@ -14,11 +14,6 @@ Vue.registerElement('SVGImage', () => SVGImage)
 
 // Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
 
-Vue.registerElement('RadSideDrawer', () => require('nativescript-ui-sidedrawer').RadSideDrawer)
-
-const apiService = new ApiService()
-Vue.prototype.$apiService = apiService
-
 new Vue({
   render: h => h('frame', [h(apiService.isLoggedIn() ? Logged : Login)]),
   store,
