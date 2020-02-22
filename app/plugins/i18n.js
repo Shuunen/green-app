@@ -10,6 +10,8 @@ Vue.use(VueI18n)
 export const i18n = new VueI18n({
   locale: LOCALE_DEFAULT_CODE,
   fallbackLocale: LOCALE_DEFAULT_CODE,
+  formatFallbackMessages: true,
+  silentFallbackWarn: true,
   messages: {
     ar: require('@/locales/ar.json'),
     en: require('@/locales/en.json'),
