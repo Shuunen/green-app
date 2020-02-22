@@ -20,6 +20,18 @@
   font-size: 30;
 }
 
+.h-s {
+  height: calc(var(--size-small) * 2);
+}
+
+.h-m {
+  height: calc(var(--size-medium) * 2);
+}
+
+.h-l {
+  height: calc(var(--size-large) * 2);
+}
+
 .m-s {
   margin: var(--size-small);
 }
@@ -138,4 +150,12 @@
 
 .pr-l {
   padding-right: var(--size-large);
+}
+
+.h-full {
+  height: 100%;
+}
+
+.w-full {
+  width: 100%;
 }
