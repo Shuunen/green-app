@@ -9,6 +9,7 @@
 		"my-account": "My account",
 		"my-allergens": "My allergens",
 		"my-diets": "My diets",
+		"my-language": "My language",
 		"my-target": "My restaurant",
 		"password": "Password",
 		"sign-up": "Sign up"
@@ -18,10 +19,14 @@
 		"lactose": "lactose"
 	},
 	"common": {
+		"ar": "Arabic",
 		"arabic": "Arabic",
 		"back-home": "Back to home page",
 		"back-login": "back to login page",
+		"en": "English",
 		"english": "English",
+		"es": "Spanish",
+		"fr": "French",
 		"french": "French",
 		"home": "Home",
 		"logout": "Logout",
@@ -47,10 +52,11 @@
 		"api-needed": "An API is needed for this un-mocked call",
 		"invalid-email": "Please enter a valid email address",
 		"invalid-password": "Please type a password",
+		"invalid_grant": "This account does not exists",
 		"json-parse-failed": "JSON parsing has failed",
 		"offline": "An internet connection is required",
-		"unknown": "An unexpected error happened, sorry for that.",
-		"unknown-account": "This account does not exists"
+		"session-expired": "Your session expired, please login again",
+		"unknown": "An unexpected error happened, sorry for that."
 	},
 	"login": {
 		"forgot-password": "Forgot your password ?",
