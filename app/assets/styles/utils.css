@@ -43,11 +43,11 @@
   background-color: var(--color-error);
 }
 
-.primary-bg {
+.bg-primary {
   background-color: var(--color-primary);
 }
 
-.alt-bg {
+.bg-alt {
   background-color: var(--color-alt);
 }
 
