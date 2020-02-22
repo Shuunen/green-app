@@ -1,40 +1,28 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
+      <app-header />
       <ScrollView orientation="vertical" flexGrow="1">
-        <StackLayout class="p-m">
-          <Tile :data="{ type: 'wrap', name: data.title }" />
-        </StackLayout>
+        <FlexboxLayout class="p-l" flexDirection="column" alignItems="center">
+          <!-- content from here -->
+          <app-tile :data="{ type: 'wrap', name: 'héhé' }" />
+          <Button class="action" :text="$t('common.back-home')" @tap="$navigateTo(Home)" />
+          <!-- end -->
+        </FlexboxLayout>
       </ScrollView>
-      <Button :class="{ valid }" text="click me" :isEnabled="valid" />
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
-import Tile from '@/components/Tile'
+import Home from '@/pages/home'
 
 export default {
-  components: {
-    Tile,
-  },
-  props: {
-    data: {
-      type: Object,
-      required: true,
-    },
-  },
   data () {
     return {
+      Home,
       valid: false,
     }
-  },
-  computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-    }),
   },
   created () {
     console.log('Sample page created')

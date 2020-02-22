@@ -1,33 +1,54 @@
 <template>
   <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="p-l bg">
-      <StackLayout flexGrow="1">
-        <Button class="action" :text="$t('account.change-target')" @tap="goAccount" />
-      </StackLayout>
-      <Icon flexGrow="2" class="logo" name="logo-green-alt" />
-      <FlexboxLayout flexDirection="column" alignItems="center" flexGrow="1">
-        <Button class="action big validate mb-l" :text="$t('order.place')" @tap="startOrder" />
-      </FlexboxLayout>
-      <LangSelector />
+    <FlexboxLayout flexDirection="column" class="bg">
+      <app-header :user="user" flexShrink="0" />
+      <ScrollView orientation="vertical" flexGrow="1">
+        <FlexboxLayout class="p-l" flexDirection="column" alignItems="center" justifyContent="space-between">
+          <!-- content from here -->
+          <Button class="action mb-l" :isEnabled="!isLoading" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
+          <app-icon flexGrow="2" class="mt-l mb-l" name="logo-green-alt" />
+          <Button class="action big validate mt-l mb-l" :isEnabled="!isLoading" :text="$t('order.place')" @tap="$navigateTo(Formulas)" />
+          <ActivityIndicator class="mt-s" :busy="isLoading" />
+          <!-- end -->
+        </FlexboxLayout>
+      </ScrollView>
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-import Icon from '@/components/Icon'
-import LangSelector from '@/components/LangSelector'
+import Account from '@/pages/account'
+import Formulas from '@/pages/formulas'
+import Login from '@/pages/login'
+import { apiService } from '@/services/api-service'
 
 export default {
-  components: { Icon, LangSelector },
-  computed: {
-    ...mapGetters({ isLoading: 'isLoading' }),
+  data () {
+    return {
+      Account,
+      Formulas,
+      isLoading: false,
+      user: apiService.user,
+    }
   },
   mounted () {
     console.log('Home page mounted')
+    if (!apiService.isSessionActive()) return this.showErrorAndLogout('error.session-expired')
+    if (apiService.user.email) return
+    this.isLoading = true
+    console.log('need to load missing data...')
+    apiService.getUserData()
+      .then(() => apiService.getCommonData())
+      .catch(err => this.showErrorAndLogout(err))
+      .then(() => {
+        this.user = apiService.user
+        this.isLoading = false
+      })
   },
-  methods: {
-    ...mapActions(['goAccount', 'startOrder']),
+  showErrorAndLogout (err) {
+    this.isLoading = false
+    apiService.showError(err)
+    apiService.doLogout().then(() => this.$navigateTo(Login))
   },
 }
 </script>

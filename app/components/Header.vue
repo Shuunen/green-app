@@ -1,32 +1,32 @@
 <template>
-  <ActionBar class="primary-bg white">
-    <FlexboxLayout>
-      <FlexboxLayout class="pr-m" justifyContent="space-between" width="100%">
-        <Icon name="menu-white" height="30" @tap.native="toggleMenu" />
-        <Label class="store fz-m ml-s bold" :text="user.store" @tap="goAccount" />
-        <Icon name="location-white" height="25" @tap.native="goAccount" />
-      </FlexboxLayout>
+  <FlexboxLayout flexDirection="column">
+    <FlexboxLayout class="pt-m pb-m pl-l pr-l bg-primary" justifyContent="space-between" flexShrink="0">
+      <app-icon name="home-white" height="25" @tap.native="$navigateTo(Home)" />
+      <Label class="white fz-m ml-s bold" :text="user.storeLabel" @tap="$navigateTo(Account)" />
+      <app-icon name="settings-white" height="25" @tap.native="$navigateTo(Account)" />
     </FlexboxLayout>
-  </ActionBar>
+  </FlexboxLayout>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
-
-import Icon from '@/components/Icon'
+import Account from '@/pages/account'
+import Home from '@/pages/home'
 
 export default {
-  components: {
-    Icon,
+  props: {
+    user: {
+      type: Object,
+      default: () => {},
+    },
   },
-  computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-      user: 'user',
-    }),
+  data () {
+    return {
+      Account,
+      Home,
+    }
   },
-  methods: {
-    ...mapActions(['goAccount', 'toggleMenu']),
+  created () {
+    console.log('header created with user email', this.user.email)
   },
 }
 </script>

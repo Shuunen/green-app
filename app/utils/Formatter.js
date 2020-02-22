@@ -1,6 +1,6 @@
-import * as intl from 'nativescript-intl'
-import store from '@/store'
 import { i18n } from '@/plugins/i18n'
+import * as intl from 'nativescript-intl'
+import { apiService } from '@/services/api-service'
 
 class Formatter {
   $t (key) {
@@ -12,9 +12,9 @@ class Formatter {
   }
 
   price (num) {
-    const formatter = new intl.NumberFormat(store.state.locale.code_long, {
+    const formatter = new intl.NumberFormat(apiService.locale.code_long, {
       style: 'currency',
-      currency: store.state.locale.currency,
+      currency: apiService.locale.currency,
       minimumFractionDigits: 2,
     })
     return formatter.format(num)

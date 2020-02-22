@@ -3,11 +3,11 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
-          <Tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
+          <app-tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
           <StackLayout class="p-m">
             <StackLayout class="m-l">
-              <CartLine class="pt-m pb-m fz-m alt" :type="data.title" :price="formatPrice(data.price)" />
-              <CartLine
+              <app-cart-line class="pt-m pb-m fz-m alt" :type="data.title" :price="formatPrice(data.price)" />
+              <app-cart-line
                 v-for="(pick, index) in data.picks"
                 :key="index"
                 class="pl-m pb-s"
@@ -16,7 +16,7 @@
                 :price="formatPrice(pick.price)"
                 :delay="200 + index * 200"
               />
-              <CartLine class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+              <app-cart-line class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
             </StackLayout>
 
             <Button class="action big validate mt-m" :text="$t('order.validate-pay')" />
@@ -32,18 +32,10 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
-import CartLine from '@/components/CartLine'
-import Formatter from '@/utils/Formatter'
-import Home from '@/pages/Home'
-import Tile from '@/components/Tile'
+import Formatter from '@/utils/formatter'
+import Home from '@/pages/home'
 
 export default {
-  components: {
-    CartLine,
-    Tile,
-  },
   props: {
     data: {
       type: Object,
@@ -55,9 +47,6 @@ export default {
       valid: false,
     }
   },
-  computed: {
-    ...mapGetters({ isLoading: 'isLoading' }),
-  },
   created () {
     console.log('Cart page created')
   },
@@ -67,9 +56,7 @@ export default {
       this.$navigateBack()
     },
     cancel () {
-      this.$navigateTo(Home, {
-        frame: 'mainContent',
-      })
+      this.$navigateTo(Home)
     },
   },
 }

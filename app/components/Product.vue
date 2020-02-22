@@ -1,17 +1,14 @@
 <template>
   <FlexboxLayout class="product" :class="[ data.type ]" justifyContent="space-between" alignItems="center">
-    <Icon class="product-icon" flexShrink="0" name="logo-g" />
+    <app-icon class="product-icon" flexShrink="0" name="logo-g" />
     <Label class="product-name ml-s" flexGrow="1" :text="data.name" />
     <Label class="product-price ml-m mr-s" flexShrink="0" :text="formatPrice(data.price)" />
-    <Icon class="product-add mr-s" flexShrink="0" name="shopping-cart-add-grey" @tap.native="addProduct(data)" />
+    <app-icon class="product-add mr-s" flexShrink="0" name="shopping-cart-add-grey" @tap.native="addProduct(data)" />
   </FlexboxLayout>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
-import Icon from '@/components/Icon'
-import Formatter from '@/utils/Formatter'
+import Formatter from '@/utils/formatter'
 
 /* Props data is like :
 {
@@ -22,20 +19,11 @@ import Formatter from '@/utils/Formatter'
 }
 */
 export default {
-  name: 'Product',
-  components: {
-    Icon,
-  },
   props: {
     data: {
       type: Object,
       required: true,
     },
-  },
-  computed: {
-    ...mapGetters({
-      isLoading: 'isLoading',
-    }),
   },
   methods: {
     formatPrice: (num) => Formatter.price(num),
