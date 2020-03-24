@@ -18,7 +18,7 @@ Connected devices & emulators
 Searching for devices...
 ┌───┬─────────────┬──────────┬───────────────────┬──────────┬───────────┐
 │ # │ Device Name │ Platform │ Device Identifier │ Type     │ Status    │
-│ 1 │ avd_25      │ Android  │ emulator-5554     │ Emulator │ Connected │
+│ 1 │ avd_28      │ Android  │ emulator-5554     │ Emulator │ Connected │
 │ 2 │ Device name │ Android  │ DEVICE_ID_123     │ Device   │ Connected │
 └───┴─────────────┴──────────┴───────────────────┴──────────┴───────────┘
 ```
