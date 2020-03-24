@@ -98,7 +98,7 @@
     "build:ios": "export SWIFT_VERSION=3; npm run last-commit && tns build ios",
     "check": "npx repo-check",
     "ci": "npm run test",
-    "clean": "rimraf platforms && tns install",
+    "clean": "npx rimraf platforms && tns install",
     "debug": "tns debug android",
     "debug:ios": "export SWIFT_VERSION=3; tns debug ios",
     "dev": "npm run start",
