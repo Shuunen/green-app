@@ -1,11 +1,12 @@
-import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import { getString, setString } from 'tns-core-modules/application-settings'
-import { getJSON, request } from 'tns-core-modules/http'
-import * as Mocks from '@/utils/mocks'
+import pkg from '@/../package.json'
 import OAuthToken from '@/models/oauth-token'
 import { User } from '@/models/user'
+import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
+import * as Mocks from '@/utils/mocks'
+import { getString, setString } from 'tns-core-modules/application-settings'
+import { getJSON, request } from 'tns-core-modules/http'
 
-const BASE_URL = 'https://tartopoil.neimheadh.fr'
+const BASE_URL = pkg.config.api
 const doMock = false
 
 class ApiService {
