@@ -34,7 +34,6 @@
     "nativescript-toasty": "2.0.1",
     "nativescript-vue": "2.4.0",
     "nativescript-vue-devtools": "1.2.0",
-    "rimraf": "3.0.2",
     "shuutils": "3.4.0",
     "tns-core-modules": "6.4.2",
     "vue-i18n": "8.15.5"
@@ -58,6 +57,7 @@
     "nativescript-dev-webpack": "1.5.0",
     "nativescript-vue-template-compiler": "2.4.0",
     "nativescript-worker-loader": "0.11.0",
+    "rimraf": "3.0.2",
     "vue-loader": "15.9.0"
   },
   "engines": {
@@ -98,7 +98,7 @@
     "build:ios": "export SWIFT_VERSION=3; npm run last-commit && tns build ios",
     "check": "npx repo-check",
     "ci": "npm run test",
-    "clean": "npx rimraf platforms && tns install",
+    "clean": "rimraf platforms",
     "debug": "tns debug android",
     "debug:ios": "export SWIFT_VERSION=3; tns debug ios",
     "dev": "npm run start",
@@ -106,6 +106,7 @@
     "last-commit": "bash ./bin/last-commit.sh ./app/last-commit.js",
     "lint": "eslint --fix --ignore-path .gitignore --ext .js,.vue .",
     "ls": "tns device",
+    "postclean": "which tns && tns install || echo tns unavailable",
     "postinstall": "npm run clean",
     "prebuild": "npm run last-commit",
     "prebuild:ios": "npm run last-commit",
