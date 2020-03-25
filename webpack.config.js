@@ -16,7 +16,7 @@ const hashSalt = Date.now().toString()
 
 module.exports = env => {
   // Add your custom Activities, Services and other android app components here.
-  const appComponents = env.appComponents || []
+  const appComponents = (env && env.appComponents) || []
   appComponents.push(...[
     'tns-core-modules/ui/frame',
     'tns-core-modules/ui/frame/activity',
