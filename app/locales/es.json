@@ -21,6 +21,8 @@
 	"common": {
 		"ar": "Arábe",
 		"arabic": "Arábe",
+		"back": "regreso",
+		"back-account": "volver a la cuenta",
 		"back-home": "Volver a la página de inicio",
 		"back-login": "volver a la página de inicio de sesión",
 		"en": "Inglés",

@@ -17,7 +17,7 @@
               <Label :text="$t('common.required-fields')" />
               <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                 <Button class="action big validate" :text="$t('common.next-step')" :isEnabled="isStep1Valid()" @tap="tabSelected++" />
-                <Button v-if="cancellable" class="action" :text="$t('common.back-login')" @tap="cancel" />
+                <Button v-if="cancellable" class="action" :text="$t('common.back' + (origin ? '-' + origin : '') )" @tap="cancel" />
               </flexboxlayout>
             </StackLayout>
           </ScrollView>
@@ -67,6 +67,10 @@ import { apiService } from '@/services/api-service'
 
 export default {
   props: {
+    origin: {
+      type: String,
+      default: '',
+    },
     cancellable: {
       type: Boolean,
       default: true,

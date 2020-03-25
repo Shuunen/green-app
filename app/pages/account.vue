@@ -1,6 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <app-account-editor v-if="user.email && isEditing" @submit="update" @cancel="cancel" />
+    <app-account-editor v-if="user.email && isEditing" origin="account" @submit="update" @cancel="cancel" />
     <FlexboxLayout v-else flexDirection="column" class="bg">
       <app-header :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
@@ -63,7 +63,7 @@ export default {
   methods: {
     cancel () {
       console.log('account : user cancelled edition')
-      this.isEditing = true
+      this.isEditing = false
     },
     update () {
       console.log('account : user updated his data', Formatter.prettyPrint(this.user))

@@ -21,6 +21,8 @@
 	"common": {
 		"ar": "Arabic",
 		"arabic": "Arabic",
+		"back": "return",
+		"back-account": "back to account",
 		"back-home": "Back to home page",
 		"back-login": "back to login page",
 		"en": "English",
