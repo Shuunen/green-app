@@ -79,10 +79,10 @@
   "nativescript": {
     "id": "green.nsvue.app",
     "tns-android": {
-      "version": "6.2.0"
+      "version": "6.5.0"
     },
     "tns-ios": {
-      "version": "6.2.0"
+      "version": "6.5.0"
     }
   },
   "optionalDependencies": {
