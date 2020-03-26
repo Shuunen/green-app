@@ -69,13 +69,14 @@
 		"welcome": "مرحبا بكم في الأخضر هو أفضل طلب التطبيق! يرجى تسجيل الدخول أو تسجيل حساب مجاني لاستخدامه."
 	},
 	"order": {
+		"add-formula": "أضف صيغة أخرى",
 		"cancel": "الغاء الطلب",
 		"change-formula": "تغيير الصيغة",
 		"choose-formula": "اختيار الصيغة الخاصة بك",
 		"complete-selection": "يرجى استكمال الاختيار",
 		"formula-for": "ترتيب هذه الصيغة ل",
 		"formulas": "معادلة",
-		"modify-selection": "تعديل الاختيار",
+		"modify-last-selection": "تعديل الاختيار",
 		"my-orders": "طلباتي",
 		"place": "تضع طلبية",
 		"summary": "ملخص الطلب",

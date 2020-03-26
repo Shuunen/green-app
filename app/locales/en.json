@@ -69,13 +69,14 @@
 		"welcome": "Welcome to Green is better order app ! Please sign in or register a free account to use it."
 	},
 	"order": {
+		"add-formula": "add another formula",
 		"cancel": "Cancel order",
 		"change-formula": "Change formula",
-		"choose-formula": "Choose your formula",
+		"choose-formula": "Choose your formula || Choose another formula",
 		"complete-selection": "Complete selection to order",
 		"formula-for": "Order this formula for",
 		"formulas": "formula | formulas",
-		"modify-selection": "Modify selection",
+		"modify-last-selection": "Modify last selection",
 		"my-orders": "My orders",
 		"place": "Place an order",
 		"summary": "Order summary",

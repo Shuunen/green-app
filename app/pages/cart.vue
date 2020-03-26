@@ -5,23 +5,26 @@
         <StackLayout>
           <app-tile :data="{ type: 'dessert', name: $t('order.summary') }" :hero="true" />
           <StackLayout class="p-m">
-            <StackLayout class="m-l">
-              <app-cart-line class="pt-m pb-m fz-m alt" :type="data.title" :price="formatPrice(data.price)" />
-              <app-cart-line
-                v-for="(pick, index) in data.picks"
-                :key="index"
-                class="pl-m pb-s"
-                :type="pick.titleTextSingular"
-                :selection="pick.selection"
-                :price="formatPrice(pick.price)"
-                :delay="200 + index * 200"
-              />
-              <app-cart-line class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="formatPrice(data.total)" :delay="200 + data.picks.length * 200" />
+            <StackLayout class="m-l mb-m">
+              <StackLayout v-for="(formula, fi) in orders" :key="fi">
+                <app-cart-line class="pt-m pb-m fz-m alt" :type="formula.title" :price="formatPrice(formula.price)" />
+                <app-cart-line
+                  v-for="(pick, pi) in formula.picks"
+                  :key="pi"
+                  class="pl-m pb-s"
+                  :type="pick.titleTextSingular"
+                  :selection="pick.selection"
+                  :price="formatPrice(pick.price)"
+                  :delay="200 + pi * 200"
+                />
+              </StackLayout>
             </StackLayout>
+            <app-cart-line class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="cartTotal()" :delay="cartTotalDelay()" />
 
-            <Button class="action big validate mt-m" :text="$t('order.validate-pay')" />
+            <Button class="action big" :text="$t('order.add-formula')" @tap="add()" />
+            <Button class="action big validate" :text="$t('order.validate-pay')" />
             <FlexboxLayout class="mt-s">
-              <Button class="action" flexGrow="1" :text="$t('order.modify-selection')" @tap="modify()" />
+              <Button class="action" flexGrow="1" :text="$t('order.modify-last-selection')" @tap="modify()" />
               <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
             </FlexboxLayout>
           </StackLayout>
@@ -34,11 +37,12 @@
 <script>
 import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
+import Formulas from '@/pages/formulas'
 
 export default {
   props: {
-    data: {
-      type: Object,
+    orders: {
+      type: Array,
       required: true,
     },
   },
@@ -51,12 +55,27 @@ export default {
     console.log('Cart page created')
   },
   methods: {
-    formatPrice: (num) => Formatter.price(num),
+    formatPrice: num => Formatter.price(num),
     modify () {
       this.$navigateBack()
     },
+    add () {
+      console.log('user has', this.orders.length, 'formula(s) in the cart and wants to add another...')
+      this.$navigateTo(Formulas, { props: { orders: this.orders } })
+    },
     cancel () {
       this.$navigateTo(Home)
+    },
+    cartTotal () {
+      let total = 0
+      this.orders.forEach(formula => (total += formula.total))
+      console.log('total is', total)
+      return this.formatPrice(total)
+    },
+    cartTotalDelay () {
+      let delay = 200
+      this.orders.forEach(formula => (delay += formula.picks.length * 200))
+      return delay
     },
   },
 }

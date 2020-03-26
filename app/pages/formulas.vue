@@ -6,7 +6,7 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column">
           <!-- content from here -->
-          <Label :text="$t('order.choose-formula') + ' :'" class="pt-s pb-m fz-m grey" />
+          <Label :text="$tc('order.choose-formula', orders.length) + ' :'" class="pt-s pb-m fz-m grey" />
           <app-formula-tile v-for="data in formulas" :key="data.title" :data="data" @tap.native="goto(data)" @tap="goto(data)" />
           <!-- end -->
         </FlexboxLayout>
@@ -21,6 +21,12 @@ import Formula from '@/pages/formula'
 import { apiService } from '@/services/api-service'
 
 export default {
+  props: {
+    orders: {
+      type: Array,
+      default: () => [],
+    },
+  },
   data () {
     return {
       formulas: apiService.formulas,
@@ -35,7 +41,7 @@ export default {
     ucfirst: str => Formatter.capitalizeFirstLetter(str),
     goto (data) {
       console.log('user wants to go to :', data)
-      this.$navigateTo(Formula, { props: { data } })
+      this.$navigateTo(Formula, { props: { data, orders: this.orders } })
     },
   },
 }

@@ -69,13 +69,14 @@
 		"welcome": "Bienvenido a Green es mejor aplicación de pedido! Inicie sesión o registre una cuenta gratuita para usarla."
 	},
 	"order": {
+		"add-formula": "agrega otra fórmula",
 		"cancel": "Cancelar orden",
 		"change-formula": "Cambiar formula",
 		"choose-formula": "Elige tu formula",
 		"complete-selection": "Complete la selección para pedido",
 		"formula-for": "Pida esta fórmula para",
 		"formulas": "fórmula | fórmulas",
-		"modify-selection": "Modificar selección",
+		"modify-last-selection": "Modificar última selección",
 		"my-orders": "Mis ordenes",
 		"place": "Hacer un pedido",
 		"summary": "Resumen del pedido",

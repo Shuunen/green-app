@@ -3,14 +3,14 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
-          <app-tile :data="{ type: 'wrap', name: data.title }" :hero="true" />
+          <app-tile :data="{ type: 'wrap', name: order.title }" :hero="true" />
           <StackLayout class="p-m">
             <app-pick v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
           </StackLayout>
         </StackLayout>
       </ScrollView>
       <StackLayout class="p-s" flexShrink="0">
-        <Button :class="[valid ? 'validate' : 'disabled']" :text="orderText" :isEnabled="valid" class="formula--btn action big" @tap="order()" />
+        <Button :class="[valid ? 'validate' : 'disabled']" :text="orderText" :isEnabled="valid" class="formula--btn action big" @tap="add()" />
         <FlexboxLayout>
           <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
           <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />
@@ -25,9 +25,14 @@ import Cart from '@/pages/cart'
 import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
 import { apiService } from '@/services/api-service'
+import { clone } from '@/utils'
 
 export default {
   props: {
+    orders: {
+      type: Array,
+      required: true,
+    },
     data: {
       type: Object,
       required: true,
@@ -37,6 +42,7 @@ export default {
     return {
       valid: false,
       total: 0,
+      order: {},
       picks: [],
       items: apiService.items,
     }
@@ -52,7 +58,8 @@ export default {
   },
   created () {
     console.log('Formula page created')
-    this.picks = this.data.picks
+    this.order = clone(this.data)
+    this.picks = this.order.picks
   },
   methods: {
     onPickChange () {
@@ -62,18 +69,18 @@ export default {
     formatPrice: num => Formatter.price(num),
     updateTotal () {
       this.total = this.picks.reduce((sum, val) => (sum += val.price || 0), 0)
-      this.total += this.data.price
-      this.data.total = this.total
+      this.total += this.order.price
+      this.order.total = this.total
       console.log('total :', this.total)
     },
     updateValidity () {
       this.valid = !this.picks.some(p => !p.valid)
       console.log('formula valid ? ' + this.valid.toString())
     },
-    order () {
-      console.log('user wants to order')
+    add () {
+      console.log('user wants to add this order')
       this.$navigateTo(Cart, {
-        props: { data: this.data },
+        props: { orders: [...this.orders, this.order] },
       })
     },
     modify () {
