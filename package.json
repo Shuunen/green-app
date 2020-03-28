@@ -96,12 +96,12 @@
   },
   "scripts": {
     "build": "tns build android --aab",
-    "build:ios": "export SWIFT_VERSION=3; npm run last-commit && tns build ios",
+    "build:ios": "export SWIFT_VERSION=5; npm run last-commit && tns build ios",
     "check": "npx repo-check",
     "ci": "npm run test",
     "clean": "rimraf platforms",
     "debug": "tns debug android",
-    "debug:ios": "export SWIFT_VERSION=3; tns debug ios",
+    "debug:ios": "export SWIFT_VERSION=5; tns debug ios",
     "dev": "npm run start",
     "dev:ios": "npm run start:ios",
     "last-commit": "bash ./bin/last-commit.sh ./app/last-commit.js",
@@ -114,7 +114,7 @@
     "prestart": "npm run last-commit",
     "prestart:ios": "npm run last-commit",
     "start": "tns run android --no-hmr --env.uglify",
-    "start:ios": "export SWIFT_VERSION=3; tns run ios --env.uglify",
+    "start:ios": "export SWIFT_VERSION=5; tns run ios --env.uglify",
     "test": "npm run lint && npm run check",
     "update": "npx npm-check-updates -u"
   },

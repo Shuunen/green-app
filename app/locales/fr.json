@@ -50,7 +50,8 @@
 	},
 	"error": {
 		"alert-message-suffix": "Désolé pour le dérangement, contactez-nous en nous fournissant ce code d'erreur pour que l'on puisse vous aider : {code}",
-		"alert-title": "Erreur",
+    "alert-title": "Erreur",
+    "alert-button": "OK",
 		"api-needed": "Une API est nécessaire pour cet appel bouchonné",
 		"invalid-email": "Merci d'utiliser une adresse email valide",
 		"invalid-password": "Veuillez taper un mot de passe",
