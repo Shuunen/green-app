@@ -51,6 +51,7 @@
 	"error": {
 		"alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
 		"alert-title": "Error",
+    "alert-button": "Vale",
 		"api-needed": "Se necesita una API para esta llamada no burlada",
 		"invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
 		"invalid-password": "Por favor, defina una contraseña",

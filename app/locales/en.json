@@ -51,6 +51,7 @@
 	"error": {
 		"alert-message-suffix": "Sorry for the inconvenience, contact us with this error code so that we can help you : {code}",
 		"alert-title": "Error",
+    "alert-button": "OK",
 		"api-needed": "An API is needed for this un-mocked call",
 		"invalid-email": "Please enter a valid email address",
 		"invalid-password": "Please type a password",

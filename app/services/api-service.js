@@ -121,6 +121,7 @@ class ApiService {
     alert({
       title: i18n.t('error.alert-title'),
       message: i18n.t(code), // + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
+      okButtonText: i18n.t('error.alert-button'),
     })
   }
 
