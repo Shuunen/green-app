@@ -16,6 +16,7 @@ export default {
   },
   computed: {
     src: function () {
+      if (!this.name) return ''
       const file = this.name + (this.name.indexOf('.') > -1 ? '' : '.png')
       return '~/assets/images/icons/' + file
     },

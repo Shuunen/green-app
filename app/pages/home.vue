@@ -1,7 +1,7 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
-      <app-header :user="user" flexShrink="0" />
+      <app-header :onHome="true" :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column" alignItems="center" justifyContent="space-between">
           <!-- content from here -->
@@ -34,7 +34,7 @@ export default {
   mounted () {
     console.log('Home page mounted')
     if (!apiService.isSessionActive()) return this.showErrorAndLogout('error.session-expired')
-    if (apiService.user.email) return
+    if (apiService.user.email) return console.log('no need to load data...')
     this.isLoading = true
     console.log('need to load missing data...')
     apiService.getUserData()
