@@ -39,7 +39,7 @@
   background-color: var(--color-white);
 }
 
-.bg-error {
+.bg-error, .red {
   background-color: var(--color-error);
 }
 
