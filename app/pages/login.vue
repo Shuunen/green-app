@@ -47,8 +47,8 @@ export default {
   mounted () {
     console.log('Login page mounted')
     /*
-    this.user.email = 'plop@example.com'
-    this.user.password = 'plop'
+    this.user.email = 'user5@example.com'
+    this.user.password = 'user5'
     */
   },
   methods: {
@@ -57,15 +57,9 @@ export default {
     },
     async submit () {
       console.log('Login : user submitted data :', this.user.email, this.user.password)
-      if (!this.user.hasValidEmail) {
-        return apiService.showError('error.invalid-email')
-      }
-      if (!this.user.hasValidPassword) {
-        return apiService.showError('error.invalid-password')
-      }
-      if (getConnectionType() === connectionType.none) {
-        return apiService.showError('error.offline')
-      }
+      if (!this.user.hasValidEmail) return apiService.showError('error.invalid-email')
+      if (!this.user.hasValidPassword) return apiService.showError('error.invalid-password')
+      if (getConnectionType() === connectionType.none) return apiService.showError('error.offline')
       this.isLoading = true
       const status = await (this.hasAccount ? apiService.doLogin() : apiService.doSignup())
       this.isLoading = false

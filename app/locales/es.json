@@ -1,8 +1,12 @@
 {
+	"about": {
+		"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. \n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+	},
 	"account": {
+		"about": "Acerca de",
 		"change-target": "Seleccione otro restaurante",
 		"complete": "completar",
-		"edit": "editar",
+		"edit": "editar mis datos",
 		"email": "Dirección de correo electrónico",
 		"first-name": "Nombre de pila",
 		"last-name": "Apellido",
@@ -10,6 +14,7 @@
 		"my-allergens": "Mis alergenos",
 		"my-diets": "Mis dietas",
 		"my-language": "Mi idioma",
+		"my-orders": "Mis ordenes",
 		"my-target": "Mi restaurante",
 		"password": "Contraseña",
 		"sign-up": "Regístrate"
@@ -49,9 +54,9 @@
 		"vegetarian": "vegetariano"
 	},
 	"error": {
+		"alert-button": "Vale",
 		"alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
 		"alert-title": "Error",
-    "alert-button": "Vale",
 		"api-needed": "Se necesita una API para esta llamada no burlada",
 		"invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
 		"invalid-password": "Por favor, defina una contraseña",
