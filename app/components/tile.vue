@@ -2,7 +2,6 @@
   <StackLayout class="type" :class="[ data.type, hero ? 'hero' : '', large ? 'large' : '' ]">
     <FlexboxLayout flexDirection="column" :justifyContent="hero ? 'center' : 'space-between'" class="type-shadow p-m">
       <Label class="type-name fz-l" :text="data.name" />
-      <app-icon v-if="!hero" name="circled-right-2-white" alignSelf="flex-end" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -27,7 +26,6 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 120;
   margin: 10 10 0 10;
 }
 .type-shadow {
@@ -57,6 +55,7 @@ export default {
   height: 180;
 }
 .type.hero {
+  height: 120;
   margin: 0;
 }
 .type.hero .type-name {
