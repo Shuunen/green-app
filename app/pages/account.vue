@@ -1,12 +1,11 @@
 <template>
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
-      <app-header :user="user" flexShrink="0" />
+      <app-header :onAccount="true" :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout flexDirection="column">
-          <app-tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="true" />
+          <app-tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="false" />
           <StackLayout class="p-m center">
-            <app-lang-selector class="mt-l" />
             <!-- infos -->
             <Label class="mt-l fz-l bold alt" :text="(user.firstName + ' ' + user.lastName).trim()" />
             <StackLayout v-if="user.diets && user.diets.length">
@@ -23,14 +22,21 @@
             </StackLayout>
             <StackLayout>
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-language')" />
-              <Label class="bold alt fz-m" :text="user.locale" />
+              <app-lang-selector class="mt-l" />
             </StackLayout>
             <!-- action button -->
             <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
-              <Button class="action big validate" :text="$t('account.edit')" @tap="onEdit" />
+              <FlexboxLayout>
+                <Button class="action validate" :text="$t('account.edit')" @tap="onEdit" />
+                <Button class="action" :text="$t('common.logout')" @tap="doLogout" />
+              </FlexboxLayout>
               <Button class="action" :text="$t('common.back-home')" @tap="$navigateTo(Home)" />
-              <Button class="action" :text="$t('common.logout')" @tap="doLogout" />
             </FlexboxLayout>
+          </StackLayout>
+          <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
+          <app-tile :data="{ type: 'wrap', name: $t('account.about') }" :hero="false" />
+          <StackLayout class="p-m">
+            <TextView editable="false" class="fz-s" :text="$t('about.description')" />
             <app-version />
           </StackLayout>
         </FlexboxLayout>
