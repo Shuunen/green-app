@@ -1,6 +1,7 @@
-import { getArray, getString, currentLocale } from '@/utils'
+import { currentLocale, getArray, getString } from '@/utils'
 import Formatter from '@/utils/formatter'
 import validator from 'email-validator'
+import { Order } from './order'
 
 export class User {
   get hasValidPassword () {
@@ -25,6 +26,7 @@ export class User {
     this.password = getString(data.password)
     this.locale = data.locale || currentLocale()
     this.store = getString(data.store)
+    this.orders = getArray(data.orders).map(o => new Order(o))
     if (!this.firstName) {
       this.detectNamesFromEmail()
     }
