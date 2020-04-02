@@ -16,6 +16,7 @@
 		"my-language": "Mi idioma",
 		"my-orders": "Mis ordenes",
 		"my-target": "Mi restaurante",
+		"order-from": "orden desde {date}",
 		"password": "Contraseña",
 		"sign-up": "Regístrate"
 	},

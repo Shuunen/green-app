@@ -16,6 +16,7 @@
 		"my-language": "My language",
 		"my-orders": "My orders",
 		"my-target": "My restaurant",
+		"order-from": "order from {date}",
 		"password": "Password",
 		"sign-up": "Sign up"
 	},

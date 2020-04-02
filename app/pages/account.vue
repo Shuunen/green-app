@@ -34,6 +34,9 @@
             </FlexboxLayout>
           </StackLayout>
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
+          <StackLayout class="p-m">
+            <Label v-for="order in user.orders" :key="order.id" class="mt-l fz-s uppercase" :text="$t('account.order-from', { date: readableDate(order.creationDate) })" />
+          </StackLayout>
           <app-tile :data="{ type: 'wrap', name: $t('account.about') }" :hero="false" />
           <StackLayout class="p-m">
             <TextView editable="false" class="fz-s" :text="$t('about.description')" />
@@ -71,6 +74,9 @@ export default {
     },
     readableList (items, selection) {
       return Formatter.readableList(items, selection)
+    },
+    readableDate (dateStr) {
+      return Formatter.readableDate(dateStr)
     },
     doLogout () {
       apiService.doLogout().then(() => this.$navigateTo(Login))
