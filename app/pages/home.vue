@@ -34,9 +34,10 @@ export default {
   mounted () {
     console.log('Home page mounted')
     if (!apiService.isSessionActive()) return this.showErrorAndLogout('error.session-expired')
-    if (apiService.user.email) return console.log('no need to load data...')
+    if (!apiService.user.store) console.log('user has no store set')
+    if (apiService.user.email) return console.log('no need to load user data...')
     this.isLoading = true
-    console.log('need to load missing data...')
+    console.log('need to load user & common missing data...')
     apiService.getUserData()
       .then(() => apiService.getCommonData())
       .catch(err => this.showErrorAndLogout(err))
