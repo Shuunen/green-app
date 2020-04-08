@@ -1,7 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <app-account-editor v-if="user.email && isEditing" :cancellable="false" @submit="update" />
-    <FlexboxLayout v-else flexDirection="column" class="p-l bg">
+    <FlexboxLayout flexDirection="column" class="p-l bg">
       <StackLayout flexGrow="1" />
       <app-icon class="mb-l" height="70" name="logo-green-alt" />
       <StackLayout flexGrow="1">
@@ -36,7 +35,6 @@
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
 import Home from '@/pages/home'
 import { apiService } from '@/services/api-service'
-import Formatter from '@/utils/formatter'
 
 export default {
   data () {
@@ -44,44 +42,35 @@ export default {
       user: apiService.user,
       hasAccount: true,
       isLoading: false,
-      isEditing: false,
     }
+  },
+  mounted () {
+    console.log('Login page mounted')
+    /*
+    this.user.email = 'plop@example.com'
+    this.user.password = 'plop'
+    */
   },
   methods: {
     focusPassword () {
       this.$refs.password.nativeView.focus()
     },
-    update () {
-      console.log('account : user completed his data', Formatter.prettyPrint(apiService.user))
-      this.$navigateTo(Home)
-    },
-    submit () {
-      console.log('Login : submit user data :', this.user.email, this.user.password)
+    async submit () {
+      console.log('Login : user submitted data :', this.user.email, this.user.password)
       if (!this.user.hasValidEmail) {
         return apiService.showError('error.invalid-email')
       }
       if (!this.user.hasValidPassword) {
         return apiService.showError('error.invalid-password')
       }
-      // apiService.user = this.user
       if (getConnectionType() === connectionType.none) {
         return apiService.showError('error.offline')
       }
       this.isLoading = true
-      if (this.hasAccount) {
-        return apiService.doLogin().then(status => {
-          this.isLoading = false
-          if (status !== 'ok') return console.log('unexpected point reached for login, status is', status)
-          this.$navigateTo(Home)
-        })
-      }
-      apiService.doSignup().then(status => {
-        console.log('signup finnished, user logged, start editing his account')
-        this.isLoading = false
-        if (status !== 'ok') return console.log('unexpected point reached for signup, status is', status)
-        this.isEditing = true
-        this.user = apiService.user
-      })
+      const status = await (this.hasAccount ? apiService.doLogin() : apiService.doSignup())
+      this.isLoading = false
+      if (status !== 'ok') return console.log('unexpected point reached, status is', status)
+      this.$navigateTo(Home)
     },
   },
 }

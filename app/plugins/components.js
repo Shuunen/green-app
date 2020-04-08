@@ -1,4 +1,3 @@
-import AccountEditor from '@/components/account-editor'
 import CartLine from '@/components/cart-line'
 import FormulaTile from '@/components/formula-tile'
 import Header from '@/components/header'
@@ -9,7 +8,6 @@ import Tile from '@/components/tile'
 import Version from '@/components/version'
 import Vue from 'nativescript-vue'
 
-Vue.component('app-account-editor', AccountEditor)
 Vue.component('app-cart-line', CartLine)
 Vue.component('app-formula-tile', FormulaTile)
 Vue.component('app-header', Header)

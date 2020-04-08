@@ -1,7 +1,6 @@
 <template>
   <Page actionBarHidden="true">
-    <app-account-editor v-if="user.email && isEditing" origin="account" @submit="update" @cancel="cancel" />
-    <FlexboxLayout v-else flexDirection="column" class="bg">
+    <FlexboxLayout flexDirection="column" class="bg">
       <app-header :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout flexDirection="column">
@@ -41,11 +40,11 @@
 </template>
 
 <script>
-
+import { apiService } from '@/services/api-service'
+import AccountEdit from '@/pages/account-edit'
 import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
 import Login from '@/pages/login'
-import { apiService } from '@/services/api-service'
 
 export default {
   data () {
@@ -54,24 +53,15 @@ export default {
       diets: apiService.diets,
       allergens: apiService.allergens,
       Home,
-      isEditing: false,
     }
   },
   mounted () {
     console.log('Account page mounted with user', Formatter.prettyPrint(this.user))
   },
   methods: {
-    cancel () {
-      console.log('account : user cancelled edition')
-      this.isEditing = false
-    },
-    update () {
-      console.log('account : user updated his data', Formatter.prettyPrint(this.user))
-      this.isEditing = false
-    },
     onEdit () {
       console.log('account : user wants to edit his data')
-      this.isEditing = true
+      this.$navigateTo(AccountEdit)
     },
     readableList (items, selection) {
       return Formatter.readableList(items, selection)
