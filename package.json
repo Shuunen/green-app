@@ -62,10 +62,6 @@
     "rimraf": "3.0.2",
     "vue-loader": "15.9.1"
   },
-  "engines": {
-    "node": ">= 10",
-    "npm": ">= 6"
-  },
   "files": [
     "app",
     "*"
