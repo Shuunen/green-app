@@ -48,7 +48,7 @@
             <ScrollView orientation="vertical" flexGrow="1">
               <StackLayout class="p-l">
                 <Label :text="$t('signup.step-3')" class="fz-m mb-l" textWrap="true" />
-                <ListPicker v-model="storeSelected" class="mt-l" :items="stores" @selectedIndexChange="onStoreChange" />
+                <app-pick :data="userStore" :items="{ stores }" @change="onStoreChange" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                   <Button class="action big validate" :text="$t('account.complete')" :isEnabled="!isLoading" @tap="submit()" />
                   <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
@@ -64,34 +64,36 @@
 </template>
 
 <script>
-import Formatter from '@/utils/formatter'
+import { apiService } from '@/services'
+import { clone, getString } from '@/utils'
+import { User } from '@/models'
 import Account from '@/pages/account'
-import { apiService } from '@/services/api-service'
-import { clone } from '@/utils'
+import Formatter from '@/utils/formatter'
 
 export default {
   data () {
     return {
       isLoading: false,
       user: {},
-      stores: apiService.stores,
+      stores: [],
       diets: apiService.diets,
       allergens: apiService.allergens,
       tabSelected: 0,
-      storeSelected: 0,
       userDiets: { title: 'account.my-diets', from: 'diets', any: true, selection: [] },
       userAllergens: { title: 'account.my-allergens', from: 'allergens', any: true, selection: [] },
+      userStore: { title: 'account.my-store', pick: 1, from: 'stores', selection: [] },
     }
   },
   created () {
     this.user = clone(apiService.user)
-    console.log('Account edit created with user', Formatter.prettyPrint(this.user))
+    console.log('Account editor created with user', Formatter.prettyPrint(this.user))
     this.userDiets.selection = this.diets.filter(d => this.user.diets.includes(d.value)) // [{ title: 'diet.vegan', value: 'vegan' }]
     this.userAllergens.selection = this.allergens.filter(a => this.user.allergens.includes(a.value))
-    this.storeSelected = this.stores.findIndex(s => this.user.store === s) || 0
+    this.stores = apiService.stores.map(s => ({ title: s.name, value: s.id }))
+    this.userStore.selection = this.stores.filter(s => (getString(this.user.store) === getString(s.value)))
   },
   mounted () {
-    console.log('Account edit mounted with user', Formatter.prettyPrint(this.user))
+    console.log('Account editor mounted with user', Formatter.prettyPrint(this.user))
   },
   methods: {
     isStep1Valid () {
@@ -109,7 +111,7 @@ export default {
       this.user.allergens = this.userAllergens.selection.map(s => s.value)
     },
     onStoreChange () {
-      this.user.store = this.stores[this.storeSelected]
+      this.user.store = this.userStore.selection[0].value
       console.log('selected store :', this.user.store)
     },
     cancel () {
@@ -118,7 +120,7 @@ export default {
     },
     submit () {
       console.log('account edit : user submitted :', Formatter.prettyPrint(this.user))
-      apiService.user = this.user
+      apiService.user = new User(this.user)
       // TODO #181 : start loading + apiService.updateUserData + end loading
       this.$navigateTo(Account)
     },
