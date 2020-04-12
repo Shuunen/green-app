@@ -1,13 +1,11 @@
 import pkg from '@/../package.json'
-import OAuthToken from '@/models/oauth-token'
-import { User } from '@/models/user'
+import { OAuthToken, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
 import * as Mocks from '@/utils/mocks'
 import { getString, setString } from 'tns-core-modules/application-settings'
 import { getJSON, request } from 'tns-core-modules/http'
 
 const BASE_URL = pkg.config.api
-const doMock = false
 
 class ApiService {
   constructor () {
@@ -50,23 +48,29 @@ class ApiService {
     this.user.locale = code
   }
 
+  async get (url) {
+    return getJSON({ url, headers: this.getHeaders(), timeout: 3000 })
+  }
+
   async getCommonData () {
-    let data = {}
     console.log('getting common data')
-    const mockThisForNow = true
-    if (doMock || mockThisForNow) {
-      await Mocks.sleep(2000)
-      data = Mocks.commonData
-      console.log('Returning common mocked data')
-    } else {
-      return this.showError('error.api-needed')
-    }
-    this.allergens = data.allergens
-    this.diets = data.diets
-    this.formulas = data.formulas
-    this.items = data.items
-    this.stores = data.stores
+    this.allergens = Mocks.commonData.allergens
+    this.diets = Mocks.commonData.diets
+    this.formulas = Mocks.commonData.formulas
+    this.items = Mocks.commonData.items
+    await this.getStores()
     console.log(`loaded ${this.formulas.length} formulas`)
+    return 'ok'
+  }
+
+  async getStores () {
+    const url = `${BASE_URL}/stores`
+    console.log('getting stores with GET ' + url)
+    const response = await this.get(url)
+    if (response.error) return this.showError('error.' + response.error)
+    console.log('successfully got stores')
+    this.stores = response['hydra:member'].map(data => new Store(data))
+    console.log(`loaded ${this.stores.length} stores`)
     return 'ok'
   }
 
@@ -74,7 +78,7 @@ class ApiService {
     // this.user = new User(Mocks.users[0])
     const url = `${BASE_URL}/me`
     console.log('getting user data with GET ' + url)
-    const response = await getJSON({ url, headers: this.getHeaders() })
+    const response = await this.get(url)
     if (response.error) return this.showError('error.' + response.error)
     console.log('successfully got user data with email :', response.email)
     this.user = new User(response)

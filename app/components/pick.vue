@@ -38,6 +38,10 @@ export default {
     this.setExtra()
     this.setList()
   },
+  mounted () {
+    console.log('Pick component mounted :', this.data.from)
+    console.log('selection is :', Formatter.prettyPrint(this.data.selection))
+  },
   methods: {
     formatPrice: (num) => Formatter.price(num),
     setList () {

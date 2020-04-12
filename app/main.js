@@ -3,7 +3,7 @@ import Home from '@/pages/home'
 import Login from '@/pages/login'
 import '@/plugins/components'
 import { i18n } from '@/plugins/i18n'
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 import { SVGImage } from '@teammaestro/nativescript-svg'
 import Vue from 'nativescript-vue'
 

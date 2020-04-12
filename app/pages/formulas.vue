@@ -18,7 +18,7 @@
 <script>
 import Formatter from '@/utils/formatter'
 import Formula from '@/pages/formula'
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 
 export default {
   props: {

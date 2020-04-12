@@ -32,9 +32,9 @@
 </template>
 
 <script>
+import { apiService } from '@/services'
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
 import Home from '@/pages/home'
-import { apiService } from '@/services/api-service'
 
 export default {
   data () {

@@ -24,7 +24,7 @@
 import Cart from '@/pages/cart'
 import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 import { clone } from '@/utils'
 
 export default {

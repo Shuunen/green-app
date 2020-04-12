@@ -15,9 +15,11 @@
     "my-diets": "Mes régimes",
     "my-language": "Ma langue",
     "my-orders": "Mes commandes",
+    "my-store": "Mon restaurant",
     "my-target": "Mon restaurant",
     "order-from": "commande du {date}",
     "password": "Mot de passe",
+    "set-target": "choisir un restaurant",
     "sign-up": "S'inscrire"
   },
   "allergen": {
@@ -115,6 +117,7 @@
     "you-can-pick-n-drinks-or-n-deserts": "Vous pouvez choisir une boisson ou un dessert | Vous pouvez en choisir {n} ",
     "you-can-pick-n-ingredients-or-more": "Vous pouvez choisir un ingrédient | Vous pouvez choisir {n} ingrédients",
     "you-can-pick-n-sauces": "Vous pouvez choisir une sauce | Vous pouvez choisir {n} sauces",
+    "you-can-pick-n-stores": "Vous pouvez choisir un restaurant | Vous pouvez choisir {n} restaurants",
     "you-can-pick-n-wraps-or-n-soups": "Vous pouvez choisir un wrap ou une soupe | Vous pouvez en choisir {n}"
   },
   "signup": {

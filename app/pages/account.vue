@@ -18,7 +18,7 @@
             </StackLayout>
             <StackLayout v-if="user.store">
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-target')" />
-              <Label class="bold alt fz-m" :text="user.store" />
+              <Label class="bold alt fz-m" :text="user.storeLabel" />
             </StackLayout>
             <StackLayout>
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-language')" />
@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 import AccountEdit from '@/pages/account-edit'
 import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
@@ -58,10 +58,11 @@ import Login from '@/pages/login'
 export default {
   data () {
     return {
-      user: apiService.user,
-      diets: apiService.diets,
       allergens: apiService.allergens,
+      diets: apiService.diets,
       Home,
+      stores: apiService.stores,
+      user: apiService.user,
     }
   },
   mounted () {
