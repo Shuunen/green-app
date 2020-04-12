@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 
 export default {
   data () {

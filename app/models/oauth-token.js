@@ -1,6 +1,6 @@
-import { getString, getInteger } from '@/utils'
+import { getInteger, getString } from '@/utils'
 
-export default class OAuthToken {
+export class OAuthToken {
   constructor (data = {}) {
     // console.log('OAuthToken constructor with data', data)
     this.accessToken = getString(data.accessToken || data.access_token)

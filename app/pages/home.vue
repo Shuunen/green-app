@@ -5,9 +5,16 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column" alignItems="center" justifyContent="space-between">
           <!-- content from here -->
-          <Button class="action mb-l" :isEnabled="!isLoading" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
+          <StackLayout>
+            <Button v-show="user.store" class="action mb-l" :isEnabled="!isLoading" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
+          </StackLayout>
           <app-icon flexGrow="2" class="mt-l mb-l" name="logo-green-alt" />
-          <Button class="action big validate mt-l mb-l" :isEnabled="!isLoading" :text="$t('order.place')" @tap="$navigateTo(Formulas)" />
+          <Button
+            class="action big validate mt-l mb-l"
+            :isEnabled="!isLoading"
+            :text="$t(user.store ? 'order.place' : 'account.set-target')"
+            @tap="user.store ? $navigateTo(Formulas) : $navigateTo(Account)"
+          />
           <ActivityIndicator class="mt-s" :busy="isLoading" />
           <!-- end -->
         </FlexboxLayout>
@@ -20,7 +27,7 @@
 import Account from '@/pages/account'
 import Formulas from '@/pages/formulas'
 import Login from '@/pages/login'
-import { apiService } from '@/services/api-service'
+import { apiService } from '@/services'
 
 export default {
   data () {

@@ -453,17 +453,6 @@ const items = {
   ],
 }
 
-const stores = [
-  'Green La Defense (75)',
-  'Green Montparnasse (75)',
-  'Green Bercy Village (75)',
-  'Green Boulogne Billancourt (93)',
-  'Green Les Long Champs (35)',
-  'Green Cesson-Sévigné (35)',
-  'Green La Beaujoire (44)',
-  'Green Centre Sud (44)',
-]
-
 const allergens = [
   {
     title: 'allergen.lactose',
@@ -475,7 +464,7 @@ const allergens = [
   },
 ]
 
-export const commonData = { stores, formulas, items, diets, allergens }
+export const commonData = { formulas, items, diets, allergens }
 
 export const users = {
   'romain.racamier@gmail.com': {
@@ -485,6 +474,5 @@ export const users = {
     lastName: 'Racamier',
     allergens: ['lactose'],
     diets: ['kosher', 'vegan'],
-    store: stores[1],
   },
 }

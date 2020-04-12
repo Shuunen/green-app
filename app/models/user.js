@@ -1,3 +1,4 @@
+import { apiService } from '@/services'
 import { currentLocale, getArray, getString } from '@/utils'
 import Formatter from '@/utils/formatter'
 import validator from 'email-validator'
@@ -13,7 +14,11 @@ export class User {
   }
 
   get storeLabel () {
-    return 'Restaurant Green 44300'
+    if (!this.store) return ''
+    const store = apiService.stores.find(s => s.id === this.store)
+    if (store) return store.name
+    console.error('cant find store with id :', this.store)
+    return ''
   }
 
   constructor (data = {}) {
@@ -25,7 +30,7 @@ export class User {
     this.lastName = getString(data.lastName)
     this.password = getString(data.password)
     this.locale = data.locale || currentLocale()
-    this.store = getString(data.store)
+    this.store = getString(data.store) || '1'
     this.orders = getArray(data.orders).map(o => new Order(o))
     if (!this.firstName) {
       this.detectNamesFromEmail()
