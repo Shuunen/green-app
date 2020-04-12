@@ -28,11 +28,11 @@ Install NVM :
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 ```
 
-Install Node 11.x using NVM :
+Install Node 12 using NVM :
 
 ```bash
-nvm install 11.10
-nvm alias default 11.10
+nvm install 12.16
+nvm alias default 12.16
 ```
 
 ### xcodeproj, cocoapods, six

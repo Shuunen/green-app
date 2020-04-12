@@ -9,11 +9,11 @@ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh
 bash
 ```
 
-Install Node 10 LTS using NVM :
+Install Node 12 LTS using NVM :
 
 ```bash
-nvm install 10.17.0
-nvm alias default 10.17.0
+nvm install 12.16
+nvm alias default 12.16
 ```
 
 ## SDK

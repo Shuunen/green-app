@@ -16,11 +16,11 @@
   - [Tips](#tips)
   - [Upgrading stack](#upgrading-stack)
   - [TODO](#todo)
+  - [Thanks](#thanks)
 
 ## Prerequisites
 
-- Node >= 10
-- Npm >= 6
+- Node >= 12
 - [NativeScript](https://nativescript-vue.org/en/docs/getting-started/installation/)
 
 ## Guides
