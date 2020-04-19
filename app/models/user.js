@@ -1,6 +1,6 @@
+import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
-import { currentLocale, getArray, getString } from '@/utils'
-import Formatter from '@/utils/formatter'
+import { capitalizeFirstLetter } from '@/utils'
 import validator from 'email-validator'
 import { Order } from './order'
 
@@ -21,17 +21,21 @@ export class User {
     return ''
   }
 
-  constructor (data = {}) {
-    this.allergens = getArray(data.allergens)
-    this.diets = getArray(data.diets)
-    this.email = getString(data.email)
-    this.firstName = getString(data.firstName)
-    this.id = getString(data['@id'])
-    this.lastName = getString(data.lastName)
-    this.password = getString(data.password)
-    this.locale = data.locale || currentLocale()
-    this.store = getString(data.store) || '1'
-    this.orders = getArray(data.orders).map(o => new Order(o))
+  constructor ({
+    allergens = [], diets = [], email = '',
+    firstName = '', lastName = '', password = '',
+    locale = i18n.locale, store = '', orders = [], ...data
+  }) {
+    this.allergens = allergens
+    this.diets = diets
+    this.email = email
+    this.firstName = firstName
+    this.id = data['@id'] || ''
+    this.lastName = lastName
+    this.password = password
+    this.locale = locale
+    this.store = store
+    this.orders = orders.map(o => new Order(o))
     if (!this.firstName) {
       this.detectNamesFromEmail()
     }
@@ -41,10 +45,10 @@ export class User {
     const names = (this.email.split('@')[0] || '').split('.')
     if (!names || !names.length) return
     if (names[0]) {
-      this.firstName = Formatter.capitalizeFirstLetter(names[0])
+      this.firstName = capitalizeFirstLetter(names[0])
     }
     if (names[1]) {
-      this.lastName = Formatter.capitalizeFirstLetter(names[1])
+      this.lastName = capitalizeFirstLetter(names[1])
     }
   }
 }

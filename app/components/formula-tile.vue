@@ -2,7 +2,7 @@
   <FlexboxLayout class="primary-border p-m mb-m">
     <StackLayout flexGrow="1" flexShrink="0" class="mr-m">
       <Label :text="data.title" class="alt bold fz-m" />
-      <Label :text="formatPrice(data.price)" class="alt fz-m" />
+      <Label :text="readablePrice(data.price)" class="alt fz-m" />
     </StackLayout>
 
     <StackLayout flexGrow="2" class="pt-s">
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Formatter from '@/utils/formatter'
+import { readablePrice } from '@/utils'
 
 export default {
   props: {
@@ -28,6 +28,11 @@ export default {
       type: Boolean,
       default: false,
     },
+  },
+  data () {
+    return {
+      readablePrice,
+    }
   },
   computed: {
     description: function () {
@@ -55,7 +60,6 @@ export default {
     },
   },
   methods: {
-    formatPrice: num => Formatter.price(num),
     select () {
       console.log('user selected :', this.data.title)
       this.$emit('tap')

@@ -1,12 +1,11 @@
-import { getArray, getString } from '@/utils'
 
 export class Store {
-  constructor (data = {}) {
-    this.id = getString(data.id)
-    this.menus = getArray(data.menus)
-    this.name = getString(data.name)
-    this.address = getString(data.address)
-    this.phone = getString(data.phone)
+  constructor ({ id = '', menus = [], name = '', address = '', phone = '' }) {
+    this.id = id
+    this.menus = menus
+    this.name = name
+    this.address = address
+    this.phone = phone
   }
 }
 
