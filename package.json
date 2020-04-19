@@ -35,7 +35,7 @@
     "nativescript-toasty": "2.0.1",
     "nativescript-vue": "2.6.0",
     "nativescript-vue-devtools": "1.4.0",
-    "shuutils": "4.0.0",
+    "shuutils": "4.1.0",
     "tns-core-modules": "6.5.1",
     "vue-i18n": "8.17.2"
   },
