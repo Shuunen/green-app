@@ -22,7 +22,7 @@
 
 <script>
 import { apiService } from '@/services'
-import { copy as clone } from 'shuutils'
+import { clone } from 'shuutils'
 import { readablePrice } from '@/utils'
 import Cart from '@/pages/cart'
 import Home from '@/pages/home'

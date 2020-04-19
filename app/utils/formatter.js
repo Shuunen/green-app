@@ -17,7 +17,7 @@ export const readableList = (items, selection) => {
   const list = []
   items.forEach(item => {
     if (selection.includes(item.value)) {
-      list.push(this.capitalizeFirstLetter(this.$t(item.title)))
+      list.push(capitalizeFirstLetter($t(item.title)))
     }
   })
   return list.join(', ')
@@ -27,7 +27,7 @@ export const readableDate = (dateStr = new Date().toISOString()) => {
   // dateStr is like       "2020-04-01T17:02:45+00:00"
   // but ISOString is like "2018-04-02T17:26:11.182Z"
   const date = new Date(dateStr)
-  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }
+  const options = { year: 'numeric', month: 'long', day: 'numeric' }
   const str = new intl.DateTimeFormat(getLocaleLong(), options).format(date)
   console.log('readable date :', str)
   return str

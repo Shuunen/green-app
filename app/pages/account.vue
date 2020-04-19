@@ -34,8 +34,8 @@
             </FlexboxLayout>
           </StackLayout>
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
-          <StackLayout class="p-m">
-            <Label v-for="order in user.orders" :key="order.id" class="mt-l fz-s uppercase" :text="$t('account.order-from', { date: readableDate(order.creationDate) })" />
+          <StackLayout class="pl-m pr-m">
+            <app-order-line v-for="(order, index) in user.orders" :key="order.id" :class="{even: index % 2, odd: !(index % 2)}" :date="$t('account.order-from', { date: readableDate(order.creationDate) })" :store="order.storeName" :details="readableDetails(order)" :price="readablePrice(order.price)" />
           </StackLayout>
           <app-tile :data="{ type: 'wrap', name: $t('account.about') }" :hero="false" />
           <StackLayout class="p-m">
@@ -50,7 +50,7 @@
 
 <script>
 import { apiService } from '@/services'
-import { prettyPrint, readableDate, readableList } from '@/utils'
+import { prettyPrint, readableDate, readableList, readablePrice } from '@/utils'
 import AccountEdit from '@/pages/account-edit'
 import Home from '@/pages/home'
 import Login from '@/pages/login'
@@ -61,10 +61,11 @@ export default {
       allergens: apiService.allergens,
       diets: apiService.diets,
       Home,
+      readableDate,
+      readableList,
+      readablePrice,
       stores: apiService.stores,
       user: apiService.user,
-      readableList,
-      readableDate,
     }
   },
   mounted () {
@@ -78,6 +79,20 @@ export default {
     doLogout () {
       apiService.doLogout().then(() => this.$navigateTo(Login))
     },
+    readableDetails (order) {
+      return [
+        `fat ${order.totalFat}g`,
+        `cal ${order.totalCarbohydrate}kcal`,
+        `proteins ${order.totalProteins}g`,
+        `salt ${order.totalSalt}g`,
+      ]
+    },
   },
 }
 </script>
+
+<style>
+.order-line.even {
+  background-color: var(--color-primary-light);
+}
+</style>

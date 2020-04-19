@@ -115,6 +115,7 @@ class ApiService {
   async doLogout () {
     console.log('doLogout, cleaning session : token, user, ...')
     this.token = {}
+    // keep user mail to avoid him type it again
     this.user = new User({ email: this.user.email })
   }
 
