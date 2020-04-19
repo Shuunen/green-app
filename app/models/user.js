@@ -1,8 +1,8 @@
+import { UserCustomerOrder } from '@/models'
 import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
 import { capitalizeFirstLetter } from '@/utils'
 import validator from 'email-validator'
-import { Order } from './order'
 
 export class User {
   get hasValidPassword () {
@@ -22,23 +22,22 @@ export class User {
   }
 
   constructor ({
-    allergens = [], diets = [], email = '',
+    allergens = [], diets = [], email = '', id = '',
     firstName = '', lastName = '', password = '',
-    locale = i18n.locale, store = '', orders = [], ...data
+    locale = i18n.locale, store = '', orders = [],
   }) {
     this.allergens = allergens
     this.diets = diets
     this.email = email
     this.firstName = firstName
-    this.id = data['@id'] || ''
+    this.id = id
     this.lastName = lastName
     this.password = password
     this.locale = locale
     this.store = store
-    this.orders = orders.map(o => new Order(o))
-    if (!this.firstName) {
-      this.detectNamesFromEmail()
-    }
+    this.orders = orders.map(o => new UserCustomerOrder(o))
+    if (!this.firstName) this.detectNamesFromEmail()
+    // console.log('user is now', prettyPrint(this))
   }
 
   detectNamesFromEmail () {

@@ -65,7 +65,7 @@
 
 <script>
 import { apiService } from '@/services'
-import { copy as clone } from 'shuutils'
+import { clone } from 'shuutils'
 import { prettyPrint } from '@/utils'
 import { User } from '@/models'
 import Account from '@/pages/account'

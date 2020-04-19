@@ -2,6 +2,7 @@
   /* https://coolors.co/fcfcef-353535-53ba82-3c6e71-6c3d94 */
   --color-black: #353535;
   --color-white: #FCFCEF;
+  --color-primary-light: hsl(149, 43%, 90%);
   --color-primary: #53BA82;
   --color-primary-dark: hsl(147, 43%, 37%);
   --color-grey: #3C6E71;

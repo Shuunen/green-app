@@ -46,8 +46,10 @@ export default {
   },
   mounted () {
     console.log('Login page mounted')
+    /*
     this.user.email = 'user5@example.com'
     this.user.password = 'user5'
+    */
   },
   methods: {
     focusPassword () {
