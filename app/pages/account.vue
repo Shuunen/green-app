@@ -50,8 +50,8 @@
 
 <script>
 import { apiService } from '@/services'
+import { prettyPrint, readableDate, readableList } from '@/utils'
 import AccountEdit from '@/pages/account-edit'
-import Formatter from '@/utils/formatter'
 import Home from '@/pages/home'
 import Login from '@/pages/login'
 
@@ -63,21 +63,17 @@ export default {
       Home,
       stores: apiService.stores,
       user: apiService.user,
+      readableList,
+      readableDate,
     }
   },
   mounted () {
-    console.log('Account page mounted with user', Formatter.prettyPrint(this.user))
+    console.log('Account page mounted with user', prettyPrint(this.user))
   },
   methods: {
     onEdit () {
       console.log('account : user wants to edit his data')
       this.$navigateTo(AccountEdit)
-    },
-    readableList (items, selection) {
-      return Formatter.readableList(items, selection)
-    },
-    readableDate (dateStr) {
-      return Formatter.readableDate(dateStr)
     },
     doLogout () {
       apiService.doLogout().then(() => this.$navigateTo(Login))

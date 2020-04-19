@@ -1,11 +1,10 @@
-import { getArray, getString } from '@/utils'
 
 export class Order {
-  constructor (data = {}) {
-    this.id = getString(data.id)
-    this.menus = getArray(data.menus)
-    this.store = getString(data.store)
-    this.creationDate = getString(data.creationDate)
+  constructor ({ id = '', menus = [], store = '', creationDate = '' }) {
+    this.id = id
+    this.menus = menus
+    this.store = store
+    this.creationDate = creationDate
   }
 }
 

@@ -1,6 +1,4 @@
 
-export const sleep = async (ms) => new Promise(resolve => setTimeout(resolve, (ms || 1000)))
-
 const diets = [
   {
     title: 'diet.vegetarian',

@@ -11,7 +11,7 @@ class ApiService {
   constructor () {
     this.locales = LOCALES
     this._locale = LOCALE_DEFAULT_CODE
-    this.user = new User()
+    this.user = new User({})
     this.allergens = []
     this.diets = []
     this.formulas = []
@@ -49,7 +49,7 @@ class ApiService {
   }
 
   async get (url) {
-    return getJSON({ url, headers: this.getHeaders(), timeout: 3000 })
+    return getJSON({ url, headers: this.getHeaders(), timeout: 5000 })
   }
 
   async getCommonData () {

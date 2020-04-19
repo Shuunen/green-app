@@ -65,10 +65,10 @@
 
 <script>
 import { apiService } from '@/services'
-import { clone, getString } from '@/utils'
+import { copy as clone } from 'shuutils'
+import { prettyPrint } from '@/utils'
 import { User } from '@/models'
 import Account from '@/pages/account'
-import Formatter from '@/utils/formatter'
 
 export default {
   data () {
@@ -86,14 +86,14 @@ export default {
   },
   created () {
     this.user = clone(apiService.user)
-    console.log('Account editor created with user', Formatter.prettyPrint(this.user))
+    console.log('Account editor created with user', prettyPrint(this.user))
     this.userDiets.selection = this.diets.filter(d => this.user.diets.includes(d.value)) // [{ title: 'diet.vegan', value: 'vegan' }]
     this.userAllergens.selection = this.allergens.filter(a => this.user.allergens.includes(a.value))
     this.stores = apiService.stores.map(s => ({ title: s.name, value: s.id }))
-    this.userStore.selection = this.stores.filter(s => (getString(this.user.store) === getString(s.value)))
+    this.userStore.selection = this.stores.filter(s => this.user.store === s.value)
   },
   mounted () {
-    console.log('Account editor mounted with user', Formatter.prettyPrint(this.user))
+    console.log('Account editor mounted with user', prettyPrint(this.user))
   },
   methods: {
     isStep1Valid () {
@@ -119,7 +119,7 @@ export default {
       this.$navigateTo(Account)
     },
     submit () {
-      console.log('account edit : user submitted :', Formatter.prettyPrint(this.user))
+      console.log('account edit : user submitted :', prettyPrint(this.user))
       apiService.user = new User(this.user)
       // TODO #181 : start loading + apiService.updateUserData + end loading
       this.$navigateTo(Account)

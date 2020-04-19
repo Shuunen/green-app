@@ -21,11 +21,11 @@
 </template>
 
 <script>
-import Cart from '@/pages/cart'
-import Formatter from '@/utils/formatter'
-import Home from '@/pages/home'
 import { apiService } from '@/services'
-import { clone } from '@/utils'
+import { copy as clone } from 'shuutils'
+import { readablePrice } from '@/utils'
+import Cart from '@/pages/cart'
+import Home from '@/pages/home'
 
 export default {
   props: {
@@ -50,7 +50,7 @@ export default {
   computed: {
     orderText: function () {
       if (this.valid) {
-        const total = this.formatPrice(this.total)
+        const total = readablePrice(this.total)
         return this.$t('order.formula-for') + ' ' + total
       }
       return this.$t('order.complete-selection')
@@ -66,7 +66,6 @@ export default {
       this.updateTotal()
       this.updateValidity()
     },
-    formatPrice: num => Formatter.price(num),
     updateTotal () {
       this.total = this.picks.reduce((sum, val) => (sum += val.price || 0), 0)
       this.total += this.order.price

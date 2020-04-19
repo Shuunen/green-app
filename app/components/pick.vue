@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Formatter from '@/utils/formatter'
+import { readablePrice, prettyPrint } from '@/utils'
 
 export default {
   props: {
@@ -40,10 +40,9 @@ export default {
   },
   mounted () {
     console.log('Pick component mounted :', this.data.from)
-    console.log('selection is :', Formatter.prettyPrint(this.data.selection))
+    console.log('selection is :', prettyPrint(this.data.selection))
   },
   methods: {
-    formatPrice: (num) => Formatter.price(num),
     setList () {
       const type = this.data.from
       // eslint-disable-next-line no-prototype-builtins
@@ -96,7 +95,7 @@ export default {
       if (!this.data.extraPrice) {
         return
       }
-      let str = this.formatPrice(this.data.extraPrice)
+      let str = readablePrice(this.data.extraPrice)
       str += ' ' + this.$t('pick.for-each-extra')
       this.data.extraText = str
     },
@@ -110,7 +109,6 @@ export default {
       }
       return Math.max(this.selection.length - this.data.pick, 0) * this.data.extraPrice
     },
-    capitalizeFirstLetter: str => Formatter.capitalizeFirstLetter(str),
     selectItem (item) {
       const index = this.selection.findIndex(s => s.value === item.value)
       if (index > -1) {

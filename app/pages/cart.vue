@@ -7,14 +7,14 @@
           <StackLayout class="p-m">
             <StackLayout class="m-l mb-m">
               <StackLayout v-for="(formula, fi) in orders" :key="fi">
-                <app-cart-line class="pt-m pb-m fz-m alt" :type="formula.title" :price="formatPrice(formula.price)" />
+                <app-cart-line class="pt-m pb-m fz-m alt" :type="formula.title" :price="readablePrice(formula.price)" />
                 <app-cart-line
                   v-for="(pick, pi) in formula.picks"
                   :key="pi"
                   class="pl-m pb-s"
                   :type="pick.titleTextSingular"
                   :selection="pick.selection"
-                  :price="formatPrice(pick.price)"
+                  :price="readablePrice(pick.price)"
                   :delay="200 + pi * 200"
                 />
               </StackLayout>
@@ -35,9 +35,9 @@
 </template>
 
 <script>
-import Formatter from '@/utils/formatter'
-import Home from '@/pages/home'
+import { readablePrice } from '@/utils'
 import Formulas from '@/pages/formulas'
+import Home from '@/pages/home'
 
 export default {
   props: {
@@ -48,6 +48,7 @@ export default {
   },
   data () {
     return {
+      readablePrice,
       valid: false,
     }
   },
@@ -55,7 +56,6 @@ export default {
     console.log('Cart page created')
   },
   methods: {
-    formatPrice: num => Formatter.price(num),
     modify () {
       this.$navigateBack()
     },
@@ -70,7 +70,7 @@ export default {
       let total = 0
       this.orders.forEach(formula => (total += formula.total))
       console.log('total is', total)
-      return this.formatPrice(total)
+      return readablePrice(total)
     },
     cartTotalDelay () {
       let delay = 200
