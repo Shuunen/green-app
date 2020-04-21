@@ -15,6 +15,7 @@
             :text="$t(user.store ? 'order.place' : 'account.set-target')"
             @tap="user.store ? $navigateTo(Formulas) : $navigateTo(Account)"
           />
+          <Label v-show="isLoading" :text="$t('common.loading')" class="center fz-s" />
           <ActivityIndicator class="mt-s" :busy="isLoading" />
           <!-- end -->
         </FlexboxLayout>
@@ -51,6 +52,7 @@ export default {
       .then(() => {
         this.user = apiService.user
         this.isLoading = false
+        // this.$navigateTo(Formulas) // REMOVE ME
       })
   },
   showErrorAndLogout (err) {
