@@ -3,7 +3,7 @@ import { UserOrderMenu } from '@/models'
 
 export class UserCustomerOrder {
   constructor ({
-    id = '', menus = [], store = {}, storeName = '', creationDate = '', price = 0,
+    id = 0, menus = [], store = {}, storeName = '', creationDate = '', price = 0,
     totalFat = 0, totalCarbohydrate = 0, totalProteins = 0, totalSalt = 0,
   }) {
     this.id = id
