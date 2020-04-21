@@ -48,7 +48,9 @@ class ApiService {
     this.user.locale = code
   }
 
-  async get (url) {
+  async get (endpoint) {
+    const url = BASE_URL + endpoint
+    console.log('apiService get with url :', url)
     return getJSON({ url, headers: this.getHeaders(), timeout: 5000 })
   }
 
@@ -64,9 +66,7 @@ class ApiService {
   }
 
   async getStores () {
-    const url = `${BASE_URL}/stores`
-    console.log('getting stores with GET ' + url)
-    const response = await this.get(url)
+    const response = await this.get('/stores')
     if (response.error) return this.showError('error.' + response.error)
     console.log('successfully got stores')
     this.stores = response['hydra:member'].map(data => new Store(data))
@@ -76,9 +76,7 @@ class ApiService {
 
   async getUserData () {
     // this.user = new User(Mocks.users[0])
-    const url = `${BASE_URL}/me`
-    console.log('getting user data with GET ' + url)
-    const response = await this.get(url)
+    const response = await this.get('/me')
     if (response.error) return this.showError('error.' + response.error)
     console.log('successfully got user data with email :', response.email)
     this.user = new User(response)
