@@ -6,8 +6,10 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column">
           <!-- content from here -->
-          <Label :text="$tc('order.choose-formula', orders.length) + ' :'" class="pt-s pb-m fz-m grey" />
+          <Label v-show="!isLoading" :text="formulas.length ? $tc('order.choose-formula', orders.length) : $t('order.no-formulas')" class="pt-s pb-m fz-m grey" textWrap="true" />
           <app-formula-tile v-for="data in formulas" :key="data.title" :data="data" @tap.native="goto(data)" @tap="goto(data)" />
+          <Label v-show="isLoading" :text="$t('common.loading')" class="center fz-s" />
+          <ActivityIndicator class="mt-s" :busy="isLoading" />
           <!-- end -->
         </FlexboxLayout>
       </ScrollView>
