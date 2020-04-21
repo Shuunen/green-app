@@ -1,20 +1,28 @@
 
 export class Store {
-  constructor ({ id = '', menus = [], name = '', address = '', phone = '' }) {
+  constructor ({ id = 0, menus = [], menu = [], name = '', address = '', phone = '' }) {
     this.id = id
-    this.menus = menus
+    this.menus = menus.concat(menu)
     this.name = name
     this.address = address
     this.phone = phone
   }
 }
 
-/* sample order :
-{
- "id": 18,
- "menus": [],
- "store": "/stores/7",
- "customer": "/users/9",
- "creationDate": "2020-04-01T17:02:45+00:00"
-}
-*/
+/* {
+  "@id": "/stores/1",
+  "@type": "Store",
+  "id": 1,
+  "name": "Default store",
+  "address": null,
+  "phone": null,
+  "menu": [
+      "/menu_models/5",
+      "/menu_models/4",
+      "/menu_models/3",
+      "/menu_models/2",
+      "/menu_models/1"
+  ],
+  "locale": "/locales/2",
+  "currency": "/currencies/2"
+} */

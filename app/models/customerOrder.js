@@ -1,7 +1,7 @@
 import { prettyPrint } from '@/utils'
 
 export class CustomerOrder {
-  constructor ({ id = '', menus = [], store = {}, creationDate = '' }) {
+  constructor ({ id = 0, menus = [], store = {}, creationDate = '' }) {
     this.id = id
     this.menus = menus
     this.store = store

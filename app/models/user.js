@@ -22,9 +22,9 @@ export class User {
   }
 
   constructor ({
-    allergens = [], diets = [], email = '', id = '',
+    allergens = [], diets = [], email = '', id = 0,
     firstName = '', lastName = '', password = '',
-    locale = i18n.locale, store = '', orders = [],
+    locale = i18n.locale, store = 0, orders = [],
   }) {
     this.allergens = allergens
     this.diets = diets
