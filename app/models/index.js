@@ -1,4 +1,5 @@
 export * from './customerOrder'
+export * from './menuModel'
 export * from './oauth-token'
 export * from './orderMenu'
 export * from './store'
