@@ -56,19 +56,47 @@ export default {
       console.log('card.constructor', prettyPrint(card.constructor))
       */
       // const stripeCard = new Card(card.getNumber().toString(), Number(card.getExpMonth()), Number(card.getExpYear()), card.getCVC().toString())
-      const pm = await this.getPaymentMethod(fakeVisa)
-      console.log('paymentMethod', prettyPrint(pm))
+      const data = {}
+      data.card = this.getCard(fakeVisa)
+      data.paymentMethod = await this.getPaymentMethod(data.card)
+      data.paymentToken = await this.getPaymentToken(data.card)
+      console.log('here is all the data I have for now :', prettyPrint(data))
     },
 
-    async getPaymentMethod ({ number, month, year, cvc }) {
-      return new Promise((resolve, reject) => {
-        const cc = new Card(number, parseInt(month), parseInt(year), cvc)
+    getCard ({ number, month, year, cvc }) {
+      return new Card(number, parseInt(month), parseInt(year), cvc)
+    },
+
+    async getPaymentToken (card) {
+      return new Promise(resolve => {
+        const onPaymentToken = (err, token) => {
+          if (err) {
+            console.error('payment token failed', err)
+            alert('payment token failed')
+            return resolve(null)
+          }
+          console.log('payment token has been generated :', token)
+          alert('payment token has been generated !')
+          resolve(token)
+        }
+        stripe.createToken(card, onPaymentToken)
+      })
+    },
+
+    async getPaymentMethod (card) {
+      return new Promise(resolve => {
         const onPaymentMethod = (err, pm) => {
-          if (err) return reject(err)
-          console.log('paymentMethod has been generated with id :', pm.id)
+          if (err) {
+            console.error('payment method failed', err)
+            alert('payment method failed')
+            return resolve(null)
+          }
+          console.log('payment method has been generated with id :', pm.id)
+          alert('payment method has been generated !')
+
           resolve(pm)
         }
-        stripe.createPaymentMethod(cc, onPaymentMethod)
+        stripe.createPaymentMethod(card, onPaymentMethod)
       })
     },
   },
