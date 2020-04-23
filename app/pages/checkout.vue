@@ -6,8 +6,7 @@
           <app-header :user="user" />
           <app-tile :data="{ type: 'dessert', name: 'Checkout' }" :hero="true" />
           <StackLayout class="p-m center">
-            <Label text="You need to pay :" class="fz-m mt-l pt-l" />
-            <Label :text="readablePrice(32.40)" class="fz-l mt-m mb-l" />
+            <CreditCardView ref="ccView" class="mt-l" />
             <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
               <Button class="action big validate" :text="$t('order.pay', { amount : readablePrice(32.40) })" @tap="pay()" />
             </FlexboxLayout>

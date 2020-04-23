@@ -5,9 +5,12 @@ import '@/plugins/components'
 import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
 import { SVGImage } from '@teammaestro/nativescript-svg'
+import { CreditCardView } from 'nativescript-stripe'
 import Vue from 'nativescript-vue'
 
 Vue.registerElement('SVGImage', () => SVGImage)
+
+Vue.registerElement('CreditCardView', () => CreditCardView)
 
 Vue.config.silent = (TNS_ENV === 'production') // Prints Vue logs when --env.production is *NOT* set while building
 
