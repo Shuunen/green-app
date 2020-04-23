@@ -32,6 +32,7 @@
     "@vue/devtools": "5.3.3",
     "nativescript-intl": "3.0.0",
     "nativescript-socketio": "3.3.1",
+    "nativescript-stripe": "6.5.0",
     "nativescript-toasty": "2.0.1",
     "nativescript-vue": "2.6.0",
     "nativescript-vue-devtools": "1.4.0",
