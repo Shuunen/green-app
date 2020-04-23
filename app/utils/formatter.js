@@ -1,5 +1,6 @@
 import { getLocaleCurrency, getLocaleLong, i18n } from '@/plugins/i18n'
 import * as intl from 'nativescript-intl'
+import { inspect } from 'util'
 
 export const $t = key => i18n.t(key)
 
@@ -33,4 +34,5 @@ export const readableDate = (dateStr = new Date().toISOString()) => {
   return str
 }
 
-export const prettyPrint = obj => JSON.stringify(obj, null, 2)
+// showProxy: true, showHidden: true, getters: true
+export const prettyPrint = obj => inspect(obj, { depth: 1, colors: true })
