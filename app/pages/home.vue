@@ -26,6 +26,7 @@
 
 <script>
 import Account from '@/pages/account'
+import Checkout from '@/pages/checkout'
 import Formulas from '@/pages/formulas'
 import Login from '@/pages/login'
 import { apiService } from '@/services'
@@ -52,7 +53,7 @@ export default {
       .then(() => {
         this.user = apiService.user
         this.isLoading = false
-        // this.$navigateTo(Formulas) // REMOVE ME
+        this.$navigateTo(Checkout) // REMOVE ME
       })
   },
   showErrorAndLogout (err) {

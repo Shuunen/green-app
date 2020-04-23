@@ -34,7 +34,7 @@ export class User {
     this.lastName = lastName
     this.password = password
     this.locale = locale
-    this.store = store
+    this.store = store || 1 // REMOVE this default store
     this.orders = orders.map(o => new UserCustomerOrder(o))
     if (!this.firstName) this.detectNamesFromEmail()
     // console.log('user is now', prettyPrint(this))
