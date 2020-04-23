@@ -9,7 +9,7 @@
             <Label text="You need to pay :" class="fz-m mt-l pt-l" />
             <Label :text="readablePrice(32.40)" class="fz-l mt-m mb-l" />
             <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
-              <Button class="action big validate" :text="$t('order.pay')" @tap="pay()" />
+              <Button class="action big validate" :text="$t('order.pay', { amount : readablePrice(32.40) })" @tap="pay()" />
             </FlexboxLayout>
           </StackLayout>
         </StackLayout>
