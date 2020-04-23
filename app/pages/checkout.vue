@@ -18,8 +18,17 @@
 </template>
 
 <script>
-import { readablePrice } from '@/utils'
+import { readablePrice, prettyPrint } from '@/utils'
 import { apiService } from '@/services'
+import { Stripe, Card } from 'nativescript-stripe'
+
+const stripe = new Stripe('pk_test_icN9h1tmcNGKumwhkiinNuG100CEFYGWvX')
+const fakeVisa = {
+  number: '4716898794354567',
+  month: '01',
+  year: '2021',
+  cvc: '055',
+}
 
 export default {
   data () {
@@ -33,8 +42,34 @@ export default {
     console.log('Checkout page created')
   },
   methods: {
-    pay () {
-      console.log('user wanna pay')
+    async pay () {
+      // https://www.nsplugins.com/plugin/nativescript-stripe
+      // https://blog.angelengineering.com/shopping-app/
+      // https://github.com/triniwiz/nativescript-stripe/pull/84/files
+      // const ccView = this.$refs.ccView.nativeView
+      //  console.log('keys from this.$refs.ccView.android :', prettyPrint(this.$refs.ccView.nativeView.card))
+      // console.log('this.$refs.ccView', prettyPrint(this.$refs.ccView.card))
+      /*
+      const nativeView = this.$refs.ccView.nativeView
+      const card = nativeView.android.getCard()
+      if (!card.validateCard()) return console.error('card is invalid')
+      console.log('card.constructor', prettyPrint(card.constructor))
+      */
+      // const stripeCard = new Card(card.getNumber().toString(), Number(card.getExpMonth()), Number(card.getExpYear()), card.getCVC().toString())
+      const pm = await this.getPaymentMethod(fakeVisa)
+      console.log('paymentMethod', prettyPrint(pm))
+    },
+
+    async getPaymentMethod ({ number, month, year, cvc }) {
+      return new Promise((resolve, reject) => {
+        const cc = new Card(number, parseInt(month), parseInt(year), cvc)
+        const onPaymentMethod = (err, pm) => {
+          if (err) return reject(err)
+          console.log('paymentMethod has been generated with id :', pm.id)
+          resolve(pm)
+        }
+        stripe.createPaymentMethod(cc, onPaymentMethod)
+      })
     },
   },
 }
