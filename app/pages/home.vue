@@ -15,6 +15,8 @@
             :text="$t(user.store ? 'order.place' : 'account.set-target')"
             @tap="user.store ? $navigateTo(Formulas) : $navigateTo(Account)"
           />
+          <Button class="action big validate" :text="$t('order.pay', { amount : readablePrice(32.40) })" @tap="$navigateTo(Checkout)" />
+
           <Label v-show="isLoading" :text="$t('common.loading')" class="center fz-s" />
           <ActivityIndicator class="mt-s" :busy="isLoading" />
           <!-- end -->
@@ -25,18 +27,21 @@
 </template>
 
 <script>
+import { apiService } from '@/services'
+import { readablePrice } from '@/utils'
 import Account from '@/pages/account'
 import Checkout from '@/pages/checkout'
 import Formulas from '@/pages/formulas'
 import Login from '@/pages/login'
-import { apiService } from '@/services'
 
 export default {
   data () {
     return {
       Account,
+      Checkout,
       Formulas,
       isLoading: false,
+      readablePrice,
       user: apiService.user,
     }
   },
@@ -53,7 +58,6 @@ export default {
       .then(() => {
         this.user = apiService.user
         this.isLoading = false
-        this.$navigateTo(Checkout) // REMOVE ME
       })
   },
   showErrorAndLogout (err) {
