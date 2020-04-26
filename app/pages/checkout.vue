@@ -2,6 +2,8 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
+        <WebView src="~/pages/stripe.html" />
+        <!--
         <StackLayout>
           <app-header :user="user" />
           <app-tile :data="{ type: 'dessert', name: 'Checkout' }" :hero="true" />
@@ -13,30 +15,16 @@
             </FlexboxLayout>
           </StackLayout>
         </StackLayout>
+        -->
       </ScrollView>
     </FlexboxLayout>
   </Page>
 </template>
 
 <script>
-import { readablePrice } from '@/utils'
-import { apiService } from '@/services'
-
 export default {
-  data () {
-    return {
-      readablePrice,
-      isLoading: false,
-      user: apiService.user,
-    }
-  },
   created () {
     console.log('Checkout page created')
-  },
-  methods: {
-    pay () {
-      console.log('user wanna pay')
-    },
   },
 }
 </script>

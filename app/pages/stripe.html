@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Stripe</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+  <p>Loading ...</p>
+  <script>
+    var stripe = Stripe('pk_test_icN9h1tmcNGKumwhkiinNuG100CEFYGWvX');
+    var sessionId = 'cs_test_Nh3xPAHWDZd5La7bOPq73jRY5sAoHXGb8tthvmGTFK00BOreDCVboApG'
+    stripe.redirectToCheckout({ sessionId }).then(function (result) {
+      // If `redirectToCheckout` fails due to a browser or network
+      // error, display the localized error message to your customer
+      // using `result.error.message`.
+    });
+  </script>
+</body>
+
+</html>
