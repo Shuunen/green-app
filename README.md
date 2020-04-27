@@ -14,6 +14,7 @@
   - [Guides](#guides)
   - [Usage](#usage)
   - [Tips](#tips)
+  - [About deep linking](#about-deep-linking)
   - [Upgrading stack](#upgrading-stack)
   - [TODO](#todo)
   - [Thanks](#thanks)
@@ -44,6 +45,20 @@ npm run debug # Build, watch for changes and debug the application
 ## Tips
 
 - if there is structural updates to the project like new deps, modified conf, etc... delete the `platforms` folder and let `npm run dev` (or build) regenerate it
+
+## About deep linking
+
+Access via `greenapporder://my-page?param=42` scheme is setup on both Android & iOS.
+
+Access via `https://green-app-order.fr/my-page?param=42` scheme is setup on Android only (for now).
+
+Keep in mind that the second option will not open the app right away because it's a web link and the local browser can open it too. So the first time user will click a link like this it will be prompted to choose which app to use to open this link.
+
+Also, because the host `green-app-order.fr` does not exists the deep linking will not work.
+
+To edit this deep linking : `app\App_Resources\Android\src\main\AndroidManifest.xml` & `app\App_Resources\iOS\Info.plist`
+
+When a deep link is catch by `app\plugins\url-handler.js` you will see a console log with details.
 
 ## Upgrading stack
 
