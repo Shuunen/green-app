@@ -15,11 +15,6 @@
             :text="$t(user.store ? 'order.place' : 'account.set-target')"
             @tap="user.store ? $navigateTo(Formulas) : $navigateTo(Account)"
           />
-          <Button
-            class="action big validate"
-            :text="$t('order.pay', { amount : readablePrice(32.40) })"
-            @tap="$navigateTo(Checkout, { props: { sessionId: 'cs_test_Nh3xPAHWDZd5La7bOPq73jRY5sAoHXGb8tthvmGTFK00BOreDCVboApG' } })"
-          />
 
           <Label v-show="isLoading" :text="$t('common.loading')" class="center fz-s" />
           <ActivityIndicator class="mt-s" :busy="isLoading" />
