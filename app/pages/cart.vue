@@ -20,6 +20,13 @@
               </StackLayout>
             </StackLayout>
             <app-cart-line class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="cartTotal()" :delay="cartTotalDelay()" />
+            <!--
+              <Button
+                class="action big validate"
+                :text="$t('order.pay', { amount : readablePrice(32.40) })"
+                @tap="$navigateTo(Checkout, { props: { sessionId: 'cs_test_pFJYjNrylNOqCcdj06phRLhJFrevdI85VWWmBvYRDVXPvfJhq9AykXwm' } })"
+              />
+            -->
 
             <Button class="action big" :text="$t('order.add-formula')" @tap="add()" />
             <Button class="action big validate" :text="$t('order.validate-pay')" />

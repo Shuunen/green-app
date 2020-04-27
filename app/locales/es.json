@@ -27,7 +27,9 @@
     "lactose": "lactosa"
   },
   "checkout": {
-    "loading": "Cargando..."
+    "failed": "Lo sentimos, pero el pago falló, puedes intentarlo de nuevo o contactarnos para obtener ayuda",
+    "loading": "Cargando...",
+    "success": "¡El pago se realizó correctamente, su pedido se está gestionando !"
   },
   "common": {
     "ar": "Arábe",
