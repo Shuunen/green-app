@@ -26,6 +26,9 @@
     "gluten": "الغولتين",
     "lactose": "اللاكتوز"
   },
+  "checkout": {
+    "loading": "جار التحميل..."
+  },
   "common": {
     "ar": "عربى",
     "arabic": "عربى",

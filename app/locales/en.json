@@ -26,6 +26,9 @@
     "gluten": "gluten",
     "lactose": "lactose"
   },
+  "checkout": {
+    "loading": "Loading..."
+  },
   "common": {
     "ar": "Arabic",
     "arabic": "Arabic",

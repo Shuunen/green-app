@@ -25,7 +25,8 @@
         "code_long": "es-ES",
         "currency": "EUR"
       }
-    }
+    },
+    "stripe_pub_key": "pk_test_icN9h1tmcNGKumwhkiinNuG100CEFYGWvX"
   },
   "dependencies": {
     "@teammaestro/nativescript-svg": "1.0.1",
