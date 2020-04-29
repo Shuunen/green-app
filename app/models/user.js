@@ -21,23 +21,19 @@ export class User {
     return ''
   }
 
-  constructor ({
-    allergens = [], diets = [], email = '', id = 0,
-    firstName = '', lastName = '', password = '',
-    locale = i18n.locale, store = 0, orders = [],
-  }) {
-    this.allergens = allergens
-    this.diets = diets
-    this.email = email
-    this.firstName = firstName
-    this.id = id
-    this.lastName = lastName
-    this.password = password
-    this.locale = locale
-    this.store = store || 1 // REMOVE this default store
-    this.orders = orders.map(o => new UserCustomerOrder(o))
+  // defaults in args only works with undefined values -.- need to default below to handle undefined & null values
+  constructor ({ allergens, diets, email, id, firstName, lastName, password, locale, store, orders }) {
+    this.allergens = allergens || []
+    this.diets = diets || []
+    this.email = email || ''
+    this.firstName = firstName || ''
+    this.id = id || 0
+    this.lastName = lastName || ''
+    this.password = password || ''
+    this.locale = locale || i18n.locale
+    this.store = store || 0
+    this.orders = (orders || []).map(o => new UserCustomerOrder(o))
     if (!this.firstName) this.detectNamesFromEmail()
-    // console.log('user is now', prettyPrint(this))
   }
 
   detectNamesFromEmail () {

@@ -1,11 +1,12 @@
+import { MenuModel } from './menuModel'
 
 export class Store {
-  constructor ({ id = 0, menus = [], menu = [], name = '', address = '', phone = '' }) {
-    this.id = id
-    this.menus = menus.concat(menu)
-    this.name = name
-    this.address = address
-    this.phone = phone
+  constructor ({ id, menus, name, address, phone }) {
+    this.id = id || 0
+    this.menus = (menus || []).map(m => new MenuModel(m))
+    this.name = name || ''
+    this.address = address || ''
+    this.phone = phone || ''
   }
 }
 
@@ -16,13 +17,7 @@ export class Store {
   "name": "Default store",
   "address": null,
   "phone": null,
-  "menu": [
-      "/menu_models/5",
-      "/menu_models/4",
-      "/menu_models/3",
-      "/menu_models/2",
-      "/menu_models/1"
-  ],
+  "menu": [...],
   "locale": "/locales/2",
   "currency": "/currencies/2"
 } */

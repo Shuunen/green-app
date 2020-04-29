@@ -3,10 +3,10 @@
 import { access } from 'shuutils'
 
 export class UserOrderMenu {
-  constructor ({ id = 0, price = 0, menu = {}, menuName = '' }) {
-    this.id = id
-    this.price = price
-    this.menuName = menuName || access.default(menu, 'menuModel.label', '')
+  constructor ({ id, price, menu, menuName }) {
+    this.id = id || 0
+    this.price = price || 0
+    this.menuName = menuName || access.default(menu || {}, 'menuModel.label', '') || ''
   }
 }
 
