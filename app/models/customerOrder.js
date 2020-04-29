@@ -1,11 +1,11 @@
 import { prettyPrint } from '@/utils'
 
 export class CustomerOrder {
-  constructor ({ id = 0, menus = [], store = {}, creationDate = '' }) {
-    this.id = id
-    this.menus = menus
-    this.store = store
-    this.creationDate = creationDate
+  constructor ({ id, menus, store, creationDate }) {
+    this.id = id || 0
+    this.menus = menus || []
+    this.store = store || {}
+    this.creationDate = creationDate || ''
     console.log('a customer order has been created', prettyPrint(this))
   }
 }

@@ -1,9 +1,9 @@
 
 export class OrderMenu {
-  constructor ({ id = 0, items = [], price = 0 }) {
-    this.id = id
-    this.items = items
-    this.price = price
+  constructor ({ id, items, price }) {
+    this.id = id || 0
+    this.items = items || []
+    this.price = price || 0
   }
 }
 

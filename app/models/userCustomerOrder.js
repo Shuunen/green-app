@@ -2,21 +2,18 @@
 import { UserOrderMenu } from '@/models'
 
 export class UserCustomerOrder {
-  constructor ({
-    id = 0, menus = [], store = {}, storeName = '', creationDate = '', price = 0,
-    totalFat = 0, totalCarbohydrate = 0, totalProteins = 0, totalSalt = 0,
-  }) {
-    this.id = id
-    this.menus = menus.map(m => new UserOrderMenu(m))
-    this.storeName = storeName || store.name
-    this.creationDate = creationDate
-    this.totalFat = totalFat
+  constructor ({ id, menus, store, storeName, creationDate, price, totalFat, totalCarbohydrate, totalProteins, totalSalt }) {
+    this.id = id || 0
+    this.menus = (menus || []).map(m => new UserOrderMenu(m))
+    this.storeName = storeName || (store || {}).name || ''
+    this.creationDate = creationDate || ''
+    this.totalFat = totalFat || 0
     // this.totalFatLipid =  totalFatLipid
-    this.totalCarbohydrate = totalCarbohydrate
+    this.totalCarbohydrate = totalCarbohydrate || 0
     // this.totalCarbohydrateSugar =  totalCarbohydrateSugar
-    this.totalProteins = totalProteins
-    this.totalSalt = totalSalt
-    this.price = price || this.menus.reduce((a, b) => (a += b.price), 0)
+    this.totalProteins = totalProteins || 0
+    this.totalSalt = totalSalt || 0
+    this.price = price || this.menus.reduce((a, b) => (a += b.price), 0) || 0
     // console.log('a user customer order has been created', prettyPrint(this))
   }
 }
