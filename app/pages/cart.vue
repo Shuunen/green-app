@@ -7,7 +7,8 @@
           <StackLayout class="p-m">
             <StackLayout class="m-l mb-m">
               <StackLayout v-for="(formula, fi) in orders" :key="fi">
-                <app-cart-line class="pt-m pb-m fz-m alt" :type="formula.title" :price="readablePrice(formula.price)" />
+                <!-- note formula here is a cloned object, not a formula/menu_model instance -->
+                <app-cart-line class="pt-m pb-m fz-m alt" :type="formula.label" :price="readablePrice(formula.price)" />
                 <app-cart-line
                   v-for="(pick, pi) in formula.picks"
                   :key="pi"
@@ -19,7 +20,7 @@
                 />
               </StackLayout>
             </StackLayout>
-            <app-cart-line class="pl-m pt-m pb-m fz-m" :type="$t('order.total')" :price="cartTotal()" :delay="cartTotalDelay()" />
+            <app-cart-line class="p-m fz-m" :type="$t('order.total')" :price="cartTotal()" :delay="cartTotalDelay()" />
             <!--
               <Button
                 class="action big validate"
