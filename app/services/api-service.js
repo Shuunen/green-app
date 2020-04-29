@@ -14,7 +14,6 @@ class ApiService {
     this.user = new User({})
     this.allergens = []
     this.diets = []
-    this.formulas = []
     this.items = {}
     this.stores = []
   }
@@ -58,10 +57,8 @@ class ApiService {
     console.log('getting common data')
     this.allergens = Mocks.commonData.allergens
     this.diets = Mocks.commonData.diets
-    this.formulas = Mocks.commonData.formulas
     this.items = Mocks.commonData.items
     await this.getStores()
-    console.log(`loaded ${this.formulas.length} formulas`)
     return 'ok'
   }
 
@@ -71,6 +68,13 @@ class ApiService {
     console.log('successfully got stores')
     this.stores = response['hydra:member'].map(data => new Store(data))
     console.log(`loaded ${this.stores.length} stores`)
+    /**
+     * Note : storing stores like this in array is not great, always need to .find to get one is pretty fat
+     * should move to "object" map :
+     * response['hydra:member'].reduce((map, obj) => (map[obj.id] = new Store(obj), map), {})
+     * or to a real map with :
+     * response['hydra:member'].reduce((map, obj) => (map.set(obj.id, new Store(obj)), map), new Map())
+     */
     return 'ok'
   }
 
@@ -129,7 +133,7 @@ class ApiService {
   }
 
   getHeaders (toAppend = {}) {
-    const Authorization = 'Bearer ' + this.token.accessToken
+    const Authorization = 'Bearer ' + this.token.access_token
     return Object.assign({ 'Content-Type': 'application/json', Authorization }, toAppend)
   }
 }
