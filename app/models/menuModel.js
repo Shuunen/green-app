@@ -20,7 +20,7 @@ export class MenuModel {
   }
 
   constructor ({ id, label, price, icon, picks }) {
-    this.id = id || 0// FIXME: id is missing https://github.com/Shuunen/green-app/issues/204
+    this.id = id || 0 // FIXME: id is missing https://github.com/Shuunen/green-app/issues/204
     this.label = label || ''
     this.price = price || 0
     this.picks = PICKS_MOCK || picks || [] // FIXME: remove PICKS_MOCK https://github.com/Shuunen/green-app/issues/213

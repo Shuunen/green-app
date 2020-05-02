@@ -36,3 +36,9 @@ export const readableDate = (dateStr = new Date().toISOString()) => {
 
 // showProxy: true, showHidden: true, getters: true
 export const prettyPrint = obj => inspect(obj, { depth: 1, colors: true })
+
+//            4 => 4
+//         null => 0
+//           "" => 0
+// "/stores/42" => 42
+export const idFromUri = (input = 0) => (typeof input === 'number' ? input : (parseInt(input.split('/')[2]) || 0))

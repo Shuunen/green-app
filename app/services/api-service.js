@@ -1,11 +1,12 @@
 import pkg from '@/../package.json'
 import { OAuthToken, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import * as Mocks from '@/utils/mocks'
+import { commonData } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
 import { getJSON, request } from 'tns-core-modules/http'
 
 const BASE_URL = pkg.config.api
+const timeout = 5000
 
 class ApiService {
   constructor () {
@@ -50,14 +51,22 @@ class ApiService {
   async get (endpoint) {
     const url = BASE_URL + endpoint
     console.log('apiService get with url :', url)
-    return getJSON({ url, headers: this.getHeaders(), timeout: 5000 })
+    return getJSON({ url, headers: this.getHeaders(), timeout })
+  }
+
+  async patch (endpoint, data) {
+    const url = BASE_URL + endpoint
+    const content = JSON.stringify(data)
+    const response = await getJSON({ url, method: 'PUT', content, headers: this.getHeaders(), timeout })
+    if (response.error) return this.showError('error.' + response.error)
+    return 'ok'
   }
 
   async getCommonData () {
     console.log('getting common data')
-    this.allergens = Mocks.commonData.allergens
-    this.diets = Mocks.commonData.diets
-    this.items = Mocks.commonData.items
+    this.allergens = commonData.allergens
+    this.diets = commonData.diets
+    this.items = commonData.items
     await this.getStores()
     return 'ok'
   }
@@ -79,12 +88,27 @@ class ApiService {
   }
 
   async getUserData () {
-    // this.user = new User(Mocks.users[0])
     const response = await this.get('/me')
     if (response.error) return this.showError('error.' + response.error)
     console.log('successfully got user data with email :', response.email)
     this.user = new User(response)
     return 'ok'
+  }
+
+  async updateUserData (data) {
+    if (!data.id) return this.showError('error.missing-user-id')
+    const url = '/users/' + data.id
+    const updates = {
+      allergens: [], // FIXME: data.allergens, https://github.com/Shuunen/green-app/issues/201
+      diets: data.diets,
+      firstname: data.firstname,
+      lastname: data.lastname,
+      locale: data.locale,
+      store: '/stores/' + data.store,
+    }
+    const status = await this.patch(url, updates)
+    if (status === 'ok') await this.getUserData()
+    else console.error('patch failed')
   }
 
   async doLogin () {

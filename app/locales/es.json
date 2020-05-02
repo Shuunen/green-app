@@ -67,6 +67,7 @@
     "alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
     "alert-title": "Error",
     "api-needed": "Se necesita una API para esta llamada no burlada",
+    "internal": "Apareció un error interno, contáctenos",
     "invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
     "invalid-password": "Por favor, defina una contraseña",
     "invalid_grant": "Esta cuenta no existe",

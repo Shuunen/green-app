@@ -1,7 +1,7 @@
 import { UserCustomerOrder } from '@/models'
 import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
-import { capitalizeFirstLetter } from '@/utils'
+import { capitalizeFirstLetter, idFromUri } from '@/utils'
 import validator from 'email-validator'
 
 export class User {
@@ -22,28 +22,28 @@ export class User {
   }
 
   // defaults in args only works with undefined values -.- need to default below to handle undefined & null values
-  constructor ({ allergens, diets, email, id, firstName, lastName, password, locale, store, orders }) {
+  constructor ({ allergens, diets, email, id, firstname, lastname, password, locale, store, orders }) {
     this.allergens = allergens || []
     this.diets = diets || []
     this.email = email || ''
-    this.firstName = firstName || ''
+    this.firstname = firstname || ''
     this.id = id || 0
-    this.lastName = lastName || ''
+    this.lastname = lastname || ''
     this.password = password || ''
     this.locale = locale || i18n.locale
-    this.store = store || 0
+    this.store = idFromUri(store)
     this.orders = (orders || []).map(o => new UserCustomerOrder(o))
-    if (!this.firstName) this.detectNamesFromEmail()
+    if (!this.firstname) this.detectNamesFromEmail()
   }
 
   detectNamesFromEmail () {
     const names = (this.email.split('@')[0] || '').split('.')
     if (!names || !names.length) return
     if (names[0]) {
-      this.firstName = capitalizeFirstLetter(names[0])
+      this.firstname = capitalizeFirstLetter(names[0])
     }
     if (names[1]) {
-      this.lastName = capitalizeFirstLetter(names[1])
+      this.lastname = capitalizeFirstLetter(names[1])
     }
   }
 }

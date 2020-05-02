@@ -67,6 +67,7 @@
     "alert-message-suffix": "Sorry for the inconvenience, contact us with this error code so that we can help you : {code}",
     "alert-title": "Error",
     "api-needed": "An API is needed for this un-mocked call",
+    "internal": "An internal error appeared, please contact us ",
     "invalid-email": "Please enter a valid email address",
     "invalid-password": "Please type a password",
     "invalid_grant": "This account does not exists",
