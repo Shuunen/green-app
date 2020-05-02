@@ -7,7 +7,7 @@
           <app-tile :data="{ type: 'smoothie', name: $t('account.my-account') }" :hero="false" />
           <StackLayout class="p-m center">
             <!-- infos -->
-            <Label class="mt-l fz-l bold alt" :text="(user.firstName + ' ' + user.lastName).trim()" />
+            <Label class="mt-l fz-l bold alt" :text="(user.firstname + ' ' + user.lastname).trim()" />
             <StackLayout v-if="user.diets && user.diets.length">
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-diets')" />
               <Label class="bold alt fz-m" :text="readableList(diets, user.diets)" />

@@ -67,6 +67,7 @@
     "alert-message-suffix": "Désolé pour le dérangement, contactez-nous en nous fournissant ce code d'erreur pour que l'on puisse vous aider : {code}",
     "alert-title": "Erreur",
     "api-needed": "Une API est nécessaire pour cet appel bouchonné",
+    "internal": "Une erreur interne est apparue, veuillez nous contacter",
     "invalid-email": "Merci d'utiliser une adresse email valide",
     "invalid-password": "Veuillez taper un mot de passe",
     "invalid_grant": "Ce compte n'existe pas",

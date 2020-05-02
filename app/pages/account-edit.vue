@@ -9,11 +9,11 @@
                 <Label :text="$t('signup.step-1')" class="fz-m mb-l" textWrap="true" />
                 <StackLayout class="input-field">
                   <Label :text="$t('account.first-name') + ' *'" />
-                  <TextField v-model="user.firstName" />
+                  <TextField v-model="user.firstname" />
                 </StackLayout>
                 <StackLayout class="input-field">
                   <Label :text="$t('account.last-name')" />
-                  <TextField v-model="user.lastName" />
+                  <TextField v-model="user.lastname" />
                 </StackLayout>
                 <Label :text="$t('common.required-fields')" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
@@ -67,7 +67,6 @@
 import { apiService } from '@/services'
 import { clone } from 'shuutils'
 import { prettyPrint } from '@/utils'
-import { User } from '@/models'
 import Account from '@/pages/account'
 
 export default {
@@ -97,7 +96,7 @@ export default {
   },
   methods: {
     isStep1Valid () {
-      return (this && this.user.firstName ? this.user.firstName.length : 0) > 3
+      return (this && this.user.firstname ? this.user.firstname.length : 0) > 3
     },
     tabChange (args) {
       this.tabSelected = args.value
@@ -118,10 +117,11 @@ export default {
       console.log('account edit : user canceled')
       this.$navigateTo(Account)
     },
-    submit () {
+    async submit () {
       console.log('account edit : user submitted :', prettyPrint(this.user))
-      apiService.user = new User(this.user)
-      // TODO #181 : start loading + apiService.updateUserData + end loading
+      this.isLoading = true
+      await apiService.updateUserData(this.user)
+      this.isLoading = false
       this.$navigateTo(Account)
     },
 
