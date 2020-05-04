@@ -4,7 +4,7 @@
       <StackLayout flexGrow="1" />
       <app-icon class="mb-l" height="70" name="logo-green-alt" />
       <StackLayout flexGrow="1">
-        <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l" textWrap="true" />
+        <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l black" textWrap="true" />
         <TextField
           v-model="user.email"
           :hint="$t('account.email')"
@@ -23,7 +23,7 @@
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
-        <Label class="mt-s mb-m" horizontalAlignment="center" :text="$t('login.forgot-password')" />
+        <Label class="mt-s mb-m black" horizontalAlignment="center" :text="$t('login.forgot-password')" />
         <ActivityIndicator :busy="isLoading" />
       </StackLayout>
       <app-lang-selector />
