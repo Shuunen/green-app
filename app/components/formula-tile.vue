@@ -1,17 +1,11 @@
 <template>
   <FlexboxLayout class="primary-border p-m mb-m">
-    <StackLayout flexGrow="1" flexShrink="0" class="mr-m">
-      <Label :text="data.title" class="alt bold fz-m" />
-      <Label :text="readablePrice(data.price)" class="alt fz-m" />
+    <StackLayout flexGrow="2" flexShrink="1" class="mr-m ml-s">
+      <Label :text="data.title" class="alt bold fz-l" />
+      <Label v-for="(line, index) in description" :key="index" :text="line" class="fz-l mt-m black"/>
+      <Label :text="readablePrice(data.price)" class="alt fz-m mt-m" />
     </StackLayout>
 
-    <StackLayout flexGrow="2" class="pt-s">
-      <Label v-for="(line, index) in description" :key="index" :text="line" />
-    </StackLayout>
-
-    <StackLayout flexShrink="0">
-      <Button :text="$t('common.select')" @tap="select()" />
-    </StackLayout>
   </FlexboxLayout>
 </template>
 

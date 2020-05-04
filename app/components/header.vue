@@ -2,7 +2,7 @@
   <FlexboxLayout flexDirection="column" flexShrink="0">
     <FlexboxLayout class="pt-m pb-m pl-l pr-l bg-primary" justifyContent="space-between" height="50">
       <app-icon :name="onHome ? '' : 'home-white'" height="25" width="25" @tap.native="$navigateTo(Home)" />
-      <Label class="white fz-m ml-s bold" :text="user.storeLabel" @tap="$navigateTo(Account)" />
+      <Label class="white fz-m ml-s bold" :text="user.firstName + ' ' + user.lastName" @tap="$navigateTo(Account)" />
       <app-icon :name="onAccount ? '' : 'user-white'" height="25" width="25" @tap.native="$navigateTo(Account)" />
     </FlexboxLayout>
   </FlexboxLayout>
