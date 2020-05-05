@@ -1,7 +1,7 @@
 import { UserCustomerOrder } from '@/models'
 import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
-import { capitalizeFirstLetter, idFromUri } from '@/utils'
+import { capitalizeFirstLetter, idFromUri, idsFromUris } from '@/utils'
 import validator from 'email-validator'
 
 export class User {
@@ -23,8 +23,7 @@ export class User {
 
   // defaults in args only works with undefined values -.- need to default below to handle undefined & null values
   constructor ({ allergens, diets, email, id, firstname, lastname, password, locale, store, orders }) {
-    this.allergens = allergens || []
-    this.diets = diets || []
+    this.allergens = idsFromUris(allergens || [])
     this.email = email || ''
     this.firstname = firstname || ''
     this.id = id || 0
@@ -58,6 +57,7 @@ export class User {
     "ROLE_USER"
   ],
   "id": 35,
+  "allergens": [],
   "username": "romain.racamier@gmail.com",
   "usernameCanonical": "romain.racamier@gmail.com",
   "salt": null,
