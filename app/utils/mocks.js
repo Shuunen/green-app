@@ -1,19 +1,4 @@
 
-const diets = [
-  {
-    title: 'diet.vegetarian',
-    value: 'vegetarian',
-  },
-  {
-    title: 'diet.vegan',
-    value: 'vegan',
-  },
-  {
-    title: 'diet.kosher',
-    value: 'kosher',
-  },
-]
-
 const items = {
   bases: [
     {
@@ -320,15 +305,4 @@ const items = {
   ],
 }
 
-const allergens = [
-  {
-    title: 'allergen.lactose',
-    value: 'lactose',
-  },
-  {
-    title: 'allergen.gluten',
-    value: 'gluten',
-  },
-]
-
-export const commonData = { items, diets, allergens }
+export const commonData = { items }

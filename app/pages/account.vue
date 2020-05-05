@@ -8,10 +8,12 @@
           <StackLayout class="p-m center">
             <!-- infos -->
             <Label class="mt-l fz-l bold alt" :text="(user.firstname + ' ' + user.lastname).trim()" />
+            <!-- TODO https://github.com/Shuunen/green-app/issues/220
             <StackLayout v-if="user.diets && user.diets.length">
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-diets')" />
               <Label class="bold alt fz-m" :text="readableList(diets, user.diets)" />
             </StackLayout>
+            -->
             <StackLayout v-if="user.allergens && user.allergens.length">
               <Label class="mt-l fz-s uppercase" :text="$t('account.my-allergens')" />
               <Label class="bold alt fz-m" :text="readableList(allergens, user.allergens)" />

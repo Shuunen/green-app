@@ -64,9 +64,9 @@ class ApiService {
 
   async getCommonData () {
     console.log('getting common data')
-    this.allergens = commonData.allergens
-    this.diets = commonData.diets
     this.items = commonData.items
+    // TODO https://github.com/Shuunen/green-app/issues/220
+    // await this.getType('diets', Diet)
     await this.getType('allergens', Allergen)
     await this.getType('products', Product)
     await this.getType('stores', Store)
@@ -100,8 +100,7 @@ class ApiService {
     const url = '/users/' + data.id
     const updates = {
       allergens: urisFromIds('allergens', data.allergens),
-      allergens: [], // FIXME: data.allergens, https://github.com/Shuunen/green-app/issues/201
-      diets: data.diets,
+      // diets: data.diets, // TODO https://github.com/Shuunen/green-app/issues/220
       firstname: data.firstname,
       lastname: data.lastname,
       locale: data.locale,

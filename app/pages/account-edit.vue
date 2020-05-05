@@ -31,7 +31,8 @@
             <ScrollView orientation="vertical" flexGrow="1">
               <StackLayout class="p-l">
                 <Label :text="$t('signup.step-2')" class="fz-m mb-l" textWrap="true" />
-                <app-pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" />
+                <!-- TODO https://github.com/Shuunen/green-app/issues/220
+                <app-pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" /> -->
                 <app-pick :data="userAllergens" :items="{ allergens }" @change="onAllergensPickChange" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                   <Button class="action big validate" :text="$t('common.next-step')" @tap="tabSelected++" />
