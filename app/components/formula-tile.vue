@@ -2,10 +2,9 @@
   <FlexboxLayout class="primary-border p-m mb-m">
     <StackLayout flexGrow="2" flexShrink="1" class="mr-m ml-s">
       <Label :text="data.title" class="alt bold fz-l" />
-      <Label v-for="(line, index) in description" :key="index" :text="line" class="fz-l mt-m black"/>
+      <Label v-for="(line, index) in description" :key="index" :text="line" class="fz-l mt-m black" />
       <Label :text="readablePrice(data.price)" class="alt fz-m mt-m" />
     </StackLayout>
-
   </FlexboxLayout>
 </template>
 
