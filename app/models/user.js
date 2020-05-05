@@ -24,6 +24,7 @@ export class User {
   // defaults in args only works with undefined values -.- need to default below to handle undefined & null values
   constructor ({ allergens, diets, email, id, firstname, lastname, password, locale, store, orders }) {
     this.allergens = idsFromUris(allergens || [])
+    // this.diets = idsFromUris(diets || []) // TODO https://github.com/Shuunen/green-app/issues/220
     this.email = email || ''
     this.firstname = firstname || ''
     this.id = id || 0
