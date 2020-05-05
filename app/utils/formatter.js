@@ -37,8 +37,11 @@ export const readableDate = (dateStr = new Date().toISOString()) => {
 // showProxy: true, showHidden: true, getters: true
 export const prettyPrint = obj => inspect(obj, { depth: 1, colors: true })
 
-//            4 => 4
-//         null => 0
-//           "" => 0
-// "/stores/42" => 42
+/**
+ * @param {string} uri like "/stores/42"
+ * @returns 42 (integer)
+ */
 export const idFromUri = (input = 0) => (typeof input === 'number' ? input : (parseInt(input.split('/')[2]) || 0))
+export const idsFromUris = uris => uris.map(uri => idFromUri(uri))
+export const uriFromId = (type, id) => `/${type}/${id}`
+export const urisFromIds = (type, ids) => ids.map(id => uriFromId(type, id))

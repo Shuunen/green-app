@@ -1,7 +1,7 @@
 import pkg from '@/../package.json'
-import { OAuthToken, Store, User } from '@/models'
+import { Allergen, OAuthToken, Product, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import { commonData } from '@/utils'
+import { commonData, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
 import { getJSON, request } from 'tns-core-modules/http'
 
@@ -67,16 +67,16 @@ class ApiService {
     this.allergens = commonData.allergens
     this.diets = commonData.diets
     this.items = commonData.items
-    await this.getStores()
+    await this.getType('allergens', Allergen)
+    await this.getType('stores', Store)
     return 'ok'
   }
 
-  async getStores () {
-    const response = await this.get('/stores')
+  async getType (type, Model) {
+    const response = await this.get('/' + type)
     if (response.error) return this.showError('error.' + response.error)
-    console.log('successfully got stores')
-    this.stores = response['hydra:member'].map(data => new Store(data))
-    console.log(`loaded ${this.stores.length} stores`)
+    this[type] = response['hydra:member'].map(data => new Model(data))
+    console.log(`loaded ${this[type].length} ${type}`)
     /**
      * Note : storing stores like this in array is not great, always need to .find to get one is pretty fat
      * should move to "object" map :
@@ -84,7 +84,6 @@ class ApiService {
      * or to a real map with :
      * response['hydra:member'].reduce((map, obj) => (map.set(obj.id, new Store(obj)), map), new Map())
      */
-    return 'ok'
   }
 
   async getUserData () {
@@ -99,12 +98,13 @@ class ApiService {
     if (!data.id) return this.showError('error.missing-user-id')
     const url = '/users/' + data.id
     const updates = {
+      allergens: urisFromIds('allergens', data.allergens),
       allergens: [], // FIXME: data.allergens, https://github.com/Shuunen/green-app/issues/201
       diets: data.diets,
       firstname: data.firstname,
       lastname: data.lastname,
       locale: data.locale,
-      store: '/stores/' + data.store,
+      store: uriFromId('stores', data.store),
     }
     const status = await this.patch(url, updates)
     if (status === 'ok') await this.getUserData()
