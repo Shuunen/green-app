@@ -68,6 +68,7 @@ class ApiService {
     this.diets = commonData.diets
     this.items = commonData.items
     await this.getType('allergens', Allergen)
+    await this.getType('products', Product)
     await this.getType('stores', Store)
     return 'ok'
   }
