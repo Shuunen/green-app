@@ -6,11 +6,11 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column">
           <!-- content from here -->
-          <Label v-show="!isLoading" :text="formulas.length ? $tc('order.choose-formula', orders.length) : $t('order.no-formulas')" class="pt-s pb-m fz-m grey" textWrap="true" />
-          <app-formula-tile v-for="formula in formulas" :key="formula.title" :data="formula" @tap.native="goto(formula)" @tap="goto(formula)" />
+          <Label v-show="!isLoading" :text="menus.length ? $tc('order.choose-formula', orders.length) : $t('order.no-formulas')" class="pt-s pb-m fz-m grey" textWrap="true" />
+          <app-formula-tile v-for="menu in menus" :key="menu.title" :data="menu" @tap.native="goto(menu)" @tap="goto(menu)" />
           <!-- action button -->
           <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
-            <Button v-show="!isLoading && !formulas.length" class="action validate mb-l" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
+            <Button v-show="!isLoading && !menus.length" class="action validate mb-l" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
             <Button class="action" :text="$t('common.back-home')" @tap="$navigateTo(Home)" />
           </FlexboxLayout>
           <Label v-show="isLoading" :text="$t('common.loading')" class="center fz-s" />
@@ -41,7 +41,7 @@ export default {
       Account,
       Home,
       capitalizeFirstLetter,
-      formulas: [],
+      menus: [],
       isLoading: false,
       stores: apiService.stores,
       user: apiService.user,
@@ -59,7 +59,7 @@ export default {
         return console.error('cannot find the user store from stores list')
       }
       console.log(`here is the menus form store "${store.name}" :`, prettyPrint(store.menus))
-      this.formulas = store.menus
+      this.menus = store.menus.filter(menu => menu.active)
     },
     goto (data) {
       console.log('user wants to go to :', prettyPrint(data))

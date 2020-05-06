@@ -19,12 +19,13 @@ export class MenuModel {
     return this.label
   }
 
-  constructor ({ id, label, price, icon, picks }) {
+  constructor ({ id, label, price, icon, picks, active }) {
     this.id = id || 0
     this.label = label || ''
     this.price = price || 0
     this.picks = PICKS_MOCK || picks || [] // FIXME: remove PICKS_MOCK https://github.com/Shuunen/green-app/issues/213
     this.icon = icon || 'formulas'
+    this.active = active || false
   }
 }
 
