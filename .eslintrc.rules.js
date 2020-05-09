@@ -8,7 +8,7 @@ module.exports = {
   'vue/attribute-hyphenation': 'off',
   'vue-i18n/no-missing-keys': 'off',
   'vue-i18n/no-unused-keys': ['error', {
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue'],
   }],
   'comma-dangle': ['error', 'always-multiline'],
 }
