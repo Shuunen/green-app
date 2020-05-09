@@ -33,6 +33,7 @@
 import { apiService } from '@/services'
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
 import Home from '@/pages/home'
+import AccountEdit from '@/pages/account-edit'
 
 export default {
   props: {
@@ -67,7 +68,7 @@ export default {
       const status = await (this.hasAccount ? apiService.doLogin() : apiService.doSignup())
       this.isLoading = false
       if (status !== 'ok') return console.log('unexpected point reached, status is', status)
-      this.$navigateTo(Home)
+      this.$navigateTo(this.hasAccount ? Home : AccountEdit)
     },
   },
 }
