@@ -55,7 +55,7 @@ import { apiService } from '@/services'
 import { prettyPrint, readableDate, readableList, readablePrice } from '@/utils'
 import AccountEdit from '@/pages/account-edit'
 import Home from '@/pages/home'
-import Login from '@/pages/login'
+import PreLogin from '@/pages/pre-login'
 
 export default {
   data () {
@@ -79,7 +79,8 @@ export default {
       this.$navigateTo(AccountEdit)
     },
     doLogout () {
-      apiService.doLogout().then(() => this.$navigateTo(Login))
+      apiService.doLogout()
+      this.$navigateTo(PreLogin)
     },
     readableDetails (order) {
       return [

@@ -31,7 +31,7 @@ import { readablePrice } from '@/utils'
 import Account from '@/pages/account'
 import Checkout from '@/pages/checkout'
 import Formulas from '@/pages/formulas'
-import Login from '@/pages/login'
+import PreLogin from '@/pages/pre-login'
 
 export default {
   data () {
@@ -59,10 +59,11 @@ export default {
         this.isLoading = false
       })
   },
-  showErrorAndLogout (err) {
+  async showErrorAndLogout (err) {
     this.isLoading = false
     apiService.showError(err)
-    apiService.doLogout().then(() => this.$navigateTo(Login))
+    apiService.doLogout()
+    this.$navigateTo(PreLogin)
   },
 }
 </script>

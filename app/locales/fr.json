@@ -67,6 +67,7 @@
     "alert-message-suffix": "Désolé pour le dérangement, contactez-nous en nous fournissant ce code d'erreur pour que l'on puisse vous aider : {code}",
     "alert-title": "Erreur",
     "api-needed": "Une API est nécessaire pour cet appel bouchonné",
+    "duplicate_key": "Cet e-mail appartient à un compte, veuillez vous connecter ou vous inscrire avec un autre e-mail",
     "internal": "Une erreur interne est apparue, veuillez nous contacter",
     "invalid-email": "Merci d'utiliser une adresse email valide",
     "invalid-password": "Veuillez taper un mot de passe",
@@ -78,11 +79,9 @@
   },
   "login": {
     "forgot-password": "Mot de passe oublié ?",
-    "has-account": "J'ai un compte",
     "login": "S'identifier",
-    "no-account": "Je n'ai pas encore de compte",
     "sign-up": "S'inscrire",
-    "welcome": "Bienvenue sur l'application de commande Green is better ! Veuillez vous connecter ou créer un compte gratuit pour l'utiliser."
+    "welcome": "Bienvenue sur l'application de commande Green is better !"
   },
   "order": {
     "add-formula": "ajouter une autre formule",
@@ -128,6 +127,13 @@
     "you-can-pick-n-sauces": "Vous pouvez choisir une sauce | Vous pouvez choisir {n} sauces",
     "you-can-pick-n-stores": "Vous pouvez choisir un restaurant | Vous pouvez choisir {n} restaurants",
     "you-can-pick-n-wraps-or-n-soups": "Vous pouvez choisir un wrap ou une soupe | Vous pouvez en choisir {n}"
+  },
+  "pre-login": {
+    "has-account": "J'ai un compte",
+    "login": "S'identifier",
+    "no-account": "Je n'ai pas encore de compte",
+    "sign-up": "S'inscrire",
+    "welcome": "Veuillez vous connecter ou créer un compte gratuit pour l'utiliser."
   },
   "signup": {
     "signup": "créer mon compte",
