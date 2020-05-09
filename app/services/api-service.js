@@ -1,7 +1,7 @@
 import pkg from '@/../package.json'
 import { Allergen, OAuthToken, Product, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import { commonData, uriFromId, urisFromIds } from '@/utils'
+import { commonData, prettyPrint, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
 import { getJSON, request } from 'tns-core-modules/http'
 
@@ -117,7 +117,7 @@ class ApiService {
     const url = `${BASE_URL}/oauth/v2/token?grant_type=password&client_id=1_green-app&client_secret=green-app&username=${email}&password=${password}`
     console.log('login in user ' + email)
     const response = await getJSON(url)
-    console.log('got response', JSON.stringify(response))
+    console.log('doLogin got response', prettyPrint(response))
     if (response.error) return this.showError('error.' + response.error)
     console.log('setting session token')
     this.token = new OAuthToken(response)
@@ -126,16 +126,23 @@ class ApiService {
     return 'ok'
   }
 
+  async postJSON (url, data) {
+    const content = JSON.stringify(data)
+    const httpResponse = await request({ url, method: 'POST', headers: { 'Content-Type': 'application/json' }, content }).catch(this.showError)
+    const response = httpResponse.content.toJSON()
+    response.error = response.handled_error // FIXME https://github.com/Shuunen/green-app/issues/225
+    return response
+  }
+
   async doSignup () {
     const { email, password } = this.user
     if (!email || !password) return this.showError('error.missing-data-for-signup')
     const url = `${BASE_URL}/users`
-    const content = JSON.stringify({ email, username: email, plainPassword: password })
     console.log('creating a user...')
-    const response = await request({ url, method: 'POST', headers: { 'Content-Type': 'application/json' }, content }).catch(this.showError)
+    const response = await this.postJSON(url, { email, username: email, plainPassword: password })
+    console.log('doSignup got response', prettyPrint(response))
     if (response.error) return this.showError('error.' + response.error)
-    await this.doLogin()
-    return 'ok'
+    return this.doLogin()
   }
 
   async doLogout () {
@@ -145,7 +152,7 @@ class ApiService {
     this.user = new User({ email: this.user.email })
   }
 
-  showError (error) {
+  async showError (error) {
     const message = typeof error === 'string' ? error : error.message
     // TODO: better test than include dot to detect a i18n key
     const code = (message && message.includes('.')) ? message : 'error.unknown'
@@ -154,6 +161,7 @@ class ApiService {
       message: i18n.t(code), // + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
       okButtonText: i18n.t('error.alert-button'),
     })
+    return 'KO'
   }
 
   getHeaders (toAppend = {}) {
