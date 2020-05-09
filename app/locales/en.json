@@ -67,6 +67,7 @@
     "alert-message-suffix": "Sorry for the inconvenience, contact us with this error code so that we can help you : {code}",
     "alert-title": "Error",
     "api-needed": "An API is needed for this un-mocked call",
+    "duplicate_key": "This email belong to an account, please login or sign-up with another email",
     "internal": "An internal error appeared, please contact us ",
     "invalid-email": "Please enter a valid email address",
     "invalid-password": "Please type a password",
@@ -78,11 +79,9 @@
   },
   "login": {
     "forgot-password": "Forgot your password ?",
-    "has-account": "I have an account",
     "login": "login",
-    "no-account": "I don't have an account yet",
     "sign-up": "Sign up",
-    "welcome": "Welcome to Green is better order app ! Please sign in or register a free account to use it."
+    "welcome": "Welcome to Green is better order app !"
   },
   "order": {
     "add-formula": "add another formula",
@@ -128,6 +127,13 @@
     "you-can-pick-n-sauces": "You can pick one sauce | You can pick {n} sauces",
     "you-can-pick-n-stores": "You can pick one restaurant | You can pick {n} restaurants",
     "you-can-pick-n-wraps-or-n-soups": "You can pick a wrap or a soup | You can choose {n} of these"
+  },
+  "pre-login": {
+    "has-account": "I have an account",
+    "login": "login",
+    "no-account": "I don't have an account yet",
+    "sign-up": "Sign up",
+    "welcome": "Please sign in or register a free account to use it."
   },
   "signup": {
     "signup": "create my account",

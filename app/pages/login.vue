@@ -15,15 +15,13 @@
           autocapitalizationType="none"
           @returnPress="focusPassword()"
         />
+        <!-- TODO https://github.com/Shuunen/green-app/issues/125 -->
         <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
-        <StackLayout class="mt-s" orientation="horizontal">
-          <Switch v-model="hasAccount" :isEnabled="!isLoading" />
-          <Label class="fz-s bold ml-m" :text="hasAccount ? $t('login.has-account') : $t('login.no-account')" textWrap="true" verticalAlignment="center" @tap="hasAccount = !hasAccount" />
-        </StackLayout>
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
-        <Label class="mt-s mb-m black" horizontalAlignment="center" :text="$t('login.forgot-password')" />
+        <!-- TODO https://github.com/Shuunen/green-app/issues/224
+        <Label class="mt-s mb-m black" horizontalAlignment="center" :text="$t('login.forgot-password')" />-->
         <ActivityIndicator :busy="isLoading" />
       </StackLayout>
       <app-lang-selector />
@@ -37,15 +35,20 @@ import { connectionType, getConnectionType } from 'tns-core-modules/connectivity
 import Home from '@/pages/home'
 
 export default {
+  props: {
+    hasAccount: {
+      type: Boolean,
+      required: true,
+    },
+  },
   data () {
     return {
       user: apiService.user,
-      hasAccount: true,
       isLoading: false,
     }
   },
   mounted () {
-    console.log('Login page mounted')
+    console.log('Login page mounted, user hasAccount ?', this.hasAccount)
     /*
     this.user.email = 'user5@example.com'
     this.user.password = 'user5'

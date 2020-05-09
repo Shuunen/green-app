@@ -67,6 +67,7 @@
     "alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
     "alert-title": "Error",
     "api-needed": "Se necesita una API para esta llamada no burlada",
+    "duplicate_key": "Este correo electrónico pertenece a una cuenta, inicie sesión o regístrese con otro correo electrónico",
     "internal": "Apareció un error interno, contáctenos",
     "invalid-email": "Por favor, introduce una dirección de correo electrónico válida",
     "invalid-password": "Por favor, defina una contraseña",
@@ -78,11 +79,9 @@
   },
   "login": {
     "forgot-password": "Olvidaste tu contraseña ?",
-    "has-account": "Tengo una cuenta",
     "login": "Iniciar sesión",
-    "no-account": "Todavía no tengo una cuenta",
     "sign-up": "Regístrate",
-    "welcome": "Bienvenido a Green es mejor aplicación de pedido! Inicie sesión o registre una cuenta gratuita para usarla."
+    "welcome": "Bienvenido a Green es mejor aplicación de pedido!"
   },
   "order": {
     "add-formula": "agrega otra fórmula",
@@ -128,6 +127,13 @@
     "you-can-pick-n-sauces": "Puedes escoger una salsa | Puedes recoger {n} salsas",
     "you-can-pick-n-stores": "Puedes elegir un restaurante | Puedes elegir {n} restaurantes",
     "you-can-pick-n-wraps-or-n-soups": "Puedes escoger un wrap o una sopa | Puedes elegir {n} de estos"
+  },
+  "pre-login": {
+    "has-account": "Tengo una cuenta",
+    "login": "Iniciar sesión",
+    "no-account": "Todavía no tengo una cuenta",
+    "sign-up": "Regístrate",
+    "welcome": "Inicie sesión o registre una cuenta gratuita para usarla."
   },
   "signup": {
     "signup": "crear mi cuenta",
