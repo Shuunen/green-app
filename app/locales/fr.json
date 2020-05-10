@@ -84,12 +84,12 @@
     "welcome": "Bienvenue sur l'application de commande Green is better !"
   },
   "order": {
+    "add-cart": "Ajouter au panier",
     "add-formula": "ajouter une autre formule",
     "cancel": "Annuler la commande",
     "change-formula": "Changer de formule",
     "choose-formula": "Choisissez votre formule: | Choisissez une autre formule:",
     "complete-selection": "Complétez la sélection pour commander",
-    "formula-for": "Commander cette formule pour",
     "formulas": "formule | formules",
     "modify-last-selection": "Modifier la dernière sélection",
     "my-orders": "Mes commandes",

@@ -84,12 +84,12 @@
     "welcome": "Welcome to Green is better order app !"
   },
   "order": {
+    "add-cart": "Add to cart",
     "add-formula": "add another formula",
     "cancel": "Cancel order",
     "change-formula": "Change formula",
     "choose-formula": "Choose your formula : | Choose another formula :",
     "complete-selection": "Complete selection to order",
-    "formula-for": "Order this formula for",
     "formulas": "formula | formulas",
     "modify-last-selection": "Modify last selection",
     "my-orders": "My orders",

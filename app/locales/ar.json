@@ -84,12 +84,12 @@
     "welcome": "مرحبا بكم في Green هو تطبيق أفضل!"
   },
   "order": {
+    "add-cart": "أضف إلى السلة",
     "add-formula": "أضف صيغة أخرى",
     "cancel": "الغاء الطلب",
     "change-formula": "تغيير الصيغة",
     "choose-formula": "اختر الصيغة الخاصة بك: | اختر صيغة أخرى:",
     "complete-selection": "يرجى استكمال الاختيار",
-    "formula-for": "ترتيب هذه الصيغة ل",
     "formulas": "معادلة",
     "modify-last-selection": "تعديل الاختيار",
     "my-orders": "طلباتي",

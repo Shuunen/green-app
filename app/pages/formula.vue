@@ -10,7 +10,7 @@
         </StackLayout>
       </ScrollView>
       <StackLayout class="p-s" flexShrink="0">
-        <Button :class="[valid ? 'validate' : 'disabled']" :text="orderText" :isEnabled="valid" class="formula--btn action big" @tap="add()" />
+        <Button :class="[valid ? 'validate' : 'disabled']" :text="valid ? $t('order.add-cart') : $t('order.complete-selection')" :isEnabled="valid" class="formula--btn action big" @tap="add()" />
         <FlexboxLayout>
           <Button :text="$t('order.change-formula')" class="action" flexGrow="1" @tap="modify()" />
           <Button :text="$t('order.cancel')" class="action" flexGrow="1" @tap="cancel()" />
@@ -23,7 +23,6 @@
 <script>
 import { apiService } from '@/services'
 import { clone } from 'shuutils'
-import { readablePrice } from '@/utils'
 import Cart from '@/pages/cart'
 import Home from '@/pages/home'
 
@@ -46,15 +45,6 @@ export default {
       picks: [],
       items: apiService.items,
     }
-  },
-  computed: {
-    orderText: function () {
-      if (this.valid) {
-        const total = readablePrice(this.total)
-        return this.$t('order.formula-for') + ' ' + total
-      }
-      return this.$t('order.complete-selection')
-    },
   },
   created () {
     console.log('Formula page created')
