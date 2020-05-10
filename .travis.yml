@@ -5,7 +5,7 @@ matrix:
       os: linux
       node_js: "12"
       install: true
-      script: npm ci --ignore-scripts && npm run ci
+      script: npm install --production=false --ignore-scripts && npm run ci # replacing "npm install --production=false" with "npm ci" fails -.-''
     - stage: "Build"
       language: android
       env: BuildAndroid="28"
