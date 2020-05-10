@@ -15,29 +15,33 @@
             </StackLayout>
             -->
             <StackLayout v-if="user.allergens && user.allergens.length">
-              <Label class="mt-l fz-s uppercase" :text="$t('account.my-allergens')" />
+              <Label class="black mt-l fz-s uppercase" :text="$t('account.my-allergens')" />
               <Label class="bold alt fz-m" :text="readableList(allergens, user.allergens)" />
             </StackLayout>
             <StackLayout v-if="user.store">
-              <Label class="mt-l fz-s uppercase" :text="$t('account.my-target')" />
+              <Label class="black mt-l fz-s uppercase" :text="$t('account.my-target')" />
               <Label class="bold alt fz-m" :text="user.storeLabel" />
             </StackLayout>
             <StackLayout>
-              <Label class="mt-l fz-s uppercase" :text="$t('account.my-language')" />
+              <Label class="black mt-l fz-s uppercase" :text="$t('account.my-language')" />
               <app-lang-selector class="mt-l" />
             </StackLayout>
             <!-- action button -->
             <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
-              <FlexboxLayout>
-                <Button class="action validate" :text="$t('account.edit')" @tap="onEdit" />
-                <Button class="action" :text="$t('common.logout')" @tap="doLogout" />
-              </FlexboxLayout>
-              <Button class="action" :text="$t('common.back-home')" @tap="$navigateTo(Home)" />
+              <Button class="action validate" :text="$t('account.edit')" @tap="onEdit" />
             </FlexboxLayout>
           </StackLayout>
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
           <StackLayout class="pl-m pr-m">
-            <app-order-line v-for="(order, index) in user.orders" :key="order.id" :class="{even: index % 2, odd: !(index % 2)}" :date="$t('account.order-from', { date: readableDate(order.creationDate) })" :store="order.storeName" :details="readableDetails(order)" :price="readablePrice(order.price)" />
+            <app-order-line
+              v-for="(order, index) in user.orders"
+              :key="order.id"
+              :class="{even: index % 2, odd: !(index % 2)}"
+              :date="$t('account.order-from', { date: readableDate(order.creationDate) })"
+              :store="order.storeName"
+              :details="readableDetails(order)"
+              :price="readablePrice(order.price)"
+            />
           </StackLayout>
           <app-tile :data="{ type: 'wrap', name: $t('account.about') }" :hero="false" />
           <StackLayout class="p-m">
@@ -55,7 +59,6 @@ import { apiService } from '@/services'
 import { prettyPrint, readableDate, readableList, readablePrice } from '@/utils'
 import AccountEdit from '@/pages/account-edit'
 import Home from '@/pages/home'
-import PreLogin from '@/pages/pre-login'
 
 export default {
   data () {
@@ -77,10 +80,6 @@ export default {
     onEdit () {
       console.log('account : user wants to edit his data')
       this.$navigateTo(AccountEdit)
-    },
-    doLogout () {
-      apiService.doLogout()
-      this.$navigateTo(PreLogin)
     },
     readableDetails (order) {
       return [
