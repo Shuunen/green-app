@@ -1,7 +1,7 @@
 import pkg from '@/../package.json'
-import { Allergen, OAuthToken, Product, Store, User } from '@/models'
+import { Allergen, Family, OAuthToken, Product, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import { commonData, prettyPrint, uriFromId, urisFromIds } from '@/utils'
+import { prettyPrint, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
 import { getJSON, request } from 'tns-core-modules/http'
 
@@ -15,8 +15,11 @@ class ApiService {
     this.user = new User({})
     this.allergens = []
     this.diets = []
-    this.items = {}
+    this.families = []
+    this.familyNameById = {}
     this.stores = []
+    this.products = []
+    this.productsByFamilyName = {}
   }
 
   isSessionActive () {
@@ -64,19 +67,44 @@ class ApiService {
 
   async getCommonData () {
     console.log('getting common data')
-    this.items = commonData.items
     // TODO https://github.com/Shuunen/green-app/issues/220
     // await this.getType('diets', Diet)
     await this.getType('allergens', Allergen)
+    await this.getType('families', Family)
     await this.getType('products', Product)
     await this.getType('stores', Store)
+    this.genCatalogs()
     return 'ok'
   }
 
+  genCatalogs () {
+    this.families.forEach(family => {
+      const { id } = family
+      if (this.familyNameById[id]) return
+      this.familyNameById[id] = family.label
+    })
+    // { '1': 'base', '2': 'ingredient', '3': 'sauce', '4': 'soup', '5': 'wrap', '6': 'drink', '7': 'dessert' }
+    this.products.forEach(product => {
+      const familyId = product.family
+      const familyName = this.familyNameById[familyId]
+      if (!this.productsByFamilyName[familyName]) this.productsByFamilyName[familyName] = []
+      this.productsByFamilyName[familyName].push(product)
+    })
+    // { base: [ [Object], [Object], [Object],... ], ingredient: [...]
+  }
+
   async getType (type, Model) {
-    const response = await this.get('/' + type)
+    let response = await this.get('/' + type)
     if (response.error) return this.showError('error.' + response.error)
-    this[type] = response['hydra:member'].map(data => new Model(data))
+    let items = response['hydra:member'].map(data => new Model(data))
+    this[type] = items
+    // handle next pages if any -.-''
+    while (response['hydra:view'] && response['hydra:view']['hydra:next']) {
+      const nextPage = response['hydra:view']['hydra:next']
+      response = await this.get(nextPage)
+      items = response['hydra:member'].map(data => new Model(data))
+      this[type] = this[type].concat(items)
+    }
     console.log(`loaded ${this[type].length} ${type}`)
     /**
      * Note : storing stores like this in array is not great, always need to .find to get one is pretty fat

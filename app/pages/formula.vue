@@ -3,7 +3,7 @@
     <FlexboxLayout flexDirection="column" class="bg">
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
-          <app-tile :data="{ type: 'wrap', name: order.title }" :hero="true" />
+          <app-tile :data="{ type: 'wrap', name: order.label }" :hero="true" />
           <StackLayout class="p-m">
             <app-pick v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
           </StackLayout>
@@ -43,13 +43,16 @@ export default {
       total: 0,
       order: {},
       picks: [],
-      items: apiService.items,
+      items: apiService.productsByFamilyName,
     }
   },
   created () {
     console.log('Formula page created')
     this.order = clone(this.data)
-    this.picks = this.order.picks
+    this.picks = this.order.picks.map(pick => {
+      pick.from = pick.families
+      return pick
+    })
   },
   methods: {
     onPickChange () {

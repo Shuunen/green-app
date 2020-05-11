@@ -1,29 +1,13 @@
-const PICKS_MOCK = [
-  {
-    pick: 1,
-    from: 'bases',
-  },
-  {
-    pick: 3,
-    from: 'ingredients',
-    extraPrice: 1,
-  },
-  {
-    pick: 1,
-    from: 'sauces',
-  },
-]
+import { MenuPick } from './menuPick'
 
 export class MenuModel {
-  get title () {
-    return this.label
-  }
+  get title () { return this.label }
 
   constructor ({ id, label, price, icon, picks, active }) {
     this.id = id || 0
     this.label = label || ''
     this.price = price || 0
-    this.picks = PICKS_MOCK || picks || [] // FIXME: remove PICKS_MOCK https://github.com/Shuunen/green-app/issues/213
+    this.picks = (picks || []).map(p => new MenuPick(p))
     this.icon = icon || 'formulas'
     this.active = active || false
   }
@@ -37,23 +21,19 @@ export class MenuModel {
   "price": 9.4,
   "active": true,
   "picks": [
-      {
-          "@id": "/menu_picks/3",
-          "@type": "MenuPick",
-          "amount": 1,
-          "extraPrice": null
-      },
-      {
-          "@id": "/menu_picks/2",
-          "@type": "MenuPick",
-          "amount": 3,
-          "extraPrice": null
-      },
-      {
-          "@id": "/menu_picks/1",
-          "@type": "MenuPick",
-          "amount": 1,
-          "extraPrice": null
-      }
+    {
+        "@id": "/menu_picks/21",
+        "@type": "MenuPick",
+        "amount": 1,
+        "families": [
+            {
+                "@id": "/families/7",
+                "@type": "Family",
+                "label": "dessert"
+            }
+        ],
+        "extraPrice": null
+    },
+    ...
   ]
 } */
