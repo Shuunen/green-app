@@ -1,3 +1,4 @@
+import { idFromUri } from '@/utils'
 
 export class Product {
   get title () { return this.name }
@@ -8,7 +9,7 @@ export class Product {
     this.allergens = allergens || []
     this.name = name || ''
     this.internalName = internalName || ''
-    this.family = family || ''
+    this.family = idFromUri(family)
   }
 }
 
@@ -29,5 +30,5 @@ export class Product {
   "active": true,
   "name": "Cœur de romaine",
   "internalName": "base-coeur-de-romaine",
-  "family": "/families/1"
+  "family": "/families/4"
 } */

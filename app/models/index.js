@@ -1,5 +1,6 @@
 export * from './allergen'
 export * from './customerOrder'
+export * from './family'
 export * from './menuModel'
 export * from './oauth-token'
 export * from './orderMenu'

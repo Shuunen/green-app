@@ -30,17 +30,15 @@ export default {
   computed: {
     description: function () {
       const lines = ['']
-      this.data.picks.forEach(pick => {
-        const nb = pick.pick
-        const from = this.$tc('pick.' + pick.from, nb)
-        const or = this.$tc('pick.' + pick.or, nb)
-        if (pick.from === 'bases') {
-          lines[0] += from
-        } else if (pick.from === 'ingredients') {
+      this.data.picks.forEach((pick, index) => {
+        const nb = pick.amount
+        const fromKey = 'pick.' + pick.families.join('-')
+        const from = this.$tc(fromKey, nb)
+        if (fromKey === 'pick.base') {
+          lines[0] = from + lines[0]
+        } else if (fromKey === 'pick.ingredient') {
           lines[0] += ` + ${nb} ${from}`
-        } else if (pick.from && pick.or) {
-          lines.push(`+ ${from} ${this.$t('common.or')} ${or}`)
-        } else if (['drinks', 'deserts'].indexOf(pick.from) > -1) {
+        } else if (['drink', 'desert'].indexOf(fromKey) > -1) {
           lines.push(`+ ${from}`)
         }
       })

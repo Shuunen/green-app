@@ -79,9 +79,9 @@ export default {
       diets: apiService.diets,
       allergens: apiService.allergens,
       tabSelected: 0,
-      userDiets: { title: 'account.my-diets', from: 'diets', any: true, selection: [] },
-      userAllergens: { title: 'account.my-allergens', from: 'allergens', any: true, selection: [] },
-      userStore: { title: 'account.my-store', pick: 1, from: 'stores', selection: [] },
+      userDiets: { title: 'account.my-diets', from: ['diets'], selection: [] },
+      userAllergens: { title: 'account.my-allergens', from: ['allergens'], selection: [] },
+      userStore: { title: 'account.my-store', amount: 1, from: ['stores'], selection: [] },
     }
   },
   created () {
