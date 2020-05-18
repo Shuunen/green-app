@@ -15,6 +15,27 @@
                   <Label :text="$t('account.last-name')" />
                   <TextField v-model="user.lastname" />
                 </StackLayout>
+                
+                <StackLayout class="input-field">
+                  <Label :text="$t('account.address')" />
+                  <TextField v-model="user.address" />
+                </StackLayout>
+                
+                <StackLayout class="input-field">
+                  <Label :text="$t('account.city')" />
+                  <TextField v-model="user.city" />
+                </StackLayout>
+                
+                <StackLayout class="input-field">
+                  <Label :text="$t('account.telephone')" />
+                  <TextField v-model="user.telephone" />
+                </StackLayout>
+                
+                <StackLayout class="input-field">
+                  <Label :text="$t('account.deliveryInformations')" />
+                  <TextField v-model="user.deliveryInformations" />
+                </StackLayout>
+
                 <Label :text="$t('common.required-fields')" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                   <Button class="action big validate" :text="$t('common.next-step')" :isEnabled="isStep1Valid()" @tap="tabSelected++" />

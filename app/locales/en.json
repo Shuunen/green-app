@@ -20,7 +20,11 @@
     "order-from": "order from {date}",
     "password": "Password",
     "set-target": "choose a restaurant",
-    "sign-up": "Sign up"
+    "sign-up": "Sign up",
+    "address": "address",
+    "city": "city",
+    "telephone": "telephone",
+    "deliveryInformations": "delivery Informations"
   },
   "allergen": {
     "gluten": "gluten",

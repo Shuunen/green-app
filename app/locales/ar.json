@@ -20,7 +20,11 @@
     "order-from": "طلب من {date}",
     "password": "كلمه السر",
     "set-target": "اختر مطعم",
-    "sign-up": "سجل"
+    "sign-up": "سجل",
+    "address": "عنوان",
+    "city": "مدينة",
+    "telephone": "هاتف",
+    "deliveryInformations": "معلومات التسليم"
   },
   "allergen": {
     "gluten": "الغولتين",
