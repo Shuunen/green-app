@@ -1,6 +1,6 @@
-<template>
-  <Page actionBarHidden="true">
-    <FlexboxLayout flexDirection="column" class="bg">
+<template >
+  <Page actionBarHidden="true" >
+    <FlexboxLayout flexDirection="column" class="bg" >
       <app-header :onAccount="true" :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout flexDirection="column">
@@ -32,7 +32,7 @@
             </FlexboxLayout>
           </StackLayout>
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
-          <StackLayout class="pl-m pr-m">
+          <StackLayout class="pl-m pr-m black">
             <app-order-line
               v-for="(order, index) in user.orders"
               :key="order.id"
