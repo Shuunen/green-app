@@ -27,7 +27,7 @@
                 </StackLayout>
                 
                 <StackLayout class="input-field">
-                  <Label class="black":text="$t('account.telephone')" />
+                  <Label class="black" :text="$t('account.telephone')" />
                   <TextField v-model="user.telephone" />
                 </StackLayout>
                 

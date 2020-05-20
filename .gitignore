@@ -16,3 +16,5 @@ green-keystore.jks
 dist
 last-commit.js
 *.log
+
+.DS_Store

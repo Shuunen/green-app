@@ -8,7 +8,7 @@
           <StackLayout>
             <Button v-show="user.store" class="action mb-l" :isEnabled="!isLoading" :text="$t('account.change-target')" @tap="$navigateTo(Account)" />
           </StackLayout>
-          <app-icon flexGrow="2" class="mt-l mb-l" name="logo-green-alt" />
+          <app-icon flexGrow="2" class="mt-l mb-l" name="logo-green-is-better-2020" />
           <Button
             class="action big validate mt-l mb-l"
             :isEnabled="!isLoading"

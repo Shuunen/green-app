@@ -2,7 +2,7 @@
   <Page actionBarHidden="true">
     <FlexboxLayout flexDirection="column" class="p-l bg">
       <StackLayout flexGrow="1" />
-      <app-icon class="mb-l" height="70" name="logo-green-alt" />
+      <app-icon class="mb-l" height="70" name="logo-green-is-better-2020" />
       <StackLayout flexGrow="1">
         <Label :text="$t('pre-login.welcome')" class="fz-m mt-l mb-l black" textWrap="true" />
         <FlexboxLayout flexDirection="column" justifyContent="center">
