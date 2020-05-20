@@ -5,7 +5,7 @@
   --color-primary-light: hsl(67, 74%, 70%);
   --color-primary: #bfcf49;
   --color-primary-dark: hsla(67, 88%, 38%, 1);
-  --color-grey: #3C6E71;
+  --color-grey: rgb(128, 143, 12);
   --color-alt: rgb(94, 34, 173);
   --color-disabled: #cccccc;
   --color-error: #d42f2f;
