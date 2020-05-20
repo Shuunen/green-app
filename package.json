@@ -76,7 +76,7 @@
   "license": "GPL-3.0",
   "name": "green-app",
   "nativescript": {
-    "id": "green.nsvue.app",
+    "id": "com.greenisbetter.greenapp",
     "tns-android": {
       "version": "6.5.0"
     },

@@ -50,6 +50,8 @@ export default {
     console.log('Formula page created')
     this.order = clone(this.data)
     this.picks = this.order.picks.map(pick => {
+       console.log(' ---- debug ----------- ')
+       console.log(pick)
       pick.from = pick.families
       return pick
     })

@@ -31,7 +31,7 @@ export default {
     }
   },
   created () {
-    console.log('Pick component created, picking in :', this.data.from)
+    // console.log('Pick component created, picking in :', this.data.from)
     if (!this.data.from || !this.data.from.length) return console.error('\n data.from empty /!\\ \n')
     this.setTitle()
     this.setDesc()
@@ -39,8 +39,8 @@ export default {
     this.setList()
   },
   mounted () {
-    console.log('Pick component mounted, picking in :', this.data.from)
-    console.log('selection is :', prettyPrint(this.data.selection))
+    // console.log('Pick component mounted, picking in :', this.data.from)
+    // console.log('selection is :', prettyPrint(this.data.selection))
   },
   methods: {
     setList () {

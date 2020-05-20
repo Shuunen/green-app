@@ -3,7 +3,8 @@
     <StackLayout flexGrow="1">
       <Label :text="store" class="fz-m bold" />
       <Label :text="capitalizeFirstLetter(date)" class="fz-s" />
-      <Label :text="details.join(' • ')" class="fz-s" />
+      <!-- TODO https://github.com/Shuunen/green-app/issues/244
+         <Label :text="details.join(' • ')" class="fz-s" />-->
     </StackLayout>
     <Label :text="price" class="fz-s pt-s" />
   </FlexboxLayout>

@@ -5,7 +5,9 @@
       <app-icon class="mb-l" height="70" name="logo-green-alt" />
       <StackLayout flexGrow="1">
         <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l black" textWrap="true" />
+        <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color-->
         <TextField
+          class="background-green"
           v-model="user.email"
           :hint="$t('account.email')"
           keyboardType="email"
@@ -16,7 +18,8 @@
           @returnPress="focusPassword()"
         />
         <!-- TODO https://github.com/Shuunen/green-app/issues/125 -->
-        <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
+        <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color -->
+        <TextField class="background-green" ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
@@ -73,3 +76,10 @@ export default {
   },
 }
 </script>
+
+<style>
+
+.background-green {
+  background-color: var(--color-primary-light);
+}
+</style>
