@@ -2,7 +2,7 @@
   "author": "Romain Racamier-Lafon <romain.racamier@gmail.com>",
   "bugs": "https://github.com/Shuunen/green-app/issues",
   "config": {
-    "api": "https://green-app-api-develop.neimheadh.fr",
+    "api": "https://greenisbetter-app.com",
     "default_locale": "english",
     "locales": {
       "arabic": {
