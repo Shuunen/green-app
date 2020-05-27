@@ -23,6 +23,7 @@
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
+        <Button class="action" :text="$t('common.back-login')" @tap="cancel" />
         <!-- TODO https://github.com/Shuunen/green-app/issues/224
         <Label class="mt-s mb-m black" horizontalAlignment="center" :text="$t('login.forgot-password')" />-->
         <ActivityIndicator :busy="isLoading" />
@@ -37,6 +38,7 @@ import { apiService } from '@/services'
 import { connectionType, getConnectionType } from 'tns-core-modules/connectivity'
 import Home from '@/pages/home'
 import AccountEdit from '@/pages/account-edit'
+import PreLogin from '@/pages/pre-login'
 
 export default {
   props: {
@@ -61,6 +63,10 @@ export default {
   methods: {
     focusPassword () {
       this.$refs.password.nativeView.focus()
+    },
+    cancel () {
+      console.log('login : back to pre login')
+      this.$navigateTo(PreLogin)
     },
     async submit () {
       console.log('Login : user submitted data :', this.user.email, this.user.password)

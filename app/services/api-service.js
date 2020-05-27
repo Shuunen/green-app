@@ -124,6 +124,7 @@ class ApiService {
   }
 
   async updateUserData (data) {
+    // TODO ajouter les nouveaux champs du compte client
     if (!data.id) return this.showError('error.missing-user-id')
     const url = '/users/' + data.id
     const updates = {
@@ -132,6 +133,11 @@ class ApiService {
       firstname: data.firstname,
       lastname: data.lastname,
       locale: data.locale,
+      email: data.email,
+      address: data.address,
+      city: data.city,
+      deliveryInformations: data.deliveryInformations,
+      telephone: data.telephone,
       store: uriFromId('stores', data.store),
     }
     const status = await this.patch(url, updates)
