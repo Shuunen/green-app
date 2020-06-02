@@ -3,7 +3,7 @@
   "bugs": "https://github.com/Shuunen/green-app/issues",
   "config": {
     "api": "https://greenisbetter-app.com",
-    "default_locale": "english",
+    "default_locale": "french",
     "locales": {
       "arabic": {
         "code": "ar",
