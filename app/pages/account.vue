@@ -1,6 +1,6 @@
-<template >
-  <Page actionBarHidden="true" >
-    <FlexboxLayout flexDirection="column" class="bg" >
+<template>
+  <Page actionBarHidden="true">
+    <FlexboxLayout flexDirection="column" class="bg">
       <app-header :onAccount="true" :user="user" flexShrink="0" />
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout flexDirection="column">

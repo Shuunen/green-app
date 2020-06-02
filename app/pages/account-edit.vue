@@ -8,29 +8,29 @@
               <StackLayout class="p-l">
                 <Label :text="$t('signup.step-1')" class="fz-m mb-l" textWrap="true" />
                 <StackLayout class="input-field">
-                  <Label class="black"  :text="$t('account.first-name') + ' *'" />
+                  <Label class="black" :text="$t('account.first-name') + ' *'" />
                   <TextField v-model="user.firstname" />
                 </StackLayout>
                 <StackLayout class="input-field">
                   <Label class="black" :text="$t('account.last-name')" />
                   <TextField v-model="user.lastname" />
                 </StackLayout>
-                
+
                 <StackLayout class="input-field">
                   <Label class="black" :text="$t('account.address')" />
                   <TextField v-model="user.address" />
                 </StackLayout>
-                
+
                 <StackLayout class="input-field">
                   <Label class="black" :text="$t('account.city')" />
                   <TextField v-model="user.city" />
                 </StackLayout>
-                
+
                 <StackLayout class="input-field">
                   <Label class="black" :text="$t('account.telephone')" />
                   <TextField v-model="user.telephone" />
                 </StackLayout>
-                
+
                 <StackLayout class="input-field">
                   <Label class="black" :text="$t('account.deliveryInformations')" />
                   <TextField v-model="user.deliveryInformations" />

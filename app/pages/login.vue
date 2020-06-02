@@ -7,8 +7,8 @@
         <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l black" textWrap="true" />
         <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color-->
         <TextField
-          class="background-green"
           v-model="user.email"
+          class="background-green"
           :hint="$t('account.email')"
           keyboardType="email"
           returnKeyType="next"
@@ -19,7 +19,7 @@
         />
         <!-- TODO https://github.com/Shuunen/green-app/issues/125 -->
         <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color -->
-        <TextField class="background-green" ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
+        <TextField ref="password" v-model="user.password" class="background-green" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
@@ -84,7 +84,6 @@ export default {
 </script>
 
 <style>
-
 .background-green {
   background-color: var(--color-primary-light);
 }

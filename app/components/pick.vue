@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { readablePrice, prettyPrint } from '@/utils'
+import { readablePrice } from '@/utils'
 
 export default {
   props: {
