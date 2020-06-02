@@ -25,4 +25,4 @@ Searching for devices...
 
 Then you can `tns run android --bundle --device DEVICE_ID_123`
 
-You should see your app running on device and this in console : `Successfully synced application green.nsvue.app on device DEVICE_ID_123`
+You should see your app running on device and this in console : `Successfully synced application com.greenisbetter.greenapp on device DEVICE_ID_123`
