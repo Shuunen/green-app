@@ -3,10 +3,10 @@ import { Allergen, Family, OAuthToken, Product, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
 import { prettyPrint, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
-import { getJSON, request } from 'tns-core-modules/http'
+import { getJSON } from 'tns-core-modules/http'
 
 const BASE_URL = pkg.config.api
-const timeout = 5000
+const timeout = 50000
 
 class ApiService {
   constructor () {
@@ -51,18 +51,33 @@ class ApiService {
     this.user.locale = code
   }
 
+  getJSONErrorHandler (error) {
+    let code = 'error.unknown'
+    if (error.message.includes('Unexpected token < in JSON at position 0')) code = 'error.json-parse-failed'
+    else console.error(error.message)
+    return { error: code }
+  }
+
   async get (endpoint) {
     const url = BASE_URL + endpoint
     console.log('apiService get with url :', url)
-    return getJSON({ url, headers: this.getHeaders(), timeout })
+    return getJSON({ url, headers: this.getHeaders(), timeout }).catch(this.getJSONErrorHandler)
   }
 
   async patch (endpoint, data) {
     const url = BASE_URL + endpoint
     const content = JSON.stringify(data)
-    const response = await getJSON({ url, method: 'PUT', content, headers: this.getHeaders(), timeout })
+    const response = await getJSON({ url, method: 'PUT', content, headers: this.getHeaders(), timeout }).catch(this.getJSONErrorHandler)
     if (response.error) return this.showError('error.' + response.error)
     return 'ok'
+  }
+
+  async post (endpoint, data, anonymous) {
+    const url = BASE_URL + endpoint
+    const content = JSON.stringify(data)
+    const response = await getJSON({ url, method: 'POST', content, headers: this.getHeaders(anonymous), timeout }).catch(this.getJSONErrorHandler)
+    if (response.error) return this.showError('error.' + response.error)
+    return response
   }
 
   async getCommonData () {
@@ -119,6 +134,7 @@ class ApiService {
     const response = await this.get('/me')
     if (response.error) return this.showError('error.' + response.error)
     console.log('successfully got user data with email :', response.email)
+    console.log('user data', response)
     this.user = new User(response)
     return 'ok'
   }
@@ -167,23 +183,28 @@ class ApiService {
     return 'ok'
   }
 
-  async postJSON (url, data) {
-    const content = JSON.stringify(data)
-    const httpResponse = await request({ url, method: 'POST', headers: { 'Content-Type': 'application/json' }, content }).catch(this.showError)
-    const response = httpResponse.content.toJSON()
-    response.error = response.handled_error // FIXME https://github.com/Shuunen/green-app/issues/225
-    return response
-  }
-
   async doSignup () {
     const { email, password } = this.user
     if (!email || !password) return this.showError('error.missing-data-for-signup')
-    const url = `${BASE_URL}/users`
     console.log('creating a user...')
-    const response = await this.postJSON(url, { email, username: email, plainPassword: password })
+    const response = await this.post('/users', { email, username: email, plainPassword: password }, true)
     console.log('doSignup got response', prettyPrint(response))
     if (response.error) return this.showError('error.' + response.error)
     return this.doLogin()
+  }
+
+  async validateOrder (menus) {
+    console.log('send ordered menus to api', menus)
+    const content = {
+      menus,
+      store: `${this.user.store}`,
+      customer: this.user.email,
+    }
+    console.log('registering user order...', content)
+    const response = await this.post('/m/pay', content)
+    if (response.error) return this.showError('error.' + response.error)
+    console.log('response:', response)
+    return response
   }
 
   async doLogout () {
@@ -214,9 +235,11 @@ class ApiService {
     return 'ok'
   }
 
-  getHeaders (toAppend = {}) {
-    const Authorization = 'Bearer ' + this.token.access_token
-    return Object.assign({ 'Content-Type': 'application/json', Authorization }, toAppend)
+  getHeaders (anonymous = false) {
+    const headers = { 'Content-Type': 'application/json' }
+    if (anonymous) return headers
+    headers.Authorization = 'Bearer ' + this.token.access_token
+    return headers
   }
 }
 
