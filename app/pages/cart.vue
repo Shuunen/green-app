@@ -30,7 +30,7 @@
             -->
 
             <Button class="action big" :text="$t('order.add-formula')" @tap="add()" />
-            <Button class="action big validate" :text="$t('order.validate-pay')" />
+            <Button class="action big validate" :text="$t('order.validate-pay')" @tap="validateOrder()" />
             <FlexboxLayout class="mt-s">
               <Button class="action" flexGrow="1" :text="$t('order.modify-last-selection')" @tap="modify()" />
               <Button class="action" flexGrow="1" :text="$t('order.cancel')" @tap="cancel()" />
@@ -44,8 +44,10 @@
 
 <script>
 import { readablePrice } from '@/utils'
+import { apiService } from '@/services'
 import Formulas from '@/pages/formulas'
 import Home from '@/pages/home'
+import Checkout from '@/pages/checkout'
 
 export default {
   props: {
@@ -84,6 +86,13 @@ export default {
       let delay = 200
       this.orders.forEach(formula => (delay += formula.picks.length * 200))
       return delay
+    },
+    async validateOrder () {
+      this.isLoading = true
+      const sessionId = await apiService.validateOrder(this.orders)
+      this.isLoading = false
+      if (sessionId.length < 3) return apiService.showError('error.order-failed')
+      this.$navigateTo(Checkout, { props: { sessionId } })
     },
   },
 }

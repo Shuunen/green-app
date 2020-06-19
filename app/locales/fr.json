@@ -87,6 +87,7 @@
     "json-parse-failed": "La lecture JSON a échoué",
     "offline": "Une connexion internet est requise",
     "passwords-differs": "Le nouveau mot de passe et la confirmation ne correspondent pas",
+    "order-failed": "La commande n'a pas pu être traitée",
     "session-expired": "Votre session a expiré, veuillez vous reconnecter",
     "unknown": "Une erreur inattendue s'est produite, désolé pour cela."
   },

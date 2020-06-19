@@ -87,6 +87,7 @@
     "json-parse-failed": "JSON parsing has failed",
     "offline": "An internet connection is required",
     "passwords-differs": "The new password and the confirmation does not matches",
+    "order-failed": "Order failed to process",
     "session-expired": "Your session expired, please login again",
     "unknown": "An unexpected error happened, sorry for that."
   },
