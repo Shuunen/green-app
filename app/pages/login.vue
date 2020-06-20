@@ -5,10 +5,9 @@
       <app-icon class="mb-l" height="70" name="logo-green-is-better-2020" />
       <StackLayout flexGrow="1">
         <Label :text="$t('login.welcome')" class="fz-m mt-l mb-l black" textWrap="true" />
-        <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color-->
+        <!-- TODO https://github.com/Shuunen/green-app/issues/256 placeholder color-->
         <TextField
           v-model="user.email"
-          class="background-green"
           :hint="$t('account.email')"
           keyboardType="email"
           returnKeyType="next"
@@ -17,9 +16,9 @@
           autocapitalizationType="none"
           @returnPress="focusPassword()"
         />
-        <!-- TODO https://github.com/Shuunen/green-app/issues/125 -->
-        <!-- TODO https://github.com/Shuunen/green-app/issues/245 placeholder color -->
-        <TextField ref="password" v-model="user.password" class="background-green" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
+        <!-- TODO https://github.com/Shuunen/green-app/issues/125 reveal password -->
+        <!-- TODO https://github.com/Shuunen/green-app/issues/256 placeholder color -->
+        <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
         <FlexboxLayout justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
         </FlexboxLayout>
@@ -82,9 +81,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.background-green {
-  background-color: var(--color-primary-light);
-}
-</style>
