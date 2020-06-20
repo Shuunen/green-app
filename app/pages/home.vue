@@ -44,24 +44,22 @@ export default {
       user: apiService.user,
     }
   },
-  mounted () {
+  async mounted () {
     console.log('Home page mounted')
     if (!apiService.isSessionActive()) return this.showErrorAndLogout('error.session-expired')
     if (!apiService.user.store) console.log('user has no store set')
     if (apiService.user.email) return console.log('no need to load user data...')
     this.isLoading = true
     console.log('need to load user & common missing data...')
-    apiService.getUserData()
-      .then(() => apiService.getCommonData())
-      .catch(err => this.showErrorAndLogout(err))
-      .then(() => {
-        this.user = apiService.user
-        this.isLoading = false
-      })
-  },
-  async showErrorAndLogout (err) {
+    let status = await apiService.getUserData()
+    if (!status.ok) return this.logout()
+    status = await apiService.getCommonData()
+    if (!status.ok) return this.logout()
+    this.user = apiService.user
     this.isLoading = false
-    apiService.showError(err)
+  },
+  async logout () {
+    this.isLoading = false
     apiService.doLogout()
     this.$navigateTo(PreLogin)
   },

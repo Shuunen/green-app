@@ -88,7 +88,7 @@
 <script>
 import { apiService } from '@/services'
 import { clone } from 'shuutils'
-import { prettyPrint } from '@/utils'
+import { prettyPrint, showSuccess } from '@/utils'
 import Account from '@/pages/account'
 
 export default {
@@ -142,8 +142,9 @@ export default {
     async submit () {
       console.log('account edit : user submitted :', prettyPrint(this.user))
       this.isLoading = true
-      await apiService.updateUserData(this.user)
+      const status = await apiService.updateUserData(this.user)
       this.isLoading = false
+      if (status.ok) showSuccess('account.data-updated')
       this.$navigateTo(Account)
     },
 

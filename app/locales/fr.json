@@ -10,6 +10,7 @@
     "change-target": "Choisir un autre restaurant",
     "city": "Ville",
     "complete": "finaliser",
+    "data-updated": "Vos informations personnelles ont été mises à jour",
     "deliveryInformations": "Informations de livraison",
     "edit": "modifier mes infos",
     "email": "Adresse électronique",
@@ -86,8 +87,8 @@
     "invalid_grant": "Ce compte n'existe pas",
     "json-parse-failed": "La lecture JSON a échoué",
     "offline": "Une connexion internet est requise",
-    "passwords-differs": "Le nouveau mot de passe et la confirmation ne correspondent pas",
     "order-failed": "La commande n'a pas pu être traitée",
+    "passwords-differs": "Le nouveau mot de passe et la confirmation ne correspondent pas",
     "session-expired": "Votre session a expiré, veuillez vous reconnecter",
     "unknown": "Une erreur inattendue s'est produite, désolé pour cela."
   },

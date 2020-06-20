@@ -10,6 +10,7 @@
     "change-target": "Seleccione otro restaurante",
     "city": "Ciudad",
     "complete": "completar",
+    "data-updated": "Su información personal ha sido actualizada",
     "deliveryInformations": "Entrega Información",
     "edit": "editar mis datos",
     "email": "Dirección de correo electrónico",
@@ -86,8 +87,8 @@
     "invalid_grant": "Esta cuenta no existe",
     "json-parse-failed": "El análisis JSON ha fallado",
     "offline": "Se requiere una conexión a internet",
-    "passwords-differs": "La nueva contraseña y la confirmación no coinciden.",
     "order-failed": "La orden no se pudo procesar",
+    "passwords-differs": "La nueva contraseña y la confirmación no coinciden.",
     "session-expired": "Su sesión expiró, inicie sesión",
     "unknown": "Ocurrió un error inesperado, perdón por eso."
   },

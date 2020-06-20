@@ -10,6 +10,7 @@
     "change-target": "حدد مطعم آخر",
     "city": "مدينة",
     "complete": "اكتمال",
+    "data-updated": "تم تحديث معلوماتك الشخصية",
     "deliveryInformations": "معلومات التسليم",
     "edit": "تصحيح",
     "email": "عنوان بريد الكتروني",
@@ -86,8 +87,8 @@
     "invalid_grant": "هذا الحساب غير موجود",
     "json-parse-failed": "فشل تحليل JSON",
     "offline": "مطلوب اتصال بالإنترنت",
-    "passwords-differs": "لا تتطابق كلمة المرور الجديدة مع التأكيد",
     "order-failed": "فشل معالجة الطلب",
+    "passwords-differs": "لا تتطابق كلمة المرور الجديدة مع التأكيد",
     "session-expired": "انتهت جلستك ، يرجى تسجيل الدخول",
     "unknown": "حدث خطأ غير متوقع ، آسف لذلك."
   },

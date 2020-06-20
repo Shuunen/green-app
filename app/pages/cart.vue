@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { readablePrice } from '@/utils'
+import { readablePrice, showError } from '@/utils'
 import { apiService } from '@/services'
 import Formulas from '@/pages/formulas'
 import Home from '@/pages/home'
@@ -89,10 +89,10 @@ export default {
     },
     async validateOrder () {
       this.isLoading = true
-      const sessionId = await apiService.validateOrder(this.orders)
+      const response = await apiService.validateOrder(this.orders)
       this.isLoading = false
-      if (sessionId.length < 3) return apiService.showError('error.order-failed')
-      this.$navigateTo(Checkout, { props: { sessionId } })
+      if (!response.ok) return showError('error.order-failed')
+      this.$navigateTo(Checkout, { props: { sessionId: response.stripeSessionId } })
     },
   },
 }

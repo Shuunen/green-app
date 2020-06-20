@@ -1,12 +1,8 @@
-import pkg from '@/../package.json'
 import { Allergen, Family, OAuthToken, Product, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
-import { prettyPrint, uriFromId, urisFromIds } from '@/utils'
+import { showError, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
-import { getJSON } from 'tns-core-modules/http'
-
-const BASE_URL = pkg.config.api
-const timeout = 50000
+import { httpService } from './http.service'
 
 class ApiService {
   constructor () {
@@ -51,35 +47,6 @@ class ApiService {
     this.user.locale = code
   }
 
-  getJSONErrorHandler (error) {
-    let code = 'error.unknown'
-    if (error.message.includes('Unexpected token < in JSON at position 0')) code = 'error.json-parse-failed'
-    else console.error(error.message)
-    return { error: code }
-  }
-
-  async get (endpoint) {
-    const url = BASE_URL + endpoint
-    console.log('apiService get with url :', url)
-    return getJSON({ url, headers: this.getHeaders(), timeout }).catch(this.getJSONErrorHandler)
-  }
-
-  async patch (endpoint, data) {
-    const url = BASE_URL + endpoint
-    const content = JSON.stringify(data)
-    const response = await getJSON({ url, method: 'PUT', content, headers: this.getHeaders(), timeout }).catch(this.getJSONErrorHandler)
-    if (response.error) return this.showError('error.' + response.error)
-    return 'ok'
-  }
-
-  async post (endpoint, data, anonymous) {
-    const url = BASE_URL + endpoint
-    const content = JSON.stringify(data)
-    const response = await getJSON({ url, method: 'POST', content, headers: this.getHeaders(anonymous), timeout }).catch(this.getJSONErrorHandler)
-    if (response.error) return this.showError('error.' + response.error)
-    return response
-  }
-
   async getCommonData () {
     console.log('getting common data')
     // TODO https://github.com/Shuunen/green-app/issues/220
@@ -89,7 +56,7 @@ class ApiService {
     await this.getType('products', Product)
     await this.getType('stores', Store)
     this.genCatalogs()
-    return 'ok'
+    return { ok: true }
   }
 
   genCatalogs () {
@@ -109,14 +76,14 @@ class ApiService {
   }
 
   async getType (type, Model) {
-    let response = await this.get('/' + type)
-    if (response.error) return this.showError('error.' + response.error)
+    let response = await httpService.get('/' + type)
+    if (response.error) return showError('error.' + response.error)
     let items = response['hydra:member'].map(data => new Model(data))
     this[type] = items
     // handle next pages if any -.-''
     while (response['hydra:view'] && response['hydra:view']['hydra:next']) {
       const nextPage = response['hydra:view']['hydra:next']
-      response = await this.get(nextPage)
+      response = await httpService.get(nextPage)
       items = response['hydra:member'].map(data => new Model(data))
       this[type] = this[type].concat(items)
     }
@@ -131,17 +98,16 @@ class ApiService {
   }
 
   async getUserData () {
-    const response = await this.get('/me')
-    if (response.error) return this.showError('error.' + response.error)
-    console.log('successfully got user data with email :', response.email)
-    console.log('user data', response)
-    this.user = new User(response)
-    return 'ok'
+    const data = await httpService.get('/me')
+    console.log('successfully got user data with email :', data.email)
+    console.log('user data', data)
+    this.user = new User(data)
+    return { ok: true }
   }
 
   async updateUserData (data) {
     // TODO ajouter les nouveaux champs du compte client
-    if (!data.id) return this.showError('error.missing-user-id')
+    if (!data.id) return showError('error.missing-user-id')
     const url = '/users/' + data.id
     const updates = {
       allergens: urisFromIds('allergens', data.allergens),
@@ -156,40 +122,37 @@ class ApiService {
       telephone: data.telephone,
       store: uriFromId('stores', data.store),
     }
-    const status = await this.patch(url, updates)
-    if (status === 'ok') await this.getUserData()
-    else console.error('patch failed')
+    const status = await httpService.patch(url, updates)
+    if (!status.ok) return status
+    return this.getUserData()
   }
 
   async updateUserPassword (plainPassword) {
     const url = '/users/' + this.user.id
     const updates = { plainPassword }
-    const status = await this.patch(url, updates)
-    if (status !== 'ok') console.error('patch password failed')
+    return httpService.patch(url, updates)
   }
 
   async doLogin () {
     const { email, password } = this.user
-    if (!email || !password) return this.showError('error.missing-data-for-login')
-    const url = `${BASE_URL}/oauth/v2/token?grant_type=password&client_id=1_green-app&client_secret=green-app&username=${email}&password=${password}`
+    if (!email || !password) return showError('error.missing-data-for-login')
+    const endpoint = `/oauth/v2/token?grant_type=password&client_id=1_green-app&client_secret=green-app&username=${email}&password=${password}`
     console.log('login in user ' + email)
-    const response = await getJSON(url)
-    console.log('doLogin got response', prettyPrint(response))
-    if (response.error) return this.showError('error.' + response.error)
+    const response = await httpService.get(endpoint, true)
+    if (!response.ok) return response
     console.log('setting session token')
     this.token = new OAuthToken(response)
-    await this.getUserData()
-    await this.getCommonData()
-    return 'ok'
+    const status = await this.getUserData()
+    if (!status.ok) return status
+    return this.getCommonData()
   }
 
   async doSignup () {
     const { email, password } = this.user
-    if (!email || !password) return this.showError('error.missing-data-for-signup')
+    if (!email || !password) return showError('error.missing-data-for-signup')
     console.log('creating a user...')
-    const response = await this.post('/users', { email, username: email, plainPassword: password }, true)
-    console.log('doSignup got response', prettyPrint(response))
-    if (response.error) return this.showError('error.' + response.error)
+    const status = await httpService.post('/users', { email, username: email, plainPassword: password }, true)
+    if (!status.ok) return status
     return this.doLogin()
   }
 
@@ -201,9 +164,8 @@ class ApiService {
       customer: this.user.email,
     }
     console.log('registering user order...', content)
-    const response = await this.post('/m/pay', content)
-    if (response.error) return this.showError('error.' + response.error)
-    console.log('response:', response)
+    const response = await httpService.post('/m/pay', content)
+    response.stripeSessionId = response.data
     return response
   }
 
@@ -212,34 +174,6 @@ class ApiService {
     this.token = {}
     // keep user mail to avoid him type it again
     this.user = new User({ email: this.user.email })
-  }
-
-  async showError (error) {
-    const message = typeof error === 'string' ? error : error.message
-    // TODO: better test than include dot to detect a i18n key
-    const code = (message && message.includes('.')) ? message : 'error.unknown'
-    alert({
-      title: i18n.t('error.alert-title'),
-      message: i18n.t(code), // + '\n\n' + i18n.t('error.alert-message-suffix', { code }),
-      okButtonText: i18n.t('error.alert-button'),
-    })
-    return 'KO'
-  }
-
-  async showSuccess (code) {
-    alert({
-      title: i18n.t('common.success-title'),
-      message: i18n.t(code),
-      okButtonText: i18n.t('common.ok'),
-    })
-    return 'ok'
-  }
-
-  getHeaders (anonymous = false) {
-    const headers = { 'Content-Type': 'application/json' }
-    if (anonymous) return headers
-    headers.Authorization = 'Bearer ' + this.token.access_token
-    return headers
   }
 }
 

@@ -10,6 +10,7 @@
     "change-target": "Choose another restaurant",
     "city": "city",
     "complete": "complete",
+    "data-updated": "Your personal information has been updated",
     "deliveryInformations": "delivery Informations",
     "edit": "edit my data",
     "email": "Email address",
@@ -86,8 +87,8 @@
     "invalid_grant": "This account does not exists",
     "json-parse-failed": "JSON parsing has failed",
     "offline": "An internet connection is required",
-    "passwords-differs": "The new password and the confirmation does not matches",
     "order-failed": "Order failed to process",
+    "passwords-differs": "The new password and the confirmation does not matches",
     "session-expired": "Your session expired, please login again",
     "unknown": "An unexpected error happened, sorry for that."
   },

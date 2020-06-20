@@ -41,7 +41,7 @@
 
 <script>
 import { apiService } from '@/services'
-import { prettyPrint } from '@/utils'
+import { prettyPrint, showError, showSuccess } from '@/utils'
 import Account from '@/pages/account'
 
 export default {
@@ -63,11 +63,11 @@ export default {
     },
     async submit () {
       console.log(`change pass : user submitted "${this.password}"`)
-      if (!this.passwordsMatches()) return apiService.showError('error.passwords-differs')
+      if (!this.passwordsMatches()) return showError('error.passwords-differs')
       this.isLoading = true
-      await apiService.updateUserPassword(this.password)
+      const status = await apiService.updateUserPassword(this.password)
       this.isLoading = false
-      apiService.showSuccess('account.password-changed')
+      if (status.ok) showSuccess('account.password-changed')
       this.$navigateTo(Account)
     },
   },
