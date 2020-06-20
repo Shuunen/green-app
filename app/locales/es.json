@@ -4,8 +4,13 @@
   },
   "account": {
     "about": "Verde preguntamos",
+    "address": "Dirección",
+    "change-password": "Cambia la contraseña",
+    "change-password-message": "Cambia tu contraseña cuando quieras pero seguirás usando el mismo inicio de sesión.",
     "change-target": "Seleccione otro restaurante",
+    "city": "Ciudad",
     "complete": "completar",
+    "deliveryInformations": "Entrega Información",
     "edit": "editar mis datos",
     "email": "Dirección de correo electrónico",
     "first-name": "Nombre de pila",
@@ -15,16 +20,17 @@
     "my-diets": "Mis dietas",
     "my-language": "Mi idioma",
     "my-orders": "Mis ordenes",
+    "my-password": "Mi contraseña",
     "my-store": "Mi restaurante",
     "my-target": "Mi restaurante",
+    "new-password": "Nueva contraseña",
+    "new-password-confirm": "Nueva contraseña (confirmar)",
     "order-from": "orden desde {date}",
     "password": "Contraseña",
+    "password-changed": "Su contraseña ha sido actualizada",
     "set-target": "elige un restaurante",
     "sign-up": "Regístrate",
-    "address": "Dirección",
-    "city": "Ciudad",
-    "telephone": "Teléfono",
-    "deliveryInformations": "Entrega Información"
+    "telephone": "Teléfono"
   },
   "allergen": {
     "gluten": "gluten",
@@ -53,12 +59,14 @@
     "my-account": "Mi cuenta",
     "my-orders": "Mis ordenes",
     "next-step": "proximo paso",
+    "ok": "de acuerdo",
     "or": "o",
     "previous-step": "paso anterior",
     "required-fields": "Los campos marcados con una estrella * son obligatorios.",
     "select": "Seleccionar",
     "spanish": "Español",
     "step": "paso {nb}",
+    "success-title": "Éxito",
     "version": "versión"
   },
   "diet": {
@@ -78,6 +86,7 @@
     "invalid_grant": "Esta cuenta no existe",
     "json-parse-failed": "El análisis JSON ha fallado",
     "offline": "Se requiere una conexión a internet",
+    "passwords-differs": "La nueva contraseña y la confirmación no coinciden.",
     "session-expired": "Su sesión expiró, inicie sesión",
     "unknown": "Ocurrió un error inesperado, perdón por eso."
   },
