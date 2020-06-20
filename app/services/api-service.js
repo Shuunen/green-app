@@ -145,6 +145,13 @@ class ApiService {
     else console.error('patch failed')
   }
 
+  async updateUserPassword (plainPassword) {
+    const url = '/users/' + this.user.id
+    const updates = { plainPassword }
+    const status = await this.patch(url, updates)
+    if (status !== 'ok') console.error('patch password failed')
+  }
+
   async doLogin () {
     const { email, password } = this.user
     if (!email || !password) return this.showError('error.missing-data-for-login')
@@ -196,6 +203,15 @@ class ApiService {
       okButtonText: i18n.t('error.alert-button'),
     })
     return 'KO'
+  }
+
+  async showSuccess (code) {
+    alert({
+      title: i18n.t('common.success-title'),
+      message: i18n.t(code),
+      okButtonText: i18n.t('common.ok'),
+    })
+    return 'ok'
   }
 
   getHeaders (toAppend = {}) {

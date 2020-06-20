@@ -4,8 +4,13 @@
   },
   "account": {
     "about": "حول",
+    "address": "عنوان",
+    "change-password": "غير كلمة السر",
+    "change-password-message": "قم بتغيير كلمة المرور الخاصة بك عندما تريد ولكن ستستمر في استخدام نفس تسجيل الدخول",
     "change-target": "حدد مطعم آخر",
+    "city": "مدينة",
     "complete": "اكتمال",
+    "deliveryInformations": "معلومات التسليم",
     "edit": "تصحيح",
     "email": "عنوان بريد الكتروني",
     "first-name": "الاسم الاول",
@@ -15,16 +20,17 @@
     "my-diets": "نظامي الغذائي",
     "my-language": "لغتي",
     "my-orders": "طلباتي",
+    "my-password": "كلمة مروري",
     "my-store": "متجري",
     "my-target": "مطعم بلدي",
+    "new-password": "كلمة السر الجديدة",
+    "new-password-confirm": "كلمة المرور الجديدة (تأكيد)",
     "order-from": "طلب من {date}",
     "password": "كلمه السر",
+    "password-changed": "لقد تم تحديث كلمة السر الخاصة بك",
     "set-target": "اختر مطعم",
     "sign-up": "سجل",
-    "address": "عنوان",
-    "city": "مدينة",
-    "telephone": "هاتف",
-    "deliveryInformations": "معلومات التسليم"
+    "telephone": "هاتف"
   },
   "allergen": {
     "gluten": "الغولتين",
@@ -53,12 +59,14 @@
     "my-account": "حسابي",
     "my-orders": "طلباتي",
     "next-step": "الخطوة التالية",
+    "ok": "حسنا",
     "or": "أو",
     "previous-step": "خطوة سابقة",
     "required-fields": "الحقول التي تحمل علامة * مطلوبة",
     "select": "تحديد",
     "spanish": "الأسبانية",
     "step": "الخطوة {nb}",
+    "success-title": "نجاح",
     "version": "الإصدار"
   },
   "diet": {
@@ -78,6 +86,7 @@
     "invalid_grant": "هذا الحساب غير موجود",
     "json-parse-failed": "فشل تحليل JSON",
     "offline": "مطلوب اتصال بالإنترنت",
+    "passwords-differs": "لا تتطابق كلمة المرور الجديدة مع التأكيد",
     "session-expired": "انتهت جلستك ، يرجى تسجيل الدخول",
     "unknown": "حدث خطأ غير متوقع ، آسف لذلك."
   },

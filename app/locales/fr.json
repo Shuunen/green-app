@@ -4,8 +4,13 @@
   },
   "account": {
     "about": "green à la demande",
+    "address": "Adresse",
+    "change-password": "Changer le mot de passe",
+    "change-password-message": "Modifiez votre mot de passe quand vous le souhaitez mais vous continuerez à utiliser le même identifiant de connexion.",
     "change-target": "Choisir un autre restaurant",
+    "city": "Ville",
     "complete": "finaliser",
+    "deliveryInformations": "Informations de livraison",
     "edit": "modifier mes infos",
     "email": "Adresse électronique",
     "first-name": "Prénom",
@@ -15,16 +20,17 @@
     "my-diets": "Mes régimes",
     "my-language": "Ma langue",
     "my-orders": "Mes commandes",
+    "my-password": "Mon mot de passe",
     "my-store": "Mon restaurant",
     "my-target": "Mon restaurant",
+    "new-password": "Nouveau mot de passe",
+    "new-password-confirm": "Nouveau mot de passe (confirmer)",
     "order-from": "commande du {date}",
     "password": "Mot de passe",
+    "password-changed": "Votre mot de passe a été mis à jour",
     "set-target": "choisir un restaurant",
     "sign-up": "S'inscrire",
-    "address": "Adresse",
-    "city": "Ville",
-    "telephone": "Telephone",
-    "deliveryInformations": "Informations de livraison"
+    "telephone": "Telephone"
   },
   "allergen": {
     "gluten": "gluten",
@@ -53,12 +59,14 @@
     "my-account": "Mon compte",
     "my-orders": "Mes commandes",
     "next-step": "étape suivante",
+    "ok": "d'accord",
     "or": "ou",
     "previous-step": "étape précédente",
     "required-fields": "Les champs marqués d'une étoile * sont obligatoires.",
     "select": "Choisir",
     "spanish": "Espagnol",
     "step": "étape {nb}",
+    "success-title": "Succès",
     "version": "version"
   },
   "diet": {
@@ -78,6 +86,7 @@
     "invalid_grant": "Ce compte n'existe pas",
     "json-parse-failed": "La lecture JSON a échoué",
     "offline": "Une connexion internet est requise",
+    "passwords-differs": "Le nouveau mot de passe et la confirmation ne correspondent pas",
     "session-expired": "Votre session a expiré, veuillez vous reconnecter",
     "unknown": "Une erreur inattendue s'est produite, désolé pour cela."
   },

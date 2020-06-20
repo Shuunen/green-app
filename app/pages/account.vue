@@ -28,7 +28,8 @@
             </StackLayout>
             <!-- action button -->
             <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
-              <Button class="action validate" :text="$t('account.edit')" @tap="onEdit" />
+              <Button class="action validate" :text="$t('account.edit')" @tap="$navigateTo(AccountEdit)" />
+              <Button class="action" :text="$t('account.change-password')" @tap="$navigateTo(ChangePassword)" />
             </FlexboxLayout>
           </StackLayout>
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
@@ -59,13 +60,16 @@ import { apiService } from '@/services'
 import { prettyPrint, readableDate, readableList, readablePrice } from '@/utils'
 import AccountEdit from '@/pages/account-edit'
 import Home from '@/pages/home'
+import ChangePassword from '@/pages/change-password'
 
 export default {
   data () {
     return {
       allergens: apiService.allergens,
       diets: apiService.diets,
+      AccountEdit,
       Home,
+      ChangePassword,
       readableDate,
       readableList,
       readablePrice,
@@ -77,10 +81,6 @@ export default {
     console.log('Account page mounted with user', prettyPrint(this.user))
   },
   methods: {
-    onEdit () {
-      console.log('account : user wants to edit his data')
-      this.$navigateTo(AccountEdit)
-    },
     readableDetails (order) {
       return [
         `fat ${order.totalFat}g`,

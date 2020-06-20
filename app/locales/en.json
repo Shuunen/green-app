@@ -4,8 +4,13 @@
   },
   "account": {
     "about": "Green on demande",
+    "address": "address",
+    "change-password": "Change password",
+    "change-password-message": "Change your password when you wants but you'll keep using the same login.",
     "change-target": "Choose another restaurant",
+    "city": "city",
     "complete": "complete",
+    "deliveryInformations": "delivery Informations",
     "edit": "edit my data",
     "email": "Email address",
     "first-name": "Firstname",
@@ -15,16 +20,17 @@
     "my-diets": "My diets",
     "my-language": "My language",
     "my-orders": "My orders",
+    "my-password": "My password",
     "my-store": "My restaurant",
     "my-target": "My restaurant",
+    "new-password": "New password",
+    "new-password-confirm": "New password (confirm)",
     "order-from": "order from {date}",
     "password": "Password",
+    "password-changed": "Your password has been updated",
     "set-target": "choose a restaurant",
     "sign-up": "Sign up",
-    "address": "address",
-    "city": "city",
-    "telephone": "telephone",
-    "deliveryInformations": "delivery Informations"
+    "telephone": "telephone"
   },
   "allergen": {
     "gluten": "gluten",
@@ -53,12 +59,14 @@
     "my-account": "My account",
     "my-orders": "My orders",
     "next-step": "next step",
+    "ok": "ok",
     "or": "or",
     "previous-step": "previous step",
     "required-fields": "Fields marked with a star * are required.",
     "select": "Select",
     "spanish": "Spanish",
     "step": "step {nb}",
+    "success-title": "Success",
     "version": "version"
   },
   "diet": {
@@ -78,6 +86,7 @@
     "invalid_grant": "This account does not exists",
     "json-parse-failed": "JSON parsing has failed",
     "offline": "An internet connection is required",
+    "passwords-differs": "The new password and the confirmation does not matches",
     "session-expired": "Your session expired, please login again",
     "unknown": "An unexpected error happened, sorry for that."
   },
