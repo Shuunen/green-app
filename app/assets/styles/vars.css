@@ -2,11 +2,11 @@
   /* https://coolors.co/f9f9f3-353535-53ba82-3c6e71-6c3d94 */
   --color-white: white;
   --color-black: #353535;
-  --color-primary-light: hsl(67, 74%, 70%);
-  --color-primary: #bfcf49;
-  --color-primary-dark: hsla(67, 88%, 38%, 1);
-  --color-grey: rgb(128, 143, 12);
-  --color-alt: rgb(94, 34, 173);
+  --color-primary-light: #c9e8d0;
+  --color-primary: #81ca91;
+  --color-primary-dark: #44a258;
+  --color-grey: #808f0c;
+  --color-alt: #5f23af;
   --color-disabled: #cccccc;
   --color-error: #d42f2f;
 }
