@@ -95,7 +95,10 @@
   },
   "login": {
     "forgot-password": "Olvidaste tu contraseña ?",
+    "forgot-password-message": "Escriba su correo electrónico y le enviaremos un enlace para cambiar su contraseña.",
     "login": "Iniciar sesión",
+    "reset-mail-sent": "Debería recibir un correo pronto con un enlace para restablecer su contraseña",
+    "reset-password": "Restablecer mi contraseña",
     "sign-up": "Regístrate",
     "welcome": "Bienvenido a Green es mejor aplicación de pedido!"
   },

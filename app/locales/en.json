@@ -95,7 +95,10 @@
   },
   "login": {
     "forgot-password": "Forgot your password ?",
+    "forgot-password-message": "Type your email and we will send you a link to change your password.",
     "login": "login",
+    "reset-mail-sent": "You should receive a mail soon with a link to reset your password",
+    "reset-password": "Reset my password",
     "sign-up": "Sign up",
     "welcome": "Welcome to Green is better order app !"
   },

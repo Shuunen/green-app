@@ -74,3 +74,10 @@
 ActivityIndicator {
   color: var(--color-primary);
 }
+
+.link {
+  font-size: 15;
+  color: var(--color-alt);
+  border-color: var(--color-alt);
+  border-bottom-width: 1;
+}
