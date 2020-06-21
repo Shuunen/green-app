@@ -45,6 +45,12 @@ import { prettyPrint, showError, showSuccess } from '@/utils'
 import Account from '@/pages/account'
 
 export default {
+  props: {
+    token: {
+      type: String,
+      default: '',
+    },
+  },
   data () {
     return {
       isLoading: false,
@@ -65,10 +71,18 @@ export default {
       console.log(`change pass : user submitted "${this.password}"`)
       if (!this.passwordsMatches()) return showError('error.passwords-differs')
       this.isLoading = true
-      const status = await apiService.updateUserPassword(this.password)
+      const status = await this.updateUserPassword()
       this.isLoading = false
       if (status.ok) showSuccess('account.password-changed')
       this.$navigateTo(Account)
+    },
+    async updateUserPassword () {
+      if (this.token.length === 0) return apiService.updateUserPassword(this.password)
+      // if token defined, it means user came here from : forgot password -> email link
+      const content = { password: this.password, token: this.token }
+      console.log('need to send this to API', content)
+      // TODO
+      showError('error.api-needed')
     },
   },
 }
