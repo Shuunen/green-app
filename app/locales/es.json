@@ -80,6 +80,7 @@
     "alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
     "alert-title": "Error",
     "api-needed": "Se necesita una API para esta llamada no burlada",
+    "cannot-resolve-host": "Problema de red, no se puede resolver el host",
     "duplicate_key": "Este correo electrónico pertenece a una cuenta, inicie sesión o regístrese con otro correo electrónico",
     "internal": "Apareció un error interno, contáctenos",
     "invalid-email": "Por favor, introduce una dirección de correo electrónico válida",

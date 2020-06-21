@@ -10,8 +10,9 @@ const timeout = 50000
 
 class HttpService {
   requestErrorHandler (error) {
-    let code = 'error.unknown'
+    let code = 'unknown'
     if (error.message.includes('Unexpected token < in JSON at position 0')) code = 'json-parse-failed'
+    else if (error.message.includes('Unable to resolve host')) code = 'cannot-resolve-host'
     console.error(error.message)
     return { error: code }
   }
