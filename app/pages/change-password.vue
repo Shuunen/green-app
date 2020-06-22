@@ -29,7 +29,8 @@
             <!-- action button -->
             <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
               <Button class="action validate" :isEnabled="(password.length > 0 && passwordConfirm.length > 0)" :text="$t('account.change-password')" @tap="submit" />
-              <Button class="action" :text="$t('common.back-account')" @tap="$navigateTo(Account)" />
+              <Button v-if="isSessionActive" class="action" :text="$t('common.back-account')" @tap="$navigateTo(Account)" />
+              <Button v-else class="action" :text="$t('common.back-home')" @tap="$navigateTo(PreLogin)" />
             </FlexboxLayout>
           </StackLayout>
           <!-- end -->
@@ -43,6 +44,7 @@
 import { apiService } from '@/services'
 import { prettyPrint, showError, showSuccess } from '@/utils'
 import Account from '@/pages/account'
+import PreLogin from '@/pages/pre-login'
 
 export default {
   props: {
@@ -53,10 +55,12 @@ export default {
   },
   data () {
     return {
-      isLoading: false,
       Account,
+      isLoading: false,
+      isSessionActive: apiService.isSessionActive(),
       password: '',
       passwordConfirm: '',
+      PreLogin,
       user: apiService.user,
     }
   },
