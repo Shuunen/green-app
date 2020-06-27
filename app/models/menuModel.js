@@ -14,26 +14,10 @@ export class MenuModel {
 }
 
 /* {
-  "@id": "/menu_models/1",
-  "@type": "MenuModel",
-  "families": [],
-  "label": "Green Rush",
-  "price": 9.4,
+  "id": 29,
+  "label": "green-adipisicing",
+  "price": 18.88,
   "active": true,
-  "picks": [
-    {
-        "@id": "/menu_picks/21",
-        "@type": "MenuPick",
-        "amount": 1,
-        "families": [
-            {
-                "@id": "/families/7",
-                "@type": "Family",
-                "label": "dessert"
-            }
-        ],
-        "extraPrice": null
-    },
-    ...
-  ]
+  "picks": [ { ... }, ...],
+  "icon": "formulas"
 } */

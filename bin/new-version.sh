@@ -68,4 +68,4 @@ updateVersion
 commitVersion
 buildVersion
 
-echo -e "\n Check these : \n - this build went correctly ? \n - apk has been successfully uploaded & deployed on the Play Store ? - app download from the PlayStore works well ? \n\n If 3 yes, then push commit & tag via : git push && git push --tags \n Else : git tag -d vXXX && git reset --hard HEAD~"
+echo -e "\n Check these : \n - this build went correctly ? \n - apk has been successfully uploaded & deployed on the Play Store ? \n - app download from the PlayStore works well ? \n\n If 3 yes, then push commit & tag via : git push && git push --tags \n Else : git tag -d vXXX && git reset --hard HEAD~"
