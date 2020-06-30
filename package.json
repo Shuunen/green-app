@@ -43,8 +43,8 @@
   },
   "description": "A native application built with NativeScript-Vue",
   "devDependencies": {
-    "@babel/core": "7.10.3",
-    "@babel/preset-env": "7.10.3",
+    "@babel/core": "7.10.4",
+    "@babel/preset-env": "7.10.4",
     "babel-loader": "8.1.0",
     "email-validator": "2.0.4",
     "eslint": "7.3.1",
