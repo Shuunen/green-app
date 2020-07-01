@@ -29,7 +29,8 @@
             <!-- action button -->
             <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
               <Button class="action validate" :isEnabled="(password.length > 0 && passwordConfirm.length > 0)" :text="$t('account.change-password')" @tap="submit" />
-              <Button class="action" :text="$t('common.back-account')" @tap="$navigateTo(Account)" />
+              <Button v-if="isSessionActive" class="action" :text="$t('common.back-account')" @tap="$navigateTo(Account)" />
+              <Button v-else class="action" :text="$t('common.back-home')" @tap="$navigateTo(PreLogin)" />
             </FlexboxLayout>
           </StackLayout>
           <!-- end -->
@@ -43,14 +44,23 @@
 import { apiService } from '@/services'
 import { prettyPrint, showError, showSuccess } from '@/utils'
 import Account from '@/pages/account'
+import PreLogin from '@/pages/pre-login'
 
 export default {
+  props: {
+    token: {
+      type: String,
+      default: '',
+    },
+  },
   data () {
     return {
-      isLoading: false,
       Account,
+      isLoading: false,
+      isSessionActive: apiService.isSessionActive(),
       password: '',
       passwordConfirm: '',
+      PreLogin,
       user: apiService.user,
     }
   },
@@ -65,10 +75,18 @@ export default {
       console.log(`change pass : user submitted "${this.password}"`)
       if (!this.passwordsMatches()) return showError('error.passwords-differs')
       this.isLoading = true
-      const status = await apiService.updateUserPassword(this.password)
+      const status = await this.updateUserPassword()
       this.isLoading = false
       if (status.ok) showSuccess('account.password-changed')
       this.$navigateTo(Account)
+    },
+    async updateUserPassword () {
+      if (this.token.length === 0) return apiService.updateUserPassword(this.password)
+      // if token defined, it means user came here from : forgot password -> email link
+      const content = { password: this.password, token: this.token }
+      console.log('need to send this to API', content)
+      // TODO
+      showError('error.api-needed')
     },
   },
 }
