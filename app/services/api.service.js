@@ -1,4 +1,4 @@
-import { Allergen, Family, OAuthToken, Product, Store, User } from '@/models'
+import { Allergen, Family, OAuthToken, Store, User } from '@/models'
 import { i18n, LOCALES, LOCALE_DEFAULT_CODE } from '@/plugins/i18n'
 import { showError, uriFromId, urisFromIds } from '@/utils'
 import { getString, setString } from 'tns-core-modules/application-settings'
@@ -53,7 +53,6 @@ class ApiService {
     // await this.getType('diets', Diet)
     await this.getType('allergens', Allergen)
     await this.getType('families', Family)
-    await this.getType('products', Product)
     await this.getType('stores', Store)
     this.genCatalogs()
     return { ok: true }
@@ -66,13 +65,14 @@ class ApiService {
       this.familyNameById[id] = family.label
     })
     // { '1': 'base', '2': 'ingredient', '3': 'sauce', '4': 'soup', '5': 'wrap', '6': 'drink', '7': 'dessert' }
-    this.products.forEach(product => {
+    this.user.store.products.forEach(product => {
       const familyId = product.family
       const familyName = this.familyNameById[familyId]
       if (!this.productsByFamilyName[familyName]) this.productsByFamilyName[familyName] = []
       this.productsByFamilyName[familyName].push(product)
     })
     // { base: [ [Object], [Object], [Object],... ], ingredient: [...]
+    // console.log(prettyPrint(this.productsByFamilyName))
   }
 
   async getType (type, Model) {
@@ -165,7 +165,6 @@ class ApiService {
     }
     console.log('registering user order...', content)
     const response = await httpService.post('/m/pay', content)
-    response.stripeSessionId = response.data
     return response
   }
 

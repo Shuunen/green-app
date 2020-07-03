@@ -53,13 +53,9 @@ export default {
   },
   methods: {
     loadMenus () {
-      const store = this.stores.find(s => s.id === this.user.store)
-      if (!store) {
-        this.isLoading = false
-        return console.error('cannot find the user store from stores list')
-      }
-      console.log(`here is the menus form store "${store.name}" :`, prettyPrint(store.menus))
-      this.menus = store.menus.filter(menu => menu.active)
+      const { id, menus } = this.user.store
+      console.log(`found ${menus.length} menus in the user store with id "${id}"`)
+      this.menus = menus.filter(menu => menu.active)
     },
     goto (data) {
       console.log('user wants to go to :', prettyPrint(data))
