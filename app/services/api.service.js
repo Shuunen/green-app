@@ -158,13 +158,7 @@ class ApiService {
 
   async validateOrder (menus) {
     console.log('send ordered menus to api', menus)
-    const content = {
-      menus,
-      store: `${this.user.store}`,
-      customer: this.user.email,
-    }
-    console.log('registering user order...', content)
-    const response = await httpService.post('/m/pay', content)
+    const response = await httpService.post('/m/pay', menus)
     return response
   }
 
