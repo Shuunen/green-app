@@ -1,33 +1,20 @@
-import { idFromUri } from '@/utils'
 
 export class MenuPick {
-  constructor (data) {
-    this.id = data.id || idFromUri(data['@id'])
-    this.amount = data.amount || 0
-    this.extraPrice = data.extraPrice || 0
-    this.families = (data.families || []).map(family => (typeof family === 'string' ? family : family.label))
+  constructor ({ id, amount, extraPrice, families }) {
+    this.id = id || 0
+    this.amount = amount || 0
+    this.extraPrice = extraPrice || 0
+    this.families = families || []
   }
 }
 
-/*
-in : {
-  "@id": "/menu_picks/21",
-  "@type": "MenuPick",
+/* {
+  "id": 90,
   "amount": 1,
   "families": [
-      {
-          "@id": "/families/7",
-          "@type": "Family",
-          "label": "dessert"
-      }
+      "base"
   ],
-  "extraPrice": null
-}
-
-out : {
-  "id": 21,
-  "amount": 1,
-  "families": ["dessert"],
-  "extraPrice": 0
-}
-*/
+  "menuModel": "/menu_models/29",
+  "extraPrice": 1,
+  "orderDisplay": 0
+} */

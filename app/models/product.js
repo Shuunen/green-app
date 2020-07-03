@@ -1,4 +1,3 @@
-import { idFromUri } from '@/utils'
 
 export class Product {
   get title () { return this.name }
@@ -9,26 +8,14 @@ export class Product {
     this.allergens = allergens || []
     this.name = name || ''
     this.internalName = internalName || ''
-    this.family = idFromUri(family)
+    this.family = family || 0
   }
 }
 
 /* {
-  "@id": "/products/1",
-  "@type": "Product",
-  "productModel": "/product_models/1",
-  "store": "/stores/1",
-  "id": 1,
-  "energy": 0,
-  "fat": 48,
-  "fatLipid": 20,
-  "carbohydrate": 84,
-  "carbohydrateSugar": 3,
-  "proteins": 83,
-  "salt": 10,
-  "allergens": [],
-  "active": true,
-  "name": "Cœur de romaine",
-  "internalName": "base-coeur-de-romaine",
-  "family": "/families/4"
+    "id": 495,
+    "name": "Sauce Provençale",
+    "internalName": "Sauce Provençale",
+    "family": 33,
+    "allergens": []
 } */

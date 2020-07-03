@@ -1,9 +1,7 @@
-import { MenuModel } from './menuModel'
 
 export class Store {
-  constructor ({ id, menus, name, address, phone }) {
+  constructor ({ id, name, address, phone }) {
     this.id = id || 0
-    this.menus = (menus || []).map(m => new MenuModel(m))
     this.name = name || ''
     this.address = address || ''
     this.phone = phone || ''

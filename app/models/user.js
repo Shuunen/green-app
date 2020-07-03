@@ -1,7 +1,7 @@
-import { UserCustomerOrder } from '@/models'
+import { UserCustomerOrder, UserStore } from '@/models'
 import { i18n } from '@/plugins/i18n'
 import { apiService } from '@/services'
-import { capitalizeFirstLetter, idFromUri, idsFromUris } from '@/utils'
+import { capitalizeFirstLetter, idsFromUris } from '@/utils'
 import validator from 'email-validator'
 
 export class User {
@@ -35,7 +35,7 @@ export class User {
     this.deliveryInformations = deliveryInformations || ''
     this.telephone = telephone || ''
     this.locale = locale || i18n.locale
-    this.store = idFromUri(store)
+    this.store = store ? new UserStore(store) : {}
     this.orders = (orders || []).map(o => new UserCustomerOrder(o))
     if (!this.firstname) this.detectNamesFromEmail()
   }
@@ -52,33 +52,21 @@ export class User {
   }
 }
 
-/* example user from API :
+/* example user from API /me :
 {
-  "@context": "/contexts/User",
-  "@id": "/users/35",
-  "@type": "User",
-  "store": "/stores/1",
-  "roles": [
-    "ROLE_USER"
+  "store": {},
+  "id": 15,
+  "orders": [],
+  "username": "user5@example.com",
+  "email": "user5@example.com",
+  "firstname": "John",
+  "lastname": "Doe",
+  "locale": "fr",
+  "allergens": [
+      "/allergens/47"
   ],
-  "id": 35,
-  "allergens": [],
-  "username": "romain.racamier@gmail.com",
-  "usernameCanonical": "romain.racamier@gmail.com",
-  "salt": null,
-  "email": "romain.racamier@gmail.com",
-  "emailCanonical": "romain.racamier@gmail.com",
-  "password": "$2y$13$n3jJ60jbV3s27KCj8J7S6.4y5wHX1Zj6ssZkZB7h2ev6e1N2i",
-  "plainPassword": null,
-  "lastLogin": null,
-  "confirmationToken": null,
-  "accountNonExpired": true,
-  "accountNonLocked": true,
-  "credentialsNonExpired": true,
-  "enabled": true,
-  "superAdmin": false,
-  "passwordRequestedAt": null,
-  "groups": [],
-  "groupNames": []
-}
-*/
+  "address": "",
+  "city": "",
+  "deliveryInformations": "",
+  "telephone": ""
+} */

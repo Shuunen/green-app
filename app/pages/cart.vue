@@ -92,7 +92,8 @@ export default {
       const response = await apiService.validateOrder(this.orders)
       this.isLoading = false
       if (!response.ok) return showError('error.order-failed')
-      this.$navigateTo(Checkout, { props: { sessionId: response.stripeSessionId } })
+      const { sessionId } = response
+      this.$navigateTo(Checkout, { props: { sessionId } })
     },
   },
 }
