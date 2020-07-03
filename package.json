@@ -26,7 +26,7 @@
         "currency": "EUR"
       }
     },
-    "stripe_pub_key": "pk_test_KzWLe8OASQ5R4E4VkAmpep8w00eTCnkdZS"
+    "stripe_pub_key": "pk_test_sQBoWvVd3x3WsGMTzi3nEoGE00G7KjlBVA"
   },
   "dependencies": {
     "@teammaestro/nativescript-svg": "1.0.1",
