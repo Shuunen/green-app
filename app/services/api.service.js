@@ -157,8 +157,16 @@ class ApiService {
   }
 
   async validateOrder (menus) {
-    console.log('send ordered menus to api', menus)
-    const response = await httpService.post('/m/pay', menus)
+    // FIXME add extras
+    const payload = { menus: [] }
+    menus.forEach((menu) => {
+      const products = []
+      menu.picks.forEach(pick => pick.selection.forEach(s => products.push(s.id)))
+      payload.menus.push({ id_menu_model: menu.id, products })
+    })
+    console.log('send ordered menus to api', payload)
+    const response = await httpService.post('/m/pay', payload)
+    if (!response.ok) return response
     return response
   }
 

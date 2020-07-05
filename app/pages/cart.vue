@@ -89,20 +89,7 @@ export default {
     },
     async validateOrder () {
       this.isLoading = true
-    // ici on build le nouveau PAYLOAD
-    // il manque les extras - je vois pas trop ou choper l'info
-      const payload = {'menus':[]};  
-      this.orders.forEach((menu)=>{
-        const productsItem = []
-        menu.picks.forEach((p)=>{
-          p.selection.forEach((s)=>{
-              productsItem.push(s.id)
-          })
-        })
-        payload.menus.push({'id_menu_model': menu.id, 'products': productsItem })
-      })
-
-      const response = await apiService.validateOrder(payload)      
+      const response = await apiService.validateOrder(this.orders)
       this.isLoading = false
       if (!response.ok) return showError('error.order-failed')
       const { sessionId } = response
