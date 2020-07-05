@@ -15,7 +15,7 @@ export class User {
 
   get storeLabel () {
     if (!this.store) return ''
-    const store = apiService.stores.find(s => s.id === this.store)
+    const store = apiService.stores.find(s => s.id === this.store.id)
     if (store) return store.name
     console.error('cant find store with id :', this.store)
     return ''
