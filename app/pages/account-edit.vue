@@ -72,7 +72,7 @@
                 <Label :text="$t('signup.step-3')" class="fz-m mb-l" textWrap="true" />
                 <app-pick :data="userStore" :items="{ stores }" @change="onStoreChange" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
-                  <Button class="action big validate" :text="$t('account.complete')" :isEnabled="!isLoading" @tap="submit()" />
+                  <Button class="action big validate" :text="$t('account.complete')" :isEnabled="!isLoading && isStep3Valid()" @tap="submit()" />
                   <Button class="action" :text="$t('common.previous-step')" @tap="tabSelected--" />
                   <ActivityIndicator class="mt-s" :busy="isLoading" />
                 </FlexboxLayout>
@@ -119,6 +119,9 @@ export default {
   methods: {
     isStep1Valid () {
       return (this && this.user.firstname ? this.user.firstname.length : 0) > 3
+    },
+    isStep3Valid () {
+      return this.userStore.selection.length > 0
     },
     tabChange (args) {
       this.tabSelected = args.value
