@@ -36,7 +36,8 @@
                   <TextField v-model="user.deliveryInformations" />
                 </StackLayout>
 
-                <Label :text="$t('common.required-fields')" />
+                <Label :text="$t('common.required-fields')" textWrap="true" />
+
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                   <Button class="action big validate" :text="$t('common.next-step')" :isEnabled="isStep1Valid()" @tap="tabSelected++" />
                   <Button class="action" :text="$t('common.back-account')" @tap="cancel" />
