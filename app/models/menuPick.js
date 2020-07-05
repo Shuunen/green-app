@@ -1,9 +1,8 @@
 
 export class MenuPick {
-  constructor ({ id, amount, extraPrice, families }) {
+  constructor ({ id, amount, families }) {
     this.id = id || 0
     this.amount = amount || 0
-    this.extraPrice = extraPrice || 0
     this.families = families || []
   }
 }
