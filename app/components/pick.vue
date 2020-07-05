@@ -2,9 +2,8 @@
   <StackLayout class="pick mt-m p-m" :class="{ valid: data.valid }">
     <Label :text="data.titleText" class="pick--title mb-s" />
     <Label v-if="descText.length" :text="descText" class="pick--desc black ml-s mb-s" />
-    <Label v-if="data.extraPrice" :text="data.extraText" class="pick--extra ml-s mb-s" />
     <FlexboxLayout flexWrap="wrap">
-      <Button v-for="item in list" :key="item.value" :text="$t(item.title)" :class="{ selected: (selection.findIndex(s => s.value === item.value) > -1) }" @tap="selectItem(item)" />
+      <Button v-for="item in list" :key="item.value" :text="itemText(item)" :class="{ selected: isItemSelected(item) }" @tap="selectItem(item)" />
     </FlexboxLayout>
   </StackLayout>
 </template>
@@ -30,17 +29,17 @@ export default {
       selection: [],
     }
   },
+  computed: {
+    extraMode: function () {
+      return this.selection.length >= this.data.amount
+    },
+  },
   created () {
-    // console.log('Pick component created, picking in :', this.data.from)
+    console.log('Pick component created', JSON.stringify(this.data))
     if (!this.data.from || !this.data.from.length) return console.error('\n data.from empty /!\\ \n')
     this.setTitle()
     this.setDesc()
-    this.setExtra()
     this.setList()
-  },
-  mounted () {
-    // console.log('Pick component mounted, picking in :', this.data.from)
-    // console.log('selection is :', prettyPrint(this.data.selection))
   },
   methods: {
     setList () {
@@ -61,33 +60,45 @@ export default {
       i18nKey = this.reduceCombos(i18nKey)
       this.descText = this.$tc(i18nKey, this.data.amount || 2)
     },
-    setExtra () {
-      if (!this.data.extraPrice) return
-      this.data.extraText = `${readablePrice(this.data.extraPrice)} ${this.$t('pick.for-each-extra')}`
-    },
     isValid () {
       return this.selection.length > 0 // at least one item selected
     },
+    isItemSelected (item) {
+      return this.selection.findIndex(s => s.value === item.value) > -1
+    },
+    itemText (item) {
+      let text = this.$t(item.title)
+      const index = this.selection.findIndex(s => s.value === item.value)
+      const unselected = index === -1
+      const selectedExtra = index >= this.data.amount
+      if (item.price && this.extraMode && (unselected || selectedExtra)) text += ` (+${readablePrice(item.price)})`
+      return text
+    },
     getPrice () {
-      if (!this.data.extraPrice) return 0
-      return Math.max(this.selection.length - this.data.amount, 0) * this.data.extraPrice
+      let total = 0
+      if (this.selection.length <= this.data.amount) return total
+      for (let i = this.data.amount; i < this.selection.length; i++) total += this.selection[i].price
+      console.log('calculated a total of', readablePrice(total), 'for pick', this.data.titleText)
+      return total
     },
     reduceCombos (str) {
       return str.replace('soup-wrap', 'wrap-soup').replace('dessert-drink', 'drink-dessert')
     },
     selectItem (item) {
       const index = this.selection.findIndex(s => s.value === item.value)
-      if (index > -1) {
-        console.log('user de-selected item :', item.value)
+      console.log(`found ${item.value} at index`, index)
+      const deselected = index > -1
+      console.log(`user ${deselected ? 'de-' : ''}selected item :`, item.value)
+      if (deselected) {
         this.selection.splice(index, 1)
       } else {
-        console.log('user selected item :', item.value)
-        if (this.selection.length === this.data.amount && !this.data.extraPrice) {
+        if (this.selection.length === this.data.maxAmount) {
           const excess = this.selection.shift()
           console.log(`removed excess item : ${excess.value}`)
         }
         this.selection.push(item)
       }
+      console.log('selection is now', this.selection)
       this.data.valid = this.isValid()
       this.data.price = this.getPrice()
       this.data.selection = this.selection

@@ -161,8 +161,12 @@ class ApiService {
     const payload = { menus: [] }
     menus.forEach((menu) => {
       const products = []
-      menu.picks.forEach(pick => pick.selection.forEach(s => products.push(s.id)))
-      payload.menus.push({ id_menu_model: menu.id, products })
+      const extras = []
+      menu.picks.forEach(pick => pick.selection.forEach((product, index) => {
+        if (index < pick.amount) products.push(product.id)
+        else extras.push(product.id)
+      }))
+      payload.menus.push({ id_menu_model: menu.id, products, extras })
     })
     console.log('send ordered menus to api', payload)
     const response = await httpService.post('/m/pay', payload)

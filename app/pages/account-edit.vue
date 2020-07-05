@@ -53,7 +53,7 @@
               <StackLayout class="p-l">
                 <Label :text="$t('signup.step-2')" class="fz-m mb-l" textWrap="true" />
                 <!-- TODO https://github.com/Shuunen/green-app/issues/220
-                <app-pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" /> -->
+                <app-pick :data="userDiets" :items="{ diets }" @change="onDietsPickChange" />-->
                 <app-pick :data="userAllergens" :items="{ allergens }" @change="onAllergensPickChange" />
                 <FlexboxLayout flexDirection="column" alignItems="center" class="mt-l">
                   <Button class="action big validate" :text="$t('common.next-step')" @tap="tabSelected++" />
@@ -102,7 +102,7 @@ export default {
       tabSelected: 0,
       userDiets: { title: 'account.my-diets', from: ['diets'], selection: [] },
       userAllergens: { title: 'account.my-allergens', from: ['allergens'], selection: [] },
-      userStore: { title: 'account.my-store', amount: 1, from: ['stores'], selection: [] },
+      userStore: { title: 'account.my-store', amount: 1, maxAmount: 1, from: ['stores'], selection: [] },
     }
   },
   created () {
