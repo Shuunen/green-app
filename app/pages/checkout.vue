@@ -62,8 +62,7 @@ export default {
       if (url.includes('/cancel')) return this.$navigateTo(Home)
       if (url.includes('/success')) return (this.hasSucceed = true)
       console.log('un-handled navigation case ?!')
-      // this.hasFailed = true
-      // todo il y a surement un moyen de faire plus clean
+      this.hasFailed = true
     },
   },
 }
