@@ -53,6 +53,7 @@ class ApiService {
     await this.getType('allergens', Allergen)
     await this.getType('families', Family)
     await this.getType('stores', Store)
+    this.stores = this.stores.filter(s => s.active)
     this.genCatalogs()
     return { ok: true }
   }
