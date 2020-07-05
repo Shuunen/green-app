@@ -6,7 +6,7 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <FlexboxLayout class="p-l" flexDirection="column">
           <!-- content from here -->
-          <Label v-show="!isLoading" :text="menus.length ? $tc('order.choose-formula', orders.length) : $t('order.no-formulas')" class="pt-s pb-m fz-m grey" textWrap="true" />
+          <Label v-show="!isLoading" :text="menus.length === 0 ? $t('order.no-formulas') : $tc('order.choose-formula', orders.length)" class="pt-s pb-m fz-m grey" textWrap="true" />
           <app-formula-tile v-for="menu in menus" :key="menu.title" :data="menu" @tap.native="goto(menu)" @tap="goto(menu)" />
           <!-- action button -->
           <FlexboxLayout flexDirection="column" flexGrow="1" alignItems="center" class="p-l mt-l">
