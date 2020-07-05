@@ -1,10 +1,11 @@
 
 export class Store {
-  constructor ({ id, name, address, phone }) {
+  constructor ({ id, name, address, phone, active }) {
     this.id = id || 0
     this.name = name || ''
     this.address = address || ''
     this.phone = phone || ''
+    this.active = active || false
   }
 }
 
@@ -17,5 +18,6 @@ export class Store {
   "phone": null,
   "menu": [...],
   "locale": "/locales/2",
-  "currency": "/currencies/2"
+  "currency": "/currencies/2",
+  "active": true
 } */
