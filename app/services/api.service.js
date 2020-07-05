@@ -14,7 +14,6 @@ class ApiService {
     this.families = []
     this.familyNameById = {}
     this.stores = []
-    this.products = []
     this.productsByFamilyName = {}
   }
 
@@ -64,6 +63,7 @@ class ApiService {
       if (this.familyNameById[id]) return
       this.familyNameById[id] = family.label
     })
+    if (!this.user.store || !this.user.store.products) return console.log('user has no store yet, avoid building productsByFamilyName catalog')
     // { '1': 'base', '2': 'ingredient', '3': 'sauce', '4': 'soup', '5': 'wrap', '6': 'drink', '7': 'dessert' }
     this.user.store.products.forEach(product => {
       const familyId = product.family
