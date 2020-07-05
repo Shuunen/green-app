@@ -2,7 +2,7 @@
   <FlexboxLayout flexDirection="column" flexShrink="0">
     <FlexboxLayout class="pt-m pb-m pl-l pr-l bg-primary" justifyContent="space-between" height="50">
       <app-icon :name="onHome ? '' : 'home-white'" height="25" width="25" @tap.native="$navigateTo(Home)" />
-      <Label class="white fz-m ml-s bold" :text="user.firstname + ' ' + user.lastname" @tap="$navigateTo(Account)" />
+      <Label class="white fz-m ml-s bold" :text="title" @tap="$navigateTo(Account)" />
       <app-icon :name="onAccount ? 'logout-white' : 'user-white'" height="25" width="25" @tap.native="onAccount ? doLogout() : $navigateTo(Account)" />
     </FlexboxLayout>
   </FlexboxLayout>
@@ -34,6 +34,13 @@ export default {
       Account,
       Home,
     }
+  },
+  computed: {
+    title: function () {
+      if (!this.user) return ''
+      const title = this.user.firstname + ' ' + this.user.lastname
+      return title
+    },
   },
   created () {
     console.log('header created with user email', this.user.email)
