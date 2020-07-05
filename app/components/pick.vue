@@ -58,7 +58,6 @@ export default {
     },
     setDesc () {
       let i18nKey = `pick.you-can-pick-n-${this.data.from.join('-')}`
-      if (this.data.extraPrice || !this.data.amount) i18nKey += '-or-more'
       i18nKey = this.reduceCombos(i18nKey)
       this.descText = this.$tc(i18nKey, this.data.amount || 2)
     },
