@@ -137,6 +137,9 @@
     "section-sauce": "Sauce | Sauces",
     "section-wrap": "Wrap | Wraps",
     "section-wrap-soup": "Wrap or soup | Wrap & Soups",
+    "section-bread":"little bread",
+    "section-soup":"soup",
+    "section-dessert-topping":"topping dessert",
     "soup": "soup | soups",
     "undefined": "",
     "wrap": "wrap | wraps",
@@ -151,7 +154,10 @@
     "you-can-pick-n-sauce": "You can pick one sauce | You can pick {n} sauces",
     "you-can-pick-n-stores": "You can pick one restaurant | You can pick {n} restaurants",
     "you-can-pick-n-wrap": "You can pick a wrap | You can choose {n} wraps",
-    "you-can-pick-n-wrap-soup": "You can pick a wrap or a soup | You can choose {n} of these"
+    "you-can-pick-n-wrap-soup": "You can pick a wrap or a soup | You can choose {n} of these",
+    "you-can-pick-n-bread":"You can pick a little bread | You can pick {n} little bread",
+    "you-can-pick-n-soup":"You can pick a soup | You can pick {n} soup",
+    "you-can-pick-n-dessert-topping":"You can pick a topping dessert | You can pick {n} topping dessert"
   },
   "pre-login": {
     "has-account": "I have an account",

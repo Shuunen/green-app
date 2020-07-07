@@ -129,6 +129,7 @@
     "ingredient": "ingrédient | ingrédients",
     "sauce": "sauce | sauces",
     "section-base": "Base | Bases",
+    "section-dish": "Plat chaud | Plats chauds",
     "section-base-sauce": "Base et sauce | Bases et sauces",
     "section-dessert": "Dessert | Desserts",
     "section-drink": "Boisson | Boissons",
@@ -137,6 +138,9 @@
     "section-sauce": "Sauce | Sauces",
     "section-wrap": "Wrap | Wraps",
     "section-wrap-soup": "Wrap ou soupe | Wrap & Soupes",
+    "section-bread":"petit pain",
+    "section-soup":"soupe",
+    "section-dessert-topping":"topping dessert",
     "soup": "soupe | soupes",
     "undefined": "",
     "wrap": "wrap | wraps",
@@ -151,7 +155,9 @@
     "you-can-pick-n-sauce": "Vous pouvez choisir une sauce | Vous pouvez choisir {n} sauces",
     "you-can-pick-n-stores": "Vous pouvez choisir un restaurant | Vous pouvez choisir {n} restaurants",
     "you-can-pick-n-wrap": "Vous pouvez choisir un wrap | Vous pouvez choisir {n} wraps",
-    "you-can-pick-n-wrap-soup": "Vous pouvez choisir un wrap ou une soupe | Vous pouvez en choisir {n}"
+    "you-can-pick-n-wrap-soup": "Vous pouvez choisir un wrap ou une soupe | Vous pouvez en choisir {n}",
+    "you-can-pick-n-dish": "Vous pouvez choisir un plat chaud | Vous pouvez en choisir {n}"
+    
   },
   "pre-login": {
     "has-account": "J'ai un compte",

@@ -137,6 +137,10 @@
     "section-sauce": "Salsa | Salsas",
     "section-wrap": "Wrap | Wraps",
     "section-wrap-soup": "Wrap o sopa | Wrap y sopas",
+    "section-bread":"pancito",
+    "section-dish":"plato caliente",
+    "section-soup":"sopa",
+    "section-dessert-topping":"topping de postre",
     "soup": "sopa | sopas",
     "undefined": "",
     "wrap": "wrap | wraps",
@@ -151,7 +155,11 @@
     "you-can-pick-n-sauce": "Puedes escoger una salsa | Puedes recoger {n} salsas",
     "you-can-pick-n-stores": "Puedes elegir un restaurante | Puedes elegir {n} restaurantes",
     "you-can-pick-n-wrap": "Puedes elegir una wrap | Puedes elegir {n} wraps",
-    "you-can-pick-n-wrap-soup": "Puedes escoger un wrap o una sopa | Puedes elegir {n} de estos"
+    "you-can-pick-n-wrap-soup": "Puedes escoger un wrap o una sopa | Puedes elegir {n} de estos",
+    "you-can-pick-n-bread":"Puede seleccionar un pancito | You can pick {n} pancito",
+    "you-can-pick-n-dish":"Puede seleccionar un plato caliente | You can pick {n} plato caliente",
+    "you-can-pick-n-soup":"Puede seleccionar un sopa | You can pick {n} sopa",
+    "you-can-pick-n-dessert-topping":"Puede seleccionar un topping de postre | You can pick {n} topping de postre"
   },
   "pre-login": {
     "has-account": "Tengo una cuenta",

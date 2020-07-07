@@ -137,6 +137,10 @@
     "section-sauce": "صلصات",
     "section-wrap": "التفاف | يلف",
     "section-wrap-soup": "لف أو حساء | لف وشوربة",
+    "section-bread":"القليل من الخبز",
+    "section-dish":"طبق ساخن",
+    "section-soup":"حساء",
+    "section-dessert-topping":"تتصدر الحلوى",
     "soup": "حساء | الحساء",
     "undefined": "",
     "wrap": "التفاف | يلف",
@@ -151,7 +155,10 @@
     "you-can-pick-n-sauce": "يمكنك اختيار صلصة واحدة | يمكنك اختيار الصلصات {n} ",
     "you-can-pick-n-stores": "يمكنك اختيار مطعم واحد | يمكنك اختيار {n} مطاعم",
     "you-can-pick-n-wrap": "يمكنك اختيار التفاف | يمكنك اختيار لفات {n} ",
-    "you-can-pick-n-wrap-soup": "يمكنك اختيار التفاف أو حساء | يمكنك اختيار {n} من هؤلاء"
+    "you-can-pick-n-wrap-soup": "يمكنك اختيار التفاف أو حساء | يمكنك اختيار {n} من هؤلاء",
+    "you-can-pick-n-bread":"You can pick a little bread | You can pick {n} little bread",
+    "you-can-pick-n-soup":"You can pick a soup | You can pick {n} soup",
+    "you-can-pick-n-dessert-topping":"You can pick a topping dessert | You can pick {n} topping dessert"
   },
   "pre-login": {
     "has-account": "لدي حساب",
