@@ -5,7 +5,7 @@
         <StackLayout>
           <app-tile :data="{ type: 'wrap', name: order.label }" :hero="true" />
           <StackLayout class="p-m">
-            <app-pick v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
+            <app-pick-product v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
           </StackLayout>
         </StackLayout>
       </ScrollView>

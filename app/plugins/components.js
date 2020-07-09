@@ -8,6 +8,7 @@ import Pick from '@/components/pick'
 import Tile from '@/components/tile'
 import Version from '@/components/version'
 import Vue from 'nativescript-vue'
+import PickProduct from '@/components/pick-product'
 
 Vue.component('app-cart-line', CartLine)
 Vue.component('app-formula-tile', FormulaTile)
@@ -18,3 +19,4 @@ Vue.component('app-order-line', OrderLine)
 Vue.component('app-pick', Pick)
 Vue.component('app-tile', Tile)
 Vue.component('app-version', Version)
+Vue.component('app-pick-product', PickProduct)
