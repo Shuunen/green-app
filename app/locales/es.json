@@ -120,7 +120,9 @@
     "place": "Hacer un pedido",
     "summary": "Resumen del pedido",
     "total": "TOTAL",
-    "validate-pay": "Validar y pagar"
+    "validate-pay": "Validar y pagar",
+    "gesture-simple-tap": "",
+    "gesture-double-tap": ""
   },
   "pick": {
     "base": "base | bases",

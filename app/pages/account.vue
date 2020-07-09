@@ -35,7 +35,7 @@
           <app-tile :data="{ type: 'formula', name: $t('account.my-orders') }" :hero="false" />
           <StackLayout class="pl-m pr-m black">
             <app-order-line
-              v-for="(order, index) in user.orders"
+              v-for="(order, index) in user.orders.slice(0,5)"
               :key="order.id"
               :class="{even: index % 2, odd: !(index % 2)}"
               :date="$t('account.order-from', { date: readableDate(order.creationDate) })"

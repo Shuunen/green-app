@@ -120,7 +120,9 @@
     "place": "تضع طلبية",
     "summary": "ملخص الطلب",
     "total": "مجموع",
-    "validate-pay": "التحقق من صحة والدفع"
+    "validate-pay": "التحقق من صحة والدفع",
+    "gesture-simple-tap": "",
+    "gesture-double-tap": ""
   },
   "pick": {
     "base": "قاعدة | قواعد",

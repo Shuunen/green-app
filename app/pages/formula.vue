@@ -4,6 +4,11 @@
       <ScrollView orientation="vertical" flexGrow="1">
         <StackLayout>
           <app-tile :data="{ type: 'wrap', name: order.label }" :hero="true" />
+          <StackLayout class="p-s" flexShrink="0">
+            <Label :text="$t('order.gesture-simple-tap')" class=" ml-s mb-s" />
+            <Label :text="$t('order.gesture-double-tap')" class=" ml-s mb-s" />
+          </StackLayout>
+          
           <StackLayout class="p-m">
             <app-pick-product v-for="(pick, index) in picks" :key="index" :data="pick" :items="items" @change="onPickChange" />
           </StackLayout>

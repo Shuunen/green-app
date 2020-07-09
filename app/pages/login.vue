@@ -21,7 +21,7 @@
         <TextField ref="password" v-model="user.password" :hint="$t('account.password')" secure="true" returnKeyType="done" :isEnabled="!isLoading" />
 
         <!-- forgot password link -->
-        <Label class="mt-l mb-m link" horizontalAlignment="center" :text="$t('login.forgot-password')" @tap="$navigateTo(ForgotPassword)" />
+        <Label  v-if="hasAccount" class="mt-l mb-m link" horizontalAlignment="center" :text="$t('login.forgot-password')" @tap="$navigateTo(ForgotPassword)" />
 
         <FlexboxLayout flexDirection="column" justifyContent="center" class="mt-l">
           <Button class="action big" :text="hasAccount ? $t('login.login') : $t('login.sign-up')" :class="[hasAccount ? 'validate' : 'validate-alt' ]" :isEnabled="!isLoading" @tap="submit()" />
