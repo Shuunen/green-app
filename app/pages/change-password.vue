@@ -77,8 +77,9 @@ export default {
       this.isLoading = true
       const status = await this.updateUserPassword()
       this.isLoading = false
-      if (status.ok) showSuccess('account.password-changed')
-      this.$navigateTo(Account)
+      if (status.ok) showSuccess('account.password-changed').then(()=>{
+        this.$navigateTo(Account)
+      })
     },
     async updateUserPassword () {
       if (this.token.length === 0) return apiService.updateUserPassword(this.password)

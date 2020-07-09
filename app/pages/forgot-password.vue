@@ -53,8 +53,9 @@ export default {
       this.isLoading = true
       const status = await httpService.get(`/forgot-password?email=${this.user.email}`)
       this.isLoading = false
-      if (status.ok) showSuccess('login.reset-mail-sent')
-      this.$navigateTo(PreLogin)
+      if (status.ok) showSuccess('login.reset-mail-sent').then(()=>{
+        this.$navigateTo(PreLogin)
+      })
     },
   },
 }
