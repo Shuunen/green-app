@@ -8,7 +8,7 @@
               <StackLayout class="p-l">
                 <Label :text="$t('signup.step-1')" class="fz-m mb-l" textWrap="true" />
                 <StackLayout class="input-field">
-                  <Label class="black" :text="$t('account.first-name') + ' *'" />
+                  <Label class="black" :text="$t('account.first-name') + ' * ' + (user.firstname.length >3 ? '' : $t('account.n-cars-mini', {n:4})) " />
                   <TextField v-model="user.firstname" />
                 </StackLayout>
                 <StackLayout class="input-field">
@@ -148,8 +148,9 @@ export default {
       this.isLoading = true
       const status = await apiService.updateUserData(this.user)
       this.isLoading = false
-      if (status.ok) showSuccess('account.data-updated')
-      this.$navigateTo(Account)
+      if (status.ok) showSuccess('account.data-updated').then(()=>{
+        this.$navigateTo(Account)
+      })
     },
 
   },
