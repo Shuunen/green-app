@@ -31,6 +31,7 @@
     "password-changed": "Votre mot de passe a été mis à jour",
     "set-target": "choisir un restaurant",
     "sign-up": "S'inscrire",
+    "n-cars-mini": "{n} caractères minimum",
     "telephone": "Telephone"
   },
   "allergen": {
