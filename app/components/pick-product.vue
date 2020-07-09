@@ -3,19 +3,19 @@
     <Label :text="data.titleText" class="pick--title mb-s" />
     <Label v-if="descText.length" :text="descText" class="pick--desc black ml-s mb-s" />
     <WrapLayout>
-      <StackLayout v-for="item in list" :key="item.value"  >
-          <Image :src='"https://images.greenisbetter-app.com/"+item.picture' stretch="none" @tap="showModal(item)" />
-          <Label :text="itemText(item)" width="50%"   @tap="test(item)"/>
+      <StackLayout v-for="item in list" :key="item.value"  @tap="showModal(item )" @onDoubleTap="selectItem(item)" >
+          <Image :src='"https://images.greenisbetter-app.com/"+item.picture'
+           :class="{ 'selected-image': isItemSelected(item) }"
+           stretch="none"/>
+          <Label :text="itemText(item)" width="50%" :class="{ selected: isItemSelected(item) }" />
       </StackLayout>
-
-      
     </WrapLayout>
   </StackLayout>
 </template>
-
+ 
 <script>
 import { readablePrice } from '@/utils'
-import modal from "./modal";
+import modal from "./modal-product";
 
 export default {
   props: {
@@ -49,8 +49,13 @@ export default {
   },
   methods: {
     showModal(item) {
-      
-      this.$showModal(modal, { props: { item : item }});
+      this.$showModal(modal, { fullscreen: true, props: { item : item , selected : this.isItemSelected(item)}})
+      .then((data)=>{
+        console.log(data)
+        if(data.addCart){
+          this.selectItem(data.item)
+        }
+      });
     },
     setList () {
       this.data.from.forEach(type => {
@@ -144,5 +149,12 @@ export default {
 
 .pick .selected {
   background-color: var(--color-alt);
+  color: white;
+}
+
+.selected-image{
+  border-color:var(--color-alt);
+  border-style: solid;
+  border-width: 1px;
 }
 </style>

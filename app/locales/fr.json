@@ -106,6 +106,7 @@
   },
   "order": {
     "add-cart": "Ajouter au panier",
+    "remove-cart": "Supprimer au panier",
     "add-formula": "ajouter une autre formule",
     "cancel": "Annuler la commande",
     "change-formula": "Changer de formule",

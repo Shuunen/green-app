@@ -106,6 +106,7 @@
   },
   "order": {
     "add-cart": "أضف إلى السلة",
+    "remove-cart": "إزالة",
     "add-formula": "أضف صيغة أخرى",
     "cancel": "الغاء الطلب",
     "change-formula": "تغيير الصيغة",
