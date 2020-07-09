@@ -4,6 +4,7 @@ TextField {
   border-bottom-color: var(--color-black);
   margin: 0 0 15 0;
   padding: 7 0;
+  placeholder-color:var(--color-grey-light)
 }
 
 .read-only TextField {
