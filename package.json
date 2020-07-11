@@ -38,7 +38,7 @@
     "nativescript-vue": "2.6.4",
     "nativescript-vue-devtools": "1.4.0",
     "shuutils": "4.1.0",
-    "tns-core-modules": "6.5.9",
+    "tns-core-modules": "6.5.10",
     "vue-i18n": "8.18.2"
   },
   "description": "A native application built with NativeScript-Vue",
