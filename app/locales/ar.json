@@ -76,6 +76,10 @@
     "vegetarian": "نباتي"
   },
   "error": {
+    "one-product-price-not-set": "لم يتم تكوين المنتج بشكل صحيح",
+    "one-product-is-not-found": "لم يتم العثور على منتج",
+    "one-product-is-unavailable": "لم يعد المنتج متاحًا",
+    "price-not-found-for-menu-model": "لم يتم تكوين القائمة بشكل صحيح",
     "alert-button": "حسنًا",
     "alert-message-suffix": "نأسف للإزعاج ، اتصل بنا على رمز الخطأ هذا حتى نتمكن من مساعدتك: {code}",
     "alert-title": "خطأ",
