@@ -148,7 +148,8 @@ export default {
       this.isLoading = true
       const status = await apiService.updateUserData(this.user)
       this.isLoading = false
-      if (status.ok) showSuccess('account.data-updated')
+      if (!status.ok) return
+      await showSuccess('account.data-updated')
       this.$navigateTo(Account)
     },
 
