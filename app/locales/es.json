@@ -76,6 +76,10 @@
     "vegetarian": "vegetariano"
   },
   "error": {
+    "one-product-price-not-set": "Un producto no está configurado correctamente: precio",
+    "one-product-is-not-found": "no se encontró un producto",
+    "one-product-is-unavailable": "un producto ya no está disponible",
+    "price-not-found-for-menu-model": "El menú no está configurado correctamente: precio",
     "alert-button": "Vale",
     "alert-message-suffix": "Disculpe las molestias, contáctenos con este código de error para que podamos ayudarlo: {code}",
     "alert-title": "Error",
