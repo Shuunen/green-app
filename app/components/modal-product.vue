@@ -57,4 +57,9 @@ export default {
 .image-product-modal{
 	margin-left: 200px;
 }
+
+Label {
+  /* set default for IOS */
+  color: var(--color-black);
+}
 </style>
