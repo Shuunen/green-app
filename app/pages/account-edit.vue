@@ -141,7 +141,16 @@ export default {
     },
     cancel () {
       console.log('account edit : user canceled')
-      this.$navigateTo(Account)
+      this.$navigateTo(
+        Account,
+        { 
+          transition: {
+            name: 'slideRight',
+            duration: 200,
+            curve: 'linear'
+          }
+        }
+      )
     },
     async submit () {
       console.log('account edit : user submitted :', prettyPrint(this.user))
