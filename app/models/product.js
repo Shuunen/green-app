@@ -12,6 +12,10 @@ export class Product {
     this.price = salePrice || price || 0
     this.picture = picture || 'no-image.jpg'
   }
+
+
+// todo ajouter liste des composant dans /me
+
 }
 
 /* {
