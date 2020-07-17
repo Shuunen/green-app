@@ -7,7 +7,7 @@
           <Image :src='"https://images.greenisbetter-app.com/"+item.picture'
            :class="{ 'selected-image': isItemSelected(item) }"
            stretch="none"/>
-          <Label :text="itemText(item)" width="50%" :class="{ selected: isItemSelected(item) }" />
+          <Label :text="itemText(item)" width="50%" :class="{ selected: isItemSelected(item) }" textWrap="true"  />
       </StackLayout>
     </WrapLayout>
   </StackLayout>
