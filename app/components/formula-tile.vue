@@ -2,7 +2,7 @@
   <FlexboxLayout class="primary-border p-m mb-m">
     <StackLayout flexGrow="2" flexShrink="1" class="mr-m ml-s">
       <Label :text="data.title" class="alt bold fz-l" />
-      <Label :text="data.shortDescription" class="fz-l mt-m black" />
+      <Label :text="data.shortDescription" class="fz-l mt-m black" textWrap="true"  />
       <Label :text="readablePrice(data.price)" class="alt fz-m mt-m" />
     </StackLayout>
   </FlexboxLayout>
