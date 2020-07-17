@@ -11,3 +11,9 @@ TextField {
   color: var(--color-grey);
   border-bottom-color: var(--color-disabled);
 }
+
+
+Label {
+  /* set default for IOS */
+  color: var(--color-black);
+}
