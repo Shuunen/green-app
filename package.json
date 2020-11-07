@@ -107,7 +107,7 @@
     "dev": "npm run start",
     "dev:ios": "npm run start:ios",
     "last-commit": "bash ./bin/last-commit.sh ./app/last-commit.js",
-    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.vue .",
+    "lint": "eslint --fix --ignore-path .gitignore --ext .js,.ts,.vue .",
     "ls": "tns device",
     "postclean": "which tns && tns install || echo tns unavailable",
     "postinstall": "npm run clean",
