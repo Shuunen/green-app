@@ -13,6 +13,9 @@ module.exports = {
     parser: 'babel-eslint',
     ecmaVersion: 2018,
   },
+  plugins: [
+    '@typescript-eslint',
+  ],
   settings: {
     'vue-i18n': {
       localeDir: './app/locales/*.json',
