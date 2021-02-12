@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@teammaestro/nativescript-svg": "1.0.1",
-    "@vue/devtools": "5.3.3",
+    "@vue/devtools": "5.3.4",
     "nativescript-intl": "4.0.2",
     "nativescript-socketio": "3.3.1",
     "nativescript-toasty": "2.0.1",
@@ -65,7 +65,7 @@
     "nativescript-worker-loader": "0.12.1",
     "repo-check": "1.14.8",
     "rimraf": "3.0.2",
-    "vue-loader": "15.9.3"
+    "vue-loader": "15.9.6"
   },
   "files": [
     "app",
