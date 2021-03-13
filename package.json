@@ -63,7 +63,7 @@
     "nativescript-dev-webpack": "1.5.1",
     "nativescript-vue-template-compiler": "2.8.4",
     "nativescript-worker-loader": "0.12.1",
-    "repo-check": "1.14.8",
+    "repo-check": "1.15.0",
     "rimraf": "3.0.2",
     "vue-loader": "15.9.6"
   },
