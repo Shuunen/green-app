@@ -57,7 +57,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-promise": "5.1.0",
     "eslint-plugin-standard": "4.1.0",
-    "eslint-plugin-vue": "7.17.0",
+    "eslint-plugin-vue": "7.18.0",
     "eslint-plugin-vue-i18n": "0.3.0",
     "lazy": "1.0.11",
     "nativescript-dev-webpack": "1.5.1",
