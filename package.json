@@ -65,7 +65,7 @@
     "nativescript-worker-loader": "0.12.1",
     "repo-check": "1.18.0",
     "rimraf": "3.0.2",
-    "vue-loader": "16.8.1"
+    "vue-loader": "16.8.2"
   },
   "files": [
     "app",
