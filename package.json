@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@teammaestro/nativescript-svg": "1.0.1",
-    "@vue/devtools": "5.3.4",
+    "@vue/devtools": "6.0.0",
     "nativescript-intl": "4.0.2",
     "nativescript-socketio": "3.3.1",
     "nativescript-toasty": "2.0.1",
