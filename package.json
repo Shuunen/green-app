@@ -48,7 +48,7 @@
     "@types/node": "14.18.13",
     "@typescript-eslint/eslint-plugin": "5.20.0",
     "@typescript-eslint/parser": "5.20.0",
-    "babel-loader": "8.2.4",
+    "babel-loader": "8.2.5",
     "email-validator": "2.0.4",
     "eslint": "8.13.0",
     "eslint-config-standard": "16.0.3",
