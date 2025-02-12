@@ -51,7 +51,7 @@
     "babel-loader": "8.2.5",
     "email-validator": "2.0.4",
     "eslint": "8.45.0",
-    "eslint-config-standard": "17.0.0",
+    "eslint-config-standard": "17.1.0",
     "eslint-plugin-html": "6.2.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-node": "11.1.0",
